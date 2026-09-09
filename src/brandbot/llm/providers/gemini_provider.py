@@ -1,4 +1,4 @@
-"""Gemini: the primary judge, and the embedding model behind retrieval.
+"""Gemini: the primary judge.
 
 The judge sits outside the family of every model it grades, so a reply cannot be
 rewarded for looking like something the judge would have written itself.
@@ -6,7 +6,6 @@ rewarded for looking like something the judge would have written itself.
 
 from __future__ import annotations
 
-import numpy as np
 from google import genai
 from google.genai import types
 
@@ -74,21 +73,3 @@ def complete(call: Call) -> Result:
         prompt_tokens=usage.prompt_token_count or 0,
         completion_tokens=(usage.candidates_token_count or 0),
     )
-
-
-def embed(texts: list[str], task: str) -> np.ndarray:
-    """L2-normalised embeddings, truncated to `config.EMBED_DIM`.
-
-    Truncation is Matryoshka-style and supported by the model, which keeps the
-    committed index small enough to ship in the repo. Normalising here means
-    retrieval is a plain dot product with no per-query rescaling.
-    """
-    r = client().models.embed_content(
-        model=config.EMBED_MODEL,
-        contents=texts,
-        config=types.EmbedContentConfig(
-            output_dimensionality=config.EMBED_DIM, task_type=task
-        ),
-    )
-    vecs = np.array([e.values for e in r.embeddings], dtype=np.float32)
-    return vecs / np.linalg.norm(vecs, axis=1, keepdims=True)

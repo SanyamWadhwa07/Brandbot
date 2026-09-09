@@ -39,9 +39,10 @@ LOCAL_MODEL = "qwen2.5:7b-instruct-q4_K_M"
 # for the same reason, since the model behind them can change under a pinned name.
 JUDGE_MODEL = "gemini-3.1-flash-lite"
 
-EMBED_MODEL = "gemini-embedding-001"
-
-EMBED_DIM = 256
+# Local, via Ollama. 51 texts/sec against Gemini free tier's 1.7, no quota, no
+# key, and wider semantic separation on this corpus. See retrieval/embed.py.
+EMBED_MODEL = "nomic-embed-text"
+EMBED_DIM = 768
 
 OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
 
