@@ -27,11 +27,17 @@ AGENT_SMALL_MODEL = "openai/gpt-oss-20b"
 CROSS_JUDGE_MODEL = "qwen/qwen3.8-27b"
 LOCAL_MODEL = "qwen2.5:7b-instruct-q4_K_M"
 
-# Measured 3/3 availability at 1.6s per call on the free tier, where 3.8-flash and
-# flash-latest returned 503 and 3.6-flash took 21s. A judge that silently swaps models
-# mid-run produces verdicts that are not comparable, so this one never falls back:
-# an unservable judge call raises instead.
-JUDGE_MODEL = "gemini-3.7-flash"
+# Chosen on two measurements, not on version number. Free-tier capacity is reserved
+# for the lite models: over 6 attempts each, every full flash model returned 503
+# (3.7-flash managed 3/6, and 0/8 an hour later) while every lite model went 6/6.
+# On 8 hand-built cases with known answers, 3.1-flash-lite scored 7/8 on
+# groundedness against 5/8 for the newer 3.5-flash-lite.
+#
+# A judge that silently swaps models mid-run mixes two graders into one score and
+# quietly invalidates the agreement statistics, so this one never falls back: an
+# unservable judge call raises. Aliases like `gemini-flash-lite-latest` are avoided
+# for the same reason, since the model behind them can change under a pinned name.
+JUDGE_MODEL = "gemini-3.1-flash-lite"
 
 EMBED_MODEL = "gemini-embedding-001"
 
