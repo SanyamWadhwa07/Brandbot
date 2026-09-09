@@ -32,7 +32,8 @@ DM_REDIRECT = re.compile(
     re.IGNORECASE,
 )
 
-# Weak proxy for a resolved conversation: the customer signs off positively.
+# Weak proxy for a resolved conversation: the customer, not the brand, signs off
+# positively. Scoped to inbound final tweets in `_sample_rows`.
 THANKS = re.compile(r"\b(thanks|thank you|thankyou|thx|ty|appreciate(d)?)\b", re.IGNORECASE)
 
 
@@ -67,7 +68,10 @@ def _sample_rows(
     order = np.lexsort((graph.created_at[members], roots[members]))
     ordered = members[order]
     last_of_thread = ordered[np.r_[np.flatnonzero(np.diff(roots[ordered])), len(ordered) - 1]]
-    return replies, last_of_thread
+    # Only a customer's sign-off says anything about resolution. Several brands end
+    # threads by thanking the customer themselves, which reads as a resolved ticket
+    # to any regex looking at the last tweet alone.
+    return replies, last_of_thread[graph.inbound[last_of_thread]]
 
 
 def score_brands(graph: ReplyGraph, table: Threads, roots: np.ndarray) -> list[BrandScore]:
