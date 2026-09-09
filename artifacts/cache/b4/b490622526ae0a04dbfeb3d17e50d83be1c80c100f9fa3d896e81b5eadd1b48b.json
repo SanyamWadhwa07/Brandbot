@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Ohmygod @115940 please fix your Roku app. It really, sincerely is the worst. It’s so clunky and hard to use that I always check if a program is available on another platform before watching on Hulu. I can’t be the only one out there who’s unhappy.\n- Annnnd the new Hulu update on my Roku is so hard to use! @115940\n- Dear @115940, your app sucks. We have had nothing but problems since you “updated” it.\n- check this out and please advise. Netflix is currently working flawlessly but Hulu is horrendous.... <link>\n- Why do your different platforms not speak to one another. Going from the #iPhone app to the @127972 should be easy. Hulu is not updated on the Roku. #GetItTogether\n- y'all gonna update the Android TV app? Got a new Sony Android TV and it still has the old app with no multi-user support.\n- Hulu app on @127972 an absolute nightmare. Flickers, stalls. I don't know why or who approved it, but it is NOT an improvement.\n- Why does the @115940 app suck so bad. It works some days fine, others it won’t load at all. Why do I pay for this again????!!\n- I wonder if @115940 will ever make a version of its Xbox app that doesn’t just randomly stop working???\n- please make the apps on your smart TVs work correctly. Especially the @115940 app. Very frustrating.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"app_performance_issues\",\n  \"definition\": \"Requests to fix bugs, improve stability, and update the Hulu app on various devices (Roku, Android TV, Xbox, smart TVs, etc.); does not include content availability complaints.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 523,
+  "completion_tokens": 130
+ }
+}

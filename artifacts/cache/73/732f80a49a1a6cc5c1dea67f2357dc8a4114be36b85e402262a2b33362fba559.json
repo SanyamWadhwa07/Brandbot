@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- So like, when y’all gonna add rick and morty season 3? 🤔🤔\n- petition for netflix or hulu to put not just current episodes of chicago fire, PD, and med but ALL seasons/episodes!!!!!! @116602 @115940\n- upload season 3 of rick and morty already\n- need to update the movie and show selection .. real talk\n- please put the newest season of ghost adventures on hulu!!!\n- When is rick and morty season 3 going on hulu\n- when y'all getting season 3 of rick and morty. Tired of watching it on dish anywhere.\n- how come you are missing the final two episodes of will &amp; grace (1998) ??? <link>\n- Why does hulu skip over episodes 2-3 of the good doctor lmao\n- The only thing bad about @115940 new marvel runaways show, is that there is only 3 episodes, more now, wanna binge watch.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"request_content_addition\",\n  \"definition\": \"Customers asking the service to add missing seasons, episodes, or entire series to the catalog; does not include playback or technical issues.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 424,
+  "completion_tokens": 109
+ }
+}

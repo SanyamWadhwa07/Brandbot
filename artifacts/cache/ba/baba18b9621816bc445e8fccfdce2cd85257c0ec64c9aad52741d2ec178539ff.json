@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- when will the new episodes of Star and Empire be on?\n- Cmon Hulu put the next episode of Empire on 🙄\n- (Following up on previous.) I had no idea there were new episodes of The Exorcist available. I would have been watching those.\n- The 3rd season of Rick and Morty isn't on Hulu 😡 <link>\n- When will you have Rick and Morty season 3 up ?\n- when are the new episodes of WWE Raw and Smackdown added?\n- Do you guys know when the episodes of Runaways will be released, at what time?\n- Why the hell the newest episodes of Steven Universe not on Hulu yet? I’m angry\n- Twitter help, I need a new show to watch on Hulu or Netflix\n- y’all should consider making all Runaways episodes available to binge 👀.... #Runaways",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"episode_release_schedule\",\n  \"definition\": \"Requests asking when new episodes or seasons of specific shows will become available on the platform; does not include general show recommendations or unrelated complaints.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 391,
+  "completion_tokens": 105
+ }
+}

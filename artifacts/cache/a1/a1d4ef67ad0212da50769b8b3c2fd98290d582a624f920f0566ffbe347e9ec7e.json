@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- help...can’t log in but was charged for having an account. Help!!\n- I just made an account and it won't let me login, HELP\n- not only can’t i remember my email address for my account that’s being charged and i can’t get into, but i need an account to contact you???? Frustrating\n- hello I can’t remember my account email or password. Can you help?\n- I can’t log on through Apple TV and the support people don’t have me on file. Apple confirms I subscribed. What would you do? 🤔\n- I can't log out of my Tv, I can't delete a profile and two of my profiles don't have the hbo and Showtime add ons.\n- My account is messed up and I need this fixed now !\n- I can’t log in to my account because it’s having trouble verifying it’s me. Please help\n- I can’t login though Facebook you morons\n- can’t remember password and I’ve tried to reset but I’m not getting email link. It’s been a few hrs",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"login_access_issues\",\n  \"definition\": \"Customer requests help accessing their account—forgotten email or password, login failures, verification problems, or being charged without being able to log in; does not include unrelated billing disputes or profile/add‑on management.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 432,
+  "completion_tokens": 140
+ }
+}

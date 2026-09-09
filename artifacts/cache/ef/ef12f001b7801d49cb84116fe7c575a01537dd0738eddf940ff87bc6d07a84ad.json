@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- the iPad app could use some work when viewing recorded shows, especially sports. I try to use the 10 sec skip and it reads me as trying to rewind or fast forward then I have to watch 180 seconds of commercials just to find I’m in the wrong spot...help!\n- Dear @115940 y’alls app drives me crazy. Making it to where you can fast forward/rewind by touching the screen is awful. I mess up my shows and accidentally see the ending way too often. Fix it.\n- I hate how if I accidentally touch the screen wrong it jumps to the middle of the episode. @115940 you should fix that.\n- We use an Amazon Firestick to watch Hulu. Most of the shows, especially older ones, have a lag with the audio/visual. I've uninstalled and reinstalled with no change. Any tips?\n- playback issues in Chrome &amp; Safari. Not saving \"paused\" place or automatically returning to the beginning after commercial\n- .@115940 you're new format/update sucks so much! Navigation is extra work! The scroll is so sensitive that it loads the next show even though the screen says something else. Change it back! <link>\n- your #iPhone app sucks; I cannot go to the previous screen in the middle of a show without skipping ahead . 🤬 Can this be fixed in the next update, please? <link>\n- Well, more issues. We were trying to watch a show last night and it constantly did a rewind. FRUSTRATED. WTF <link>\n- everytime I accidentally hit the left of my phone, it goes all the way back to the beginning of the movie/show. Then I have to watch through 2-3 minutes of ads.... please fix this...\n- I see the word ‘buffering’ in foreground as my show runs",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"playback_navigation_issues\",\n  \"definition\": \"Requests to fix accidental or overly sensitive rewind/fast‑forward/skip behavior and other UI navigation problems that cause shows to jump to wrong spots or restart, excluding general streaming quality or buffering complaints.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 590,
+  "completion_tokens": 167
+ }
+}

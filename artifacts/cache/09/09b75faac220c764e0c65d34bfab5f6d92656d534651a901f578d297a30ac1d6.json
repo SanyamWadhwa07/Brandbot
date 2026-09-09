@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- not impressed with your Hulu live service. Every live channel is available to me except the channel I want to watch. The error says it's a internet connection problem so I know that's not true. All the other channels are working\n- The live NBC channel is working just fine and keeps going out saying it is temporarily unavailable. Stop it.\n- Please, @115940, fix your in-browser live tv. It rarely functions and when it does, it cannot detect when I’ve stopped streaming from my other devices.\n- we keep getting this error screen - for EVERY live channel we select on DESKTOP? What’s going on?! Why is this happening?! Not happy to pay $40 for something that DOESNT WORK? <link>\n- Getting a Teal-8 error when I try to watch NBC live for the Macy's Thanksgiving Day Parade on my Apple TV (4th gen). Other live channels work.\n- tried the live tv and was terrible. Constantly “buffering” and getting “live tv not available errors” sticking with @117014 Vue. Liked the library of shows but since I cancelled no special offered, help me out?\n- Can someone explain to me what is up with NBC King5 Seattle on Hulu live streaming service? I have been seeing a Teal-8 error since I started the service earlier this week. Making me consider something else (as I am missing NBC Shows!!!!). Not a great first impression :/ <link>\n- Hey why can't I stream live from my laptop anymore? For the past two days I get error playlist-1-FDC2F871. It happens with live TV and recorded shows.\n- we've really been having trouble with your live service... Amongst other problems we're missing our favorite show #ThisIsUs because the channel is unavailable. Not the first problem we've had with the service... We're getting frustrated! #fixithulu\n- so tired of getting the channel is temporarily unavailable message on live tv. Unsubscribing soon",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"live_tv_errors\",\n  \"definition\": \"Requests about live TV channels being unavailable, showing error messages (e.g., Teal-8, playlist errors, temporarily unavailable) or buffering, where the user wants the live stream to work; does not include general account or non‑live content issues.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 616,
+  "completion_tokens": 128
+ }
+}

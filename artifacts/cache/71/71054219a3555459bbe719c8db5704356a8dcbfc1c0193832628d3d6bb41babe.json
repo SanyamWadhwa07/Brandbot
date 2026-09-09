@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- nonstop buffering, please fix your TV service, impossible to watch anything live. No problems during FREE trial, it's all the time now. <link>\n- It's already taken my two hours to watch a one-hour show on @115940 due to the frequent buffering. Can't wait to see what the end of #NetNeutrality brings to my streaming habit.\n- #Hulu having issues with skipping and buffering, trying to watch #ThisIsUs #HuluTv @115940\n- Hey @115940, how is it when I watch normal TV the shows are perfect and no buffering. But live sports, running at 150MBps there is all types of buffering. Have to use Watch @126452 app instead of yall.\n- Live TV is still in Beta, right? Is there a reason live viewing will frequently need to buffer when @115946 never really had that problem? Asking for a friend...\n- Constant buffering makes it difficult to watch even one episode of anything. And yes, I checked my internet connection. What am I paying for?\n- Does @115940 suck for everyone else when trying to watch their own content? Just buffers over and over while trying to watch Runaways or Future Man but South Park and shit works fine\n- Hey, your streams have been buffering like crazy the last 2 days. No other streaming services have had any issues. Download speeds over 80Mbps. What gives? I'm paying for a service I can't use.\n- trying to watch #FutureMan and the app keeps buffering every 20 seconds.\n- Doing a 7 day demo of Sling, DirecTV Now and Hulu Live. So far, Hulu Live needs to constantly buffer and the other services don't. So, it's not my connection, what gives?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"buffering_issues_live_stream\",\n  \"definition\": \"Customers experiencing frequent buffering or playback stalls while watching live TV or streaming content, seeking a fix; does not include unrelated playback errors or account billing questions.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 572,
+  "completion_tokens": 105
+ }
+}

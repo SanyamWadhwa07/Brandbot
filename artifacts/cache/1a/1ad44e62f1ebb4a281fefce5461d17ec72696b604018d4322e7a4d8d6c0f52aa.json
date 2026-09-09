@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- I needed to cancel my membership yesterday bc I cant afford your services right now but I got charged, can I get a refund??\n- hello, I cancelled my subscription in August yet I still got charged apparently every month since then. Please reverse the charges! <link>\n- Shout out to @115940 for giving me 2 months of my money back because I cancelled, but they continued to auto charge me. You've saved me a morning of screaming \"Justice!\" over $24...\n- I've been paying for Hulu for months now and still can't get ahold of you guys so I can use it.\n- Hey! Why is the Hulu Live webpage down? Y'all charged me $43.99 today and my shit doesn't work. ANARCHY! ANARCHY!\n- I got the 30 day trial but was charged after the 30 days. I just cancelled my subscription...can I get a refund?\n- I've tried to switch over to Spotify Premium for Students + Hulu multiple times, and the Spotify side works perfectly, but my Hulu account refuses to connect. I've switched to the limited commercials plan just for this &amp; been charged when I shouldn't have. Help pls!\n- I cancelled my subscription and I should have until 12/20 for services to stop yet I can’t even log in\n- I recently cancelled my plan as I was billed for Hulu which I actually no longer wanted (where I am aware that I put bill me in 12 weeks when I shouldn't have). But I paid for this month today and no longer can access it?\n- you keep charging me but I don’t even know my account login to even use it... &amp; I tried calling and was waiting 45mm &amp; hungup",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"cancellation_refund_requests\",\n  \"definition\": \"Customer requests a refund or reversal of charges after canceling their subscription or being billed despite cancellation; does not include general billing inquiries where the customer wants to keep the service.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 567,
+  "completion_tokens": 120
+ }
+}

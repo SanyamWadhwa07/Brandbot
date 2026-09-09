@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Can't figure out why my watchlist programs suddenly do not indicate new episode..... I use ROKU.\n- my Hulu watchlist is not updating new episodes. What can be done to correct that problem.\n- new episodes of shows I have on my watch list aren’t showing up on my list anymore on any device, can you help?\n- my watchlist isn't udating new episodes properly. Series with new shows aren't appearing at the top of my watchlist. Please help!\n- :( my watchlist isn’t working. It’s not refreshing with new episodes. Help!\n- my watchlist is no longer indicating new episodes of shows I watch. chat and phone support are unavailable.\n- how am I supposed to know which shows have new episodes available to watch on the AppleTV Hulu app?\n- How do I update the app ( via Firestick and iPad) and I'm not getting the most current show episodes ( like I used to)\n- New episodes of shows are not showing up on my Watchlist. A few are showing up with new episodes but others are not. If I go directly to the show, the new episodes are showing there. Is this being worked on?\n- FIX YOUR WATCH LIST!!!!!! over half of my shows don't indicate that a new episode is there and when u try to add that episode to the queue it doesn't",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"watchlist_new_episode_updates\",\n  \"definition\": \"Issues where the user's watchlist does not show or indicate newly released episodes of shows they follow, across any device; does not include general watchlist management or playback problems.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 484,
+  "completion_tokens": 122
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Hi, I'm having \"video unavailable on your device\" for playing live tv on my PC, but it's good on my mobile.\n- I can't find live tv on my Hulu app on Samsung smart tv. Any ideas?\n- I can't see live tv options through Roku. Is there a way to fix it? Thanks.\n- how do I fix this? Other brand’s apps work, as does Hulu on my iOS devices. I pay for your service for access to live tv on my tv. What gives?\n- Getting \"video not avail on this device\". just started. Only with live tv. on demand ok. thanks\n- Who knew it'd be so hard to get Hulu working on a smart tv\n- when will live tv be available on smart tv’s?\n- I have the HDMI adapter for iPhone, that lets me watch stuff from my phone on TV. With the new app update, only the audio goes through the TV, while the video just plays on my phone.\n- Hulu on my computer isn't synced up to it on my other devices, I'm not able to pick up episodes on my tv where I left off on my computer 😭\n- Are you folks ever going to support 4K streaming on any devices other than PS4 Pro &amp; Xbox One S?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"live_tv_device_issues\",\n  \"definition\": \"Customer requests for help accessing or troubleshooting live TV on specific devices (e.g., error messages, missing channels, syncing, or device compatibility). Does not include general feature requests like 4K support on other devices.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 476,
+  "completion_tokens": 237
+ }
+}

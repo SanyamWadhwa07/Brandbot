@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Why does Hulu play live events from the beginning rather than live? This is incredibly frustrating when trying to watch sports.\n- we are having trouble watching fox sports north on Hulu live tv...having issues??\n- the past two times I’ve tried to watch football on Hulu live and it tells me there’s an error. Teal-8\n- all channels except for NBCSN work! Help! I just want to watch the blazer game. I’ve rebooted my Roku and still no luck.\n- why isn’t the Sunday night football game on?\n- why can’t I watch the football game tonight. Cowboys and Eagles on NBC????\n- Thanks for another quality Live TV experience! This is ridiculous! It’s impossible to watch a game. <link>\n- your live tv service is trash. The buffering makes watch live sports impossible glad I canceled. Fix it or I'll never return\n- why can’t I watch the @43050 game on Hulu live FS1? I am IN OKLAHOMA!\n- Hulu doesn't have the #BAMAvsAUB game on live, how embarrassing. They have the network it's on.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"live_tv_sports_playback_issues\",\n  \"definition\": \"Customer requests about problems watching live sports on Hulu Live TV—errors, buffering, missing games, or channels not streaming live events—excluding non‑sports live TV issues.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 444,
+  "completion_tokens": 137
+ }
+}

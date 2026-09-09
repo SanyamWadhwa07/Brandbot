@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Really wish my @hulu_support was working 😡\n- .@hulu_support Is there currently issues with Chromecast again?\n- I'm having trouble with my hulu account\n- is there any way to watch hulu in Ireland ? @hulu_support\n- Hey @hulu_support ... NBC/WDSU in NOLA hasn't worked in 2 days. What gives? Thanks!\n- .@hulu_support + @127972 + @143798 <link>\n- just an FYI - when I go to the hulu URL on this page, I get nothing. <link>\n- .@hulu_support Hey, did your site go down for maintenance or something? I was in the middle of binge watching @141590. Thanks!\n- I can’t log into my account. Please help @hulu_support\n- When you aren’t allowed to message @hulu_support nor @115940 ... 😑 <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"service_outage_and_account_issues\",\n  \"definition\": \"Customer requests help with Hulu service problems such as login failures, regional availability, streaming errors, or suspected outages; does not include general praise, feature requests, or unrelated topics.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 406,
+  "completion_tokens": 134
+ }
+}

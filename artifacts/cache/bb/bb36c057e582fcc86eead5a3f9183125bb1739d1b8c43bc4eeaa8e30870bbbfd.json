@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- get old episodes of Oprah on @115940\n- I wana see this!!! What season is this at now? New episodes show on @115940 ?? <link>\n- so annoyed with @115940 .. halfway down with BH90210 &amp; now the seasons just don’t have random episodes... the next season starts at episode 3. I’m about to be so lost 🤦🏻‍♀️\n- WHY is season 4 of #Younger not on @115940 yet?!\n- Hey @115940, just 3 episodes for the Runways !!! come on ! where's the rest ?\n- But, seriously, why isn't season 3 of Rick and Morty on @115940 ?\n- Why doesn't @115940 have season 4 of Power\n- Ok, finished all episodes of Marvel's Runaways... where are the rest @115940\n- Can @115940 put up the newest season of @222857 pretty please ???\n- I really wish @115940 would release entire seasons the way @116602 does 😭 Just finished the first 3 episodes of the @136759 and would easily watch the other 7 right now if I could",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"missing_season_content\",\n  \"definition\": \"Customers asking for specific seasons or episodes that are not yet available on the service; does not include general complaints or unrelated content requests.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 454,
+  "completion_tokens": 96
+ }
+}

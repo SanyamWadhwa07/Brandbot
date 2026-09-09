@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- When you get @115940 plus to watch the Steelers but the channel never works 🤔\n- I'm having so many issues with @115940 and I just wanna watch Grey's Anatomy. Let me live.\n- When you use @115940 for your cable but their NBC channel is out so you can’t watch the Mayday Parade..... <link>\n- Is there a secret to watching GMA on @115940 live? Every other channel works but @133673 keeps pushing in the first 5 seconds in the middle of stories. I need Dan and Paula!!\n- I try and watch @10392 on @115940 tv and the shitty internet at @34306 loads every flipping min. Wtf\n- I got @115940 and thought I could watch the @181922 but I guess I can't because it's with my @115888 subscription. Any good shows to watch on Hulu?\n- Looking for a way to watch NFL? Don't go for @115940 live. It has been a laggy low quality experience.\n- Dear @115940, get your damn act together! Another night I can't watch bc your damn servers aren't communicating or there's a playback failure!\n- hi @116602 or @115940 please get The Nanny on one of your streaming services, it’s the least we deserve.\n- How I feel not being able to watch #ThisIsUs tonight because @115940’s NBC channel hasn’t worked for the last three days <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"channel_not_available\",\n  \"definition\": \"Requests about specific TV channels or shows failing to stream, being unavailable, or having poor playback on the service; does not include general subscription or billing questions.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 511,
+  "completion_tokens": 108
+ }
+}

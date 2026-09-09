@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Does @115940 have Rolie Polie Olie?!\n- Clue is no longer on @115940 😭\n- Why the FUCK doesn't @115940 have @99785 WHY\n- Where the Dubbed Hellsing Ova?! @115940\n- Is @115940 available in Malaysia ?\n- Can @116602 or @115940 add the Bad Girls Club? 😭😂\n- Why doesn't @115940 have #MrRobot?\n- Why @115940 doesn’t have the @8441. 🤔\n- I just wanna watch ELF and @116602 and @115940 don't have it 😭\n- Hey @115940, when are you coming to Brazil? <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"content_availability_request\",\n  \"definition\": \"Customers asking whether a specific title or show is available on a particular channel or in a certain region; does not include complaints about quality or unrelated requests.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 360,
+  "completion_tokens": 117
+ }
+}

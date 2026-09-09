@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Amazon Firestick <link>\n- Phew 😅 <link>\n- Please! <link>\n- 🙌🙌🙌🙌🙌👍👍👍👍 <link>\n- 🙌🏾🙌🏾🙌🏾🙌🏾🙌🏾 <link>\n- #Hulu <link>\n- Why tho? <link>\n- <link>\n- <link>\n- <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"miscellaneous_links_and_emojis\",\n  \"definition\": \"Contains assorted links, emojis, and short expressions without a common request or issue; does not represent a specific support intent.\",\n  \"coherent\": false\n}",
+  "prompt_tokens": 303,
+  "completion_tokens": 99
+ }
+}

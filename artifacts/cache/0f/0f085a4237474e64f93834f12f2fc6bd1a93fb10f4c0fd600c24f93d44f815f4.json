@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- I'm trying to get on Hulu via Ps4 and I keep getting a loading error. Been like this for 24 hours now\n- Hulu isn't working and I'm so upset.\n- Hulu is not working and my whole night is ruined...\n- can't get NBC to load. Other channels do but not NBC <link>\n- heads up your Xbox app wont load :(\n- Anyone else having problems with Hulu all the sudden? No? Oh...\n- why is NBC not working on Hulu Live\n- I’m having issues with connection\n- Hi I keep getting a loading error when I try to use Hulu on my Xbox 360? ERROR97\n- I keep getting booted off trying to watch the Texas/TexasTech game. Roku Premiere+. I have already rebooted. I have already uninstalled and reinstalled the Hulu app.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"playback_error\",\n  \"definition\": \"Customer reports Hulu not loading or playback failing (loading errors, being booted off, specific channel failures) on any device; does not include billing, account, or feature requests.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 383,
+  "completion_tokens": 127
+ }
+}

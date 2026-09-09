@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- THE APP NEVER WORKS\n- NBC is out again in Cincinnati...\n- Can you DM me for some help please?\n- Profiles for Android TV?\n- PUT BACK AIR CRASH INVESTIGATIONS RIGHT NOW THIS SECOND\n- WHY CANT I MAKE A HULU FROM THE UK\n- could you add My Wife and Kids\n- got a problem with my LiveTV Service. Need help. Thx.\n- HULU WHYD YOU STOP WORKING I THOUGHT WE WERE TIGHT\n- TOO MANY COMMERCIALS I JUST WANT TO WATCH THIS EPISODE",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"miscellaneous_requests\",\n  \"definition\": \"Any customer message that mixes unrelated complaints, feature requests, channel availability questions, or vague service problems that don't fit a specific intent category.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 332,
+  "completion_tokens": 132
+ }
+}

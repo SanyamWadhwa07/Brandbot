@@ -1,0 +1,35 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You are naming customer-support intent categories for a video\nstreaming service, from real customer messages that were grouped by similarity.\n\nGive the group a short snake_case name and a one-line definition that says what\nbelongs in it and what does not. Name what the customer WANTS, not how they feel.\nIf the messages have no single theme, say so in the definition.",
+  "user": "Customer messages in this group:\n- Why is Auburn Alabama not showing up in options to view? It's CBS. They have live tv right?\n- why is the live TV not working on PC again?\n- I bought live TV and I've been desperately trying to watch the #AMAs but I can't see live channels anywhere in my smart TV or computer browser?\n- why isn't NBC/KUSA in Denver streaming live? It's been nearly 24 hours.\n- Why are some live TV streams (like CBS) available on my tablet &amp; computer, but I can't find them from my Roku interface?\n- I'm trying to watch CNN New Day live but another CNN show streams instead. Can you help?\n- does Hulu live have the CW yet? I checked online and the last it was updated was aug. It still says coming this fall. This is the only reason I've not switched over. If there's no CW then I'll get an antenna and try my luck with it.\n- Question, there is a TCM West Live streaming, but not TCM East. Is this fixable?\n- why don't I see ABC in my live networks list? I haven't seen it for a little while <link>\n- Will you have the AMAs available on Hulu? If so, will it be live or next day?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "string"
+    },
+    "coherent": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "name",
+    "definition",
+    "coherent"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"name\": \"missing_live_tv_channels\",\n  \"definition\": \"Customer requests about specific live TV channels or events not appearing, not streaming, or being unavailable on certain devices or regions; does not include general playback errors or non‑live content issues.\",\n  \"coherent\": true\n}",
+  "prompt_tokens": 469,
+  "completion_tokens": 130
+ }
+}
