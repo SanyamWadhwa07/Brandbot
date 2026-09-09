@@ -1,0 +1,12 @@
+# Raw corpus: ~500MB, downloaded via `brandbot data fetch`
+data/raw/
+
+# Secrets
+.env
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
