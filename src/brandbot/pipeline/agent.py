@@ -129,7 +129,7 @@ def handle(
     message: str,
     ix: Index,
     *,
-    model: str = config.AGENT_MODEL,
+    model: str = config.DRAFT_MODEL,
     classifier: str = config.AGENT_SMALL_MODEL,
     budget: Budget | None = None,
     replay_only: bool = False,
@@ -141,9 +141,13 @@ def handle(
     makes the run finish inside the free tier at all.
 
     Classification gets the smaller model because it is the cheaper task: one label
-    from a fixed list, given a taxonomy that spells out its own boundaries. Drafting
-    keeps the larger one, since inventing a refund is the expensive failure. The
-    report states this and does not pretend it was a quality decision.
+    from a fixed list, given a taxonomy that spells out its own boundaries.
+
+    Drafting started on the 120b model and moved to qwen when that budget ran out
+    part-way through the run. Which model writes the replies is therefore a budget
+    outcome, not a considered choice, and the report says so rather than dressing it
+    up. Anyone rerunning this with paid capacity should put both roles on one model
+    and re-measure before comparing against these numbers.
     """
     hits = ix.search(message, K)
     top = hits[0].score

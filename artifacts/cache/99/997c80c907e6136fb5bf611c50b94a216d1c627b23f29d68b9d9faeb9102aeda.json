@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when will Season 3 of @117874 be available i need to know asap\n    brand: Hey there! We asked Tiny Rick and he says you can catch season three with our Live TV service (<link> 👏\n\n[1] customer: When will @117874 S3 be on Hulu as well as @18283 Season 3?\n    brand: No info here about 12 Monkeys but Rick &amp; Morty S3 is avail with: <link> We've passed the request to James Cole!\n\n[2] customer: When could we see @117874 on @115940 ?\n    brand: Hey there! S1-3 are currently available on Hulu with Live TV. S1-2 are on our base plans, and S3 is coming soon. 👍\n\n[3] customer: when is the new season of @117874 going to be available?\n    brand: Hi, Alyssa! 👋🏽 You can #GetSchwifty with season three if you have: <link> We'll share your interest with Morty!\n\n[4] customer: Hey @132338! Why isn’t #SDLive on @115940 yet?\n    brand: Hulu here! Just making sure you caught the latest ep from SmackDown—it's up and available now: <link> Enjoy!\n\nNew message:\nhow soon before we see S3 of @117874 ???",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hey there! You can catch Season 3 of Rick and Morty with our Live TV service: <link> 👏 We'll share your interest with Morty!\", \"used\": [0, 3]}",
+  "prompt_tokens": 467,
+  "completion_tokens": 56
+ }
+}

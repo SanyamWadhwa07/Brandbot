@@ -12,11 +12,13 @@ import re
 import time
 from pathlib import Path
 
-from brandbot import config
+from brandbot import config, log
 from brandbot.llm import cache
 from brandbot.llm.budget import Budget
 from brandbot.llm.cache import Call, Result
 from brandbot.llm.providers import gemini_provider, groq_provider, ollama_provider
+
+_log = log.get("llm")
 
 # Free-tier capacity comes and goes in minutes, not seconds: a model measured at
 # 6/6 availability can return 503 "high demand" an hour later. Batch jobs can
@@ -28,7 +30,13 @@ BASE_BACKOFF_SECONDS = 2.0
 # A schema violation is a sampling accident, not congestion. Resample immediately.
 SCHEMA_ATTEMPTS = 3
 
-TRANSIENT = ("429", "rate limit", "503", "unavailable", "overloaded", "500", "timeout")
+TRANSIENT = (
+    "429", "rate limit", "503", "unavailable", "overloaded", "500", "timeout",
+    # A dropped socket is the textbook retryable failure, and leaving it out cost a
+    # 220-message run at message 180: the provider blinked, nothing matched, and the
+    # whole batch raised instead of sleeping two seconds.
+    "connection", "econnreset", "remote end closed",
+)
 
 # Groq meters tokens per minute and says exactly how long to wait: "Please try
 # again in 6.394s". Guessing with exponential backoff instead wastes most of the
@@ -88,6 +96,7 @@ def complete(
     if hit is not None:
         if budget:
             budget.record(model, hit.prompt_tokens + hit.completion_tokens, was_cached=True)
+        log.event("call", model=model, cached=True, key=cache.key(call)[:12])
         return hit
 
     if replay_only:
@@ -104,6 +113,10 @@ def complete(
             cache.put(call, result, cache_root)
             if budget:
                 budget.record(model, result.prompt_tokens + result.completion_tokens, False)
+            log.event("call", model=model, cached=False, key=cache.key(call)[:12],
+                      prompt_tokens=result.prompt_tokens,
+                      completion_tokens=result.completion_tokens,
+                      retries=transient_used + schema_used)
             return result
         except SchemaViolation as exc:
             # Structured output is documented as guaranteed but has been reported to
@@ -114,6 +127,12 @@ def complete(
             if not _is_transient(exc):
                 raise
             last, transient_used = exc, transient_used + 1
+        _log.warning(f"{model}: retry {transient_used + schema_used} after {type(last).__name__}")
+        # Kept long on purpose. Providers put the one useful field, how long to
+        # wait, at the end of a paragraph of billing advice, and a 160-character
+        # truncation cut it off exactly when it was needed.
+        log.event("retry", model=model, attempt=transient_used + schema_used,
+                  error=f"{type(last).__name__}: {str(last)[:1200]}")
         asked = _requested_wait(last) if last else None
         time.sleep(
             min(

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Dear @hulu_support plz fix your \"live TV\" from buffering every 30 sec.- this makes ftball unwatchable. @1640 lowers strean qual. to avoid\n    brand: Oh no! That shouldn't be the case, Mike. We'll help. What device are you streaming with? Let's try: <link>\n\n[1] customer: .@hulu_support The buffering is really bad tonight. I've reset router, Roku, etc. Live shows are really buffering badly.\n    brand: Oh no! You may have been affected by a known issue we've since resolved. Still having issues? If so: <link>\n\n[2] customer: Right on cue @hulu_support turn on a football game and immediately starts buffering. Please don't make me get cable back.\n    brand: No outages to report right now, so which device is this occurring on? Any specific network? Try: <link> 2/2\n\n[3] customer: Eagles / Panthers NFL game buffering like crazy on Roku. Normal and beta hulu channel. Other live shows fine. Super annoying\n    brand: Oh no! Please try a quick reboot of your Roku+modem/router: <link> Do you notice any improvement after?\n\n[4] customer: @hulu_support! Help!! Live TV ESPN is buffering and we can't watch it. Any suggestions for a fix?!\n    brand: Sorry about that, Kristie! We had a known issue at the time that has now been fixed. You can also use: <link>\n\nNew message:\nMy Hulu Live is buffering waaaaaaaay too much during this SEC Championship game @hulu_support",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! That shouldn't be the case. We'll help. What device are you streaming with? Let's try: <link> Do you notice any improvement after?\", \"used\": [0, 3]}",
+  "prompt_tokens": 490,
+  "completion_tokens": 57
+ }
+}

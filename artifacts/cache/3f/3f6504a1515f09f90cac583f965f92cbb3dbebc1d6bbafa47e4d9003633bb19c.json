@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: guys. Do y’all update your app on Samsung tv’s? I can’t use the profile feature and my roommates are ruining my queues :(\n    brand: Hey Larry! Profiles are still being rolled out across different devices. We'll be sure to share the interest w/Samsung TVs!\n\n[1] customer: Smart tvs don’t support the Hulu update and I can’t toggle between profiles on my tv like I can on other devices.\n    brand: Apologies for the delay. For a list of Profiles enabled device, check out: <link> We'll share the request!\n\n[2] customer: is there a way to switch profiles on a smart tv?\n    brand: Hey Jennifer! Profiles are available on select devices at this time: <link> We hope to support more in the future!\n\n[3] customer: how do I upgrade my account to Hulu live tv?!\n    brand: Great question! To add Live TV to your account, please try these steps from a browser on a PC/Mac: <link>\n\n[4] customer: There's no option to change profile on your app on my kindle and laptop. When i log watch it on chrome, it buffering @115940 @hulu_support\n    brand: Apologies! Profiles is available on: <link> Is the buffering affecting all content? Try: <link>\n\nNew message:\nI use the Samsung tv Smart Hub version of your app but don’t see a way to change account profiles on it. Can you provide any info on this?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hey! Profiles are still being rolled out across different devices. We'll be sure to share the interest w/Samsung TVs! For a list of Profiles enabled devices, check out: <link> We hope to support more in the future!\", \"used\": [0, 1, 2]}",
+  "prompt_tokens": 459,
+  "completion_tokens": 73
+ }
+}

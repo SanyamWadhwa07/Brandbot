@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: OMFG @115940 all I’m trying to do is watch some empire and it keeps buffering after commercials wtf Hakeem just got punched in the face\n    brand: Sorry for the delay! Please try these steps: <link> If the issue persists, please let us know your device.\n\n[1] customer: can't get anything to play. On hold for 25 min. Chat support not working. Called on another line, guy is clueless. #nothappy\n    brand: Sorry! You may've been affected by: <link> Please try rebooting your device and modem/router. Any change?\n\n[2] customer: Typical crap company. 40 plus wait via phone, no response via chat, or twitter. SUCK\n    brand: So sorry! After entering your email and clicking Done you should be able to press the down arrow to get to the password field.\n\n[3] customer: So after 2.5 days I got Hulu back no thanks to @115940 and @hulu_support . But thank you whoever fixed the issue now fix the load lag. K thx bye 👋\n    brand: Sorry for our delay, Jessica! We're glad to hear it's up &amp; running. Reach us: <link> if the issue returns!\n\n[4] customer: Sooo why hasn’t @115940 updated empire or star yet💁🏽💁🏽\n    brand: Star &amp; Empire were on a hiatus last week. Both shows will return with new eps tonight and added to our on-demand library tomorrow.\n\nNew message:\nbeen waiting 20mins for empire to load and play with no problems .. Rebooted my phone twice... #shitty",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for the delay! Please try these steps: <link> If the issue persists, please let us know your device.\", \"used\": [0]}",
+  "prompt_tokens": 511,
+  "completion_tokens": 44
+ }
+}

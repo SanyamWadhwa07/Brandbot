@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hi There. getting a lot of playback stuttering/pausing issues and video not loading issues. WHY!? I'm in Northeast PA. ☹️\n    brand: Sorry about that! Our team is checking things out. Please try a quick powercycle (<link> to reset things.\n\n[1] customer: are there issues with your Xbox app lately? I get constant playback errors and it's touch and go if it gets past the ads.\n    brand: Oh no! Is this on Xbox One or 360? Do you specific error code? For now, please try out: <link>\n\n[2] customer: The Good Doctor has not been working on my Hulu app for 3 days. Gives a playback error. Help?\n    brand: Oh no! Let's try: <link> <link> Call or chat if still occurring (<link>\n\n[3] customer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\n[4] customer: my Hulu app intermittently stops and starts. All other apps are working fine. Restarted as well. Streaming issue.\n    brand: Oh no! What device and content is this happening on? In the meantime, try these: <link>\n\nNew message:\nFor the last few weeks to a month I've been having playback issues. Lots of stuttering and stopping and I have to pause and rewind to resume playback as usual. This has happened on two different LG TVs and on the kindle app.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! Sorry about that. Please try these steps: <link> If the issue persists, let us know if you have a specific error code. You can also call or chat if still occurring (<link>.\", \"used\": [0, 1, 2, 3, 4]}",
+  "prompt_tokens": 490,
+  "completion_tokens": 75
+ }
+}

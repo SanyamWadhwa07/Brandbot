@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: When @115940 has the episodes out of order and Susan DIES and then shows up in the last episode?? COME ON @115940 THIS IS NOT OKAY #Seinfeld <link>\n    brand: Our sincere apologies, Dana! Thanks for bringing this to our attention. We've reached out to our team and are working on fixing it.\n\n[1] customer: Blindspot S2 has 22 episodes but @115940 only has 17? Where are the last 5?\n    brand: Hi! The episodes mysteriously expired, but thanks to our tattoos they're back on Hulu now. We're sorry for the trouble!\n\n[2] customer: When @115940 doesn’t have the newest @5185 episode with @89800 yet. <link>\n    brand: Sorry, Alisha! We're investigating, but you should be able to find it now in Seasons / Episodes: <link> 💜\n\n[3] customer: Hey @115940, why aren’t the latest episodes of @180562 and @15586 showing up on Hulu?\n    brand: Hi! The latest ep of Grey's is available: <link> The Mick comes back on air 11/7: <link>\n\n[4] customer: Fuck, @115940 is missing the last 3 episodes of #TheHandmaidsTale! Really?!?!?! 😵😵😵\n    brand: We're seeing all 10 eps on our end. It seems The Commanders must have taken them from you! What device are you using?\n\nNew message:\nWhen you have 3 more episodes of @113174 but then it’s taken off @115940 .... 😒 <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 539,
+  "completion_tokens": 18
+ }
+}

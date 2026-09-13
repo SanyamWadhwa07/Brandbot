@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: pleaseeeee please please put spongebob (all the seasons) on @115940 or @116602 PLEASE\n    brand: Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍\n\n[1] customer: I wish @115940 would add episodes more quickly, dying to see 1x05 of @6311.\n    brand: Sorry for the delay! We're working to post the newest episode as soon as possible. We appreciate your patience.\n\n[2] customer: if @115940 or @116602 dont pick up spongebob i'm cancelling\n    brand: We'd hate to lose you! 😭 We don't have any information about Spongebob or his pants, but we'll alert Squidward and Patrick.\n\n[3] customer: hey @115940 @6734 - why are new @212203 episodes added next day but @180004 episodes aren’t?\n    brand: Streaming rights vary from show to show, not necessarily by network. With that being said, we think Bevers is to blame. 😉\n\n[4] customer: I wish that @116602 and @115940 had a “random episode” button for TV series. I’d use it all day long.\n    brand: Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!\n\nNew message:\nMy life would drastically improve if one of you added spongebob episodes @116602 @115940 Jusssayin.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see Spongebob on Hulu in the future! 🍍 We'd hate to lose you! 😭 We don't have any information about Spongebob or his pants, but we'll alert Squidward and Patrick.\", \"used\": [0, 2]}",
+  "prompt_tokens": 521,
+  "completion_tokens": 87
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Don't show ads for new episodes when I'm trying to catch up.\n    brand: We hate spoilers too! Which show are you getting ads for+which show is being watched? Also, does it appear to be a network ad?\n\n[1] customer: Why are new episodes of certain shows like Chicago PD and the Orville not available?\n    brand: The new eps are up: <link> &amp;: <link> If you still aren't seeing them let us know the device\n\n[2] customer: what’s the deal with SNL latest episode posted first on YouTube before it’s posted on Hulu? Both have commercials but one is free, guess which one I choose? Fix this or I’m gone!\n    brand: Sorry! We do our best to post new eps as soon as they're delivered by the provider. The latest ep is now available to stream.\n\n[3] customer: Was watching subbed eps of Bleach, finished season 6, started season 7, there were no subtitles. Is that normal?\n    brand: Hey Tyler! We're seeing subtitles on our end, so make sure cc are turned on. Which device are you using to stream?\n\n[4] customer: I specifically subscribed to Hulu to watch the NLCS on TBS and can't watch it. Never going to try this Hulu TV thing again.\n    brand: So sorry for the trouble last night, Eric! We worked to resolve this ASAP: <link> Apologies for any frustration!\n\nNew message:\nstrange question. Are trailers also exclusive to Hulu subs only? Cause now we see it after the episode is out and that’s a strange way to promote a show.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 488,
+  "completion_tokens": 18
+ }
+}

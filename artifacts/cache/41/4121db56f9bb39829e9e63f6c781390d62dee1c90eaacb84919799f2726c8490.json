@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: . @115940 all I do is accidentally fast forward or rewind my show. Please roll back this \"improvement\" cc @57108\n    brand: Try using a quick tap. It should only fast forward or rewind when using a dragging motion after the playback bar is visible.\n\n[1] customer: WTF @115940? I keep accidentally rewinding or forwarding just by tapping screen. Then I have to sit through 3 mins of ads. Ridiculous!\n    brand: Hulu here! What device are you streaming from? Does this happen when pressing anywhere on the screen or are you tapping the controls?\n\n[2] customer: There was a time when I used @115940 more than Netflix. Now the new UI is so slow to navigate and I rarely use it. Wish they would revert.\n    brand: We're sorry to hear this! We'll definitely share your feedback about this. Make sure to check out: <link> !\n\n[3] customer: I literally have @115940 Live because I thought I could watch @318653 on it but I was wrong so I’m cancelling my @115940 😢\n    brand: Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!\n\n[4] customer: Really not loving @115940's new format on the Roku. Why is it SO difficult to rewind and fast forward, and also find anything?\n    brand: We'll share the feedback, Franny. What ff/rewind issues are you running into? For navigation, watch: <link>\n\nNew message:\nTechnology may be better, but at least when you’re rewinding or fast forwarding a VHS you know exactly where to stop. Looking at you @115940",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 542,
+  "completion_tokens": 18
+ }
+}

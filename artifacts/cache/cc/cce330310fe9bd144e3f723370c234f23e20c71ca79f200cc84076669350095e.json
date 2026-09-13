@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: yo add the Jurassic Park's\n    brand: We'll definitely pass along the interest! We're always working to add more content you love to our growing library. 💚\n\n[1] customer: what are the chances that y’all could add Avatar the Last Airbender (the series) to Hulu?\n    brand: Hi, Aaron! We don't have any info to provide about future availability, but we've shared your request with our content team. 💙\n\n[2] customer: can you add Dragon Ball Super\n    brand: Hey there! We can't make any promises, but we'd be happy to share your request with our team. We're always adding new content!\n\n[3] customer: Please add the Hallmark Channel to Hulu Live!\n    brand: Thanks for the suggestion, Tony! We can definitely share this request with the appropriate teams here. 👍\n\n[4] customer: y’all should really have a #live option on your #HuluTV\n    brand: Hi, Armando! The Live TV Add-on is available on these devices: <link> We're working on expanding to more!\n\nNew message:\nis there a way y’all can add The Big Bang Theory? Please! Save a life",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"We can't make any promises, but we'd be happy to share your request with our team. We're always adding new content! 💚\", \"used\": [0, 1, 2, 3]}",
+  "prompt_tokens": 392,
+  "completion_tokens": 57
+ }
+}

@@ -1,0 +1,739 @@
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5a821b6f0ab8"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "04f9388280b5"}
+{"event": "handling", "thread_id": 557411, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1764511, 1239831], "top_score": 0.7621}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "36aa1c21d64a"}
+{"event": "handling", "thread_id": 447722, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7409}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "8f5dd56883fe"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "65e5435aaa5b"}
+{"event": "handling", "thread_id": 2874927, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7686}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d4cec54dfda4"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "2ecadeb269c1"}
+{"event": "handling", "thread_id": 2833157, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [955889, 374664, 1763506], "top_score": 0.7836}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "1c1c8997f695"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "fc684244edde"}
+{"event": "handling", "thread_id": 467843, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [416266], "top_score": 0.8}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2128f5d5cf92"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b56b21f153c6"}
+{"event": "handling", "thread_id": 2862246, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8327}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "18dfef8f9259"}
+{"event": "handling", "thread_id": 2871751, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7598}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "25221b9a5cef"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "648e466f60ed"}
+{"event": "handling", "thread_id": 522836, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7548}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "efae4aa461e2"}
+{"event": "handling", "thread_id": 2914722, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7413}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "96c9509384dc"}
+{"event": "handling", "thread_id": 457251, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.8279}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "139824504fb5"}
+{"event": "handling", "thread_id": 2545323, "intent": "app_bug", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7651}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0f107605db91"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b573e8be07e4"}
+{"event": "handling", "thread_id": 450336, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7831}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "1a07e619ada3"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b2173fe4e391"}
+{"event": "handling", "thread_id": 2815088, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [2180338], "top_score": 0.7937}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3a50dfc850f2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "cce330310fe9"}
+{"event": "handling", "thread_id": 2842965, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [2308608, 966001, 2363575, 863049], "top_score": 0.7242}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "f83b3710ad99"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6767a274bcda"}
+{"event": "handling", "thread_id": 2857535, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [711900], "top_score": 0.7768}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7fd810748ba8"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "fc38b109d0cc"}
+{"event": "handling", "thread_id": 467817, "intent": "live_tv_channels", "route": "auto", "forced": false, "reason": "", "cited": [2257824], "top_score": 0.7424}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9d29c11a8d03"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4121db56f9bb"}
+{"event": "handling", "thread_id": 447712, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8012}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7d566e76b44d"}
+{"event": "handling", "thread_id": 2816479, "intent": "app_bug", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.798}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "ce2f48be9f43"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3ec01c24ca52"}
+{"event": "handling", "thread_id": 521579, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7718}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "a63b5cb09f4a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "e0c932d8c01b"}
+{"event": "handling", "thread_id": 2579812, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [214891], "top_score": 0.7167}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "aba8b738f398"}
+{"event": "handling", "thread_id": 92896, "intent": "service_outage", "route": "escalate", "forced": true, "reason": "the customer asked for a person", "cited": [], "top_score": 0.803}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "484ef0bb2d41"}
+{"event": "handling", "thread_id": 2831206, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.715}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "a174bd14df90"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5271417271be"}
+{"event": "handling", "thread_id": 2894815, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.79}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "6031ea4c6912"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "c57295011d8d"}
+{"event": "handling", "thread_id": 2617188, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6918}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "341973e896f5"}
+{"event": "handling", "thread_id": 2972727, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.8172}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "34839f22d48e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "20dac25df13f"}
+{"event": "handling", "thread_id": 457248, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.75}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c27c3e0e5a99"}
+{"event": "handling", "thread_id": 2833646, "intent": "watchlist_issue", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7559}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "842d2e5db40a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b10069a488ed"}
+{"event": "handling", "thread_id": 561256, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [308757, 346895], "top_score": 0.7979}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7105343c12e8"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "789f20f53e41"}
+{"event": "handling", "thread_id": 595971, "intent": "watchlist_issue", "route": "auto", "forced": false, "reason": "", "cited": [255310], "top_score": 0.7838}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0241308deda5"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "abd4cc45c322"}
+{"event": "handling", "thread_id": 2924716, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7579}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3a9e7366a2f5"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "8ddcc5f848c3"}
+{"event": "handling", "thread_id": 553792, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [1754891], "top_score": 0.7762}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0797fe03a602"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6b7a386c392c"}
+{"event": "handling", "thread_id": 525116, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7931}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9db225fff40c"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3d28e4e6442f"}
+{"event": "handling", "thread_id": 2973721, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [215584, 771533], "top_score": 0.783}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bf496fb8f429"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3b9c66825246"}
+{"event": "handling", "thread_id": 2914752, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7298}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "6358be94da6d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "11f2ca10a17c"}
+{"event": "handling", "thread_id": 448901, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [215592, 2373570, 286761], "top_score": 0.8203}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4a47857a0b54"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "716d72e5105a"}
+{"event": "handling", "thread_id": 569022, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1156279, 2642101], "top_score": 0.7569}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "21b2dcb9eda2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "264d99d3a124"}
+{"event": "handling", "thread_id": 2925919, "intent": "ads_complaint", "route": "auto", "forced": false, "reason": "", "cited": [968134], "top_score": 0.7977}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "aae2103b2a29"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "2b6134b67f89"}
+{"event": "handling", "thread_id": 89734, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7251}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bc76c561b70c"}
+{"event": "handling", "thread_id": 2834766, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7477}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "a38185f73035"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b3e1a3d3edc1"}
+{"event": "handling", "thread_id": 561305, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.859}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "70eb5e5c0b6c"}
+{"event": "handling", "thread_id": 2817412, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.756}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c5f4aec5177d"}
+{"event": "handling", "thread_id": 104277, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7445}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "ca8ef3edebb0"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "11f12b2a29be"}
+{"event": "handling", "thread_id": 2818920, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [1067162, 2380086, 1290161, 1242648, 1027804], "top_score": 0.7461}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "43ae174c2105"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "9f4469535552"}
+{"event": "handling", "thread_id": 463565, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [1527385], "top_score": 0.8912}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "e9f4c821a4b3"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "aec0e7bb8deb"}
+{"event": "handling", "thread_id": 448892, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [1744585], "top_score": 0.7514}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3b7ed9585735"}
+{"event": "handling", "thread_id": 89750, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7422}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "f9ae925ec5e8"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4bd4a3c1f3ef"}
+{"event": "handling", "thread_id": 565557, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7631}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "abd453faee58"}
+{"event": "handling", "thread_id": 565510, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7186}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "93eb07500bb0"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "2949a2ee6921"}
+{"event": "handling", "thread_id": 2617211, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8016}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d0519df4d29a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "bf7528e85216"}
+{"event": "handling", "thread_id": 553778, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7219}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5d66e0c54a6e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "82dc978056ca"}
+{"event": "handling", "thread_id": 2944205, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [2310301, 401970], "top_score": 0.7663}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "99b54ea33ca5"}
+{"event": "handling", "thread_id": 2924712, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7392}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "be97cc7bbe02"}
+{"event": "handling", "thread_id": 2862207, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7784}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bf395b6719b7"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "e6d924c589d2"}
+{"event": "handling", "thread_id": 2875734, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7508}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5e5d03b1925f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ebd12d50438c"}
+{"event": "handling", "thread_id": 2873771, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7745}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "94fd5bfc3b52"}
+{"event": "handling", "thread_id": 104261, "intent": "live_tv_channels", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7823}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9ded8d1f2edb"}
+{"event": "handling", "thread_id": 457258, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.8455}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "91c24f468fc8"}
+{"event": "handling", "thread_id": 2865318, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7188}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "99c55d89dc7e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4ef06c9f7247"}
+{"event": "handling", "thread_id": 2973726, "intent": "ads_complaint", "route": "auto", "forced": false, "reason": "", "cited": [1108770, 191912], "top_score": 0.666}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d9825579cb0c"}
+{"event": "handling", "thread_id": 563208, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7975}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "8a45e7dee941"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a87c49a8be31"}
+{"event": "handling", "thread_id": 2579808, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7714}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "15b4cdf03f24"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "daf87899da5e"}
+{"event": "handling", "thread_id": 2953083, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7997}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0460774ca84e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "22e815e585d7"}
+{"event": "handling", "thread_id": 570979, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [1228478, 959941], "top_score": 0.7564}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4c1e8fa31bf2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "98d78579220a"}
+{"event": "handling", "thread_id": 564379, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7331}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "03009d69bb23"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "131a7a9452b1"}
+{"event": "handling", "thread_id": 2872790, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7447}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9cc57b2775bf"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "69a517b6b56a"}
+{"event": "handling", "thread_id": 2967915, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [962954], "top_score": 0.7892}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b312d0a12060"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d7dd1b66abfa"}
+{"event": "handling", "thread_id": 2818059, "intent": "service_outage", "route": "auto", "forced": false, "reason": "", "cited": [724481], "top_score": 0.7267}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "65a15f2666d5"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "dd4c682f0b5b"}
+{"event": "handling", "thread_id": 455681, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [262769], "top_score": 0.6974}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "17f8987b7c28"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "52252eeb211e"}
+{"event": "handling", "thread_id": 2943107, "intent": "watchlist_issue", "route": "auto", "forced": false, "reason": "", "cited": [359400, 873115], "top_score": 0.766}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "fe0f88043177"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a8f49ec1ddb2"}
+{"event": "handling", "thread_id": 561224, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6987}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4675dac8cc51"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "fcd8668de0fd"}
+{"event": "handling", "thread_id": 2953090, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7825}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "65b3800e6f84"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "0c6ed86885fd"}
+{"event": "handling", "thread_id": 559382, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8145}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "045bfe9b0969"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "f80091111979"}
+{"event": "handling", "thread_id": 453106, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7206}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "936b5cec9530"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b4303ca50dbc"}
+{"event": "handling", "thread_id": 453112, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7001}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "dd62e8c5b41f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "c020943e419f"}
+{"event": "handling", "thread_id": 2737417, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.768}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "443c3d2f604f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "206169daf3c5"}
+{"event": "handling", "thread_id": 570983, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1156279, 828160], "top_score": 0.7954}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "eac9915e8edc"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "25eb03ae4e15"}
+{"event": "handling", "thread_id": 2321278, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7807}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "939bb482c65c"}
+{"event": "handling", "thread_id": 457263, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7503}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "939fd630a562"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "610519e827f5"}
+{"event": "handling", "thread_id": 2863910, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8413}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "50e3ff6bdcd9"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5654b54f691d"}
+{"event": "handling", "thread_id": 2948756, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7087}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "289301ac7dd3"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a54c49424a40"}
+{"event": "handling", "thread_id": 2903394, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [2982049, 1559948, 1159897, 2429719], "top_score": 0.6667}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bf5277facb9b"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "dd5532ec23fd"}
+{"event": "handling", "thread_id": 563232, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7188}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b039c0ebc6da"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "276bbce305bf"}
+{"event": "handling", "thread_id": 2737412, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.772}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3cdc0f9b7af7"}
+{"event": "handling", "thread_id": 507563, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.8112}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3246c3420d80"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ac458ae9a571"}
+{"event": "handling", "thread_id": 559305, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7871}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "6fe75cd8ed2e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d48f096a5a4a"}
+{"event": "handling", "thread_id": 2866512, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [2684696], "top_score": 0.7559}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "baef2771bfd7"}
+{"event": "handling", "thread_id": 2982133, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7654}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "62c1b2bd7f6d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5f1fdc0a34ba"}
+{"event": "handling", "thread_id": 467822, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.671}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5ec81284343a"}
+{"event": "handling", "thread_id": 2944193, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.771}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c9a7845cadec"}
+{"event": "handling", "thread_id": 2797313, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "nearest precedent scores 0.61, nothing to ground a reply in", "cited": [], "top_score": 0.6094}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "97563ff41e74"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ec9a33460ee0"}
+{"event": "handling", "thread_id": 89786, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1202205, 2209325, 371723, 1067611], "top_score": 0.8294}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "caab32d73a9f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "03e5ffbe0203"}
+{"event": "handling", "thread_id": 569999, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7146}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "426f91b0ed28"}
+{"event": "handling", "thread_id": 2925913, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7415}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "512aa09c05f6"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d94450c5f47d"}
+{"event": "handling", "thread_id": 2898156, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7634}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4905c4b25082"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a1b6c5e63be5"}
+{"event": "handling", "thread_id": 600837, "intent": "live_tv_channels", "route": "auto", "forced": false, "reason": "", "cited": [815324], "top_score": 0.7809}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0fb2156dac48"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "16324f232681"}
+{"event": "handling", "thread_id": 565585, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7318}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "eeb9ce1dbfd1"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "c62562a35a8d"}
+{"event": "handling", "thread_id": 2259149, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.666}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4d1005ac20cb"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "9c6fd14e63ae"}
+{"event": "handling", "thread_id": 2898160, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1716502], "top_score": 0.7353}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2123fa5efbc3"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4e3aa83b0f7f"}
+{"event": "handling", "thread_id": 507575, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [925508, 1597140, 1401939], "top_score": 0.7685}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "391f2d4d23ba"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "30afcfd63623"}
+{"event": "handling", "thread_id": 520343, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [31629], "top_score": 0.7682}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "83a56328c4b6"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5d8650434348"}
+{"event": "handling", "thread_id": 2956883, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [2480838, 2201212], "top_score": 0.779}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "e8bb4deb64ac"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "cddb338fe406"}
+{"event": "handling", "thread_id": 909204, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7883}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "852faee29fc4"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "62b80f9ac45e"}
+{"event": "handling", "thread_id": 571978, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7418}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "676b559bf327"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ceb9dba5b753"}
+{"event": "handling", "thread_id": 2949912, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.708}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "1b13a13b2a92"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4f68c4ecd676"}
+{"event": "handling", "thread_id": 2873773, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6783}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d8eec13ebd60"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "bb8af9271a08"}
+{"event": "handling", "thread_id": 2967953, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6921}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "62196cea3186"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "8c955696f502"}
+{"event": "handling", "thread_id": 565560, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7814}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "29ea06d5742c"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b710ddddb9ed"}
+{"event": "handling", "thread_id": 2928619, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [820924], "top_score": 0.8009}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b7b933b85419"}
+{"event": "handling", "thread_id": 454498, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.8207}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d5c177d2c701"}
+{"event": "handling", "thread_id": 2815080, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7155}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "78d5ed108b71"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "f3ab4fa779c4"}
+{"event": "handling", "thread_id": 604037, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [2020878], "top_score": 0.7834}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "f337fd6848b9"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3e3b084564eb"}
+{"event": "handling", "thread_id": 2914728, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.764}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2a89cf016552"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "c0810044d555"}
+{"event": "handling", "thread_id": 2842932, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7872}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "e7d3cb1e09a2"}
+{"event": "handling", "thread_id": 2873793, "intent": "content_availability", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7796}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "992d58310bdf"}
+{"event": "handling", "thread_id": 2411578, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7611}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "6c2bcfee7cdf"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "f513cd20e803"}
+{"event": "handling", "thread_id": 604047, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6902}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "ea208727603c"}
+{"event": "handling", "thread_id": 2911039, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7359}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d30d268bd1a7"}
+{"event": "handling", "thread_id": 2967913, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.6713}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "dccd526dc20d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "06cdb1375d60"}
+{"event": "handling", "thread_id": 564374, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1484640, 346895], "top_score": 0.8023}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2d895d1e2357"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5fce301aabfc"}
+{"event": "handling", "thread_id": 454482, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7493}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d38af82a02e6"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4fa123d04762"}
+{"event": "handling", "thread_id": 2721097, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7197}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3217de790950"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "416fd0dc2118"}
+{"event": "handling", "thread_id": 2891793, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7408}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c9f7d920b233"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d05c73fc53a8"}
+{"event": "handling", "thread_id": 2925890, "intent": "watchlist_issue", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6788}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "de2a0f831fc2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d7db09e970d2"}
+{"event": "handling", "thread_id": 523891, "intent": "service_outage", "route": "auto", "forced": false, "reason": "", "cited": [215648], "top_score": 0.8658}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "29d9d6c5792a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "c47991ef2690"}
+{"event": "handling", "thread_id": 2819830, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7109}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "137ffcbb1e45"}
+{"event": "handling", "thread_id": 509439, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7529}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "f06aa2533c47"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "aa18ed931180"}
+{"event": "handling", "thread_id": 2721079, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [1616419], "top_score": 0.697}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b00dbfcfe662"}
+{"event": "handling", "thread_id": 2849807, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7646}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "78b647334d6b"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ef6a5a1dc95d"}
+{"event": "handling", "thread_id": 2874922, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7977}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b33b63f4162d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3bcdf353f576"}
+{"event": "handling", "thread_id": 2925922, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [2029780], "top_score": 0.7658}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "fbec5cae85ec"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "eb6e832d5478"}
+{"event": "handling", "thread_id": 539335, "intent": "ads_complaint", "route": "auto", "forced": false, "reason": "", "cited": [414370, 1150019, 1693152], "top_score": 0.7654}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9d21e70cb346"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "75f0221ce81f"}
+{"event": "handling", "thread_id": 505709, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [778036], "top_score": 0.7372}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "e7b035dc0bb7"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "39e5085d9512"}
+{"event": "handling", "thread_id": 551478, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7934}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "aa665cdb3dba"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "7ec97be15c01"}
+{"event": "handling", "thread_id": 451517, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.719}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "0b5931740778"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "667a687a5c5e"}
+{"event": "handling", "thread_id": 2922379, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8353}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5cc44de9f694"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "73a51f89535d"}
+{"event": "handling", "thread_id": 466853, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7992}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "1b24ce639c89"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "39820ed3ade6"}
+{"event": "handling", "thread_id": 565520, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [1059164], "top_score": 0.733}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "abbb99479718"}
+{"event": "handling", "thread_id": 517238, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.6614}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c884c79a4651"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "004ac0c892d7"}
+{"event": "handling", "thread_id": 2840943, "intent": "ads_complaint", "route": "auto", "forced": false, "reason": "", "cited": [2587977], "top_score": 0.7321}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "cb433e1a995d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "de96fad8cf41"}
+{"event": "handling", "thread_id": 2903388, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [748133], "top_score": 0.7908}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "e0f32c79bc9c"}
+{"event": "handling", "thread_id": 594438, "intent": "other", "route": "escalate", "forced": true, "reason": "nearest precedent scores 0.62, nothing to ground a reply in", "cited": [], "top_score": 0.6173}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2fc49a148829"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "eb0ecfab52d6"}
+{"event": "handling", "thread_id": 2982128, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [1764997], "top_score": 0.8459}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "be886b062961"}
+{"event": "handling", "thread_id": 501395, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7597}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d51abaab3bba"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "3d7575c9f436"}
+{"event": "handling", "thread_id": 537662, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7417}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4783d3a35380"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "aaaa3972bc68"}
+{"event": "handling", "thread_id": 2617186, "intent": "watchlist_issue", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8155}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "459508da5d1a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "8b3bff6c5fee"}
+{"event": "handling", "thread_id": 2923361, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7806}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "775c4317c0fb"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "b4f68bdc74b6"}
+{"event": "handling", "thread_id": 455694, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7302}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7919dba58717"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "d088da0cb3fa"}
+{"event": "handling", "thread_id": 2862253, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7945}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bbb4853c85a0"}
+{"event": "handling", "thread_id": 2863901, "intent": "app_bug", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.8305}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2cedb33b3964"}
+{"event": "handling", "thread_id": 525114, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7115}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "8fe5652dd9b2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "af39d277f1ab"}
+{"event": "handling", "thread_id": 565528, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.754}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "26cf22d23f4d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "634158a37b25"}
+{"event": "handling", "thread_id": 565533, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7512}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c9be6bea736e"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4bb9053f08a3"}
+{"event": "handling", "thread_id": 2967931, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7388}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "048c496302da"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "af64fc56eca3"}
+{"event": "handling", "thread_id": 561198, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7847}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "a186641da679"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4b56c4d517dd"}
+{"event": "handling", "thread_id": 2963461, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7572}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "dcf699308729"}
+{"event": "handling", "thread_id": 97517, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.743}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "903e60528d41"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "1cf0177493c1"}
+{"event": "handling", "thread_id": 2837637, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6228}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "cd28d2925d88"}
+{"event": "handling", "thread_id": 2865308, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.7776}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3c7d9b78e5aa"}
+{"event": "handling", "thread_id": 2898152, "intent": "app_bug", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.755}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "eb36cce6e057"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "098e1cf3166b"}
+{"event": "handling", "thread_id": 2875725, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7469}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "30ce64140534"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6422a50470f8"}
+{"event": "handling", "thread_id": 525111, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7654}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "ff79f9dd41bc"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6a07b62c2555"}
+{"event": "handling", "thread_id": 2982140, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8159}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "40776f706897"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "ea9d060e1c30"}
+{"event": "handling", "thread_id": 2869511, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [3171, 203659], "top_score": 0.785}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "3db65f165e50"}
+{"event": "handling", "thread_id": 2818900, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7438}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7208c4022bef"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4ab87628ecaa"}
+{"event": "handling", "thread_id": 509461, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.745}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "4a1f51a52448"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5d7ed32d168b"}
+{"event": "handling", "thread_id": 453102, "intent": "app_bug", "route": "auto", "forced": false, "reason": "", "cited": [949735, 321889, 818566], "top_score": 0.7726}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "cfd7e47399c0"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "2265298960c3"}
+{"event": "handling", "thread_id": 559386, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7102}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9a2e117f2beb"}
+{"event": "handling", "thread_id": 2819813, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.743}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "647e87bd727c"}
+{"event": "handling", "thread_id": 2911037, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7977}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "9e33eda38da6"}
+{"event": "handling", "thread_id": 511188, "intent": "watchlist_issue", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7562}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "dab8bd7ec591"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "0d775c1f3d59"}
+{"event": "handling", "thread_id": 2873801, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7668}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "f32e598ccbeb"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "116f3f5521ba"}
+{"event": "handling", "thread_id": 2905250, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [1735631, 1539684, 1699492], "top_score": 0.8284}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "d36f8b42b9a6"}
+{"event": "handling", "thread_id": 2813901, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7764}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "34175c902819"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "1cf8c0c09b7d"}
+{"event": "handling", "thread_id": 458817, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7102}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "63c7733ebaf2"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6885b72a25bf"}
+{"event": "handling", "thread_id": 2911030, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8088}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "94255f5238aa"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "f27a2b755ff7"}
+{"event": "handling", "thread_id": 2893056, "intent": "app_bug", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7188}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "81e933be0978"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "5d029abd598b"}
+{"event": "handling", "thread_id": 2918060, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [765190, 309722], "top_score": 0.7569}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "ce990a138a1b"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "f5562a35e796"}
+{"event": "handling", "thread_id": 2974728, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7088}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "2d9c55da81d8"}
+{"event": "handling", "thread_id": 2819836, "intent": "billing_refund", "route": "escalate", "forced": true, "reason": "billing_refund touches money or account access, which a person owns", "cited": [], "top_score": 0.8538}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "053004f7426f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "996eb4320538"}
+{"event": "handling", "thread_id": 2903390, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7647}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "584f9e2c8991"}
+{"event": "handling", "thread_id": 464764, "intent": "other", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.766}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "13bcdca09bac"}
+{"event": "handling", "thread_id": 455670, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7243}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "89464fe24ebe"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "2fe1f0615500"}
+{"event": "handling", "thread_id": 2943116, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7788}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "214336760b2b"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a0e90fca47c5"}
+{"event": "handling", "thread_id": 462083, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.683}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5b0a72c9e243"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "4577968505f1"}
+{"event": "handling", "thread_id": 102075, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [286761], "top_score": 0.6725}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "8c08a5873922"}
+{"event": "handling", "thread_id": 583820, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer is threatening to leave or escalate", "cited": [], "top_score": 0.7802}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "968b1f1d0876"}
+{"event": "handling", "thread_id": 587998, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7855}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "c7b39b0fe7f0"}
+{"event": "handling", "thread_id": 2842945, "intent": "ads_complaint", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7599}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "b2261a18a7d8"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "aae775469886"}
+{"event": "handling", "thread_id": 592882, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.871}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "7ab1d447e90f"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "e9dd0c1e94a3"}
+{"event": "handling", "thread_id": 2914712, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [830950], "top_score": 0.7649}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "fb7f953ad80a"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "6d6f9bebcd22"}
+{"event": "handling", "thread_id": 2943105, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [2188270, 1077260, 1444941, 286523], "top_score": 0.8607}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "5816cf40e28d"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "a0b24c2b5d4a"}
+{"event": "handling", "thread_id": 2944197, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6603}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "262f1dccecc5"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "0f4094b2634f"}
+{"event": "handling", "thread_id": 2842953, "intent": "watchlist_issue", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7856}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "a1c4c1af78a0"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": true, "key": "0ce65ed5f643"}
+{"event": "handling", "thread_id": 601935, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6893}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "bb0ed664b585"}
+{"event": "handling", "thread_id": 2918040, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.8034}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "97f72fc846e1"}
+{"event": "handling", "thread_id": 2972706, "intent": "account_access", "route": "escalate", "forced": true, "reason": "account_access touches money or account access, which a person owns", "cited": [], "top_score": 0.7289}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": true, "key": "38ae43e25b80"}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "fc71bffc023a", "prompt_tokens": 504, "completion_tokens": 40, "retries": 0}
+{"event": "handling", "thread_id": 2924758, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [725132], "top_score": 0.6876}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "3f81bac74dc6", "prompt_tokens": 598, "completion_tokens": 41, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "653c5bc067d0", "prompt_tokens": 510, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 501391, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8609}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "0041c3d136de", "prompt_tokens": 612, "completion_tokens": 39, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "b8dc6eac0121", "prompt_tokens": 497, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2816486, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.707}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "1b384d9d6805", "prompt_tokens": 619, "completion_tokens": 31, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "4d301ce96b0c", "prompt_tokens": 490, "completion_tokens": 75, "retries": 0}
+{"event": "handling", "thread_id": 85981, "intent": "playback_error", "route": "auto", "forced": false, "reason": "", "cited": [740618, 1240848, 963405, 300293, 1425533], "top_score": 0.7563}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "c495d6e14926", "prompt_tokens": 636, "completion_tokens": 61, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "22a3ce0a8b5d", "prompt_tokens": 556, "completion_tokens": 59, "retries": 0}
+{"event": "handling", "thread_id": 448899, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7778}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "39cbbbd2ce87", "prompt_tokens": 590, "completion_tokens": 57, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "0fc2d3b65ab5", "prompt_tokens": 497, "completion_tokens": 55, "retries": 0}
+{"event": "handling", "thread_id": 2965034, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [989010], "top_score": 0.7606}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "d2494d7376cf", "prompt_tokens": 582, "completion_tokens": 41, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "a7664086d0d4", "prompt_tokens": 435, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 451508, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.8194}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "223774b909d2", "prompt_tokens": 639, "completion_tokens": 55, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "596eddeb5e84", "prompt_tokens": 598, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2896576, "intent": "playback_error", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7937}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "47e8cda517f6", "prompt_tokens": 589, "completion_tokens": 36, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "af5572168db4", "prompt_tokens": 535, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2966335, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6897}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "b8c83097ff93", "prompt_tokens": 578, "completion_tokens": 34, "retries": 0}
+{"event": "handling", "thread_id": 2813903, "intent": "playback_error", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7573}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "7bb1fcc5a14c", "prompt_tokens": 584, "completion_tokens": 41, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "997c80c907e6", "prompt_tokens": 467, "completion_tokens": 56, "retries": 0}
+{"event": "handling", "thread_id": 2545470, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [716400, 1488285], "top_score": 0.7997}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "fee1e4fd6725", "prompt_tokens": 597, "completion_tokens": 38, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "3b3431e433e1", "prompt_tokens": 521, "completion_tokens": 87, "retries": 0}
+{"event": "handling", "thread_id": 89729, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [989010, 1499414], "top_score": 0.7766}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "1a2520510444", "prompt_tokens": 590, "completion_tokens": 37, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "de0d2d52b636", "prompt_tokens": 454, "completion_tokens": 47, "retries": 0}
+{"event": "handling", "thread_id": 2869516, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [273546], "top_score": 0.7967}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "125d94e875fe", "prompt_tokens": 590, "completion_tokens": 39, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "1cfb7cb8fbbb", "prompt_tokens": 454, "completion_tokens": 80, "retries": 0}
+{"event": "handling", "thread_id": 464784, "intent": "live_tv_channels", "route": "auto", "forced": false, "reason": "", "cited": [2160365, 2571573, 2605906], "top_score": 0.7832}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "301ca1bf7e53", "prompt_tokens": 581, "completion_tokens": 36, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "2ddcf27e68a2", "prompt_tokens": 416, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2847551, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.6993}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "e47269bf3f18", "prompt_tokens": 624, "completion_tokens": 32, "retries": 0}
+{"event": "handling", "thread_id": 511261, "intent": "watchlist_issue", "route": "escalate", "forced": true, "reason": "the customer has already tried a fix or already written in", "cited": [], "top_score": 0.7406}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "d15ed2ee8fd6", "prompt_tokens": 598, "completion_tokens": 72, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "55900f64ea45", "prompt_tokens": 539, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2949929, "intent": "watchlist_issue", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7992}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "d16bfbe22c66", "prompt_tokens": 620, "completion_tokens": 49, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "0cc01fa302c4", "prompt_tokens": 542, "completion_tokens": 46, "retries": 0}
+{"event": "handling", "thread_id": 520349, "intent": "ads_complaint", "route": "auto", "forced": false, "reason": "", "cited": [210247], "top_score": 0.7357}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "7b4afa88e2f2", "prompt_tokens": 604, "completion_tokens": 54, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "3f6504a1515f", "prompt_tokens": 459, "completion_tokens": 73, "retries": 0}
+{"event": "handling", "thread_id": 2926744, "intent": "other", "route": "auto", "forced": false, "reason": "", "cited": [1305434, 918068, 203659], "top_score": 0.827}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "2bad5fb228d8", "prompt_tokens": 586, "completion_tokens": 66, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "16cfc80cfabf", "prompt_tokens": 528, "completion_tokens": 63, "retries": 0}
+{"event": "handling", "thread_id": 2865321, "intent": "content_availability", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7086}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "a60fd84c34d1", "prompt_tokens": 610, "completion_tokens": 57, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "c12cfbdfe755", "prompt_tokens": 555, "completion_tokens": 53, "retries": 0}
+{"event": "handling", "thread_id": 2444843, "intent": "content_availability", "route": "auto", "forced": false, "reason": "", "cited": [268507, 2349078], "top_score": 0.8138}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "7b63847c74cd", "prompt_tokens": 596, "completion_tokens": 33, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "c2343b1d086e", "prompt_tokens": 462, "completion_tokens": 45, "retries": 0}
+{"event": "handling", "thread_id": 2875746, "intent": "live_tv_channels", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7906}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "52a71eefa8e0", "prompt_tokens": 602, "completion_tokens": 46, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "970dc9f484ea", "prompt_tokens": 497, "completion_tokens": 55, "retries": 0}
+{"event": "handling", "thread_id": 2869496, "intent": "other", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.685}
+{"event": "call", "model": "openai/gpt-oss-20b", "cached": false, "key": "e8a8b18e4eb5", "prompt_tokens": 599, "completion_tokens": 33, "retries": 0}
+{"event": "call", "model": "qwen/qwen3.8-27b", "cached": false, "key": "66b35bf3fb7a", "prompt_tokens": 492, "completion_tokens": 18, "retries": 0}
+{"event": "handling", "thread_id": 2890127, "intent": "ads_complaint", "route": "escalate", "forced": false, "reason": "the brand's past replies do not answer this message", "cited": [], "top_score": 0.7391}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "9df41bf60ca3", "prompt_tokens": 664, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 557411, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "84b450a65492", "prompt_tokens": 609, "completion_tokens": 62, "retries": 0}
+{"event": "verdict", "thread_id": 2833157, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "70af53a83391"}
+{"event": "verdict", "thread_id": 467843, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "2cc32896cccc", "prompt_tokens": 578, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2815088, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "9e37fdaff53d", "prompt_tokens": 523, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2842965, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "59571298d81b", "prompt_tokens": 623, "completion_tokens": 66, "retries": 0}
+{"event": "verdict", "thread_id": 2857535, "send": false, "failed": ["grounded"]}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "f87e4a426a62", "prompt_tokens": 663, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 467817, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "88a70cd264d1"}
+{"event": "verdict", "thread_id": 2579812, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "f065077581e7", "prompt_tokens": 586, "completion_tokens": 64, "retries": 0}
+{"event": "verdict", "thread_id": 561256, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "f9507af6f205"}
+{"event": "verdict", "thread_id": 595971, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "37adbd788a2a", "prompt_tokens": 597, "completion_tokens": 60, "retries": 0}
+{"event": "verdict", "thread_id": 553792, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "c59a29cb63af", "prompt_tokens": 620, "completion_tokens": 62, "retries": 0}
+{"event": "verdict", "thread_id": 2973721, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "1a08811f9f2c", "prompt_tokens": 594, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 448901, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "d8d2d3faf337", "prompt_tokens": 661, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 569022, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "953cfb295703", "prompt_tokens": 550, "completion_tokens": 65, "retries": 0}
+{"event": "verdict", "thread_id": 2925919, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "ed197b6069e0"}
+{"event": "verdict", "thread_id": 2818920, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "aaa4b242cd18", "prompt_tokens": 629, "completion_tokens": 62, "retries": 0}
+{"event": "verdict", "thread_id": 463565, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "a18c128dd879", "prompt_tokens": 664, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 448892, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "d0df75bdd2df", "prompt_tokens": 605, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2944205, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "3e3a5fcc7777", "prompt_tokens": 627, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2973726, "send": true, "failed": []}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 1, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 2, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 3, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 4, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 5, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "c857d4236d5d", "prompt_tokens": 547, "completion_tokens": 63, "retries": 5}
+{"event": "verdict", "thread_id": 570979, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "ad6e8bcea8d5", "prompt_tokens": 706, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2967915, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "755aa12236d6", "prompt_tokens": 605, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2818059, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "a47228df87d3"}
+{"event": "verdict", "thread_id": 455681, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "e01e01491de0", "prompt_tokens": 687, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2943107, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "fe484fdff0c1", "prompt_tokens": 628, "completion_tokens": 60, "retries": 0}
+{"event": "verdict", "thread_id": 570983, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "b3dc67c75d68", "prompt_tokens": 571, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2903394, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "d35187d82204", "prompt_tokens": 572, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2866512, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "d2c0826dbc5a", "prompt_tokens": 606, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 89786, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "3f9ff75ed00d", "prompt_tokens": 566, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 600837, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "be2ea8e065ba", "prompt_tokens": 589, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2898160, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "da9633f1e56f", "prompt_tokens": 651, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 507575, "send": false, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "7f8ee30a261b", "prompt_tokens": 507, "completion_tokens": 65, "retries": 0}
+{"event": "verdict", "thread_id": 520343, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "eb35d7483724", "prompt_tokens": 697, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2956883, "send": false, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "9e3103bcef13", "prompt_tokens": 629, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2928619, "send": true, "failed": []}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 1, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 2, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "075cfdabbf1c", "prompt_tokens": 623, "completion_tokens": 62, "retries": 2}
+{"event": "verdict", "thread_id": 604037, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "c7f9ccb8299e", "prompt_tokens": 661, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 564374, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "01c69a7cfc16"}
+{"event": "verdict", "thread_id": 523891, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "8fb39b8f8d83", "prompt_tokens": 700, "completion_tokens": 66, "retries": 0}
+{"event": "verdict", "thread_id": 2721079, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "d2d1421d50b4"}
+{"event": "verdict", "thread_id": 2925922, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "97e501f5f90a", "prompt_tokens": 652, "completion_tokens": 67, "retries": 0}
+{"event": "verdict", "thread_id": 539335, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "78889da2c445", "prompt_tokens": 647, "completion_tokens": 62, "retries": 0}
+{"event": "verdict", "thread_id": 505709, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "4d9df6be83b3", "prompt_tokens": 609, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 565520, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "a65a04302c25", "prompt_tokens": 751, "completion_tokens": 68, "retries": 0}
+{"event": "verdict", "thread_id": 2840943, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "2ec0eaea03f7"}
+{"event": "verdict", "thread_id": 2903388, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "a04dc699f4c5"}
+{"event": "verdict", "thread_id": 2982128, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "03e4a116baec", "prompt_tokens": 608, "completion_tokens": 66, "retries": 0}
+{"event": "verdict", "thread_id": 2869511, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "b5a96d729752", "prompt_tokens": 642, "completion_tokens": 67, "retries": 0}
+{"event": "verdict", "thread_id": 453102, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "206c98efda1f", "prompt_tokens": 584, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2905250, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "069a30260fcd", "prompt_tokens": 510, "completion_tokens": 62, "retries": 0}
+{"event": "verdict", "thread_id": 2918060, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "85e4d5b5de35", "prompt_tokens": 615, "completion_tokens": 65, "retries": 0}
+{"event": "verdict", "thread_id": 102075, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "8e25f2e61bfa"}
+{"event": "verdict", "thread_id": 2914712, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "d7cac0720ae2", "prompt_tokens": 579, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2943105, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "90e2d4969acb", "prompt_tokens": 619, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2924758, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "11641557a7d4", "prompt_tokens": 625, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 85981, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": true, "key": "c94efc0a42b6"}
+{"event": "verdict", "thread_id": 2965034, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "e0965b6ac122", "prompt_tokens": 583, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2545470, "send": true, "failed": []}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 1, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 2, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 3, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "retry", "model": "gemini-3.1-flash-lite", "attempt": 4, "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on"}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "c7f2df68bffd", "prompt_tokens": 692, "completion_tokens": 60, "retries": 4}
+{"event": "verdict", "thread_id": 89729, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "5cae378e6542", "prompt_tokens": 571, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2869516, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "beba3470005e", "prompt_tokens": 605, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 464784, "send": false, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "251b9d4b9088", "prompt_tokens": 669, "completion_tokens": 60, "retries": 0}
+{"event": "verdict", "thread_id": 520349, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "6635fa51650e", "prompt_tokens": 605, "completion_tokens": 61, "retries": 0}
+{"event": "verdict", "thread_id": 2926744, "send": true, "failed": []}
+{"event": "call", "model": "gemini-3.1-flash-lite", "cached": false, "key": "c40d211002e2", "prompt_tokens": 687, "completion_tokens": 63, "retries": 0}
+{"event": "verdict", "thread_id": 2444843, "send": true, "failed": []}

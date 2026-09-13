@@ -22,9 +22,24 @@ SEED = 20260909
 
 # Groq enforces rate limits per model ID rather than per account, so spreading
 # roles across IDs multiplies the usable free-tier budget.
+#
+# That stopped being an optimisation and became the only way to finish. One pass
+# over the golden set costs roughly 350k tokens against a 200k daily ceiling per
+# ID, so the two halves of the agent run on two IDs. The 120b model held drafting
+# until its daily budget ran out mid-run, and the remaining work moved to qwen.
+#
+# Which model does which job is a budget decision, not a quality one, and the
+# report says so. Classification takes the smaller model because choosing one
+# label from a list with written boundaries is the easier task; drafting takes a
+# larger one because inventing a refund is the expensive failure.
 AGENT_MODEL = "openai/gpt-oss-120b"
 AGENT_SMALL_MODEL = "openai/gpt-oss-20b"
-CROSS_JUDGE_MODEL = "qwen/qwen3.8-27b"
+DRAFT_MODEL = "qwen/qwen3.8-27b"
+
+# Grades a sample of replies a second time, to show how much the headline moves
+# when the grader changes. Must stay outside the family of everything it grades,
+# which now means it cannot be the qwen that writes the drafts.
+CROSS_JUDGE_MODEL = "openai/gpt-oss-120b"
 LOCAL_MODEL = "qwen2.5:7b-instruct-q4_K_M"
 
 # Chosen on two measurements, not on version number. Free-tier capacity is reserved

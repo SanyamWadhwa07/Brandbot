@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I have a Hulu subscription courtesy of my Spotify Premium Student plan. But I can’t seem to log in on app. Can I get help?\n    brand: Hey Sean! If no luck resetting that password here: <link> then call this number: <link>\n\ncustomer: I am using Apple TV 4K; suddenly can’t get live TV thru @115940 or any app using @115940 account. Works fine in app, older Apple TV. Can’t get thru to chat...\n    brand: Oh no! Thanks for reaching out, Karrin. Let's try these: <link> and let us know if the trouble continues.\n\ncustomer: Tried logging into my Hulu account and instead of allowing me to watch shows etc it's giving me your available plans.\n    brand: Sorry! Do you see any alerts on your account: <link> If not, reach out to us here: <link>\n\ncustomer: Laptop/Win10-app-\"an error occurred while connecting to the server (SV!)-app Del&amp;Instld now can't log in-Call wait is 45 min?\n    brand: Sorry, Luis! We ran into an issue with Windows 10, but the issue is now resolved. Let us know if you have any other questions.\n\ncustomer: .@115940 the iOS app logged me out of my account and now won’t let me log back in. Have repeatedly tried. Can login on the web though. How do I fix the app issue?\n    brand: Sorry to hear of the trouble, Michael. We'd like to help! Please call the phone number in blue here: <link> 📲\n\nCustomer message:\ncan I get some assistance with my account? Struggling to tune-in to live TV from my app. Not a happy camper.\n\nDraft reply:\nOh no! Thanks for reaching out. Let's try these: <link> and let us know if the trouble continues.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with the brand's established tone and troubleshooting approach for technical issues.\"\n}",
+  "prompt_tokens": 663,
+  "completion_tokens": 63
+ }
+}

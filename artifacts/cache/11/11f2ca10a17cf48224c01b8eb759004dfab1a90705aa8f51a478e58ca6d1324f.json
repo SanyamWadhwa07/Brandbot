@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: your new intro sucks. It is too loud when I go in the app. Please fix or put volume control. Thanks.\n    brand: Sorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!\n\n[1] customer: You have got to adjust the volume of the apps intro music when turned on. It's annoyingly loud and not necessarily.\n    brand: We're tracking similar reports! 🔊 What device are you accessing our app from? We'd be more than happy to share your input.\n\n[2] customer: Dear @115940: Does the PS3 app startup sound have to be so very loud?\n    brand: Sorry We're looking into making enhancements to the new app. Rest assured we'll share your feedback with our team.\n\n[3] customer: how do I turn off the loud Hulu startup app sound on my Amazon FireTV?\n    brand: There isn't a way to 🔕 the start up sound the app makes, but we can definitely express your interest in having that as a feature.\n\n[4] customer: I've turned off in-app sounds, but Hulu still makes that annoying start-up sound. How do I make it stop?\n    brand: There isn't currently a way to disable it, but we're looking into the volume. You can join the convo: <link>\n\nNew message:\nYour intro sound whenever your app is started is far too loud. How can I disable it?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"There isn't currently a way to disable it, but we're looking into the volume. You can join the convo: <link> 🔊 We'd be happy to share your input with our team!\", \"used\": [3, 4, 1]}",
+  "prompt_tokens": 446,
+  "completion_tokens": 66
+ }
+}

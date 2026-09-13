@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: new to Hulu (trial) and sure wish there was a guide of all the live channels with the line up\n    brand: Hey! For channel listings in your area, enter your ZIP here: <link> For live content, head to Browse&gt;Networks&gt;Live.\n\n[1] customer: I JUST noticed CW isn't actually on my @115940 live channel lineup. Anyone know what gives?\n    brand: Sorry, Danielle! The CW is only available as network on-demand, but we're working to bring it live. We'll share the interest!\n\n[2] customer: are y’all gonna be adding more channels to the live selection\n    brand: Thanks for the interest, Angel! What are you looking for? We're always working to expand our lineup: <link>\n\n[3] customer: live tv....everything would be perfect and you would be my go to tv service if you added Hallmark and Hallmark Movies and Mysteries!!\n    brand: Hey Cherese! We can't make any promises, but we'd be happy to share your live network requests with our team. 😊\n\n[4] customer: Any plans to add @699 to the live channel lineup? That would be amazing.\n    brand: Hi Phillip! No news to share, but we're always working to add more networks. We'll alley-oop 🏀 your request to our content team\n\nNew message:\nif you could just add VH1, TLC, and WE to your live channel line up I would switch from Sling.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Hey! We can't make any promises, but we'd be happy to share your live network requests with our team. 😊\", \"used\": [3]}",
+  "prompt_tokens": 462,
+  "completion_tokens": 45
+ }
+}

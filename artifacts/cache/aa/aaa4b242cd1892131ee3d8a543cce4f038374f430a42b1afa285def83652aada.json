@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why is season 18 of #LawandOrderSVU not yet on @115940 or @116602?\n    brand: Sorry, we had the eps as they were airing and they have since expired... dun-dun. We'll express your interest in them here!\n\ncustomer: Does anyone know why season 18 of SVU no longer on @115940 😩#SVU\n    brand: We no longer have the rights to offer the s18 but we'd be happy to share your interest in seeing it return!\n\ncustomer: I just got a subscription specifically to watch @168148 season 18 and it’s not on there!!!!!\n    brand: Sorry about that! While we don't have any news yet—we do hope to have 18 back soon. For now, + SVU to your WL/My Stuff for updates!\n\ncustomer: Why isn’t season 18 of Law and Order: SVU on Hulu? 😩😩 @115940\n    brand: Sorry! Our rights to stream S18 expired as new eps of S19 began. We'll share your interest in seeing it return in the future.\n\ncustomer: y u no have season 18 of @168148\n    brand: Sorry for any disappointment! We no longer have the rights to stream S18 now that S19 has started but we'll share your interest.\n\nCustomer message:\nHow come season 18 of @168148 isn’t on @115940 ??? I need to watch it now!\n\nDraft reply:\nSorry! Our rights to stream S18 expired as new eps of S19 began. We'll share your interest in seeing it return in the future.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is perfectly aligned with past replies and addresses the customer's inquiry accurately.\"\n}",
+  "prompt_tokens": 629,
+  "completion_tokens": 62
+ }
+}

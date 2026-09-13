@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: But man is @115940 EVER gonna post season two of Queen Sugar????\n    brand: We sure will! No release date to share at this time, but add to WL/My Stuff for updates and keep an eye on: <link>\n\n[1] customer: Where is @370068 season 2??!?!?!?! BBCA has already aired 2 episodes, and NOTHING is on hulu. What gives?\n    brand: Sorry to disappoint! We don't have any news to share just yet, but we'll gladly let our team know you'd like to see more! 👍\n\n[2] customer: is season 2 of Queen Sugar not available?\n    brand: Hey there! S2 is not available just yet, but we hope to have it soon. Keep an eye on this pg for updates: <link>\n\n[3] customer: when are you going to get Dirk Gently season 2?\n    brand: No news to share on season 2 (we blame Bart), but we'll happily express your interest in seeing more of Dirk &amp; Todd on Hulu.\n\n[4] customer: Any one know if @50581 season 2 is coming to Netflix or Hulu anytime soon? #LifeInPieces @116602 @115940 @hulu_support\n    brand: Hulu here! No confirmations yet, but we'll be sure to share the request. 😉 Keep an eye on: <link> for updates! 💚\n\nNew message:\nwhere is the second season of #ThisIsUs?!?!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry to disappoint! We don't have any news to share just yet, but we'll gladly let our team know you'd like to see more! 👍 Keep an eye on this page for updates.\", \"used\": [1]}",
+  "prompt_tokens": 476,
+  "completion_tokens": 60
+ }
+}

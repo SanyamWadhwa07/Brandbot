@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: the new app format is terrible. I preferred the old one way more. How do I tell it I don't want to see a show? Stop forcing that awful Sarah Silverman show on me every time I open my app. Thanks. @hulu_support\n    brand: Apologies! While there's not a way to block shows, you can find all your favorites in My Stuff: <link>\n\n[1] customer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\n[2] customer: why isn’t my watchlist updating properly?\n    brand: Yikes! Which shows have you noticed this with+which device is being used? Are the new episodes appearing from the show page?\n\n[3] customer: Hi @115940 - in your Roku app is there any way to turn off the \"building your lineup\" thing that happens in sign in? Why would I want that if I have my own saved content. Also any way to turn off the insanely annoying 15 sec countdown at the end of a show?\n    brand: Hey, Phil. The Lineup loading is intended, but we'll share your feedback. You can toggle Autoplay off to turn off the counter.\n\n[4] customer: I’m not liking this new @115940 update. Takes forever to watch a show because it keeps thinking I’m fast forwarding when I’m pausing!\n    brand: Oh no! Can you let us know which device this is happening on? In the meantime check out: <link>\n\nNew message:\nwhy change the format and not keep your customers watch list? Very annoying",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 553,
+  "completion_tokens": 18
+ }
+}

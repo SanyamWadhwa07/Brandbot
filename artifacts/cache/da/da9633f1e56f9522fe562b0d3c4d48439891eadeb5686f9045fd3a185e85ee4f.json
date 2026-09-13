@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I keep getting a loading error on PlayStation 4. I have reset my console and uninstalled and reinstalled the app.\n    brand: Apologies! This issue is being investigated. To collect more info to share w/our team, please chat w/ us: <link>\n\ncustomer: every time I open the Hulu app on my Xbox 360 it will load for a couple seconds then say Hulu has encountered an error error97\n    brand: Sorry! Our team is currently investigating this error. The good news is we can fix via phone/chat: <link>\n\ncustomer: I have the Hulu app on my Xbox 360 and I keep getting an error after it loads. I have deleted and re-downloaded the app\n    brand: Oh no! If you're still encountering this, try: <link> Call or chat for further help (<link>\n\ncustomer: HELP! \"loading error\" on the #hulu app on #xbox360? Other apps are fine. I've delete, redownload. Still nothing\n    brand: Sorry for the delay. We'd like to help. Please work through the following troubleshooting tips: <link> ✅\n\ncustomer: recently purchased Hulu again and it wont load on either of my xboxs. Have tried everything to get it to work. Redownloading, restarting, works on the PC but not xbox.\n    brand: Oh no! Is this XB1 or 360? Any errors? Try: <link> or <link> Any improvement after?\n\nCustomer message:\nfix your damn xbox app, I'm honestly tired of trying to launch it and getting constant \"a loading error has occurred\". 😒 Why am I paying for something I can barley use...\n\nDraft reply:\nSorry! Our team is currently investigating this error. The good news is we can fix via phone/chat: <link> Please work through the following troubleshooting tips: <link> ✅ Call or chat for further help (<link>.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft is repetitive and redundant by combining multiple past reply styles into one message.\"\n}",
+  "prompt_tokens": 651,
+  "completion_tokens": 61
+ }
+}

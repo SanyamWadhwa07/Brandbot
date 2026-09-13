@@ -8,7 +8,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from brandbot import config
+from brandbot import config, log
 from brandbot.gold import labeller, sample
 
 app = typer.Typer(add_completion=False, help="Grounded support agent for one Twitter brand.")
@@ -76,6 +76,8 @@ def run(
     """Run one system over the golden messages and record what it did."""
     from brandbot.eval import run as runner
     from brandbot.llm.budget import Budget
+
+    log.setup()
 
     rows = [json.loads(line) for line in sample.CANDIDATES_PATH.read_text(encoding="utf-8").splitlines()]
     messages = [(r["thread_id"], r["text"]) for r in rows][: limit or None]

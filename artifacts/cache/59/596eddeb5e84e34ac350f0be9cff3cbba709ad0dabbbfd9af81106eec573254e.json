@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I'm livid at @115940 @hulu_support rn. I cancelled my HBO trial and THEY CHARGED ME $22 THIS MONTH AFTER I CANCELLED. +TURNED OFF MY SERVICE\n    brand: Oh no! Let's get this sorted, Ren. Please call us at the number listed here: <link> and we'll investigate.\n\n[1] customer: Dear @115940 you and @hulu_support need to fix this or I’ll be canceling my membership🤷🏼‍♀️. Yes I’ve uninstalled and installed 🤦🏼‍♀️ <link>\n    brand: Sorry for any frustration! If no improvement after trying: <link> please contact: <link> ✅\n\n[2] customer: Hi @hulu_support tried to watch my show on my android and I got a error code BYA-403-0009. Tried manage devices but the link is mislead. Thx\n    brand: Oh no! You can review and remove devices at: <link> For streaming issues, try these: <link>\n\n[3] customer: Hey @hulu_support - been getting this error on both my Apple TV and iPhone 7+ since yesterday. What’s up? <link>\n    brand: Oops! Sorry about this, James! Please chat with us here: <link> so we can gather more details and further assist.\n\n[4] customer: hey @hulu_support .. what's up with this error message. i'm hungover and want to binge watch something.. thank god for @116618.\n    brand: Uh oh! What's the wording of the error message you received, Joseph? Are you using a Fire device? Try: <link>\n\nNew message:\nAlmost finished with the news I’m watching (or trying to...), and keep getting this sweet error. @hulu_support @115940 - I’m not asking for a hover board, just to watch a show I’m paying $40/mo. to watch. Any help would be appreciated. Well, I was... cancelled <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 598,
+  "completion_tokens": 18
+ }
+}

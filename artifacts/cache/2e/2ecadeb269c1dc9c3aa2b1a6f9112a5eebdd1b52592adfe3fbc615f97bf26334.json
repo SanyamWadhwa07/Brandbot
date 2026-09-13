@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: needs to inform consumers that @115940 has known issues with roku devices, will not stream live tv without constant buffering.\n    brand: Oh no! Are you running into trouble across all channels? Did the steps we sent over: <link> help?\n\n[1] customer: continued buffering issues w/ live tv on roku express, hard reset, reinstalled app, etc, excellent network 50+ Mbps 33 latency\n    brand: Sorry to hear you're still having trouble, Mark! We'd love to take a closer look via phone or chat: <link>\n\n[2] customer: please fix constantly getting buffering screens on Xbox one, roku, and firestick. wired on Xbox and roku have 500/50 speed.\n    brand: Yikes! Truly sorry for the delay. If no improvement after: <link> please contact: <link>\n\n[3] customer: roku app won’t work, all videos buffer and eventually time out. Works great on every other device. Help?\n    brand: Oh no! Sorry to hear this, Austin. Let's start here: <link> then move this over to: <link> 👍\n\n[4] customer: new roku app is terrible! What happened to 8 sec rwnd? Why is my menu always \"loading\". Done! Time to cancel. Not worth it.\n    brand: Oh no—we'll share your feedback! For any loading issues, try these steps: <link> to clear things up.\n\nNew message:\nthere is a ton of buffering on your roku app!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! Sorry to hear you're running into trouble. Did the steps we sent over: <link> help? If not, we'd love to take a closer look via phone or chat: <link> 👍\", \"used\": [0, 1, 3]}",
+  "prompt_tokens": 469,
+  "completion_tokens": 70
+ }
+}

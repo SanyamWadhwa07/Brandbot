@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Right on cue @hulu_support turn on a football game and immediately starts buffering. Please don't make me get cable back.\n    brand: No outages to report right now, so which device is this occurring on? Any specific network? Try: <link> 2/2\n\n[1] customer: Dear @hulu_support plz fix your \"live TV\" from buffering every 30 sec.- this makes ftball unwatchable. @1640 lowers strean qual. to avoid\n    brand: Oh no! That shouldn't be the case, Mike. We'll help. What device are you streaming with? Let's try: <link>\n\n[2] customer: why when I stream@anything else it is perfect. When I stream football it is always buffering. You le service sucks\n    brand: Oh no! We're investigating. In the meantime, try: <link> Let us know the device affected if trouble persists.\n\n[3] customer: the Hulu Live TV product constantly buffers, and now it's stuck looping video during playoff baseball. Not good.\n    brand: Oh no! Which device are you using to stream, Dustin? For now, try out these steps: <link> Any change?\n\n[4] customer: When Hulu Live Tv isn’t working and you have to watch the game like it’s the year 2000 #hulu #hululivetv #hulusucks @115940 fix the buffer <link>\n    brand: Sorry, Steven! We ran into an issue last night, but the issue is fixed: <link> Thanks for bearing with us!\n\nNew message:\nhey I'm trying to watch the auburn vs Georgia game and it keeps buffering constantly. Anything I else I turn it too works perfectly fine. What's going on here?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! That shouldn't be the case. We'll help. What device are you streaming with? Let's try: <link> If it persists, let us know the specific network.\", \"used\": [1, 0]}",
+  "prompt_tokens": 522,
+  "completion_tokens": 61
+ }
+}

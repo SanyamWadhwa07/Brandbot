@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: It’s 2017, how about 5.1 surround sound?\n    brand: Hey there! We don't have any news yet but we are looking into surround sound formatting. Thanks for following up with the interest!\n\n[1] customer: Is there a good reason you guys don’t have at least 5.1 surround? Forget catching up with 2017, just catch up with 2007, FFS.\n    brand: Hi, David! We don't have any details to share, but we're always looking to make enhancements. We'll share your feedback.\n\n[2] customer: I know it's a beta, @115940 , but \"Hulu with Live TV\" is hands down the least reliable streaming TV service I've tried.\n    brand: We're sorry to hear this, Shawn. Which device are you on? Is it only some networks? Try: <link> We'll standby.\n\n[3] customer: you're the biggest media streaming service after Netflix, why does huluTV run so poorly?\n    brand: That shouldn't be happening! We'd like to take a closer look—please reach out here: <link> so we can assist\n\n[4] customer: I've been trying out @115940 Live (beta version) and although it has glitches, it could be a solid substitute for cable tv. I'm liking it.\n    brand: Glitches?! 😱 That's not supposed to happen. Tell us more about the problems you've been having, including the device in use.\n\nNew message:\nJust got a 5.1 system and discovered that Hulu doesn't offer surround sound on its streams. This is pretty ridiculous, considering that the cost is similar to cable and all cable services offer surround sound for broadcast television.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hey there! We don't have any news yet but we are looking into surround sound formatting. Thanks for following up with the interest!\", \"used\": [0]}",
+  "prompt_tokens": 521,
+  "completion_tokens": 46
+ }
+}

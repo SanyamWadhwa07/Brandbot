@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: .@hulu_support why isn’t my watchlist anywhere to be found on the iPad and TV apps? I’m dyin’. You gonna make me search for my shows? #smdh\n    brand: iPad and select devices (<link> use the new app+My Stuff. Did you import WL when first opening the new app?\n\n[1] customer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\n[2] customer: why can't I add things to my watchlist directly from the *All Results* section on Safari?\n    brand: When you hover over a thumbnail do you see a green triangle at the bottom right corner with a (+)?\n\n[3] customer: app on AppleTV does not display \"My Stuff\" nor can I add to my watchlist from IPhone app.\n    brand: Oh no! We'd love to look into this together, Alexander. Call or chat when you have a moment: <link>\n\n[4] customer: why aren’t any of my shows are showing up in the watchlist on the app on LG??\n    brand: Hey! Do you mean no shows are listed at all, or the newest episodes aren't populating? If the latter, our team is investigating.\n\nNew message:\nare there any plans to bring the watchlist into the Hulu with Live Beta? The My Stuff is good and all, but sometimes I want to set a specific list. It was one of hulu's best features.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We'd love to look into this together. Call or chat when you have a moment: <link>.\", \"used\": [3]}",
+  "prompt_tokens": 521,
+  "completion_tokens": 41
+ }
+}

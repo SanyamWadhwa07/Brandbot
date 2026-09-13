@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: My live feed as well is not working. I have uninstalled and reinstalled the app. Also rebooted my modem... Still nothing\n    brand: Sorry, that was us, Austin. We got our team on it and should be back in action on your end. If not, try another reboot for us.\n\n[1] customer: Looks like your live feeds are down. Lifetime isn't playing. Happening on both Firestick and mobile.\n    brand: Apologies, Jeremy! We're working to fix this ASAP. For now, please try: <link>\n\n[2] customer: Hey, @115940 why is your FS1 live feed not working but every other channel is? Kinda wanted to watch this game.. 🙄\n    brand: It sounds like you were running into an issue we had earlier tonight that has now been resolved. Our apologies for any trouble!\n\n[3] customer: your live news channels @127587 &amp; @120330 have been playing terribly all morning. Skipping &amp; buffering. Not my WiFi either.\n    brand: Ah, apologies! The buffering behavior with live playback yesterday should now be resolved: <link>\n\n[4] customer: it’s happening again with ur live news channels. The constant buffering &amp; skipping. Not my WiFi cnnGo works fine.\n    brand: Oh no! Which device is this occurring on? We'll see if we can reproduce this behavior. For now, try: <link>\n\nNew message:\nhow come no news networks live feeds are working currently on Apple TV?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 474,
+  "completion_tokens": 18
+ }
+}

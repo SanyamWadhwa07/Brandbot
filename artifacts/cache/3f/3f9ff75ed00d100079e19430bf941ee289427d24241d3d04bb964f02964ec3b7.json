@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: since we’ve launched our account two weeks ago we have had nothing but issues- live streaming never works. What gives?\n    brand: Sorry, Suanna! We ran into a known issue tonight, but it should be fixed now. Let us know if problems persists on your end.\n\ncustomer: Why is live so glitchy this morning? My WiFi is fine. Everything else works but live streaming through the app.\n    brand: Sorry, Bob! We've been looking into these reports on our end and would love to help in real-time ➡️ <link>\n\ncustomer: not sure what is happening but ur live stream service has been horrible the past week in 07080. reboot. reinstall. reset.\n    brand: We had a few issues earlier this week but nothing to report currently. What device is it? Try out these: <link>\n\ncustomer: live streaming is still unusable this morning. Couldn't watch the WS game last night, buffering constantly this morning\n    brand: So sorry for the trouble, Mark! We're investigating issues with live playback. Our sincere apologies for the frustration.\n\ncustomer: our Hulu live streaming is not working. It stalls every 30 secs-we restarted the internet and the app and still same issue 😡\n    brand: So sorry for the trouble! Our team investigated/resolved the issues with live playback this weekend: <link>\n\nCustomer message:\nyour live stream is not working today. Not impressed\n\nDraft reply:\nSo sorry for the trouble! We're investigating issues with live playback. Our sincere apologies for the frustration.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's complaint appropriately.\"\n}",
+  "prompt_tokens": 566,
+  "completion_tokens": 61
+ }
+}

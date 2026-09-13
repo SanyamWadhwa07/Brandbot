@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: What the heck @hulu_support why isn't the new episode of @209410 from last week viewable?\n    brand: Due to the World Series, The Orville is on a break, but will resume airing on 10/26 and the ep will be on Hulu the next day.\n\n[1] customer: when is this weeks @168148 episode being added?\n    brand: Hi there! The show didn't air a new episode this week due to the World Series, but it should return Nov. 8: <link>\n\n[2] customer: Hey @hulu_support you can't watch @209410 the night the episode comes out? <link>\n    brand: Sorry for any disappointment! Episodes are available the day after air. Add the show to your WL/My Stuff for all updates.\n\n[3] customer: When will all 5 seasons of @12209 be available? It said it was supposed to be on 10/1 but it isn't showing any episodes @hulu_support\n    brand: Sorry about that! We hope to have these seasons available soon. Stay tuned to: <link> for updates. 💚\n\n[4] customer: How come new episodes of Brooklyn 99 are not in my queue @115940 @hulu_support\n    brand: Brooklyn Nine-Nine has been on a hiatus since 10/17. S5 ep5 will premiere on 11/7, and will be added to our on-demand library 11/8.\n\nNew message:\nwhen is episode 9 of @16840 getting put on hulu",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 497,
+  "completion_tokens": 18
+ }
+}

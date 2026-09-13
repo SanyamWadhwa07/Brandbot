@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Why does @115940 decided to not work right when I get addicted to This Is Us?? :(((\n    brand: Oh no! Let's get you back to the Pearsons. Which device do you use? Any errors? For now, try: <link>\n\n[1] customer: I was not the only one experiencing this. I convinced 3 others to get Hulu Live and they were getting the same poor quality. Fix this!\n    brand: We're sorry to hear about this experience, Anthony! If you notice it again, please call us/chat us: <link>\n\n[2] customer: I'm paying for HBO but can't seem to use it on my Apple TV. Any advice? Or how do I shut off the HBO and not waste $?\n    brand: HBO is only available on 🍎TV4 at this time (<link> If you have an older model, see: <link>\n\n[3] customer: There was a time when I used @115940 more than Netflix. Now the new UI is so slow to navigate and I rarely use it. Wish they would revert.\n    brand: We're sorry to hear this! We'll definitely share your feedback about this. Make sure to check out: <link> !\n\n[4] customer: would be nice if we could choose stream quality/band with usage on Live Tv like Sling offers\n    brand: Hi there! This feature is only available on phones at this time, but we'll share the interest with our dev team!\n\nNew message:\nHow does one turn down the quality on Android TV? Not fond of using 40GB a day when I have 300GB a month :-\\",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We're sorry to hear about this experience! If you notice it again, please call us/chat us: <link> We'll definitely share your feedback about this.\", \"used\": [1, 3]}",
+  "prompt_tokens": 497,
+  "completion_tokens": 55
+ }
+}

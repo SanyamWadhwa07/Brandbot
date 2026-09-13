@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: When watching HULU on my iPhone, the closed captioning turns itself on when an episode of Will and Grace ends and the next episode plays automatically. How can this be avoided?\n    brand: Hi, Holly! If you select the gear icon during playback, are cc's off? If so, try uninstalling/reinstalling Hulu Any change?\n\n[1] customer: I hate that @115940 autoplays #TheHandmaidsTale after EVERY show. I've already watched the whole series. #STOPit @hulu_support! Play my queue!\n    brand: Thank you for pointing this out to us! We'll share your feedback with our team and continue to keep track of similar reports.\n\n[2] customer: Dear @115940, please stop auto playing shows I haven’t added to my list after I’ve finished watching something. This update sucks.\n    brand: Autoplay's designed to play all eps from within a series. Once that's done, it may make suggestions. We'll share your feedback.\n\n[3] customer: Why must @115940 continue to auto play a show I have never watched at the end of everything? Make it stop 😣 #Nashville is not my thing 😒\n    brand: Sorry for any frustrations, Erika! Autoplay does it's best to suggest similar content. We'll share your feedback w/ our team.\n\n[4] customer: Just when I thought @115940 couldn't get worse. They have a \"new experience\". Harder to remove shows and can't turn autoplay off. Why Hulu?\n    brand: Help is here! From what section are you trying to remove shows? To disable autoplay, please see: <link>\n\nNew message:\nMan, I had to turn off autoplay. Frickin @115940. When I’d finish the most recent episode of a series, it would sometimes start some random series that I guess they thought I’d like. Now my “continue watching” is a polluted cesspool.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 573,
+  "completion_tokens": 18
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why can't I watch Elementary. It just won't play. Everything else is playing just fine.\n    brand: Sorry to hear this, Ashlei! 😔 Which device were you streaming from? Any improvement after running: <link>\n\n[1] customer: I don't understand why it says I can watch the new Greys at 2am but it's 2:08am and I can't watch it?\n    brand: Sorry for the delay! The time eps can be posted varies due to many factors, but we always try and post ASAP!\n\n[2] customer: Why can't I watch #RAW as it's LIVE on @115940? Why do I have wait the next day to watch it? Someone please explain that to me!\n    brand: We're ready to help! Is RAW added to My Stuff? If so, make sure USA is available in your region: <link> too.\n\n[3] customer: Hulu live has been unwatchable today. No other app has this issue. About to cancel service and go back to PlayStation Vue.\n    brand: Oh no! We'd hate to see you go! Which device are you on? Are all channels affected? For now, try a quick device+modem reboot.\n\n[4] customer: why can't I watch NFL? This worked last week <link>\n    brand: Yikes! NFL games are unavail. on mobile phones until after the game ends: <link> We'll share your interest!\n\nNew message:\nwhy couldn't I watch #MNF today?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 469,
+  "completion_tokens": 18
+ }
+}

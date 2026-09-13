@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: fix the Dodgers game! Ahh! Please fix the ballgame\n    brand: Sorry about that! Please try a quick reboot of your device and the TBS feed should be back up for you!\n\n[1] customer: can't watch the NLCS Cubs vs. Dodgers game!!!! Error code 5005 fix it now!!!!!! #frustratedcustomer\n    brand: Sorry, Andrew! TBS was temporarily down on Hulu, but all is good now: <link> Thanks for bearing with us!\n\n[2] customer: What’s the status on fixing the Cubs game???\n    brand: Hey, Stephanie! Sorry about that! The NCLS game on TBS has since been restored: <link>\n\n[3] customer: TBS is out and the MLB game is on! Any fix?\n    brand: It looks like the game is back up and streaming on our end now, Gail. If you're still having any trouble, let us know what device.\n\n[4] customer: Any fix to Apple 4K tV Hulu Live coming. It kept buffering and moving to all parts of the football games last night.\n    brand: The trouble from last evening should now be resolved: <link> Were you still running into this?\n\nNew message:\nyou’ve got to fix the SEC championship game! You’re killing me",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 418,
+  "completion_tokens": 18
+ }
+}

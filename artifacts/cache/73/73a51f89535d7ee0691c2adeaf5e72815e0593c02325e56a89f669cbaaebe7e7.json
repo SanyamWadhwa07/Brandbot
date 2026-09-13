@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\n[1] customer: my Hulu keeps resetting after a show begins....I need my @13192 fix.\n    brand: Exsqueeze me?! Sounds like Morgan has been messing with things again...What device are you having this trouble on? Any errors?\n\n[2] customer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\n[3] customer: Why do all my recordings have this weird “skipped recording” message and it cuts off parts of the show?\n    brand: Uh oh. Which show(s) have you noticed this behavior with and which device do you use? Are recordings accessed from My Stuff?\n\n[4] customer: why does your playback get all messed up when you unpause a show? It’s terribly annoying. Sometimes it jumps to the end of the episode. Y’all need a playback like hbogo.\n    brand: Oh no! Any specific show affected by this behavior? What device do you use to stream? Let's start with: <link>\n\nNew message:\nwhy does my DVR keep automatically deleting things? I will stop a recorded show midway through, then try to come back to it and it's gone",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We're sorry to hear that! Which device are you using, and can you share the specific shows affected? Please follow up here: <link> so we can take a closer look.\", \"used\": [2, 3]}",
+  "prompt_tokens": 521,
+  "completion_tokens": 60
+ }
+}

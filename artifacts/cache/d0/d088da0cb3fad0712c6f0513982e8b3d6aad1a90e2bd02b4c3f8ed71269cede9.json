@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Ever since @115940 updated , I cannot get thru a single episode of anything without it crashing <link>\n    brand: Oh no! We came here to help, not fight. Try: <link> Let us know the device and error if that doesn't work.\n\n[1] customer: The new @115940 @127972 app is awful and I need them to return to the old ways. I want to view all episodes, not watch a random one.\n    brand: You should be able to access all content from the series page by navigating to \"Episodes\". Try watching: <link>\n\n[2] customer: hey, @115940 why does the episodes of Plebs keep shutting down? I get a weird message that says the application is too large and it's going to be terminated? Seems a little drastic.\n    brand: Sorry to hear about the trouble, Libby! What device are you experiencing this on? Are all episodes of Plebs affected by this?\n\n[3] customer: this @115940 is making me mad. everytime i watch a show it stops and says theres an error and i have to restart the episode 50 times 😑\n    brand: Eek! That's no good. If still happening, try: <link> Call/chat for further help (<link>\n\n[4] customer: Uhh, @115940 you broke? You keeping recording an episode I’ve watched and deleted.\n    brand: That shouldn't be! Which content is affected and are you able to delete the content from a different Live TV device?\n\nNew message:\nSeriously @115940, there's no way to restart an episode on FireTV without manually rewinding the whole thing? That's a pretty gigantic UX fail.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 528,
+  "completion_tokens": 18
+ }
+}

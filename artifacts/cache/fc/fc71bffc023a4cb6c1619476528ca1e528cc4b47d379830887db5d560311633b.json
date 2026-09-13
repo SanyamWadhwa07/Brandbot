@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Dear @115940 and @hulu_support, why do I need to tell you who is watching when I only have one profile? It's an annoying extra step.\n    brand: Thanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!\n\n[1] customer: Has a lot of work to do with their live tv service.. I think i've watched the same clip 30 times during crappy buffering..\n    brand: Yikes! That's no good. What device and channel are affected? Let's see if these make a difference for you: <link>\n\n[2] customer: There is only one profile on my hulu, so why does it keeps asking me which profile do I want? This only happens on firestick, not my tablet or phone. If there is only 1 profile it should just go directly to that profile.\n    brand: Apologies for any frustration, Erin! We'll share your feedback while we work to make improvements: <link> 💚\n\n[3] customer: Why is that I can make multiple profiles yet only 1 person at a time can use your service?I can run 5 profiles all @ once on @116602\n    brand: Sorry for any disappointment! Our base plan allows for one stream at a time due to rights: <link>\n\n[4] customer: Old setup was better. It was easier to find shows/movies to watch. Visually more appealing.\n    brand: Sorry for any frustration! Improvements will continue based on viewer input like yours: <link>\n\nNew message:\nIt's messier than before, especially with multiple people watching shows on the one profile <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for any frustration! Improvements will continue based on viewer input like yours: <link> 💚\", \"used\": [4]}",
+  "prompt_tokens": 504,
+  "completion_tokens": 40
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: guys. Do y’all update your app on Samsung tv’s? I can’t use the profile feature and my roommates are ruining my queues :(\n    brand: Hey Larry! Profiles are still being rolled out across different devices. We'll be sure to share the interest w/Samsung TVs!\n\ncustomer: Smart tvs don’t support the Hulu update and I can’t toggle between profiles on my tv like I can on other devices.\n    brand: Apologies for the delay. For a list of Profiles enabled device, check out: <link> We'll share the request!\n\ncustomer: is there a way to switch profiles on a smart tv?\n    brand: Hey Jennifer! Profiles are available on select devices at this time: <link> We hope to support more in the future!\n\ncustomer: how do I upgrade my account to Hulu live tv?!\n    brand: Great question! To add Live TV to your account, please try these steps from a browser on a PC/Mac: <link>\n\ncustomer: There's no option to change profile on your app on my kindle and laptop. When i log watch it on chrome, it buffering @115940 @hulu_support\n    brand: Apologies! Profiles is available on: <link> Is the buffering affecting all content? Try: <link>\n\nCustomer message:\nI use the Samsung tv Smart Hub version of your app but don’t see a way to change account profiles on it. Can you provide any info on this?\n\nDraft reply:\nHey! Profiles are still being rolled out across different devices. We'll be sure to share the interest w/Samsung TVs! For a list of Profiles enabled devices, check out: <link> We hope to support more in the future!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's question accurately.\"\n}",
+  "prompt_tokens": 605,
+  "completion_tokens": 61
+ }
+}

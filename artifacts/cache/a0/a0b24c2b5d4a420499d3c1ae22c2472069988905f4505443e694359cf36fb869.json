@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: any chance your live tv will get better? I continue to have outages, Which means I won't continue to pay $45 a month.\n    brand: Sorry, Vincent! We're investigating this and we'll be sure to share the feedback to make improvements to our service.\n\n[1] customer: not working on Apple TV or iPad. Paying $13.99 a month but not been able to watch for last 2 days. Not good enough.\n    brand: That shouldn't be the case Paula! We'd love to help. Please let us know if these troubleshooting tips help: <link>\n\n[2] customer: @115940, every night your service goes down. You're going to lose a ton of customers if you don't figure out what you're doing wrong. Hint: provide better streaming to us, your customers, or face the consequences, ie, cancellations.\n    brand: Let's see if we can help, David! Which device are you using to stream? Are you subscribed to Hulu with Live TV? Standing by.\n\n[3] customer: If I could have $1 everytime my @115940 app crashed on my tonight, I could pay for a 2 month subscription. @hulu_support\n    brand: Oh no! Which device is this occurring on? Does it crash during ads or upon app start? Try these: <link>\n\n[4] customer: i’m about to cancel my subscription. this happens every 2 minutes no matter what i watch. @116602 works just fine as well as every other app on my TV <link>\n    brand: We're sorry to hear about the trouble &amp; would love to help! What device is in use? For now, start here: <link>\n\nNew message:\nwhen will my monthly rate come down",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 527,
+  "completion_tokens": 18
+ }
+}

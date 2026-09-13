@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hi, getting error code BYA-403-005 on live local Fox network (KDVR) since last night. Fix for this? <link>\n    brand: Oh no! We'd love to help. Try: <link> If that doesn't fix it, let us know which devices are affected.\n\n[1] customer: I've got error code: BYA-403-024 trying to watch my local NFL game. Hulu Help site says it should work on Chromecast. Explain.\n    brand: Sorry! Live NFL coverage is not currently permitted on mobile devices: <link> Games are only available after-air.\n\n[2] customer: what is going on? 2nd time/week this happens- commercials, and error code Bya-403-006. Happens on cell data on all iOS #wtf\n    brand: Hi Kim! What show/ep were you trying to watch that resulted in this error? Did it require on of our Premium Add-ons by chance?\n\n[3] customer: Hi @hulu_support tried to watch my show on my android and I got a error code BYA-403-0009. Tried manage devices but the link is mislead. Thx\n    brand: Oh no! You can review and remove devices at: <link> For streaming issues, try these: <link>\n\n[4] customer: getting a code BYA-403-010 What does it mean? I am using @127972 #Frustrated I can't watch my game!\n    brand: Apologies, Pete! Connect w/ us via live chat: <link> so we can gather more info and get you back to the game ASAP.\n\nNew message:\nI am getting error code BYA-403-007. What the heck, I don’t pay extra to watch error screens. I hope there is a refund coming back to your subscribers.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Oh no! We'd love to help. Try: <link> If that doesn't fix it, let us know which devices are affected.\", \"used\": [0]}",
+  "prompt_tokens": 559,
+  "completion_tokens": 48
+ }
+}

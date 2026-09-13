@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why isn't @18004 Springfield of Dreams on @115940\n    brand: Hi! We don't currently have the rights, but we'd be happy to share your interest in seeing it available!\n\n[1] customer: Can someone explain to me why @115940 has Dragon Ball &amp; Dragon Ball GT but not Z? #disappointed\n    brand: We don't currently have the rights to DBZ, but we'll be sure to share the interest with our content team!\n\n[2] customer: ¿Why isn't The Fresh Prince on @116602 or @115940 or anything?\n    brand: Hi, Arturo! Hulu here. 👋🏽 We'd love to let our content team know you're ready for The Fresh Prince to arrive on Hulu! 💚\n\n[3] customer: Yo, why isn’t TeenTitans on @116602 or @115940 ? Who can add it first? Bragging rights for the winner???\n    brand: Hi, Audrey! Hulu here. 👋🏽 No word on acquiring Teen Titans just yet, but we'll let our content team know of your interest!\n\n[4] customer: why isn’t @9354 on @115940 anymore😡?!\n    brand: This show isn't available through our base plans, but you can catch new episodes via live TV service: <link>\n\nNew message:\nOk also why isn't Elf on Hulu? @115940 please advise also.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 479,
+  "completion_tokens": 18
+ }
+}

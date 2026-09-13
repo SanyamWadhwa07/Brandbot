@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: i have an error code: cdn-2-7b82af5c. pls advise\n    brand: Sorry for the delay! We had some issues with Live TV two nights ago, but all should be good now. Thanks for bearing with us!\n\n[1] customer: my xbox one is consistently giving me Playback Failure and error code cdn-2-b3ccda54 with everything I try and play. I're tried installing the app and even did a hard reset on my xbox and I still cannot resolve this.\n    brand: Sorry! Make sure you've tried everything here: <link> If the issue persists: <link>\n\n[2] customer: having problem s with my account... keep getting code. cdn-2-e083ae55. It's not my internet. Happening on Syfy and travel channel\n    brand: Apologies! We had an outage which has since been resolved: <link> Still running into this? If so, what device?\n\n[3] customer: why do I keep getting this error: cdn-2-d2aead01? There is nothing wrong with my internet connection btw.\n    brand: Sorry for the delay, Jason! Were you using live TV perhaps? If so, it sounds like you were affected by a known issue we've fixed.\n\n[4] customer: Hey @115940 network error has occurred. Service cannot be accessed at this time. reference code 300? happens quite often. cancel Hi @116602\n    brand: We're sorry to see you go! If you'd like us to look into this, feel free to contact us by phone or chat: <link>\n\nNew message:\nHey @115940 , if I get error code cdn-3-2c91e5a6 I think I going to have a BF",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 537,
+  "completion_tokens": 18
+ }
+}

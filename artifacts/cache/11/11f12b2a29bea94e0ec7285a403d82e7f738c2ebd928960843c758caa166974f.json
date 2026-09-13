@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: yo, why do y'all require a gender selection when creating an account? And why in the hell in 2017 would you make it binary? <link>\n    brand: Thanks for your feedback! We understand your concern and will be introducing changes to this in the near future.\n\n[1] customer: Hey @115940, kinda sexist, asking for my gender on signup. Why stereotype? @116602 hasn’t asked me that. At least it wasn’t biological sex.\n    brand: Hi, Mari! We understand your concern and appreciate the feedback. We’re working to make changes in the future.\n\n[2] customer: Hey! I was wondering why you don't have a neutral gender option when signing up for an account?\n    brand: Thanks for your feedback, Keifer! We understand your concern and will be introducing changes to this in the near future.\n\n[3] customer: it's chill that y'all seem to be LGBT positive with your content and ads, but it not gr8 that you only offer 2 gender options\n    brand: Thanks for your feedback, Margaret! We understand your concern and will be introducing changes to this in the near future.\n\n[4] customer: It's profoundly disturbing that @115940 wants to know my gender for a \"more personalized experience\". More like stereotyped experience.\n    brand: Thanks for your feedback, Claire. We understand your concern and will be introducing changes to this in the near future.\n\nNew message:\nI have to give you a binary gender to sign up for an account so you can make sexist (and, presumably, heterosexist) assumptions about my viewing habits? Gross, Hulu. Not a good start.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Thanks for your feedback! We understand your concern and will be introducing changes to this in the near future.\", \"used\": [0, 1, 2, 3, 4]}",
+  "prompt_tokens": 501,
+  "completion_tokens": 52
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: What’s going on @115940!? First a horrible redesign now ads that constantly require interaction, remind me why I’m paying for this?\n    brand: We're always trying to improve, so we'll share your feedback, Cameron. Anything specific you aren't loving w/the new interface?\n\n[1] customer: The new @115940 @127972 app is awful and I need them to return to the old ways. I want to view all episodes, not watch a random one.\n    brand: You should be able to access all content from the series page by navigating to \"Episodes\". Try watching: <link>\n\n[2] customer: So @115940 stop putting the new episodes of Star on there...?\n    brand: Hey there! Star, Simone and Alex have been on a mini vacation. They'll be back tomorrow &amp; we'll have the new episode next-day. 👍🏻\n\n[3] customer: Tell me I’m not the only one who hates the @115940 redesign. Sure, it looks pretty, but it’s less user-friendly. Can’t browse shows quickly😪\n    brand: Oh no! We're working to make improvement based on viewer feedback. Have you already seen: <link> ?\n\n[4] customer: Shoutout to @115940 for having the worst redesign ever! Instead of watchlist up top, I click through four different pages to watch a new ep.\n    brand: Hiya! For shows you keep track of, head to My Stuff to pick up where you left off &amp; find new eps: <link> 👍\n\nNew message:\nOmfg @115940 the new design is fucking horrible. Why change something that’s working? I wanna see where I left off and shows that I’m watching with new episodes, and just everything like how it was before.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hiya! For shows you keep track of, head to My Stuff to pick up where you left off & find new eps: <link> 👍 We're working to make improvements based on viewer feedback.\", \"used\": [4, 3]}",
+  "prompt_tokens": 549,
+  "completion_tokens": 64
+ }
+}

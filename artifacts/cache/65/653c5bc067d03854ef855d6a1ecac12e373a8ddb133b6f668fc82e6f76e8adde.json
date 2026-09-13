@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Umm why doesn’t @115940 have the finale of Will and Grace? There’s 2 episodes missing from season 8.\n    brand: We do! Catch up on those episodes here: <link> and here: <link> Happy streaming!\n\n[1] customer: So @115940 doesn't have the original Will and Grace finale as part of season 8 and instead relegated it to the \"clips\" section.\n    brand: Not to worry! You can find the two part finale under the \"Clips\" section: <link> We hope this helps!\n\n[2] customer: Why aren't the last two episodes of season 8 of #WillandGrace on @115940 ?\n    brand: Hey, Breana! The 2-part finale is under Clips/Extras, depending on your device. Let us know if there's any trouble from there!\n\n[3] customer: where is the season 8 finale of Will &amp; Grace!!!! I MUST KNOW!! @1662 @119737\n    brand: Apologies! The 2nd half of the finale is located under Extras or Clips. If autoplay is enabled, it should play after the 1st half.\n\n[4] customer: .@115940 Why are Will &amp; Grace season 8 finales missing from Hulu??? What the fluff?\n    brand: Don't worry, honey! We've got them. Head to the Clips or Extras section (depending on your device) to find the 2-part finale.\n\nNew message:\nOkay but WHY is the season 8 finale oh Will and Grace not on Hulu with the rest? @115940?????????????",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 510,
+  "completion_tokens": 18
+ }
+}

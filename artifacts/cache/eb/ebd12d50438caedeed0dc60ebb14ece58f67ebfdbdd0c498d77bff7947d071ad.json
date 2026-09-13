@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: the World Series is unwatchable on live. It keeps jumping back to earlier in the game at random.\n    brand: Hey, Ross! Sorry about last night. Things are running much smoother now. If ever needed we offer: <link> too. 👍🏽\n\n[1] customer: Why the hell does Hulu keep cutting out and reloading every time I try to watch The Good Place and Superstore?\n    brand: Sorry about that! On what device is this happening? Do any errors pop up? Please start with these steps: <link>\n\n[2] customer: yo A&amp;E keeps playing reloading and playing the same 3 sec back l2-3 times then plays normal for a min and repeats\n    brand: Uh oh! What device is in use? Any errors pop up? Please power off your device for 1-2 minutes then uninstall/reinstall our app.\n\n[3] customer: any idea why I keep getting a playback failure when I try to watch the Cubs game? If I go to another live channel it works.\n    brand: There was an issue but we were able to resolve it quickly. Try streaming the game now and let us know if you have any trouble.\n\n[4] customer: watching Cubs game last night. Would watch then the stream would go back 1s and play again repeatedly did this all night.\n    brand: Sorry about that, Adam! We've received similar reports regarding this and we're currently investigating last night's game.\n\nNew message:\nEN2 keeps skipping back and replaying same video of WI/VA game. We turned it off. On to Netflix now. What the heck????",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Sorry about that! We've received similar reports regarding this and we're currently investigating. Please power off your device for 1-2 minutes then uninstall/reinstall our app.\", \"used\": [2, 4]}",
+  "prompt_tokens": 483,
+  "completion_tokens": 57
+ }
+}

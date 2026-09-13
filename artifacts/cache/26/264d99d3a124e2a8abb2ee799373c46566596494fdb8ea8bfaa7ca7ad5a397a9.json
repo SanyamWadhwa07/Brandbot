@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why is my Hulu account showing ads? I pay for no commercials and it's not any of the commercial list.\n    brand: Apologies! Are you still seeing ads? If so, please reach out to us here: <link> We'll take a look on our end\n\n[1] customer: i pay for no ads so why am i seeing ads 😒\n    brand: Sorry for the trouble, sounds like: <link> If this continues please let us know the show, season, and episode.\n\n[2] customer: why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?\n    brand: King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>\n\n[3] customer: why does @3143 have commercials when I pay for no commercials?!\n    brand: Hi! Are you watching a recorded version of the episode from your DVR: <link> ?\n\n[4] customer: help me understand how I pay for no commercials, yet im getting commercials 4 times in between Once Upon A Time??? why??\n    brand: Sorry! Due to streaming rights Once a Upon a Time is not included on our No Commercials plan at this time: <link>\n\nNew message:\nwhy am I seeing commercials when i pay for no commercials?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for the trouble! Are you still seeing ads? If so, please reach out to us here: <link> We'll take a look on our end.\", \"used\": [0]}",
+  "prompt_tokens": 427,
+  "completion_tokens": 52
+ }
+}

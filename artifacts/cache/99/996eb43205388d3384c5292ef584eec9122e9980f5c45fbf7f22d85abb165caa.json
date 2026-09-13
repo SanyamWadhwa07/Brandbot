@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @hulu_support - I don't need separate profiles since I'm the only one using my account. Is there a way to disable profiles?\n    brand: Morning! Not a way to disable the feature. Are you being prompted to create a second one?\n\n[1] customer: Dear @115940 and @hulu_support, why do I need to tell you who is watching when I only have one profile? It's an annoying extra step.\n    brand: Thanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!\n\n[2] customer: Dear @hulu_support, I have only one profile. Stop making me confirm it every time I open the app. thx #roku #ux\n    brand: Apologies for any frustration! We'll share your request while we continue working to implement feedback: <link>\n\n[3] customer: .@hulu_support any reason I have to confirm my profile every time I start app.... I only have the one profile....\n    brand: Apologies, Michael! We'll be sure to share your input with our team. We're continuing to make improvements!\n\n[4] customer: If I could have $1 everytime my @115940 app crashed on my tonight, I could pay for a 2 month subscription. @hulu_support\n    brand: Oh no! Which device is this occurring on? Does it crash during ads or upon app start? Try these: <link>\n\nNew message:\ncan i stream two profiles at once with the basic subscription of $7.99? @hulu_support",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 484,
+  "completion_tokens": 18
+ }
+}

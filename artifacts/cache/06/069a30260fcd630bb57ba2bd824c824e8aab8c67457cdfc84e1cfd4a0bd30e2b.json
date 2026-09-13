@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I’m having major Hulu problems\n    brand: Hulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link>\n\ncustomer: still problems with World Series! So much for the fix\n    brand: Oh no! What sort of issues are you running into and what device. We have it on here in-house and haven't noticed anything odd.\n\ncustomer: I have a problem! Can some one DM me?\n    brand: We'd love to help, so let us know more details! For 1:1 support, please reach out by phone or chat: <link>\n\ncustomer: Experiencing any service problems?\n    brand: Sorry for the delay, Steve! Are you still having trouble? Let us know device &amp; more info. Start with: <link>\n\ncustomer: is Hulu having issues right now?\n    brand: Sorry for any trouble! We had some network issues this weekend, but things should be resolved now. Please reboot and retest.\n\nCustomer message:\nHulu problems 🙄\n\nDraft reply:\nHulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link> Let us know your device &amp; more info!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and effectively gathers necessary information to assist the customer.\"\n}",
+  "prompt_tokens": 510,
+  "completion_tokens": 62
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: yall prolly not gonna get naruto shippuden dubbed huh?\n    brand: Hi! We do have some dubbed episodes available, but we can definitely share your interest in seeing more on our service!\n\ncustomer: why is only the first 2 season of naruto shippiden dubbed, the dubbed is already on episode 314?\n    brand: Hey there! We only have the rights to stream select dubbed episodes at this time, but we'll share your request with our team.\n\ncustomer: can we get more dubbed episodes of naruto shippuden because it’s been a minute\n    brand: We're happy to put in a request for more on your behalf! Make sure you keep the series in Watchlist/My Stuff for updates. 👍🏻\n\ncustomer: why is there no naruto shippuden dubbed seasons 3 through 9 at all its been on hulu for a long time now an no dub\n    brand: Sorry! Eps have been expiring on our base plans (<link> but they are still offered on Hulu w/Live TV.\n\ncustomer: when are u guyes gonna get the rest of the episode of Naruto shippudian dubbed there’s only 98 out of 500\n    brand: Hi! No news on this at the moment, but we'd be happy to share your interest with our content team here!\n\nCustomer message:\nhey when are y’all getting more dubbed naruto shippuden?\n\nDraft reply:\nHi! No news on this at the moment, but we'd be happy to share your interest with our content team here!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's inquiry accurately.\"\n}",
+  "prompt_tokens": 572,
+  "completion_tokens": 61
+ }
+}

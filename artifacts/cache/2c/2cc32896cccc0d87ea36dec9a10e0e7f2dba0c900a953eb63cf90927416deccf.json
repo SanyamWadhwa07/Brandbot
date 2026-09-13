@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: How can I Add HBO from Apple Tv or iPad or iPhone? i am using iTunes to subscribe and i cannot change the subscription or add\n    brand: Hi Mohammad! To add HBO, you will need to switch to a Hulu-billed account. For full instructions, see: <link>\n\ncustomer: I want to stop using PayPal. Why don't you support other payment methods, like Amazon Payments or Google Wallet??\n    brand: Apologies for the delay. We can certainly share the request. For now, check out our billing options: <link>\n\ncustomer: can I watch Hulu from Kuwait in I subscribe?\n    brand: If you receive internet access from an oversees military base, yes. Otherwise, we don't have rights to stream outside of the US.\n\ncustomer: I'm paying for HBO but can't seem to use it on my Apple TV. Any advice? Or how do I shut off the HBO and not waste $?\n    brand: HBO is only available on 🍎TV4 at this time (<link> If you have an older model, see: <link>\n\ncustomer: Hi, login to other TV apps with HULU subscription is a nice feature. Could you add that for CNNgo (Apple TV) as well ? Thx\n    brand: Thanks for the support! No word on CNN go yet, but we can certainly pass along the request to our content and our developers. ✅\n\nCustomer message:\nHi May I suscribe to use Hulu from Buenos Aires.TY\n\nDraft reply:\nIf you receive internet access from an overseas military base, yes. Otherwise, we don't have rights to stream outside of the US.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply accurately reflects the brand's policy on international streaming as established in previous responses.\"\n}",
+  "prompt_tokens": 578,
+  "completion_tokens": 63
+ }
+}

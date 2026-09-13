@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: please add @13668, @122354 and @13669 to Hulu live\n    brand: Hi, Xavior! We're always looking to connect our viewers to as much of the content they love. We'll share your requests!\n\n[1] customer: when do you plan on adding CBS to #livetv. It's a toss up between you and @127550\n    brand: It's available live in some areas! We're always working to expand—be sure to keep an eye on: <link>\n\n[2] customer: I’d hate to go back to @115946 and @186141 but @115940 live isn’t cutting it on a @127972 4 Ultra.\n    brand: Our app is a bit more demanding due to technical differences. After change after: <link> including general steps?\n\n[3] customer: What’s the point of having @115946 or @115940 live tv if that shit lags no matter if you have the best damn internet available??? So stupid 😡😒\n    brand: That's not what we like to hear about! Try working through: <link> to see if it smooths out playback.\n\n[4] customer: when will you add @20517 channels to your live channels package?!? Like @30408 and @224379 !! I️ NEED @2443 <link>\n    brand: Good morning, Mark! We're always open to suggestions like this, so we'll be sure to pass those network requests along the the team.\n\nNew message:\nplease add #NFLRedZone @9833 @331517 to your live tv. This will make it too notch of the other guys. Oh and maybe @196559 please and thank you",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hi! We're always open to suggestions like this, so we'll be sure to pass those network requests along to the team. Thanks for the feedback!\", \"used\": [0, 4]}",
+  "prompt_tokens": 555,
+  "completion_tokens": 53
+ }
+}

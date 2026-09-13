@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Please fix your freakin ads! I pay you every month to watch a few shows and you rob me with ads!\n    brand: Apologies, Robert! What specific trouble are you having and on which device? Are specific ads to blame? Just let us know!\n\n[1] customer: I pay for no ads and I’m being forced to watch ads. Why. #pissed\n    brand: A few shows are not included in this plan: <link> Reach us: <link> &amp; we'll check it out!\n\n[2] customer: Yo @115940 why are there ads if I'm paying for the service?\n    brand: Good question! Ads help us offer brand new episodes for $7.99/mo. We also offer a No Commercials plan: <link>\n\n[3] customer: Paying for #Hulu $40/mo but still being forced to watch ads?! How greedy can you be?! Definitely spreading the word. #unsub\n    brand: We're sorry to hear about any frustration! Ads are included with live TV and network on-demand content: <link>\n\n[4] customer: hey there. I pay for the most expensive subscription but all of a sudden you’re running ads on my account. Wassup w that? #noadspls\n    brand: Sorry! To confirm, do you have the Live TV service? If so, which shows (season/eps) are you seeing ads? We're standing by.\n\nNew message:\nProtip: if you’re going to make me pay for a service and watch ads, DON’T MAKE ME WATCH THE SAME ONE EVERY SINGLE BREAK. #mostannoying #netflixisbetter",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 497,
+  "completion_tokens": 18
+ }
+}

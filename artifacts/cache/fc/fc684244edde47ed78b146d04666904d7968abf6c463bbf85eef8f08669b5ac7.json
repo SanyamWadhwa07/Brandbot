@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when I watch always sunny, my captions move too quickly and are not matched up with the speech. Can you fix it please?\n    brand: Oh no! Which device do you use &amp; which eps? For now, try rebooting your device+modem/router. Any change afterwards?\n\n[1] customer: just wondering why SNL's closed captions are always messed up, either ahead or behind the speech.\n    brand: We'd love to look into this, Jay! Do you have an example from a certain ep with a rough timestamp? Which device are you using?\n\n[2] customer: This is the third time I've started a program and the captions timing are off.\n    brand: Apologies, Eric! Please let us know the content affected and the specific device you're streaming from. We'll investigate!\n\n[3] customer: watching the 1st ep to the 2nd season of #ThisIsUs . the captions timing is way off and needs adjustment.\n    brand: Hey Eric! Which device do you use to stream? If you try a quick device+modem reboot, notice any improvement after?\n\n[4] customer: I want Hulu to hire me to fix the captions for Atlanta. “girl, you are sumn else”. white interpretation: “girl, you are some mess.” 🤦🏾‍♀️\n    brand: Thanks for pointing this out to us! The captions for Atlanta have been revised. Let us know if you have further questions.\n\nNew message:\nthe captions on it's always sunny are messed up- they're incorrect but also cutting off early in the middle of a word in the middle of a sentence.. please fix it!!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! Which device do you use &amp; which eps? For now, try rebooting your device+modem/router. Any change afterwards?\", \"used\": [0]}",
+  "prompt_tokens": 492,
+  "completion_tokens": 50
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @115940, I keep hearing these ads for #hululive which are useless since the new update constantly crashes my Fire TV stick @hulu_support\n    brand: Sorry to hear that, Christine! Let's see if we can help. Try these steps: <link> and <link>\n\n[1] customer: Seroiusly, @115940 @hulu_support, your new rollout is buggy AF\n    brand: Sorry for any frustration! Anything in particular you're having trouble with? Let us know as we'd love to assist!\n\n[2] customer: “COOL” feeling when @115940 @hulu_support tell u “we do not send out email comm” when “known issue” that IT is aware of is resolved...#wow <link>\n    brand: Sorry for any frustrations! While this isn't something we're able to do at this time, we understand &amp; will share your experience.\n\n[3] customer: Guess @115940 @hulu_support doesn't care that much about their customers. A week later and STILL no resolution to my #HuluLive problems. <link>\n    brand: Sorry to hear this has continued, Adam. We're you able to give our team a call or chat using: <link>\n\n[4] customer: Just cancelled my @115940 account, they have proven they don't care about their customers with their new terrible UI @hulu_support\n    brand: We're sorry to have lost you! 😩 We'd love to gather any specific feedback you have for our devs here: <link>\n\nNew message:\nYour updates are absolute trash @115940 @hulu_support. I know you dont care b/c Ive read the message boards, &amp; you do nothing that the customers ask for. But wow.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Sorry for any frustrations! We understand &amp; will share your experience.\", \"used\": [2]}",
+  "prompt_tokens": 538,
+  "completion_tokens": 34
+ }
+}

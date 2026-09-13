@@ -138,7 +138,37 @@ The other finds the nearest past message and sends whatever the brand replied th
 Neither costs a token. That is the point: the report has to show the classifier and
 the drafter buy something that plain search does not already provide.
 
-**18. `eval --replay` reads committed run records rather than re-running anything.**
+**18. The agent reads one message, and the cost of that was measured rather than assumed.**
+
+36.7% of customer messages in this corpus are follow-ups rather than openings, and
+39.7% of those cannot be understood alone: "still broken", "on roku", "yes". So
+roughly one inbound message in seven is unclassifiable without its thread. That is a
+real hole and the report states the number.
+
+It was not filled, for a reason that is about evidence rather than effort. The
+golden set is 220 opening messages, so there is no labelled follow-up anywhere in
+the project and no way to show that thread context helps. Shipping an unmeasured
+feature into a submission whose stated thesis is that the proof matters more than
+the system would be the wrong trade.
+
+Worth noting what the fix is not. A whole conversation here runs to a median of 42
+words and 207 at the 99th percentile, so the entire thread fits in a prompt. There
+is nothing to summarise, window, or store, and a conversation-memory component would
+be machinery for a problem this data does not have.
+
+**19. No orchestration framework, and no vector database.**
+
+The model layer is one function that checks a cache, refuses to go live during
+replay, retries, validates the schema and records spend, in about 120 lines. A
+framework would wrap that in abstractions chosen by someone else, and the brief says
+the code has to be explained and modified live.
+
+The index is 9,859 vectors of 768 dimensions, 29MB, searched with one numpy dot
+product in a few milliseconds. FAISS or a hosted vector store earns its place at a
+million vectors; here it would be a dependency, a service and a failure mode in
+exchange for nothing.
+
+**20. `eval --replay` reads committed run records rather than re-running anything.**
 
 Re-running the pipeline against a response cache would still need embeddings, which
 needs a local model server. Reading the recorded runs needs nothing but the files in

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: wanna be Champs? Make it so we can download things to our device!\n    brand: Excellent suggestion! We'll download the request and send it over to our developers.\n\ncustomer: when will @115940 let us download stuff\n    brand: Hey! We don't offer offline streaming at this stage, but we understand the benefit it could bring. We'll share your interest!\n\ncustomer: Hey @115940 I’m gonna need you to get a download option for my phone..k thanks 💁🏼\n    brand: Hi there, Maegan. Great suggestion! We'll be sure to share the interest in an offline viewing/download option w/our dev team!\n\ncustomer: Hulu for Switch should give us the option to download TV episodes and movies for offline viewings. Would be great when taking the Switch on the go aka all the time. @115940 @hulu_support\n    brand: Great suggestion, Michael! We'll be sure to share the interest in this feature with out dev team!\n\ncustomer: Hulu live is absolute poop. Deleted and downloaded again on Apple TV. Nothing live coming thru. Going back 2 cable next month.\n    brand: So sorry for the trouble! Our team is investigating issues with live playback/working on a fix. Apologies for the frustration!\n\nCustomer message:\nwe need a download button🤗\n\nDraft reply:\nGreat suggestion! We don't offer offline streaming at this stage, but we understand the benefit it could bring. We'll share your interest in a download option with our dev team!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's request appropriately.\"\n}",
+  "prompt_tokens": 571,
+  "completion_tokens": 61
+ }
+}

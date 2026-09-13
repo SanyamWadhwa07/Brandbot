@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when will season 14 episode 1 of KUWTK be available?\n    brand: Hi there, Macky! No news to share on adding S14 at this time, but we'll share your interest with our team. 💜\n\n[1] customer: when will Top Chef season 14 be on hulu?? I am anxiously waiting.\n    brand: Hey Jana! We're big fans of the show too, but no news to share on S14 right now. Keep an eye on this pg: <link>\n\n[2] customer: FIX YOUR SHIT BRO I DONT PAY 14 DOLLARS A MONTH TO SEE ERROR ON MY TV\n    brand: Apologies! If ERROR appears while casting, restarting your device should resolve it. Let us know if you have any questions.\n\n[3] customer: So when is the new season of Rick and Morty going to be on @115940\n    brand: We have the newest season of Rick and Morty on Hulu live. ⚡️ Our base plans typically have access soon after it airs on TV.\n\n[4] customer: Question. Is the new season of Supernatural going to Hulu? It would be season 13.\n    brand: We're not able to offer the show on our on-demand plans. We're able to make select eps available with our new Live TV plan.\n\nNew message:\nDo you know when Keeping Up With The Kardashians Season 14 will be on Hulu?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hi there! No news to share on adding S14 at this time, but we'll share your interest with our team. 💜\", \"used\": [0]}",
+  "prompt_tokens": 454,
+  "completion_tokens": 47
+ }
+}

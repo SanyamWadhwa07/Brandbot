@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: app for Samsung tv not streaming... why?\n    brand: Apologies! This is a known issue we're investigating. Please let us know if the following steps help: <link>\n\n[1] customer: will you be offering 4K streaming on the new #appletv\n    brand: 4K streaming currently isn't supported on this device, but we'll definitely express your interest in seeing it in the future.\n\n[2] customer: is there any way to stream a show within the app to a smart tv from an iPhone?\n    brand: Although we don't currently support HDMI or Airplay from phone to TV, you may be interested in Chromecast: <link>\n\n[3] customer: streaming working on my phone, not on devices connected to the tv. Looking for FS1. Help? Go Sounders!\n    brand: Sorry about that, Chris! We experienced a brief issue that was resolved. If you still need a hand w/ the FS1 feed let us know!\n\n[4] customer: I am not able to stream on any device. PC, phone, fire stick, Chromecast. Network is fine on my end. What is the issue?\n    brand: Apologies, Alexander! For each device try: <link> If no improvement chat w/ us here: <link>\n\nNew message:\nDo you offer 4K streaming? If yes via the Amazon Fire Tv device or built in app on Samsung tv? Thx",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 443,
+  "completion_tokens": 18
+ }
+}

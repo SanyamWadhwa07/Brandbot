@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I’m having major Hulu problems\n    brand: Hulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link>\n\n[1] customer: still problems with World Series! So much for the fix\n    brand: Oh no! What sort of issues are you running into and what device. We have it on here in-house and haven't noticed anything odd.\n\n[2] customer: I have a problem! Can some one DM me?\n    brand: We'd love to help, so let us know more details! For 1:1 support, please reach out by phone or chat: <link>\n\n[3] customer: Experiencing any service problems?\n    brand: Sorry for the delay, Steve! Are you still having trouble? Let us know device &amp; more info. Start with: <link>\n\n[4] customer: is Hulu having issues right now?\n    brand: Sorry for any trouble! We had some network issues this weekend, but things should be resolved now. Please reboot and retest.\n\nNew message:\nHulu problems 🙄",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Hulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link> Let us know your device &amp; more info!\", \"used\": [0, 3]}",
+  "prompt_tokens": 376,
+  "completion_tokens": 63
+ }
+}

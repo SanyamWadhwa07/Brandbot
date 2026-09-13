@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\n[1] customer: .@115940 y’all have a replay issue. Buffering on live tv &amp; sound/ picture sync after commercials\n    brand: Sorry about that! Which device do you use+which channel? If you try a quick device+modem/router reboot, any change?\n\n[2] customer: My only complaint with @115940 is when it comes back from commercial it doesn't resume where it left off. It starts back 5min before the commercial began. Fast forwarded to get back. Had to watch commercials 3 times before it was back to the right spot. 😲\n    brand: Oh no! Which device does this occur on, Scott? Let's see if these steps help out: <link> Any improvement?\n\n[3] customer: this pops up at the first commercial break on every show I try to watch. My internet connection is fine. What do I do now? <link>\n    brand: Apologies! Are you using a Vizio? If so, this is a known issue. We'd love to grab more details here: <link>\n\n[4] customer: The Apple TV Hulu app keeps jumping back a whole segment after the commercial break. Then, when I fast forward, I have to watch the same commercial break again. Watching @115940 has become sisyphean task.\n    brand: Sorry, Matt! What's your ATV model: 2, 3, or 4? Is this during live TV or on-demand? Do these steps: <link> help?\n\nNew message:\nhave a sync problem during commercials and running into shows recorded on DVR. <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry about that! Which device are you using? Please follow up here: <link> with the device in use and content affected so we can take a closer look.\", \"used\": [0]}",
+  "prompt_tokens": 576,
+  "completion_tokens": 53
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: pleaseeeee please please put spongebob (all the seasons) on @115940 or @116602 PLEASE\n    brand: Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍\n\ncustomer: I wish @115940 would add episodes more quickly, dying to see 1x05 of @6311.\n    brand: Sorry for the delay! We're working to post the newest episode as soon as possible. We appreciate your patience.\n\ncustomer: if @115940 or @116602 dont pick up spongebob i'm cancelling\n    brand: We'd hate to lose you! 😭 We don't have any information about Spongebob or his pants, but we'll alert Squidward and Patrick.\n\ncustomer: hey @115940 @6734 - why are new @212203 episodes added next day but @180004 episodes aren’t?\n    brand: Streaming rights vary from show to show, not necessarily by network. With that being said, we think Bevers is to blame. 😉\n\ncustomer: I wish that @116602 and @115940 had a “random episode” button for TV series. I’d use it all day long.\n    brand: Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!\n\nCustomer message:\nMy life would drastically improve if one of you added spongebob episodes @116602 @115940 Jusssayin.\n\nDraft reply:\nHulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see Spongebob on Hulu in the future! 🍍 We'd hate to lose you! 😭 We don't have any information about Spongebob or his pants, but we'll alert Squidward and Patrick.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft combines two established, brand-appropriate responses into one coherent reply.\"\n}",
+  "prompt_tokens": 692,
+  "completion_tokens": 60
+ }
+}

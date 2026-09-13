@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why does this keep happening? My WiFi is working just fine. <link>\n    brand: Apologies for the trouble! If this continues after: <link> please follow up here: <link>\n\n[1] customer: what is this message talking about? It doesn’t make any sense to me <link>\n    brand: We're glad to hear you're good to go, David! For more info on your Home network, check out: <link> 😊\n\n[2] customer: why do I keep getting this message? <link>\n    brand: Apologies for the trouble! We had a few network issues this weekend, but things should be back up now. Please reboot/retest.\n\n[3] customer: what’s up? It’s been doing this for three days <link>\n    brand: Oh no! If this still occurs, try: <link> If no improvement, please contact us here: <link>\n\n[4] customer: Mine is back up and working now! <link>\n    brand: Sorry for the delay! We're glad to hear that you're back up and streaming. If you happen to need us again, we'll be here. ✅\n\nNew message:\nwhat is this next up non-sense and how do I make it go away? <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 411,
+  "completion_tokens": 18
+ }
+}

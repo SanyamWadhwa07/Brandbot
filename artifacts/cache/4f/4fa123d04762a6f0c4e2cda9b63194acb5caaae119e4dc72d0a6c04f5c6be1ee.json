@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I am trying to renew my subscription for Hulu so I can connect my Spotify to it. It's not letting me. Can you help?\n    brand: Hi Victoria! Are the email addresses on the accounts the same? Check out the tips and steps we have here: <link>\n\n[1] customer: I have a question about what to do in the issue of my TV subscription experiencing outages. Can you please DM me?\n    brand: We're here to help, Samantha! Call/chat (<link> if these don't take care of it: <link>\n\n[2] customer: I’m trying to restore my subscription. I got the email saying I did but when I try to log in I get an error message.\n    brand: Sorry! Try uninstalling/reinstalling the app. Still seeing the error? Chat w/ us <link> for further support.\n\n[3] customer: Hulu is saying I have to renew my subscription but I'm already subscribed and I can't log into my account or ask for help\n    brand: Apologies for the trouble! Give us a call at the number listed here: <link> and we'll look into this. 👍🏻\n\n[4] customer: All day I’ve been getting error message when I try to play a show on my iPhone. Is this problem on my end or on yours?\n    brand: We can help! Please check for updates on the App Store or uninstall/reinstall our app on iOS. Any improvement afterwards?\n\nNew message:\nis it possible to use my subscription while I am traveling abroad? Everything I try to play I get an error",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 476,
+  "completion_tokens": 18
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Best @10392 game of the year and @115940 has had an error message up all night. Such a fucking shame.\n    brand: We wanted to reach out again and apologize for the inconvenience, Greg. We know this situation was not ideal. 🙁\n\n[1] customer: My “live” @115940 is now showing OU/Tech game as 13-14 after restarting my AppleTV. It was 20-21 before restarting.\n    brand: Apologies for the trouble! Our team is working on resolving this, but try this workaround for now: <link>\n\n[2] customer: Awesome. @115940 Live TV dropped the Hurricanes game, probably because of the OT exceeding alotted programming time.\n    brand: Apologies, Mike! If you head to Browse &gt; Networks &gt; A-Z the game should show up for you. We'll share your report with the team.\n\n[3] customer: Come on @115940 Just because a rain delay, I can no longer watch the #PSU game.\n    brand: Ah, sorry about that! Try backing out and picking up the live feed from the network page. If no dice, try: <link>\n\n[4] customer: Seriously though @115940 why does every @128832 playoff game, or in this case the World Series, have playback issues?!?! Literally every 2 min😡\n    brand: Sorry about last night, Cyanne! The issue we experienced has been resolved. We appreciate your patience &amp; hope you catch Game 5 w/us!\n\nNew message:\nHey @115940 why is the SEC championship game messing up so bad?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 520,
+  "completion_tokens": 18
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I keep getting a loading error on PlayStation 4. I have reset my console and uninstalled and reinstalled the app.\n    brand: Apologies! This issue is being investigated. To collect more info to share w/our team, please chat w/ us: <link>\n\n[1] customer: every time I open the Hulu app on my Xbox 360 it will load for a couple seconds then say Hulu has encountered an error error97\n    brand: Sorry! Our team is currently investigating this error. The good news is we can fix via phone/chat: <link>\n\n[2] customer: I have the Hulu app on my Xbox 360 and I keep getting an error after it loads. I have deleted and re-downloaded the app\n    brand: Oh no! If you're still encountering this, try: <link> Call or chat for further help (<link>\n\n[3] customer: HELP! \"loading error\" on the #hulu app on #xbox360? Other apps are fine. I've delete, redownload. Still nothing\n    brand: Sorry for the delay. We'd like to help. Please work through the following troubleshooting tips: <link> ✅\n\n[4] customer: recently purchased Hulu again and it wont load on either of my xboxs. Have tried everything to get it to work. Redownloading, restarting, works on the PC but not xbox.\n    brand: Oh no! Is this XB1 or 360? Any errors? Try: <link> or <link> Any improvement after?\n\nNew message:\nfix your damn xbox app, I'm honestly tired of trying to launch it and getting constant \"a loading error has occurred\". 😒 Why am I paying for something I can barley use...",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry! Our team is currently investigating this error. The good news is we can fix via phone/chat: <link> Please work through the following troubleshooting tips: <link> ✅ Call or chat for further help (<link>.\", \"used\": [1, 2, 3]}",
+  "prompt_tokens": 510,
+  "completion_tokens": 71
+ }
+}

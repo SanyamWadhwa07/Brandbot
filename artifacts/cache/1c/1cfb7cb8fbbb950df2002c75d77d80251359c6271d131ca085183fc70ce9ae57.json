@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: live tv is garbage. Constantly skipping and replaying the same live content over and over. What the hell?\n    brand: Yikes! Thanks for reaching out. What devices and channels are affected? When you have a moment, let's try: <link>\n\n[1] customer: what in the world is wrong with your live tv??? It just buffers and skips non stop regardless of the device that I use\n    brand: Sorry for the continued trouble, Dan! We'd love to take a closer look via phone/chat at this point: <link>\n\n[2] customer: live tv is choppy, cutting out completely, and jumping every 2 seconds. 100 Mbps internet and a WIRED CONNECTION. What gives??\n    brand: Sorry! We've been looking into these reports. If you're still having trouble, please reach us here: <link>\n\n[3] customer: why does live tv rewind 30 seconds at the top and bottom of every hour?\n    brand: Yikes, that definitely shouldn't be happening. Does this occur across all live content, or just certain networks? How often?\n\n[4] customer: my Hulu live tv is always buffering and skipping content. I have tried different devices and networks and same thing?\n    brand: Sorry about yesterday! The issue with live playback was solved: <link> Let us know if it reoccurs at any point.\n\nNew message:\nwhy does your live tv skip and repeat itself like 5 times? This is fucking annoying",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Yikes! Thanks for reaching out. What devices and channels are affected? When you have a moment, let's try: <link> If you're still having trouble, please reach us here: <link> Let us know if it reoccurs at any point.\", \"used\": [0, 2, 4]}",
+  "prompt_tokens": 454,
+  "completion_tokens": 80
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: your new intro sucks. It is too loud when I go in the app. Please fix or put volume control. Thanks.\n    brand: Sorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!\n\n[1] customer: You have got to adjust the volume of the apps intro music when turned on. It's annoyingly loud and not necessarily.\n    brand: We're tracking similar reports! 🔊 What device are you accessing our app from? We'd be more than happy to share your input.\n\n[2] customer: your new layout sucks and the opening music is like that loud intro shit they play before movies...change it back!\n    brand: Apologies for any frustration, Ashley! We'll pass along your input while we work to make improvements (<link>\n\n[3] customer: Netflix comin out with the “skip intro” feature is a big advantage... step up ur game @115940\n    brand: Hey, Omar! We're always looking to provide the best streaming experience possible. We'll share your interest with our team.\n\n[4] customer: I just noticed @115940 your app is like the only one I use that doesn't have an intro sound. It's so strange #streaming\n    brand: Hey Amy! What device are you streaming from? We'd be happy to pass along your feedback to our team for review.\n\nNew message:\nyour new introduction is fucking ridiculous got me waking up half my household with a intro sound similar windows vista and xp. Y'all gotta do better I'm sure I'm not the only one",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for the frustration! We're tracking similar reports about the intro volume. What device are you accessing our app from? We'd be happy to share your input with our team.\", \"used\": [1]}",
+  "prompt_tokens": 476,
+  "completion_tokens": 55
+ }
+}

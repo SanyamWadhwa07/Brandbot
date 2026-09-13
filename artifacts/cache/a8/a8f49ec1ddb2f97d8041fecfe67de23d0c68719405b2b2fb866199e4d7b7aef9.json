@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why does the NFL game go back to the 1st qtr after commercials?\n    brand: That shouldn't be! Which device are you on+which game? Were you watching live or is this happening on a recording?\n\n[1] customer: the reason I have Hulu is so I can stream live tv and half the time your games never work. Can’t watch the #NEvsDEN. Do you know when it will be back up?\n    brand: Sorry for the delay, Cait! Our team became aware that an issue was affecting some NBC streams and are investigating the cause.\n\n[2] customer: why is it that every time I try to watch a live Predators game in progress it starts from the beginning and I have to fast forward?!\n    brand: Sorry, Michael! We're looking into this on our end. We'd love to grab more details from you here: <link>\n\n[3] customer: why can’t I just go to straight live tv? Why start at the beginning of a game and call the pregame advertisement?? #help\n    brand: Hi Leslie! Which device do you use? This may help us provide further insight or share the feedback.\n\n[4] customer: why won’t NFL games broadcast?\n    brand: Sorry to hear this! Do you receive the channel live &amp; are you located in the area it's airing locally: <link> ?\n\nNew message:\nfirst World Series now SEC champ game... why??",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Sorry to hear this! Which device are you using? Were you watching live or is this happening on a recording? This may help us provide further insight.\", \"used\": [0, 3]}",
+  "prompt_tokens": 443,
+  "completion_tokens": 53
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why isn't last week episode of Empire up yet?\n    brand: Empire didn't have a new ep last week, but the show will return to TV tonight, and added to our on-demand service the next day!\n\n[1] customer: it says the newest episode of Lucifer was supposed o be available at midnight it’s 1 am when will I get to watch it\n    brand: While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>\n\n[2] customer: why isn’t this week’s episode of Smackdown Live up yet?\n    brand: Sorry about that! It's available if you navigate to Episodes manually (<link> We're working to KO this issue.\n\n[3] customer: curious to know when episode 5 Enhanced Protection of The Brave is going to be up? It aired last night\n    brand: Sorry for the delay! Our team is working to make that episode available to all our viewers ASAP!\n\n[4] customer: why isn't the new episode of The Good Doctor up yet??? Its been over 24 hours #ashamed #sad\n    brand: Hi! The Doctor has been out since 10/30, but he does return the 13th: <link> Keep an 👁 on your WL/My Stuff!\n\nNew message:\nwhen will the newest episode of Empire be up?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 435,
+  "completion_tokens": 18
+ }
+}

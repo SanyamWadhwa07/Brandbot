@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: What I especially love about the new iOS @115940 app is how an accidental tap anywhere on the screen moves the playhead unexpectedly…\n    brand: Sorry for the trouble! We'll share your experience on iOS with the appropriate team. If you have any other questions, let us know.\n\n[1] customer: I can't get @115940 to work on my Switch. Every show I pick says \"This video is not available in your location\". Works fine on every other device.\n    brand: Oh no! That's not an error we like to see, does this continue to pop up for you after: <link> Keep us updated\n\n[2] customer: @115940, don't announce a video in your app and then give me an error because it's not available where I am. That's an awful user experience.\n    brand: Sorry! Can you share with us the video that was advertised, the device, and the error message? A screen shot would be great!\n\n[3] customer: God the @115940 app for the iPad is so bad. I keep accidentally touching the screen and it just fast forwards it 🙄\n    brand: Sorry, Jessica! We're working on making enhancements to the new experience, so we'll be sure to pass your feedback along.\n\n[4] customer: Dear @115940 please please change your settings on the iPhone app. I’m sick of losing my place every time I inadvertently touch my screen!\n    brand: Hey, Mike! We're sorry to hear about any frustration! Our team is aware and looking into this. We appreciate the feedback.\n\nNew message:\nAs a fun bonus, if you accidentally tap literally anywhere on the screen while watching a video on the new @115940 app (maybe you wanted to check the time), you’ll be jumped to another point of the video! Hope you remembered your place. #ux",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for the trouble! We'll share your experience on iOS with the appropriate team. If you have any other questions, let us know.\", \"used\": [0]}",
+  "prompt_tokens": 552,
+  "completion_tokens": 47
+ }
+}

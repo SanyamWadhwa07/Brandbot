@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @hulu_support please bring back @533745. We love watching it every weekend as a family and now we’re sad.\n    brand: Sorry, Laura! Our rights to RTP expired. We always aim to connect users to as much content they love, so we'll share your input.\n\n[1] customer: Dear @115940 @hulu_support please bring back Daria , thank you. <link>\n    brand: Hi there! We can't make any promises, but we'll be sure to forward your request along to our content team for consideration. 👍\n\n[2] customer: I'm livid at @115940 @hulu_support rn. I cancelled my HBO trial and THEY CHARGED ME $22 THIS MONTH AFTER I CANCELLED. +TURNED OFF MY SERVICE\n    brand: Oh no! Let's get this sorted, Ren. Please call us at the number listed here: <link> and we'll investigate.\n\n[3] customer: Still waiting for @115940 to put the new season of @180004 on there. @hulu_support\n    brand: We're having major FOMO too! We don't have the rights to stream it yet, but we hope to soon. Stay tuned, Adam!\n\n[4] customer: Does @hulu_support have rights to full season of @1662? I’m trying to get caught up &amp; don’t know if I’llmake itby 5 eps of newseason\n    brand: We do! Past seasons are found under \"Will &amp; Grace (1998)\" <link> Add \"Will &amp; Grace\" to WL/My Stuff for new eps.\n\nNew message:\njersey shore reunion BETTER be on hulu @115940 @hulu_support",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 535,
+  "completion_tokens": 18
+ }
+}

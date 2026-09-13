@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Finally got it. Was not straight forward. <link>\n    brand: Glad to hear you're back in business! Let us know if we can assist with anything else down the line. Happy streaming!\n\n[1] customer: Mine is back up and working now! <link>\n    brand: Sorry for the delay! We're glad to hear that you're back up and streaming. If you happen to need us again, we'll be here. ✅\n\n[2] customer: Whoa, Hulu! <link>\n    brand: That shouldn't be! Try clearing Safari's cache: <link> along w/: <link> Any improvement?\n\n[3] customer: I'm good now. Thanks. The reply I got put me on the right track. <link>\n    brand: Glad to hear you were able to get back on track, Randy! If there is anything else we can do for you, don’t hesitate to reach out.\n\n[4] customer: \"Utitilities\" <link>\n    brand: Oops! Thanks for bringing this up. It looks like we've already gotten it corrected. If you notice anything else, just let us know!💚\n\nNew message:\nWhat's done is done. <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 397,
+  "completion_tokens": 18
+ }
+}

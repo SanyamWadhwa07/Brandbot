@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: do you have a timeline for when ABC and NBC will be available live local in the Detroit market (zip: 48226)?\n    brand: No date to share just yet, but our team is definitely aware of the interest and we'll continue to share feedback with our team.\n\n[1] customer: Hey @115940 ! When is Prisonbreak gonna be available to subscribers?\n    brand: Hi there! We don't have any details about Prison Break to share just yet, but keep the show in your WL/My Stuff for updates.\n\n[2] customer: is #MrRobot available with my subscription or not? Very confusing info online @127550 is sounding good now.\n    brand: Hello, friend. Mr. Robot isn't part of the Hulu library, but we'll share your interest. Catch S3 eps with our Live TV Add-on.\n\n[3] customer: I’m letting my friend use my Hulu but he’s not in the same zip code as me (I have live tv) is he still able to watch just regular Hulu? Because it’s saying he can’t.\n    brand: Hi! Hulu is designed around a single Home location: <link> <link> We'll share the feedback!\n\n[4] customer: I made a huge mistake. subscribed to Live TV on @115940 and it eff'd up everything. All glitchy, 80% ads. I'm trying to reverse! Don't be me!\n    brand: Oh no! Which shows? Please note that network on-demand content (like recent CBS episodes) will likely contain ads.\n\nNew message:\nHi Hulu, any chance of adding ABC to my Live subscription? zip code: 06437",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"No date to share just yet, but our team is definitely aware of the interest and we'll continue to share feedback with our team.\", \"used\": [0]}",
+  "prompt_tokens": 507,
+  "completion_tokens": 46
+ }
+}

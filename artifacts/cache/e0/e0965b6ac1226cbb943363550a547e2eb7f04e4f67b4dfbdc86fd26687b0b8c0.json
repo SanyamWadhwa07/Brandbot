@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: when will Season 3 of @117874 be available i need to know asap\n    brand: Hey there! We asked Tiny Rick and he says you can catch season three with our Live TV service (<link> 👏\n\ncustomer: When will @117874 S3 be on Hulu as well as @18283 Season 3?\n    brand: No info here about 12 Monkeys but Rick &amp; Morty S3 is avail with: <link> We've passed the request to James Cole!\n\ncustomer: When could we see @117874 on @115940 ?\n    brand: Hey there! S1-3 are currently available on Hulu with Live TV. S1-2 are on our base plans, and S3 is coming soon. 👍\n\ncustomer: when is the new season of @117874 going to be available?\n    brand: Hi, Alyssa! 👋🏽 You can #GetSchwifty with season three if you have: <link> We'll share your interest with Morty!\n\ncustomer: Hey @132338! Why isn’t #SDLive on @115940 yet?\n    brand: Hulu here! Just making sure you caught the latest ep from SmackDown—it's up and available now: <link> Enjoy!\n\nCustomer message:\nhow soon before we see S3 of @117874 ???\n\nDraft reply:\nHey there! You can catch Season 3 of Rick and Morty with our Live TV service: <link> 👏 We'll share your interest with Morty!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and accurately addresses the customer's inquiry.\"\n}",
+  "prompt_tokens": 583,
+  "completion_tokens": 61
+ }
+}

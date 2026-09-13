@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I have a Hulu subscription courtesy of my Spotify Premium Student plan. But I can’t seem to log in on app. Can I get help?\n    brand: Hey Sean! If no luck resetting that password here: <link> then call this number: <link>\n\n[1] customer: I am using Apple TV 4K; suddenly can’t get live TV thru @115940 or any app using @115940 account. Works fine in app, older Apple TV. Can’t get thru to chat...\n    brand: Oh no! Thanks for reaching out, Karrin. Let's try these: <link> and let us know if the trouble continues.\n\n[2] customer: Tried logging into my Hulu account and instead of allowing me to watch shows etc it's giving me your available plans.\n    brand: Sorry! Do you see any alerts on your account: <link> If not, reach out to us here: <link>\n\n[3] customer: Laptop/Win10-app-\"an error occurred while connecting to the server (SV!)-app Del&amp;Instld now can't log in-Call wait is 45 min?\n    brand: Sorry, Luis! We ran into an issue with Windows 10, but the issue is now resolved. Let us know if you have any other questions.\n\n[4] customer: .@115940 the iOS app logged me out of my account and now won’t let me log back in. Have repeatedly tried. Can login on the web though. How do I fix the app issue?\n    brand: Sorry to hear of the trouble, Michael. We'd like to help! Please call the phone number in blue here: <link> 📲\n\nNew message:\ncan I get some assistance with my account? Struggling to tune-in to live TV from my app. Not a happy camper.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! Thanks for reaching out. Let's try these: <link> and let us know if the trouble continues.\", \"used\": [1]}",
+  "prompt_tokens": 537,
+  "completion_tokens": 44
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: This annoying @57641 ad has come on for EVERY commerc. break in the last 2 hours, &amp; now I'm LESS likely to ever buy @57641.\n    brand: Sorry for any ad-related frustrations! We have a limited # of advertisers on each show but we're working to increase variety.\n\ncustomer: It's official, I love @115940! But I have 2 complaints: Too many ads! No seasons of Power Rangers!(which I have to sub to Netflix for!)😤\n    brand: So glad to hear! We also offer a No Commercials option: <link> We'll share your interest in Power Rangers!\n\ncustomer: My favorite thing about @115940 as algorithm is that every time they play a Spanish commercial to me someone had to pay for an ad that I can’t understand.\n    brand: Sorry for any trouble! Spanish ads may play for many reasons, but call/chat so we can take a look: <link>\n\ncustomer: had a problem with @115940 constantly restarting during commercials on our Samsung tv. Exited out of the app and now it won't even load the homepage.\n    brand: Oh no! If no improvement after troubleshooting with: <link> please reach out here: <link> ✅\n\ncustomer: What’s going on @115940!? First a horrible redesign now ads that constantly require interaction, remind me why I’m paying for this?\n    brand: We're always trying to improve, so we'll share your feedback, Cameron. Anything specific you aren't loving w/the new interface?\n\nCustomer message:\nDear @2064, your new holiday ad with the woman in the bathtub singing about shopping online is by far the MOST OBNOXIOUS AD I've ever had to listen to (50+ times thanks to @115940's inability to have a variety of ads)\n\nDraft reply:\nSorry for the frustration! We have a limited # of advertisers on each show but we're working to increase variety. We'll share your feedback on the holiday ad.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft aligns perfectly with the brand's established tone and past responses to similar ad-related complaints.\"\n}",
+  "prompt_tokens": 700,
+  "completion_tokens": 66
+ }
+}

@@ -20,7 +20,7 @@ import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from brandbot import config
+from brandbot import config, log
 from brandbot.baselines import majority, nearest
 from brandbot.data import brand_slice, splits
 from brandbot.eval import judge
@@ -37,6 +37,8 @@ RUNS = config.ARTIFACTS / "runs"
 AGENT = "agent"
 NEAREST = "nearest"
 MAJORITY = "majority"
+
+_log = log.get("run")
 
 
 @dataclass(frozen=True)
@@ -82,14 +84,18 @@ def load(system: str, root: Path = RUNS) -> Run:
 def _judge_all(
     handlings: list[Handling], ix: Index, budget: Budget | None, replay_only: bool
 ) -> list[Verdict]:
-    return [
-        judge.grade(
-            h.thread_id, h.message, h.reply, ix.search(h.message, agent.K),
-            budget=budget, replay_only=replay_only,
-        )
-        for h in handlings
-        if h.route == spec.AUTO and h.reply
-    ]
+    sendable = [h for h in handlings if h.route == spec.AUTO and h.reply]
+    out = []
+    with log.progress(_log, "judged", len(sendable)) as tick:
+        for h in sendable:
+            verdict = judge.grade(
+                h.thread_id, h.message, h.reply, ix.search(h.message, agent.K),
+                budget=budget, replay_only=replay_only,
+            )
+            log.event("verdict", thread_id=h.thread_id, send=verdict.send, failed=verdict.failed)
+            out.append(verdict)
+            tick()
+    return out
 
 
 def execute(
@@ -103,10 +109,15 @@ def execute(
     ix = index.build(parts[splits.Split.INDEX])
 
     if system == AGENT:
-        handlings = [
-            agent.handle(tid, text, ix, budget=budget, replay_only=replay_only)
-            for tid, text in messages
-        ]
+        handlings = []
+        with log.progress(_log, "handled", len(messages)) as tick:
+            for tid, text in messages:
+                h = agent.handle(tid, text, ix, budget=budget, replay_only=replay_only)
+                log.event("handling", thread_id=tid, intent=h.intent, route=h.route,
+                          forced=h.forced, reason=h.reason, cited=h.cited,
+                          top_score=round(h.top_score, 4))
+                handlings.append(h)
+                tick()
     elif system == NEAREST:
         model = nearest.Nearest(ix, parts[splits.Split.DEV])
         handlings = [model.handle(tid, text) for tid, text in messages]

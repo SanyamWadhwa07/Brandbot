@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I have a question for you. Can you DM me?\n    brand: Hello Tyler! We'd love to help here if possible. For a private 1 on 1 call/chat, please contact: <link> ✅\n\n[1] customer: when will there be new episodes of #IronChefAmerica? (asking for me and my pint of ice cream)\n    brand: Hi, Leona! We don't have any news, but we'll share your interest. In the meantime, keep that ice cream cool in the freezer. 📺🍨\n\n[2] customer: - You guys need to get the original series of Dallas please!\n    brand: Hey Jarvy—we hear you! We'll let our team know you'd love to see this series available on Hulu.\n\n[3] customer: yo! I need your help.\n    brand: Hi there, we'd be happy to assist. Let us know more details like show, device, error, etc. For direct help: <link>\n\n[4] customer: I have a problem! Can some one DM me?\n    brand: We'd love to help, so let us know more details! For 1:1 support, please reach out by phone or chat: <link>\n\nNew message:\ni got a question!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Hi there! We'd be happy to help. Please let us know more details like the show, device, or error you're seeing. For direct 1:1 support, please reach out here: <link> ✅\", \"used\": [3, 4]}",
+  "prompt_tokens": 408,
+  "completion_tokens": 67
+ }
+}

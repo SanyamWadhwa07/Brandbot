@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: During my sign up no where did it state live TV was beta. I have had ZERO problems with MLB @ Bat, Amazon, &amp; Netflix but —\n    brand: Sorry for the trouble, we were able to get the feed up quickly (<link> To reach out: <link>\n\n[1] customer: How do I access my Watchlist on the Roku app? It's impossible to find the shows I've added to my Watchlist via browser.\n    brand: Hi Max! The Roku app uses My Stuff which doesn't communicate with Watchlist. We'd recommended adding them from the device itself.\n\n[2] customer: your live TV feature is nowhere to be found despite my having it on my account...help!\n    brand: We're here to help, AL! Are you attempting to access it using one of these: <link> Try: Browse&gt;Networks&gt;Live.\n\n[3] customer: With the newer FireTV Hulu layout, how do I access my Showtime add-on without having to search for it every time?\n    brand: We got you! Go to Browse&gt;Networks&gt;Premium Add-ons&gt;SHO. You can also add the network to My Stuff: <link>\n\n[4] customer: I can no longer find Hulu in Amzn Fire App store. My version is from February and does not work acceptably.\n    brand: Hey there. Sorry for the trouble--which model of tablet are you using to stream? And what behavior are you running into?\n\nNew message:\nin the beta version of the website, where do I go to find what's in my Cloud DVR?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We're here to help! Could you please share a link to the specific page or a screenshot of where you're looking? This will help us guide you to the right spot.\", \"used\": []}",
+  "prompt_tokens": 480,
+  "completion_tokens": 54
+ }
+}

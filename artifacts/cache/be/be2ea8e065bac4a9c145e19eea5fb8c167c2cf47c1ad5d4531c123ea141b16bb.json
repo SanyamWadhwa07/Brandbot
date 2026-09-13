@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: been having issues watching family guy it will crash after a few minutes of watching no issues with American dad or rick and morty\n    brand: Sorry, Lowell! Please try: <link> If the issue continues, contact us by phone/chat: <link>\n\ncustomer: I keep getting errors on @115940 when watching Live on AppleTV. Started happening since last update. @hulu_support\n    brand: Sorry to hear this! Are you seeing any errors? Try giving these a shot: <link> Any improvement?\n\ncustomer: this @115940 is making me mad. everytime i watch a show it stops and says theres an error and i have to restart the episode 50 times 😑\n    brand: Eek! That's no good. If still happening, try: <link> Call/chat for further help (<link>\n\ncustomer: so frustrated that same show I’ve been trying to watch for over a week keeps throwing up “connection disconnected” silliness\n    brand: Sorry to hear about this, Robin! What device are you streaming from? For now try: <link> Any improvement?\n\ncustomer: hey my hulu keep saying Network error even though my internet is connected\n    brand: Yikes! These can help: <link> If those do not work, chat/call us here: <link>\n\nCustomer message:\nYo, I'm just trying to watch some family guy and ya'll keep \"encountering errors\"\n\nDraft reply:\nSorry to hear that! Please try: <link> If the issue continues, contact us by phone/chat: <link> If you need further assistance, please let us know.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's issue appropriately.\"\n}",
+  "prompt_tokens": 589,
+  "completion_tokens": 61
+ }
+}

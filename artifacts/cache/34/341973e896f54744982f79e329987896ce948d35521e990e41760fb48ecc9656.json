@@ -1,0 +1,43 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "system": "You label inbound customer messages for a streaming service's support queue.\n\nLabels:\nplayback_error: Content that should play fails to start, stalls, buffers or throws an error. Not: a channel missing from the lineup, or the app failing before playback begins.\ncontent_availability: Asking whether a title, season or episode is on the service, when it arrives, or asking for it to be added. Not: content that exists on the service but will not play.\napp_bug: The app crashes, freezes, navigates to the wrong place or has broken controls on a specific device. Not: content that plays but stutters, which is a playback error.\nlive_tv_channels: A live TV channel is missing from the lineup, unavailable in a region, or not offered on a device. Not: a listed live channel that errors during playback.\nads_complaint: Too many ads, the same ad repeating, or a request for ad-free viewing on a paid plan. Not: an ad break that breaks playback, which is a playback error.\nbilling_refund: A charge is disputed, a refund is wanted, or billing continued after cancelling. Not: questions about plan pricing or features where nothing is being disputed.\nwatchlist_issue: The watchlist or My Stuff does not show new episodes, or does not update. Not: shows that are genuinely absent from the catalogue.\naccount_access: Cannot sign in: password or email recovery, verification failures, locked account. Not: a signed-in customer disputing a charge.\nservice_outage: Reporting or asking about a failure that appears to affect many customers at once. Not: a fault on one device or with one title.\nother: none of the above fits.\n\nRules:\nWhen a message carries two intents, label the outcome the customer wants, not the problem that caused it.\nA complaint with no request in it is `other`, whatever it is about.\nJudge the message on its own. Do not assume context it does not contain.\n\nLabel the message on its own. Return JSON only.",
+  "user": "I get this every time I try to login <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "playback_error",
+      "content_availability",
+      "app_bug",
+      "live_tv_channels",
+      "ads_complaint",
+      "billing_refund",
+      "watchlist_issue",
+      "account_access",
+      "service_outage",
+      "other"
+     ]
+    },
+    "confidence": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "intent",
+    "confidence"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"intent\":\"account_access\",\"confidence\":0.99}",
+  "prompt_tokens": 584,
+  "completion_tokens": 34
+ }
+}

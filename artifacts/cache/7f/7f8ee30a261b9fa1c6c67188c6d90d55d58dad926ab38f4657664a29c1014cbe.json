@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: hello can I get help\n    brand: Apologies for the delay, Raquel! Still need assistance? Please reach our phone/chat teams here: <link> 📲\n\ncustomer: can’t get any help via phone or chat.\n    brand: Oh no! Our phone and chat teams may experience delays on occasion. What's the issue at hand? We'd love to see how we can help.\n\ncustomer: need assistance. DM please.\n    brand: Apologies for the delay! If you still need help, @ us some details—or try us over phone or live chat at: <link>\n\ncustomer: I need a little help. DM me!\n    brand: Hi Kevin! We're happy to help with general questions via Twitter but for account issues, please call/chat: <link>\n\ncustomer: \"please contact us\" is only a good solution to FAQs when you can actually get ahold of someone in less than an hour\n    brand: Yikes! We're sorry to hear of the multiple charges you received. We'd like to investigate. Contact: <link> ✅\n\nCustomer message:\ncan I get some help please Hulu?\n\nDraft reply:\nApologies for the delay! Still need assistance? Please reach our phone/chat teams here: <link> 📲",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft aligns perfectly with the brand's established tone and standard procedure for handling general support requests.\"\n}",
+  "prompt_tokens": 507,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: trying to watch LSU vs Alabama live on CBS and game keeps buffering. had this prob w/ other live games. Fix this ASAP please!\n    brand: Apologies for any trouble, Aaron! What devices are you using to stream these games? Let's start with: <link>\n\n[1] customer: buffering on live TV is so bad it's unwatchable. Roku. 100 Mbps wifi. All other streaming fine. Any fix?\n    brand: Apologies! We're looking into a known issue affecting Live TV. Try using our partner apps for now: <link>\n\n[2] customer: live sucks. It buffers like crazy, making it impossible to enjoy. I'll be cancelling til I hear it's fixed.\n    brand: Sorry to hear about that, it's not what we like to read and would love to assist. What device? Try: <link>\n\n[3] customer: you need to get this buffering under control. My internet is perfect, your live tv sucks and I will be cancelling if it isn’t fixed.\n    brand: We'd hate to lose you, Karyn! 😭 Try: <link> If that doesn't resolve it, let us know which devices you're using.\n\n[4] customer: the feed when I watch live TV buffers way too much. It's not my internet because I have over 150 Mbps. Anything to fix this?\n    brand: We'd love to help, Jake! Any specific feed affected? What device are you using? For now, try rebooting your device &amp; modem/router.\n\nNew message:\nswitched over to live TV and trying to watch SEC Championship game. Have over 100mb internet and it is just buffering — going to have to cancel this!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"We'd hate to lose you! 😭 We're looking into a known issue affecting Live TV. Try using our partner apps for now: <link> If that doesn't resolve it, let us know which devices you're using.\", \"used\": [1, 3]}",
+  "prompt_tokens": 509,
+  "completion_tokens": 69
+ }
+}

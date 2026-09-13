@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Why is season 18 of #LawandOrderSVU not yet on @115940 or @116602?\n    brand: Sorry, we had the eps as they were airing and they have since expired... dun-dun. We'll express your interest in them here!\n\n[1] customer: Does anyone know why season 18 of SVU no longer on @115940 😩#SVU\n    brand: We no longer have the rights to offer the s18 but we'd be happy to share your interest in seeing it return!\n\n[2] customer: I just got a subscription specifically to watch @168148 season 18 and it’s not on there!!!!!\n    brand: Sorry about that! While we don't have any news yet—we do hope to have 18 back soon. For now, + SVU to your WL/My Stuff for updates!\n\n[3] customer: Why isn’t season 18 of Law and Order: SVU on Hulu? 😩😩 @115940\n    brand: Sorry! Our rights to stream S18 expired as new eps of S19 began. We'll share your interest in seeing it return in the future.\n\n[4] customer: y u no have season 18 of @168148\n    brand: Sorry for any disappointment! We no longer have the rights to stream S18 now that S19 has started but we'll share your interest.\n\nNew message:\nHow come season 18 of @168148 isn’t on @115940 ??? I need to watch it now!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry! Our rights to stream S18 expired as new eps of S19 began. We'll share your interest in seeing it return in the future.\", \"used\": [3]}",
+  "prompt_tokens": 499,
+  "completion_tokens": 51
+ }
+}

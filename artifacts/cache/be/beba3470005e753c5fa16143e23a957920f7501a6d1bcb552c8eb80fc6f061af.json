@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: live tv is garbage. Constantly skipping and replaying the same live content over and over. What the hell?\n    brand: Yikes! Thanks for reaching out. What devices and channels are affected? When you have a moment, let's try: <link>\n\ncustomer: what in the world is wrong with your live tv??? It just buffers and skips non stop regardless of the device that I use\n    brand: Sorry for the continued trouble, Dan! We'd love to take a closer look via phone/chat at this point: <link>\n\ncustomer: live tv is choppy, cutting out completely, and jumping every 2 seconds. 100 Mbps internet and a WIRED CONNECTION. What gives??\n    brand: Sorry! We've been looking into these reports. If you're still having trouble, please reach us here: <link>\n\ncustomer: why does live tv rewind 30 seconds at the top and bottom of every hour?\n    brand: Yikes, that definitely shouldn't be happening. Does this occur across all live content, or just certain networks? How often?\n\ncustomer: my Hulu live tv is always buffering and skipping content. I have tried different devices and networks and same thing?\n    brand: Sorry about yesterday! The issue with live playback was solved: <link> Let us know if it reoccurs at any point.\n\nCustomer message:\nwhy does your live tv skip and repeat itself like 5 times? This is fucking annoying\n\nDraft reply:\nYikes! Thanks for reaching out. What devices and channels are affected? When you have a moment, let's try: <link> If you're still having trouble, please reach us here: <link> Let us know if it reoccurs at any point.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft combines multiple past replies, making it repetitive and confusing for the customer.\"\n}",
+  "prompt_tokens": 605,
+  "completion_tokens": 61
+ }
+}

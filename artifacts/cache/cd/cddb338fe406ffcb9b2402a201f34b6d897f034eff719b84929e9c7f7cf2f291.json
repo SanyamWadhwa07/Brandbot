@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why is the new episode of empire still not uploaded?\n    brand: No new eps since 10/18—but the Lyons return tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\n[1] customer: empire and star aired on 11/1 it is 11/5 why aren’t the new episodes available on Hulu?????\n    brand: Hi, Chris! The show didn't air due to the World Series. It's back this week! Check out: <link>\n\n[2] customer: why is episode 5 of empire not on HULU PLUS?\n    brand: No new eps since 10/18—but the Lyons are back tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\n[3] customer: why isn’t the new episode from empire or star on Hulu 😡\n    brand: Don't worry, you haven't missed anything! Both of these shows didn't air new eps this week but they'll be back next week. 👍\n\n[4] customer: why isn’t the most recent episode of empire on yet ?\n    brand: Hang in there! The show took a break last week but will air a new episode on 11/8! Check your Watchlist/My Stuff for updates!\n\nNew message:\nomg why is the new episode of empire not available on @115940 ??? #EmpireFOX #BreakingNews #BlackTwitter <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 453,
+  "completion_tokens": 18
+ }
+}

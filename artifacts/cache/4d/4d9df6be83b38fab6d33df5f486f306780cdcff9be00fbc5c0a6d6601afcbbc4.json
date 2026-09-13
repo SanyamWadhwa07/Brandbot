@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: But man is @115940 EVER gonna post season two of Queen Sugar????\n    brand: We sure will! No release date to share at this time, but add to WL/My Stuff for updates and keep an eye on: <link>\n\ncustomer: Where is @370068 season 2??!?!?!?! BBCA has already aired 2 episodes, and NOTHING is on hulu. What gives?\n    brand: Sorry to disappoint! We don't have any news to share just yet, but we'll gladly let our team know you'd like to see more! 👍\n\ncustomer: is season 2 of Queen Sugar not available?\n    brand: Hey there! S2 is not available just yet, but we hope to have it soon. Keep an eye on this pg for updates: <link>\n\ncustomer: when are you going to get Dirk Gently season 2?\n    brand: No news to share on season 2 (we blame Bart), but we'll happily express your interest in seeing more of Dirk &amp; Todd on Hulu.\n\ncustomer: Any one know if @50581 season 2 is coming to Netflix or Hulu anytime soon? #LifeInPieces @116602 @115940 @hulu_support\n    brand: Hulu here! No confirmations yet, but we'll be sure to share the request. 😉 Keep an eye on: <link> for updates! 💚\n\nCustomer message:\nwhere is the second season of #ThisIsUs?!?!\n\nDraft reply:\nSorry to disappoint! We don't have any news to share just yet, but we'll gladly let our team know you'd like to see more! 👍 Keep an eye on this page for updates.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's inquiry appropriately.\"\n}",
+  "prompt_tokens": 609,
+  "completion_tokens": 61
+ }
+}

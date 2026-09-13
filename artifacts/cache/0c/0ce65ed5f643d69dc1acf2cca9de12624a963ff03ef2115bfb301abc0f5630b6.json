@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why are some shows outlined in different colors, is a mark whether or not its safe to watch with kids or colorscheme of the thumbnail?\n    brand: Which specific shows did you notice a different color outline for, and on what device? We'll happily take a look on our end.\n\n[1] customer: why do I have adds when I watch my shows when I pay for no adds?\n    brand: A few shows are not included in No Commercials: <link> You'll also see ads during live &amp; on-demand content.\n\n[2] customer: tell me why I get an ad commercial, followed by the end credits of my show, then more ads? That’s just cruel. Be nice plz.\n    brand: Yikes! That seems odd. If you run into this again, please reach out here: <link> so we can investigate.\n\n[3] customer: you really shouldn't autoplay sarah Silverman's new show after SNL when the first episode is full nudity. #notappropriate\n    brand: Sorry for any upset! Autoplay typically plays shows from similar genres—but we'll absolutely pass this on. Thanks for sharing!\n\n[4] customer: why do I have ads on CBS shows when I pay for ad free?\n    brand: Do you have Hulu with Live TV perhaps? It's possible the shows you're watching are network on-demand: <link>\n\nNew message:\nHey. why does your shows, show adult explicit content during comercials, in kids shows? PLEASE STOP IT!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We're sorry to hear that. Could you let us know which specific show and device you were using? We'll take a look on our end.\", \"used\": [0]}",
+  "prompt_tokens": 458,
+  "completion_tokens": 49
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: plz put the season 5 on there of Vanderpump Rules and also Real Housewives of Dallas plz. #PumpRules #RHOD\n    brand: We got you! S5 of Vanderpump Rules is coming to Hulu on 11/7. We'll share your interest in seeing RHOD added to our lineup.\n\n[1] customer: why is episode 5 of empire not on HULU PLUS?\n    brand: No new eps since 10/18—but the Lyons are back tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\n[2] customer: So I got hooked on Homeland, just to find out that I can't watch past season 4 with y'all. Season 7 is slated to start sometime in early 2018....so what are the chances of season 5 &amp; 6 getting added soon?\n    brand: Want to catch up on the rest of Homeland today? All seasons are available with the SHOWTIME Add-on (<link>\n\n[3] customer: when you are guys going to put season 5 of prison Break in your library?\n    brand: The rights are tied up, but we hope to make eps available soon! Keep an eye on this pg for updates: <link>\n\n[4] customer: When will M*A*S*H and season 5 &amp; 6 of Reba be available for streaming? And don't say 'coming soon' - a date would be appreciated\n    brand: Hi, Bryan! We do not have a release date to share at this time since they have not been finalized. Apologies for any trouble!\n\nNew message:\nplease put vikings season 5 on ASAP!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"We hear you! We don't have a release date to share at this time since they have not been finalized. Apologies for any trouble!\", \"used\": [4]}",
+  "prompt_tokens": 501,
+  "completion_tokens": 48
+ }
+}

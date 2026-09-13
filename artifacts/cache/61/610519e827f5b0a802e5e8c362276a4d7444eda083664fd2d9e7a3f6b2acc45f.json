@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Why, @hulu_support, do ads freeze? Back-to-Browse-and-Restart doesn't help, nor quit-and-restart browser. (LiveTV Beta, OSX 10.11, Safari)\n    brand: Sorry! Please work through these steps: <link> and ensure you're meeting live reqs: <link>\n\n[1] customer: Hey @hulu_support Trying to catch up on Gotham and now it freezes after the commercial. Tried another show... same thing.\n    brand: Sorry for the trouble! What device are you using when this occurs? Is the same ad affected? Try: <link>\n\n[2] customer: Hey @hulu_support...it would be nice if the Hyundai commercials would stop crashing @115940 on my Samsung smart tv. Just sayin...\n    brand: Apologies! We're investigating. Call/chat if troubleshooting (<link> doesn't resolve: <link>\n\n[3] customer: Come on, @hulu_support! Every single time I get this Metro PCS ad it freezes the whole system and I have to shut off my Blu-ray player and start all over again. Wtf?!\n    brand: Sorry for the trouble! We'd love to lend a hand and investigate from our end. Reach out here: <link>\n\n[4] customer: Heya. @hulu_support That Google Pixel commercial keeps crashing Hulu on my smartTV. It only seems to be that commercial specifically\n    brand: Sorry! This issue is being investigated. To collect more info to share w/ our team pls chat w/ us here <link>\n\nNew message:\nDear @115940 / @hulu_support - Can you please fix the ad version so it doesn't always freeze when playing commercials? Pretty please. 👏🏼 Yes, I know there is an ad free version. Yes, I can afford it. But, I like having commercials. 🤷🏻‍♀️ So can you please fix it. Xo -christy",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"Sorry for the trouble! We're investigating. Call/chat if troubleshooting (<link> doesn't resolve: <link> Reach out here: <link> to collect more info to share w/ our team.\", \"used\": [2, 3, 4]}",
+  "prompt_tokens": 563,
+  "completion_tokens": 66
+ }
+}

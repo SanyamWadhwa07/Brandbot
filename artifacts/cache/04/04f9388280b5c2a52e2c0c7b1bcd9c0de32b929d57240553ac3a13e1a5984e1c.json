@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I hate that @115940 just automatically plays a random show after I’m done with an episode I’m watching 🙄\n    brand: Autoplay suggests content once all eps of a series have been viewed. If that's not the case, follow up: <link>\n\n[1] customer: Hey @115940 why doesn’t the next thing on my lineup just start playing instead of a random show I don’t even watch. Thanks\n    brand: Autoplay is designed to play different content after your show ends. We're always working to improve so we'll share your input!\n\n[2] customer: My favorite thing about @115940 as algorithm is that every time they play a Spanish commercial to me someone had to pay for an ad that I can’t understand.\n    brand: Sorry for any trouble! Spanish ads may play for many reasons, but call/chat so we can take a look: <link>\n\n[3] customer: Why must @115940 continue to auto play a show I have never watched at the end of everything? Make it stop 😣 #Nashville is not my thing 😒\n    brand: Sorry for any frustrations, Erika! Autoplay does it's best to suggest similar content. We'll share your feedback w/ our team.\n\n[4] customer: why @115940 autoplay always tryna play something I've already watched?!\n    brand: That shouldn't be the case! Which device is this occurring on? Is it content in My Stuff/Watchlist or random eps you've seen?\n\nNew message:\nI’ll never understand why @115940 automagically plays a random show when your show ends. The show they pick isn’t ever in the same genre either",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Sorry for the frustration! Autoplay suggests content once all eps of a series have been viewed. If that's not the case, follow up: <link> We're always working to improve so we'll share your input!\", \"used\": [0, 1]}",
+  "prompt_tokens": 515,
+  "completion_tokens": 67
+ }
+}

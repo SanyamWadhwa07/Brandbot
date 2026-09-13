@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: How can I Add HBO from Apple Tv or iPad or iPhone? i am using iTunes to subscribe and i cannot change the subscription or add\n    brand: Hi Mohammad! To add HBO, you will need to switch to a Hulu-billed account. For full instructions, see: <link>\n\n[1] customer: I want to stop using PayPal. Why don't you support other payment methods, like Amazon Payments or Google Wallet??\n    brand: Apologies for the delay. We can certainly share the request. For now, check out our billing options: <link>\n\n[2] customer: can I watch Hulu from Kuwait in I subscribe?\n    brand: If you receive internet access from an oversees military base, yes. Otherwise, we don't have rights to stream outside of the US.\n\n[3] customer: I'm paying for HBO but can't seem to use it on my Apple TV. Any advice? Or how do I shut off the HBO and not waste $?\n    brand: HBO is only available on 🍎TV4 at this time (<link> If you have an older model, see: <link>\n\n[4] customer: Hi, login to other TV apps with HULU subscription is a nice feature. Could you add that for CNNgo (Apple TV) as well ? Thx\n    brand: Thanks for the support! No word on CNN go yet, but we can certainly pass along the request to our content and our developers. ✅\n\nNew message:\nHi May I suscribe to use Hulu from Buenos Aires.TY",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"If you receive internet access from an overseas military base, yes. Otherwise, we don't have rights to stream outside of the US.\", \"used\": [2]}",
+  "prompt_tokens": 458,
+  "completion_tokens": 46
+ }
+}

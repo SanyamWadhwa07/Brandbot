@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Navigating the @115940 app during Chromecasting is damn near impossible. Too bad I have to do it all the time since it disconnects constantly\n    brand: That's not the experience we had hoped for! Are you casting w/ iOS or Android? Any errors? Check out: <link>\n\n[1] customer: Why is my @115940 keep restarting in the middle of every show? Right before the ads start the app completely reboots. #soannoyed #whyyyandhelp\n    brand: Oh no! What device is in use? Any brand of ad that triggers this? Does an error pop up? For now, try: <link>\n\n[2] customer: had a problem with @115940 constantly restarting during commercials on our Samsung tv. Exited out of the app and now it won't even load the homepage.\n    brand: Oh no! If no improvement after troubleshooting with: <link> please reach out here: <link> ✅\n\n[3] customer: Anybody else having an issue with @115940 while playing ABC shows? I’m fucking sick of it\n    brand: Apologies! We'd love to help, so please let us know more details and the device in use. For now, try: <link>\n\n[4] customer: Why is @115940 so glitchy?? I have to reopen the app like 3 times just to watch 1 episode of a show. #annoying #hulu #glitchy\n    brand: Oh no! Sorry for the delay. Let us know what device and we'll offer some specific tips. For now, try: <link>\n\nNew message:\nMy @115940 app on my @1647 tv decides to always “reload” in the middle of shows. It is the most annoying thing in the world. nothing wrong w my wifi either so dont try that 😒",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": true, \"reply\": \"Oh no! Sorry for the trouble. What device is in use? Any specific brand of ad that triggers this? Does an error pop up? For now, try: <link> If no improvement, please reach out here: <link> ✅\", \"used\": [1, 2]}",
+  "prompt_tokens": 556,
+  "completion_tokens": 72
+ }
+}

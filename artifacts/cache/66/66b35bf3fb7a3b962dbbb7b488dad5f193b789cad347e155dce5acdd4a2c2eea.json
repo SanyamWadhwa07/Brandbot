@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I don't pay for the \"no commercials\" plan because I want to watch commercials. Just sayin'\n    brand: Sorry for any trouble Steven! Only 7 shows will play an ad before and after the ep: <link> Do you have Live TV?\n\n[1] customer: I have the no commercials plan, but I get ads, plus my watchlist disappeared, and all my shows. #hulu #helpme #WillAndGrace <link>\n    brand: Sorry for the delay, Kim! We'd love to help with that import, and get you on the right plan. Contact: <link>\n\n[2] customer: I want to know why tf I'm paying for no commercials during my tv shows and I am still having to watch commercials #wtfisthisshit\n    brand: Hello! Some content is not included w/ the add-on (<link> but these selections will still stream uninterrupted.\n\n[3] customer: A. Which shows/network include no commercials? B. Is there any freetrial for upgrade plan w/no commercial to see if I like it?\n    brand: Hi! Check out: <link> for some of the exclusions. Eps of these shows will play an ad before and after. 1/2\n\n[4] customer: all I want is unlimited screens and no commercials but I don’t wanna have live tv, is that possible?\n    brand: Unlimited Screens is only available w/our Live TV add-on, but we'll share the interest in offering it w/ on-demand plans!\n\nNew message:\nwhy are we seeing commercials on shark tank in Hulu with tv with no commercials plan. We didn’t before we added the tv option.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\": false, \"reply\": \"\", \"used\": []}",
+  "prompt_tokens": 492,
+  "completion_tokens": 18
+ }
+}
