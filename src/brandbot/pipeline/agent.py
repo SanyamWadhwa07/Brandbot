@@ -130,14 +130,26 @@ def handle(
     ix: Index,
     *,
     model: str = config.AGENT_MODEL,
+    classifier: str = config.AGENT_SMALL_MODEL,
     budget: Budget | None = None,
     replay_only: bool = False,
 ) -> Handling:
+    """Classification and drafting run on different models, for a boring reason.
+
+    Groq meters tokens per day per model ID, and one pass over this golden set costs
+    about 350k against a 200k ceiling. Splitting the two roles across two IDs is what
+    makes the run finish inside the free tier at all.
+
+    Classification gets the smaller model because it is the cheaper task: one label
+    from a fixed list, given a taxonomy that spells out its own boundaries. Drafting
+    keeps the larger one, since inventing a refund is the expensive failure. The
+    report states this and does not pretend it was a quality decision.
+    """
     hits = ix.search(message, K)
     top = hits[0].score
     margin = top - hits[1].score if len(hits) > 1 else top
 
-    intent, confidence = _classify(message, model, budget, replay_only)
+    intent, confidence = _classify(message, classifier, budget, replay_only)
 
     verdict = policy.forced(message, intent, top)
     if verdict is not None:

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 import time
 from pathlib import Path
 
@@ -28,6 +29,21 @@ BASE_BACKOFF_SECONDS = 2.0
 SCHEMA_ATTEMPTS = 3
 
 TRANSIENT = ("429", "rate limit", "503", "unavailable", "overloaded", "500", "timeout")
+
+# Groq meters tokens per minute and says exactly how long to wait: "Please try
+# again in 6.394s". Guessing with exponential backoff instead wastes most of the
+# window, because a 2-second retry into a 60-second bucket fails again and the
+# doubling then overshoots. Measured on this workload the guess ran at about two
+# calls a minute against a ceiling of eleven.
+RETRY_AFTER = re.compile(r"try again in (?:(\d+)m)?([\d.]+)s", re.I)
+
+
+def _requested_wait(exc: Exception) -> float | None:
+    match = RETRY_AFTER.search(str(exc))
+    if not match:
+        return None
+    minutes, seconds = match.group(1), match.group(2)
+    return (int(minutes) * 60 if minutes else 0) + float(seconds)
 
 
 class ReplayMiss(RuntimeError):
@@ -98,8 +114,14 @@ def complete(
             if not _is_transient(exc):
                 raise
             last, transient_used = exc, transient_used + 1
+        asked = _requested_wait(last) if last else None
         time.sleep(
-            min(BASE_BACKOFF_SECONDS * 2 ** (transient_used - 1), MAX_BACKOFF_SECONDS)
+            min(
+                asked
+                if asked is not None
+                else BASE_BACKOFF_SECONDS * 2 ** (transient_used - 1),
+                MAX_BACKOFF_SECONDS,
+            )
             + random.random()
         )
 

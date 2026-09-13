@@ -1,0 +1,58 @@
+{
+ "system": "agent",
+ "handlings": [
+  {
+   "thread_id": 557411,
+   "message": "I’ll never understand why @115940 automagically plays a random show when your show ends. The show they pick isn’t ever in the same genre either",
+   "intent": "other",
+   "confidence": 0.92,
+   "route": "auto",
+   "reason": "",
+   "reply": "Autoplay is designed to suggest different content after a show ends, even if it’s not the same genre. We hear your feedback and will share it with the team!",
+   "cited": [
+    1239831,
+    920200
+   ],
+   "top_score": 0.7621484398841858,
+   "margin": 0.009179949760437012,
+   "forced": false
+  },
+  {
+   "thread_id": 447722,
+   "message": "paying for it but can’t use it 😑😑😑 Can I get some help <link>",
+   "intent": "account_access",
+   "confidence": 0.96,
+   "route": "escalate",
+   "reason": "account_access touches money or account access, which a person owns",
+   "reply": "",
+   "cited": [],
+   "top_score": 0.7408653497695923,
+   "margin": 0.007421374320983887,
+   "forced": true
+  },
+  {
+   "thread_id": 2874927,
+   "message": "I am getting error code BYA-403-007. What the heck, I don’t pay extra to watch error screens. I hope there is a refund coming back to your subscribers.",
+   "intent": "billing_refund",
+   "confidence": 0.97,
+   "route": "escalate",
+   "reason": "billing_refund touches money or account access, which a person owns",
+   "reply": "",
+   "cited": [],
+   "top_score": 0.7685650587081909,
+   "margin": 0.0024306774139404297,
+   "forced": true
+  }
+ ],
+ "verdicts": [
+  {
+   "thread_id": 557411,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern about genre mismatch."
+  }
+ ]
+}
