@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: canceling my subscription. It's just not worth the hassle. While I will be sad not being able to watch my favorite tv shows anymore, I can't justify spending money on a service that doesn't work with a company who refuses to fix the issue.\n    brand: (1/2) We'd hate to lose you, Cristofer! 😭 Our sincere apologies for the continued trouble on your Vizio and our delayed response.\n\ncustomer: I canceled my subscription with you in October.. I was just charged again in November, a month later. I called customer support and was given an estimated hour wait time. I want my money back as I do not use your service and haven't done so in over a month.\n    brand: 1/2) Sorry to hear about the unexpected charge! For 1:1 assistance, please reach out by phone/chat here: <link>\n\ncustomer: I mistakenly cancelled my plan after I have resumed my subscription today and paid 45.96.and now I am not able to watch Hulu.\n    brand: We'd love to take a closer look at things on our end! Call/chat us so we can pull up your account: <link>\n\ncustomer: I canceled my subscription with you, but I'm still getting charged. I need a number for customer service to get this fixed. Thank you.\n    brand: Oh no! Sorry to hear of the unexpected charges. Give us a call at the number listed in blue: <link> We'll help!\n\ncustomer: when I log into the app on my phone or ps4 it asks me to subscribe but I already have a valid subscription, please help\n    brand: Uh oh! You may be affected by a known issue we're looking into. We'd love to take a look over phone/chat: <link>\n\nCustomer message:\ni need help with my subscription i just signed up for Live TV and my playstation doenst support it and i cant get it to cancel.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer already stated they are using a PlayStation, so asking for the device is redundant.\"\n}",
+  "prompt_tokens": 675,
+  "completion_tokens": 63
+ }
+}

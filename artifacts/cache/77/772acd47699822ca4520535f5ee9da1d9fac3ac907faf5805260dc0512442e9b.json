@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: new to Hulu (trial) and sure wish there was a guide of all the live channels with the line up\n    brand: Hey! For channel listings in your area, enter your ZIP here: <link> For live content, head to Browse&gt;Networks&gt;Live.\n\ncustomer: I JUST noticed CW isn't actually on my @115940 live channel lineup. Anyone know what gives?\n    brand: Sorry, Danielle! The CW is only available as network on-demand, but we're working to bring it live. We'll share the interest!\n\ncustomer: are y’all gonna be adding more channels to the live selection\n    brand: Thanks for the interest, Angel! What are you looking for? We're always working to expand our lineup: <link>\n\ncustomer: live tv....everything would be perfect and you would be my go to tv service if you added Hallmark and Hallmark Movies and Mysteries!!\n    brand: Hey Cherese! We can't make any promises, but we'd be happy to share your live network requests with our team. 😊\n\ncustomer: Any plans to add @699 to the live channel lineup? That would be amazing.\n    brand: Hi Phillip! No news to share, but we're always working to add more networks. We'll alley-oop 🏀 your request to our content team\n\nCustomer message:\nif you could just add VH1, TLC, and WE to your live channel line up I would switch from Sling.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's request for specific channels and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 571,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I saw that Mork and Mindy was available for streaming, but they’re so few episodes per season. Why is that?\n    brand: Hi, Amit! We have the rights to a limited number of episodes at this time. We'll share your interest in seeing more added!\n\ncustomer: when I’m watching a TV series on my iPad why does it repeat the same episode and not play the next episode automatically?\n    brand: That shouldn't be happening! Try powering down your iPad for a few mins as well as: <link> Any change?\n\ncustomer: will Stan Against Evil be updated each episode or do I have to wait for the whole season. I don't have Hulu live\n    brand: Hi! We have the rights to past seasons of Stan Against Evil. We'll express your interest in seeing S2 added after its TV run.\n\ncustomer: why does Season 18 of Law &amp; Order SVU only have 3 episodes? But all the other seasons have all the episodes? What the heck!! 😲\n    brand: Hey! Our rights to eps of S18 will continue to expire as new eps of S19 become available. We'll share your feedback.\n\ncustomer: Why are new episodes of certain shows like Chicago PD and the Orville not available?\n    brand: The new eps are up: <link> &amp;: <link> If you still aren't seeing them let us know the device\n\nCustomer message:\nWhy do you only have random episodes of shows like I Love Lucy and Happy Days instead of full seasons?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the licensing question and incorrectly treats a content availability issue as a technical device problem.\"\n}",
+  "prompt_tokens": 585,
+  "completion_tokens": 64
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I have Hulu going and whatever I'm watching it plays the show for 5 seconds then goes to buffering window for 5 seconds, etc.\n    brand: Sorry to hear you had trouble! Still need help? Try steps: <link> for your device. Notice any improvement?\n\ncustomer: Dear @hulu_support plz fix your \"live TV\" from buffering every 30 sec.- this makes ftball unwatchable. @1640 lowers strean qual. to avoid\n    brand: Oh no! That shouldn't be the case, Mike. We'll help. What device are you streaming with? Let's try: <link>\n\ncustomer: You guys. I really want to keep Hulu live but the buffering issues are awful. I’m on GB/s so it’s not me. Ads play fine tho 🤔\n    brand: We're here to help, Adam! What device are you using and is it hardwired? Any change after these: <link>\n\ncustomer: Testing Live TV through Roku 4 and getting constant buffering bursts for 2-3 secs. Does not happen on other live services.\n    brand: Ah, you may have run into a few network issues we had last night. Please reboot and @ us some specifics—if that's no help. 🕵️\n\ncustomer: yo A&amp;E keeps playing reloading and playing the same 3 sec back l2-3 times then plays normal for a min and repeats\n    brand: Uh oh! What device is in use? Any errors pop up? Please power off your device for 1-2 minutes then uninstall/reinstall our app.\n\nCustomer message:\nso, every time I try to play a Hulu original on my PS4, it will play for 5 seconds, then buffer for 10-20 seconds. Just now realizing it's only Hulu originals. (Idk why) but future man, and runaways will play, but in 5 sec increments. Is there a fix?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer already stated they are using a PS4, so asking for the device is redundant.\"\n}",
+  "prompt_tokens": 677,
+  "completion_tokens": 64
+ }
+}

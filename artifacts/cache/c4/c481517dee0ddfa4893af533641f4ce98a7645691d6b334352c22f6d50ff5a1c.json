@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: get king of the hill k thx bye\n    brand: Thanks for the great suggestion! We'll let our content team know of your interest in King of The Hill streaming on Hulu. 🍻\n\n[1] customer: add king of the hill\n    brand: Hi! We're always looking to add new content. We'll give a call to Strickland Propane to see if the rights are there.\n\n[2] customer: why was tosh.o taken off hulu\n    brand: Sorry! Sadly we no longer have the streaming rights for Tosh.0, but we'll express your interest in seeing Daniel return to Hulu.\n\n[3] customer: since netflix sucks will y’all add one tree hill 😤\n    brand: Hey Jor! We don't currently have the streaming rights, but we're happy to share your interest with our content team here.\n\n[4] customer: why is the series finale from the original @1662 not on hulu?\n    brand: Hi there! It's in Clips or Extras depending on which device you're using. Happy streaming! 🥂\n\nNew message:\nwhy is king of the hill not on netflix or hulu? dang it!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 489,
+  "completion_tokens": 60
+ }
+}

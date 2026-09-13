@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @hulu_support this was happening all day yesterday and still today. The only app doing it. What's up? #toomuchcompetitionforthistohappen <link>\n    brand: Oh no! We'd like to help. If no improvement after trying: <link> please contact: <link> ✅\n\ncustomer: .@hulu_support uhh 7:37 pm and General Hospital still is not up! It always posts at 7pm on the dot. Fix it, please!!\n    brand: Sorry for the delay, Cassi! The latest episode is now available to stream on all supported devices: <link>\n\ncustomer: horrible stuttering issues all day today. Only happens with #hulu and not Amazon Prime or Netflix. Deleted and re-installed the app and still having the issue.\n    brand: Yikes! Which device do you use? Please be sure to try a quick reboot of the device+modem/router. Any improvement after?\n\ncustomer: Trying to resolve problem w\\@115940 app on @116439 &amp; iPhone. @hulu_support &amp; <link> apparently are all dead or asleep.\n    brand: Sorry for any frustrations, James! Still need a hand? If so, please chat w/ us: <link> for 1:1 support.\n\ncustomer: Ok now @hulu_support I been waiting for Star for about a week now. And is @6311 going to be on Hulu tomorrow?\n    brand: Hey! Star is on hiatus until 11/8, so keep the show in WL/My Stuff for updates. S1 E6 of The Brave is now available to stream.\n\nCustomer message:\nPlease post good morning America for today on the hulu app android Ty\n\nDraft reply:\nOh no! We'd like to help. If no improvement after trying: <link> please contact: <link> ✅",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply follows the established brand tone and provides standard troubleshooting resources for content availability issues.\"\n}",
+  "prompt_tokens": 649,
+  "completion_tokens": 62
+ }
+}

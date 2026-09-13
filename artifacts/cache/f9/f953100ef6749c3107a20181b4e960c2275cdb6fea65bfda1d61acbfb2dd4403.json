@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hello @115940 when is newest greys coming on 😭 <link>\n    brand: It's currently streaming, Chariya! Watch last night's episode here: <link> Happy streaming!\n\n[1] customer: When is the new greys anatomy going to be on @115940 ???😭\n    brand: Hi Hailey! If you're subscribed to an on-demand plan, new eps are made available the day after air: <link>\n\n[2] customer: when will the latest grey’s anatomy episode be up to watch?\n    brand: The latest ep is up on our service &amp; available here: <link> If you're not seeing it, let us know the device.\n\n[3] customer: why isn’t the new episode of greys on hulu yet, i’m about to cancel my membership!!!!\n    brand: Don't worry, Dr. Grey had a vacation scheduled so there wasn't a new ep to air last week. It's back on to new ones on Thursday!\n\n[4] customer: Ok now @hulu_support I been waiting for Star for about a week now. And is @6311 going to be on Hulu tomorrow?\n    brand: Hey! Star is on hiatus until 11/8, so keep the show in WL/My Stuff for updates. S1 E6 of The Brave is now available to stream.\n\nNew message:\nwill the #CFL #greycup be on #HuluLiveTV? Please say yes!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 547,
+  "completion_tokens": 66
+ }
+}

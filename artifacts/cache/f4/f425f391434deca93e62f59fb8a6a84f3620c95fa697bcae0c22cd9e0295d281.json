@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\ncustomer: trying to watch episode of SNL and i get this screen frozen w/content audio playing. Your app is broken! I’m on FireTV fix it! <link>\n    brand: Ah, this looks like an issue we're investigating. If <link> is no help, 💬 or 📞 in: <link>\n\ncustomer: My iPhone app won’t play video anymore. I select the vid then it crashes. Tried un/reinstalling app, nothin works. Help!\n    brand: Sorry to hear that, Robin! Let's see if we can help. Try out these steps: <link> and <link>\n\ncustomer: since your new look update all you app does is constantly freeze during shows smh\n    brand: That shouldn't be the case! What device is this occurring on? Any change after resetting the connection: <link>\n\ncustomer: my app on iOS keeps crashing EVERY TIME I open a video. I’ve re installed. I’ve restarted my phone. HELP\n    brand: Sorry to hear this! Let's try running through these steps: <link> and <link> Any better?\n\nCustomer message:\nThe iPad app freezes when the video is put in picture in picture mode. Anything on an update or fix? <link>\n\nDraft reply:\nOh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of providing troubleshooting links for app performance issues.\"\n}",
+  "prompt_tokens": 597,
+  "completion_tokens": 60
+ }
+}

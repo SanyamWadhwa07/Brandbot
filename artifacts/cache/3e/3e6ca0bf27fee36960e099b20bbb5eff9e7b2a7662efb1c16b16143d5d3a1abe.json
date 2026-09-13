@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when will Last Man Standing be available?\n    brand: Hey Heather! No news to share at the moment, but we'd be happy to pass along the interest to the appropriate teams.\n\n[1] customer: when will Rick and Morty season 3 be available on your platform?\n    brand: Sorry for the delay! No release date has been set, but keep an eye on this page for updates: <link> 👍\n\n[2] customer: any idea on when Hulu Live will be available on Samsung TV's?\n    brand: No news to share, but we're working to roll out Live TV to more devices. Stay tuned to: <link> for all updates.\n\n[3] customer: Will Rick and Morty Season 3 be coming out on Hulu, and if so when?\n    brand: Hi Sam! We have the rights to stream past seasons of R&amp;M on our base plans, so S3 will stream sometime after the finale airs.\n\n[4] customer: Will Season 4 of \"The Last Ship\" be available on HULU soon? If so, when?\n    brand: Hi, Irene! We typically receive the latest season just before a new one airs on TV. Please keep the show in WL/My Stuff for updates.\n\nNew message:\nany ETA on when Hulu 4K content will be available on the Apple TV 4K?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 530,
+  "completion_tokens": 60
+ }
+}

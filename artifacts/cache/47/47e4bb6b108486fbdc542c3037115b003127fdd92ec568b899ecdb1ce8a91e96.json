@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: yo add the Jurassic Park's\n    brand: We'll definitely pass along the interest! We're always working to add more content you love to our growing library. 💚\n\ncustomer: what are the chances that y’all could add Avatar the Last Airbender (the series) to Hulu?\n    brand: Hi, Aaron! We don't have any info to provide about future availability, but we've shared your request with our content team. 💙\n\ncustomer: can you add Dragon Ball Super\n    brand: Hey there! We can't make any promises, but we'd be happy to share your request with our team. We're always adding new content!\n\ncustomer: Please add the Hallmark Channel to Hulu Live!\n    brand: Thanks for the suggestion, Tony! We can definitely share this request with the appropriate teams here. 👍\n\ncustomer: y’all should really have a #live option on your #HuluTV\n    brand: Hi, Armando! The Live TV Add-on is available on these devices: <link> We're working on expanding to more!\n\nCustomer message:\nis there a way y’all can add The Big Bang Theory? Please! Save a life\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the content request and asks an irrelevant question about the user's device.\"\n}",
+  "prompt_tokens": 506,
+  "completion_tokens": 63
+ }
+}

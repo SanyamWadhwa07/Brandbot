@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why isn't the last 2 episodes of Will and Grace available? #sadface\n    brand: Hey Melissa! Check under the \"Clips\" section—you should see both of those episodes available!\n\n[1] customer: why are the last 2 episodes of Will and Grace season 8 missing?\n    brand: We got you, Chandler! The 2-part finale is under Clips on the classic Hulu app and Extras in the new app. Enjoy!\n\n[2] customer: hey do you know when the final episode of East Los High is going to be released? @238004\n    brand: We sure do! The finale will air on Dec. 1: <link> We hope you enjoy it!\n\n[3] customer: Yo Hulu,wtf, the last 2 episodes of Will and Grace season 8 aren't showing up on my list, what happened?\n    brand: We can help you there! These eps are in the Clips/Extras section, due to their streaming rights: <link> 👍\n\n[4] customer: why is the series final of Will and Grace the only 2 episodes you don’t have!? I’m so confused\n    brand: Hey Kaity! The full eps are available under Clips on site &amp; Extras w/ devices that utilize the new experience. Hope that helps!\n\nNew message:\nWhen will the last two episodes of The Long Road Home be added?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"answerable\": false,\n  \"reply\": \"\",\n  \"used\": []\n}",
+  "prompt_tokens": 538,
+  "completion_tokens": 69
+ }
+}

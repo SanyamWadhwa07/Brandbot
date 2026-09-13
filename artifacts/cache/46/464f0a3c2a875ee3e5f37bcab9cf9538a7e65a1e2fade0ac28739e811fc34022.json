@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: hello can I get help\n    brand: Apologies for the delay, Raquel! Still need assistance? Please reach our phone/chat teams here: <link> 📲\n\n[1] customer: can’t get any help via phone or chat.\n    brand: Oh no! Our phone and chat teams may experience delays on occasion. What's the issue at hand? We'd love to see how we can help.\n\n[2] customer: need assistance. DM please.\n    brand: Apologies for the delay! If you still need help, @ us some details—or try us over phone or live chat at: <link>\n\n[3] customer: I need a little help. DM me!\n    brand: Hi Kevin! We're happy to help with general questions via Twitter but for account issues, please call/chat: <link>\n\n[4] customer: \"please contact us\" is only a good solution to FAQs when you can actually get ahold of someone in less than an hour\n    brand: Yikes! We're sorry to hear of the multiple charges you received. We'd like to investigate. Contact: <link> ✅\n\nNew message:\ncan I get some help please Hulu?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Apologies for the delay! Still need assistance? Please reach our phone or chat teams here: <link> 📲\",\"used\":[0]}",
+  "prompt_tokens": 490,
+  "completion_tokens": 107
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I thought I was getting a free trial but I was charged $11.99\n    brand: We're happy to take a look and see what happened. When you have a chance, reach out: <link>\n\n[1] customer: I just got an email saying I could get a 1 month free trial and would be charged 5.99 after that but it doesn’t work\n    brand: Hi Bruce! Do you know if you may have already redeemed a trial with us in the last 12 months? <link>\n\n[2] customer: I just signed up for the $5.99 (per email) and said free trial. Didn't get a free trial and your system didn't warn me. Help?\n    brand: Sorry for the delay! Give us a call or chat with us here: <link> and we'll look into this. 👍🏻\n\n[3] customer: I signed up for a free trial at the $5.99 rate and switched to $11.99 an hour later and now I'm getting charged $4. Why?\n    brand: A pro-rated charge occurs for plan switches. Call or chat with us here: <link> and we'll confirm. 👍🏻\n\n[4] customer: I got a free trial email, and was charged $11.99 when I signed up. No warning of not being eligible. Is a refund possible?\n    brand: Thanks for elaborating! Please call/chat ➡️ <link> so we can take a closer look &amp; explore available options. 🔍\n\nNew message:\nSo a free trial that costs 5.99? Lol idc that I had to pay for it, but don't lure me in with a free trial if there isn't one @115940 @109764 <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We understand the confusion. Please reach out via our support link so we can review your account and see what happened. <link>\",\"used\":[0,2,4]}",
+  "prompt_tokens": 612,
+  "completion_tokens": 98
+ }
+}

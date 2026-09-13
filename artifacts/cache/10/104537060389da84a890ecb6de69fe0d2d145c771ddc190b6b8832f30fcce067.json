@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?\n    brand: King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>\n\ncustomer: Hulu live has been unwatchable today. No other app has this issue. About to cancel service and go back to PlayStation Vue.\n    brand: Oh no! We'd hate to see you go! Which device are you on? Are all channels affected? For now, try a quick device+modem reboot.\n\ncustomer: I have Hulu (no commercials) with live TV and when I am watching a show that is not live i still have commercials. Why?\n    brand: On-demand content from networks will have ads: <link> Share the show title and we'll confirm this is intended!\n\ncustomer: Looking for help as to why we still see commercials after upgrading to Hulu live TV with no commercials.\n    brand: Hey Tom! No Commercials applies to content within the Hulu library. Live and on-demand will have ads: <link>\n\ncustomer: FS1 has just vanished from Hulu live?!?!\n    brand: Hi there, sorry for the trouble! What device are you using? Can you access the network from Browse &gt; Networks &gt; Live or A-Z?\n\nCustomer message:\nWhat happened to the Shahs of Sunset on your service? I have live TV with no commercials, and the Shahs of Sunset landing page/series page is completely gone from search results!\n\nDraft reply:\nKing of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft reply is completely irrelevant to the customer's question about a missing show.\"\n}",
+  "prompt_tokens": 595,
+  "completion_tokens": 62
+ }
+}

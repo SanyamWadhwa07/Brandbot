@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: the Hulu app logged me out, &amp; when I try to log in, I get \"An error occurred. Please try again later\" &amp; I know the login\n    brand: Sorry for the delayed reply! If you're still running into trouble, let us know the device in use and try: <link>\n\ncustomer: I’m logged in the wrong account on PS4 and there is no log out button. What do I do?\n    brand: Uh oh! We'd love to help sort this out. From within the app, head to the 👤 icon and select \"log out\" from there. 👍\n\ncustomer: Trying to log in but keep getting cycled into the welcome screen. Logged out on all devices and can't get back in. Suggestions?\n    brand: Yikes! Please call our direct number listed here in the color blue: <link> 📲 We'll get this sorted out!\n\ncustomer: .@115940 the iOS app logged me out of my account and now won’t let me log back in. Have repeatedly tried. Can login on the web though. How do I fix the app issue?\n    brand: Sorry to hear of the trouble, Michael. We'd like to help! Please call the phone number in blue here: <link> 📲\n\ncustomer: Your AppleTV is total garbage. Freezes up and logs me out constantly.\n    brand: Yikes! Let's try: <link> / <link> Call/chat if that doesn't fix it: <link>\n\nCustomer message:\nEverytime I login to my account on desktop it just logs me back out. What’s up?\n\nDraft reply:\nSorry for the delayed reply! If you're still running into trouble, let us know the device in use and try: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses for login issues and uses the established brand tone.\"\n}",
+  "prompt_tokens": 623,
+  "completion_tokens": 62
+ }
+}

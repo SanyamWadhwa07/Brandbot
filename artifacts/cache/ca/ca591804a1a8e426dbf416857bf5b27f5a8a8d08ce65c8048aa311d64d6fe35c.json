@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: there is something very wrong with the Hulu live service this evening.\n    brand: Sorry to hear about that, tell us more! What device were you using, what was playing, and what behavior did you run into?\n\n[1] customer: Hulu live has been unwatchable today. No other app has this issue. About to cancel service and go back to PlayStation Vue.\n    brand: Oh no! We'd hate to see you go! Which device are you on? Are all channels affected? For now, try a quick device+modem reboot.\n\n[2] customer: Watching World Series live on Fox, keeps freezing, says connecting issues, but no other shows affected. Max signal w/168mps.\n    brand: You aren't alone, Dale! Our team is aware of the issue and are working on a fix. In the meantime, try: <link>\n\n[3] customer: And @115940 live tv buffering is not ready for prime time. Cool in concept, lacking in execution.\n    brand: That's no good! Which device do you use? Having trouble w/a certain channel? For now, try a quick device+modem/router reboot.\n\n[4] customer: live is absolutely miserable. To the point of being unwatchable. And they're ending casual. C-ya Hulu. Back to PS view.\n    brand: Sorry for the trouble, Craig! What issue are you coming across with Live TV? If on Roku, please try: <link>\n\nNew message:\nit has been 3 nights in a row that prime time NBC live has not been working. It seems like the issue is with every show I️ want to watch on NBC. This is crazy and needs to be fixed ASAP.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear NBC Prime Time isn’t working. Which device are you using? Are all NBC channels affected? For now, try a quick device + modem/router reboot and let us know if it helps.\",\"used\":[0,1,3,4]}",
+  "prompt_tokens": 602,
+  "completion_tokens": 112
+ }
+}

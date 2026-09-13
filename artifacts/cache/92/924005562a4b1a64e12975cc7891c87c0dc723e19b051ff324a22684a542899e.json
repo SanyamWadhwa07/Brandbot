@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Please fix your live streaming. I pay $40 to watch shows buffer CONSTANTLY and barely play. This is awful.\n    brand: Oh no! Do any errors pop up? What device are you using? Let's start with general troubleshooting here: <link>\n\ncustomer: fix your live TV stream before you charge for it...\n    brand: What kind of trouble are you running into, Brad? What device is in use? Are multiple channels affected? We're here to help. 💚\n\ncustomer: live sucks. It buffers like crazy, making it impossible to enjoy. I'll be cancelling til I hear it's fixed.\n    brand: Sorry to hear about that, it's not what we like to read and would love to assist. What device? Try: <link>\n\ncustomer: your live stream sucks\n    brand: That's not what we like to hear, Bill. What issue are you coming across? What device are you using? We're here to help.\n\ncustomer: if you want me to keep the live streaming and pay $40 a month you better fix it.\n    brand: Were the steps provided of any help? Are all channels affected? Or just one? Also, please double-check: <link>\n\nCustomer message:\nfix your live streaming it fucking sucks\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and appropriately asks for the device to begin troubleshooting.\"\n}",
+  "prompt_tokens": 530,
+  "completion_tokens": 62
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when is the new seasons of American Dad gonna be in hulu?\n    brand: Hey, Tim! No news to share at the moment but we'll let our team know you'd like to see them sooner rather than later!\n\n[1] customer: So when is the new season of Rick and Morty going to be on @115940\n    brand: We have the newest season of Rick and Morty on Hulu live. ⚡️ Our base plans typically have access soon after it airs on TV.\n\n[2] customer: when is season 3 of the new English dub of Sailor Moon coming out on Hulu\n    brand: Hey India! No news to share on adding S3 dubbed at this time, but we'll share your interest with our team. 🌙\n\n[3] customer: So @115940 when is season 3 of Freakish coming out? Because ya cant just end season 2 like that. Ya hurting me here. #Freakish #FreakishonHulu\n    brand: No news to share at the moment but we'll be sure to let our team know you're interested! Thanks for the support of the show.\n\n[4] customer: Question. Is the new season of Supernatural going to Hulu? It would be season 13.\n    brand: We're not able to offer the show on our on-demand plans. We're able to make select eps available with our new Live TV plan.\n\nNew message:\nwhen will Blue Bloods new season that’s airing now be on Hulu?? I’m dying here! 🤪",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey there! No news to share on the new season of Blue Bloods at the moment, but we’ll be sure to let our team know you’d love to see it on Hulu soon!\",\"used\":[0]}",
+  "prompt_tokens": 565,
+  "completion_tokens": 111
+ }
+}

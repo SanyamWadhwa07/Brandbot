@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: the new app format is terrible. I preferred the old one way more. How do I tell it I don't want to see a show? Stop forcing that awful Sarah Silverman show on me every time I open my app. Thanks. @hulu_support\n    brand: Apologies! While there's not a way to block shows, you can find all your favorites in My Stuff: <link>\n\n[1] customer: please change your Roku app back. It's a chore to watch any episode but the latest. Also get errors all the time\n    brand: Apologies for the delay. New eps should appear as “Watch Next Ep” under Keep Watching hub. Let's try: <link> ✅\n\n[2] customer: Hulu app on my iPad doesn't play episodes in order it plays 3 then repeats again. Seems to be because of the new format? Is there a fix?\n    brand: Sorry, Amy! Is this happening with all shows or a specific one? Please try: <link> and let us know if they help.\n\n[3] customer: How I set my Roku back to your previous format. This new update is terrible, frustrating, annoying. Revert or I'm out. please\n    brand: Are you having trouble with anything specific? There aren't plans to roll back, but we're making updates based on user input.\n\n[4] customer: Gotta be honest, don't care for the way your app works on Roku now. Before it was all laid out and easy, now it's a pain finding shows\n    brand: Sorry to hear you aren't a fan! Anything specific you'd like changed? You may find this guide helpful: <link>\n\nNew message:\nPlease change the format of your app back to the way it used to be. This new format is very confusing. It's difficult to find shows to watch because the app is a big ole mess. Thank you.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry you’re frustrated with the new layout. We don’t have plans to roll back, but we’re listening to feedback. If there’s something specific you’d like changed, let us know – this guide may help: <link>\",\"used\":[3,4]}",
+  "prompt_tokens": 634,
+  "completion_tokens": 166
+ }
+}

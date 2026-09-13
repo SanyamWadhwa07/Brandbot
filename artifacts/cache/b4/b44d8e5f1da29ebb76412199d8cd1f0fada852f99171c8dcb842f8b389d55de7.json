@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: is there a reason why my iPhone has been getting this message when trying to watch Hulu for the last few days? <link>\n    brand: Hey Alex! Try checking for any app updates/uninstalling and reinstalling. We've rolled out an iOS update that should fix this.💜\n\ncustomer: I just upgraded to LiveTV to watch on my AppleTV and its saying I need to update my location. When I do this all I get is an error and now I can't watch Hulu at all... any suggestions. <link>\n    brand: Sorry to hear about the trouble. Have you already tried: <link> If so, reach out: <link>\n\ncustomer: Why can't I watch the Green Bay/Dallas Game from my account in the Baltimore Washington area? It's playing on cable.\n    brand: Hi! NFL games are subject to blackouts and regional availability. Is Fox offered live in your zip: <link>\n\ncustomer: Guess I can't watch @115940 when I'm out of town... #lameAF <link>\n    brand: 1/2) Sorry for the trouble! To access your Hulu w/Live TV subscription when on the go, you 1st need to connect the mobile...\n\ncustomer: Can't watch the Patriots v Broncos game. And please don't tell me to try <link> because as soon as I log into my Hulu account on the 3rd party site, it says it's not available in my region. #HelpPLZ\n    brand: Apologies for the trouble tonight! It's possible the game was blacked out in your area on the NBC Sports app. 1/2\n\nCustomer message:\nhaving trouble watching CNN. It's not supposed to be blocked based on my location, but it is. <link>\n\nDraft reply:\nHey Alex! Try checking for any app updates/uninstalling and reinstalling. We've rolled out an iOS update that should fix this.💜",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the location-based issue and provides irrelevant troubleshooting steps for an iOS app update.\"\n}",
+  "prompt_tokens": 656,
+  "completion_tokens": 64
+ }
+}

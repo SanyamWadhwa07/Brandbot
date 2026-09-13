@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hulu app on my TV plays ads, but says network dropped before show starts. Network test on TV is good, Netflix works okay too.\n    brand: We're sorry to hear about the trouble! Try: <link> Follow up here: <link> if no change.\n\ncustomer: Having issues with Hulu app not casting correctly. It connects, for 3 seconds you see the show on tv you want to cast then stops and we see \"Error\" on screen.\n    brand: Sorry, Bobby! This was a known issue we were looking into, but it’s now resolved. You should be good after rebooting your device.\n\ncustomer: why am I’m getting Spanish ads on my English shows??\n    brand: Sorry for any ad-related frustrations! Please chat/call: <link> so we can take a closer look into this for you.\n\ncustomer: when I’m watching a TV series on my iPad why does it repeat the same episode and not play the next episode automatically?\n    brand: That shouldn't be happening! Try powering down your iPad for a few mins as well as: <link> Any change?\n\ncustomer: there were rumours that mash and more seasons of Reba were coming to Hulu several months ago... is that still ever happening or can we just forget about it...?\n    brand: Hi, Jay! While we don't have a set date, MASH and more Reba are on the way! Keep tabs here for updates: <link>\n\nCustomer message:\nhelp me understand how ADs work in Hulu. Watching How I met your mother seasons and I have to bear same ads again and again.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is fine as it asks for necessary device information to troubleshoot the ad repetition issue.\"\n}",
+  "prompt_tokens": 597,
+  "completion_tokens": 63
+ }
+}

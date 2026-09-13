@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: on smartTv and can't watch more than 30 seconds without the next episode loading. Feels like an outage you won't admit to.\n    brand: Hi! Are you using a Samsung device by chance? If so, we're investigating. Please reach out here: <link>\n\ncustomer: really, you've got to stop my shows and buffer every 45 seconds?!\n    brand: That shouldn't be happening! What device is this occurring on? Any change after working through: <link>\n\ncustomer: I have Hulu going and whatever I'm watching it plays the show for 5 seconds then goes to buffering window for 5 seconds, etc.\n    brand: Sorry to hear you had trouble! Still need help? Try steps: <link> for your device. Notice any improvement?\n\ncustomer: It’s taking me 3 days to watch an episode of #handmaidstale bc of buffering. @116602 has never had this problem #gladitsfree\n    brand: Sorry to hear about this, Ryan! We'd love to help. What device are you streaming from? To start, try: <link>\n\ncustomer: Hey @115940 been watching ur live ≈5 months &amp; never been able to watch 10 min of anything without ur stupid service buffering/loading. u suck\n    brand: That's not what we like to hear! We recommend hardwiring, if possible, and working through: <link> What device?\n\nCustomer message:\nIs there a way for me to watch a single episode of anything without it stopping to buffer—literally—every 30 seconds?\n\nDraft reply:\nHi! Are you using a Samsung device by chance? If so, we're investigating. Please reach out here: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's issue by asking for device information.\"\n}",
+  "prompt_tokens": 616,
+  "completion_tokens": 65
+ }
+}

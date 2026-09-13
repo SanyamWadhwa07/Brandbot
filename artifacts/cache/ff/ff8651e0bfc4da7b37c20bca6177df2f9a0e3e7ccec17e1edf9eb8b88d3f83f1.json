@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hi, getting error code BYA-403-005 on live local Fox network (KDVR) since last night. Fix for this? <link>\n    brand: Oh no! We'd love to help. Try: <link> If that doesn't fix it, let us know which devices are affected.\n\ncustomer: I've got error code: BYA-403-024 trying to watch my local NFL game. Hulu Help site says it should work on Chromecast. Explain.\n    brand: Sorry! Live NFL coverage is not currently permitted on mobile devices: <link> Games are only available after-air.\n\ncustomer: what is going on? 2nd time/week this happens- commercials, and error code Bya-403-006. Happens on cell data on all iOS #wtf\n    brand: Hi Kim! What show/ep were you trying to watch that resulted in this error? Did it require on of our Premium Add-ons by chance?\n\ncustomer: Hi @hulu_support tried to watch my show on my android and I got a error code BYA-403-0009. Tried manage devices but the link is mislead. Thx\n    brand: Oh no! You can review and remove devices at: <link> For streaming issues, try these: <link>\n\ncustomer: getting a code BYA-403-010 What does it mean? I am using @127972 #Frustrated I can't watch my game!\n    brand: Apologies, Pete! Connect w/ us via live chat: <link> so we can gather more info and get you back to the game ASAP.\n\nCustomer message:\nI am getting error code BYA-403-007. What the heck, I don’t pay extra to watch error screens. I hope there is a refund coming back to your subscribers.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions by asking for device information to troubleshoot the error.\"\n}",
+  "prompt_tokens": 665,
+  "completion_tokens": 62
+ }
+}

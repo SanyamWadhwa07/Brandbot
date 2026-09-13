@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I’ve been waiting for almost 40 minutes for chat support. Still no agent. The phone wait is over 1 hour\n    brand: Apologies for the delay, Susan. That sounds really frustrating. Were you able to eventually get through and get some help? 🙂\n\n[1] customer: This is Day 5, and about 8 hrs of waiting for chat and phone support. I’m really upset. Horrible service with LIVE.\n    brand: We're sorry for the continued frustration. We'd like to resolve this ASAP. We kindly ask trying to restart a chat with us.\n\n[2] customer: I am sending another message for help. Your chat support is not accessible and phone support is over an hour long.\n    brand: Sorry to hear about the trouble! Are you receiving any errors? Let us know more details about the issue at hand so we can help!\n\n[3] customer: It's damn near impossible to get in touch with you guys. Fill out the chat form and it won't let you click the button to start chat. Phone support wait times are over an hour. No email support.\n    brand: Sorry Lauren! We've been experiencing a higher volume of contacts than normal. Please keep trying—and thanks for your patience!\n\n[4] customer: When you’ve been on hold with @115940 for 40 minutes, and can’t get them to respond to a customer support chat either <link>\n    brand: Sorry, Briana! There may be long wait times on occasion when getting ahold of our Viewer Experience team. We'll share your input.\n\nNew message:\nHow long is chat support? I need help and been waiting. There's no queue time or anything. How do I even know if someone is available?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 601,
+  "completion_tokens": 63
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @hulu_support please bring back @533745. We love watching it every weekend as a family and now we’re sad.\n    brand: Sorry, Laura! Our rights to RTP expired. We always aim to connect users to as much content they love, so we'll share your input.\n\ncustomer: Dear @115940 @hulu_support please bring back Daria , thank you. <link>\n    brand: Hi there! We can't make any promises, but we'll be sure to forward your request along to our content team for consideration. 👍\n\ncustomer: I'm livid at @115940 @hulu_support rn. I cancelled my HBO trial and THEY CHARGED ME $22 THIS MONTH AFTER I CANCELLED. +TURNED OFF MY SERVICE\n    brand: Oh no! Let's get this sorted, Ren. Please call us at the number listed here: <link> and we'll investigate.\n\ncustomer: Still waiting for @115940 to put the new season of @180004 on there. @hulu_support\n    brand: We're having major FOMO too! We don't have the rights to stream it yet, but we hope to soon. Stay tuned, Adam!\n\ncustomer: Does @hulu_support have rights to full season of @1662? I’m trying to get caught up &amp; don’t know if I’llmake itby 5 eps of newseason\n    brand: We do! Past seasons are found under \"Will &amp; Grace (1998)\" <link> Add \"Will &amp; Grace\" to WL/My Stuff for new eps.\n\nCustomer message:\njersey shore reunion BETTER be on hulu @115940 @hulu_support\n\nDraft reply:\nSorry, Laura! Our rights to RTP expired. We always aim to connect users to as much content they love, so we'll share your input.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses a canned response about a different show and incorrect customer name.\"\n}",
+  "prompt_tokens": 668,
+  "completion_tokens": 60
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: i keep getting “network error” while watching Hulu Live on my Fire Stick. Connection is “very good”; any thoughts?\n    brand: Oh no! Let's see if we can help, Zach. Try running through these steps: <link> and <link>\n\n[1] customer: what’re some good shows\n    brand: Try 30 Rock ( <link> ) or Bob's Burgers ( <link> )!\n\n[2] customer: Hulu App is junk. I watch less than 30 seconds, video goes blank green and audio continues. This happens every show/movie.\n    brand: Oh no! Is this happening on a Fire TV device by chance? If so, we're looking into this. Try switching out the HDMI port!\n\n[3] customer: I’m watching the NBA on ESPN right now and it buffers constantly during commercial breaks. This is on the Xbox One. Hardwired.\n    brand: Uh oh! Let's turn that around. Please power off your Xbox One for 2 minutes, then work through these: <link>\n\n[4] customer: Everything I watch on Hulu with Live TV works great except NFL games. Low quality, jumps, skips. What gives?\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device and modem. Any change after?\n\nNew message:\nwhat’s something good to watch on Hulu",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sure thing! Check out 30 Rock (<link>) or Bob’s Burgers (<link>) for a fun watch on Hulu!\",\"used\":[1]}",
+  "prompt_tokens": 534,
+  "completion_tokens": 96
+ }
+}

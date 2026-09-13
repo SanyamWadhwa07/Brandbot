@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @hulu_support - I don't need separate profiles since I'm the only one using my account. Is there a way to disable profiles?\n    brand: Morning! Not a way to disable the feature. Are you being prompted to create a second one?\n\ncustomer: Dear @115940 and @hulu_support, why do I need to tell you who is watching when I only have one profile? It's an annoying extra step.\n    brand: Thanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!\n\ncustomer: Dear @hulu_support, I have only one profile. Stop making me confirm it every time I open the app. thx #roku #ux\n    brand: Apologies for any frustration! We'll share your request while we continue working to implement feedback: <link>\n\ncustomer: .@hulu_support any reason I have to confirm my profile every time I start app.... I only have the one profile....\n    brand: Apologies, Michael! We'll be sure to share your input with our team. We're continuing to make improvements!\n\ncustomer: If I could have $1 everytime my @115940 app crashed on my tonight, I could pay for a 2 month subscription. @hulu_support\n    brand: Oh no! Which device is this occurring on? Does it crash during ads or upon app start? Try these: <link>\n\nCustomer message:\ncan i stream two profiles at once with the basic subscription of $7.99? @hulu_support\n\nDraft reply:\nMorning! Not a way to disable the feature. Are you being prompted to create a second one?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's question about concurrent streaming and instead addresses a completely different topic.\"\n}",
+  "prompt_tokens": 605,
+  "completion_tokens": 64
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when is season 4 of steven universe gonna be on your service, season's been over for like months now\n    brand: Hey there! We don't have news to pass along just yet, but we'll let our team know you're on the lookout for more episodes. 💚\n\n[1] customer: when is season 4 of #BroadCity coming back to Hulu? 🗽🐀 <link>\n    brand: No news yet, but we're hoping to have the entire season after its full run on TV. Pin: <link> for any updates!\n\n[2] customer: when will season 4 of Younger be available on Hulu?!\n    brand: Hi Megan! No release date to share right now, but keep an eye on this page for updates: <link> 😊\n\n[3] customer: Hey @115940 - when is season 4 of @180004 new episodes showing up?? <link>\n    brand: Hey Steve! Thanks for reaching out. We don't have news to share just yet, but we'll let our team know you're on the lookout. 💚\n\n[4] customer: when will the fourth season of Steven Universe be available? I’m asking for a friend.\n    brand: Hi, Ashley! We don't have any info to share, but we'll pass the request to Steven. Make sure it's in WL/My Stuff for updates. 💎\n\nNew message:\nwhen will season 4 of steven universe be up?? I can't wait to rewatch!!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey there! We don’t have any info to share yet, but we’ll let the team know you’re looking for Season 4. Keep an eye on your Watchlist/My Stuff for updates! 💚\",\"used\":[0]}",
+  "prompt_tokens": 554,
+  "completion_tokens": 122
+ }
+}

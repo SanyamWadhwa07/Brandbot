@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Everytime I try to watch Hulu the screen goes black &amp; I can still hear the audio. &amp; I can't fix it. Get your shit together @115940\n    brand: Strange! Which device is this occurring on, Tati? Try running through these steps: <link> Any improvement now?\n\ncustomer: trying to watch episode of SNL and i get this screen frozen w/content audio playing. Your app is broken! I’m on FireTV fix it! <link>\n    brand: Ah, this looks like an issue we're investigating. If <link> is no help, 💬 or 📞 in: <link>\n\ncustomer: Trying to watch Scandal on @115940 plus and its messing up. I cant hear a word they are saying just the background music @hulu_support\n    brand: Sorry about that! Still having trouble? Which device are you using? Try running through: <link>\n\ncustomer: Are there plans to add 5.1 audio capability to the Xbox One app? It works on Roku, why not Xbox One?\n    brand: We're sorry to hear about any frustration! We know users are very interested and we'll continue to share the feedback!\n\ncustomer: My video freezes, but the audio continues. Also, A&amp;E is no longer available for some reason. HELP\n    brand: Oh no! 😔 After checking, A&amp;E is avail. Which device/channels froze during playback? Try: <link> Any changes?\n\nCustomer message:\nWas going to watch Star Trek: Beyond on #Hulu today, but decided to use a different service, since you still don't have surround sound like Dolby Digital. Get it together already. Stereo only is pathetic. #audio\n\nDraft reply:\nStrange! Which device is this occurring on, Tati? Try running through these steps: <link> Any improvement now?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's feedback about surround sound and uses an irrelevant, generic troubleshooting template.\"\n}",
+  "prompt_tokens": 644,
+  "completion_tokens": 65
+ }
+}

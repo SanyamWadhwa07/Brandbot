@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: yo, why do y'all require a gender selection when creating an account? And why in the hell in 2017 would you make it binary? <link>\n    brand: Thanks for your feedback! We understand your concern and will be introducing changes to this in the near future.\n\ncustomer: Hey @115940, kinda sexist, asking for my gender on signup. Why stereotype? @116602 hasn’t asked me that. At least it wasn’t biological sex.\n    brand: Hi, Mari! We understand your concern and appreciate the feedback. We’re working to make changes in the future.\n\ncustomer: Hey! I was wondering why you don't have a neutral gender option when signing up for an account?\n    brand: Thanks for your feedback, Keifer! We understand your concern and will be introducing changes to this in the near future.\n\ncustomer: it's chill that y'all seem to be LGBT positive with your content and ads, but it not gr8 that you only offer 2 gender options\n    brand: Thanks for your feedback, Margaret! We understand your concern and will be introducing changes to this in the near future.\n\ncustomer: It's profoundly disturbing that @115940 wants to know my gender for a \"more personalized experience\". More like stereotyped experience.\n    brand: Thanks for your feedback, Claire. We understand your concern and will be introducing changes to this in the near future.\n\nCustomer message:\nI have to give you a binary gender to sign up for an account so you can make sexist (and, presumably, heterosexist) assumptions about my viewing habits? Gross, Hulu. Not a good start.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's feedback about gender options and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 612,
+  "completion_tokens": 65
+ }
+}

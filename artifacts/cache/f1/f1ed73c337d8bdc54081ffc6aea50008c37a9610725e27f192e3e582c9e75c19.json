@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why is my Hulu account showing ads? I pay for no commercials and it's not any of the commercial list.\n    brand: Apologies! Are you still seeing ads? If so, please reach out to us here: <link> We'll take a look on our end\n\ncustomer: i pay for no ads so why am i seeing ads 😒\n    brand: Sorry for the trouble, sounds like: <link> If this continues please let us know the show, season, and episode.\n\ncustomer: why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?\n    brand: King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>\n\ncustomer: why does @3143 have commercials when I pay for no commercials?!\n    brand: Hi! Are you watching a recorded version of the episode from your DVR: <link> ?\n\ncustomer: help me understand how I pay for no commercials, yet im getting commercials 4 times in between Once Upon A Time??? why??\n    brand: Sorry! Due to streaming rights Once a Upon a Time is not included on our No Commercials plan at this time: <link>\n\nCustomer message:\nwhy am I seeing commercials when i pay for no commercials?\n\nDraft reply:\nApologies! Are you still seeing ads? If so, please reach out to us here: <link> We'll take a look on our end",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft matches the brand's established tone and follows the precedent of directing users to support links.\"\n}",
+  "prompt_tokens": 547,
+  "completion_tokens": 65
+ }
+}

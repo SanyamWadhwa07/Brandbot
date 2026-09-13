@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: empire and star aired on 11/1 it is 11/5 why aren’t the new episodes available on Hulu?????\n    brand: Hi, Chris! The show didn't air due to the World Series. It's back this week! Check out: <link>\n\ncustomer: why isn’t the new episode from empire or star on Hulu 😡\n    brand: Don't worry, you haven't missed anything! Both of these shows didn't air new eps this week but they'll be back next week. 👍\n\ncustomer: why isn’t the most recent episode of empire on yet ?\n    brand: Hang in there! The show took a break last week but will air a new episode on 11/8! Check your Watchlist/My Stuff for updates!\n\ncustomer: why is the new episode of empire still not uploaded?\n    brand: No new eps since 10/18—but the Lyons return tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\ncustomer: can y'all tell me why empire and star not on there yet ? YALL TWO WEEKS LATE 🗣\n    brand: These shows have been on a hiatus since 10/18. New eps will premiere on TV 11/8, &amp; added to our on-demand service the next day\n\nCustomer message:\nummmm where's the latest episode of star and empire. It's been a while\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's question about episode availability and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 570,
+  "completion_tokens": 65
+ }
+}

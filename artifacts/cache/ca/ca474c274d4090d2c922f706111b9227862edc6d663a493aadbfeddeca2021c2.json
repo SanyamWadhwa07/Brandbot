@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @115940 how about that ghost adventures?😅😅\n    brand: We're haunting the rights down! So far no 👻's, but we'll keep trying to lure them out! Keep the show in WL/My Stuff for updates.\n\n[1] customer: there were rumours that mash and more seasons of Reba were coming to Hulu several months ago... is that still ever happening or can we just forget about it...?\n    brand: Hi, Jay! While we don't have a set date, MASH and more Reba are on the way! Keep tabs here for updates: <link>\n\n[2] customer: I know y’all don’t have an exact date but do you think Rick and morty season 3 will be added before 2018\n    brand: We don't have any details. To stay in the loop, keep the show in WL/My Stuff and bookmark this page: <link>\n\n[3] customer: when will there be new episodes of #IronChefAmerica? (asking for me and my pint of ice cream)\n    brand: Hi, Leona! We don't have any news, but we'll share your interest. In the meantime, keep that ice cream cool in the freezer. 📺🍨\n\n[4] customer: Hi. Just wondering when will more seasons of Queen Sugar, Power, &amp; Queen of the south be added? Thank you\n    brand: We don't have any specific dates to share yet, but we'll keep you in the loop if you add these shows to Watchlist/My Stuff!\n\nNew message:\nwhen will you add more seasons of ghost adventures?! need more seasons!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We don’t have any new seasons of Ghost Adventures lined up yet. Add it to your Watchlist/My Stuff and we’ll let you know when more arrive!\",\"used\":[0]}",
+  "prompt_tokens": 585,
+  "completion_tokens": 99
+ }
+}

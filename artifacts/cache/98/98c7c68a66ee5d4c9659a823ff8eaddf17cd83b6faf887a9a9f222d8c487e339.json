@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: has something changed regarding the no commercials plan for on demand CBS dramas such as Madam Secretary?\n    brand: It seems like you may have our Live TV add-on. If so, recent CBS content is available via network on-demand and may contain ads.\n\n[1] customer: I just bought Hulu (No Commercials) with Live TV $43.99/mo - but all I watch including reruns has commercials - why?\n    brand: Like traditional broadcast TV, our live service will have ad breaks. Though, On-Demand content should not: <link>\n\n[2] customer: I have Hulu (no commercials) with live TV and when I am watching a show that is not live i still have commercials. Why?\n    brand: On-demand content from networks will have ads: <link> Share the show title and we'll confirm this is intended!\n\n[3] customer: why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?\n    brand: King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>\n\n[4] customer: Where's the new episode of The Brave. It says there was one on Monday, but its not on Hulu. last showing was from 10/16.\n    brand: Sorry for the delay, Kristin! We've completed the mission and are happy to report that E5 is now up: <link>\n\nNew message:\nAlso, very frustrating to have Live TV with no commercials and another show I watch (Shark Tank) most recent episode that aired 11/25 is only via ABC on-demand WITH commercials? It's been a week since it aired! How come there isn't a Hulu no commercials version??",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Shark Tank’s newest episode is only available via ABC’s on‑demand feed, which includes ads—even for No‑Commercials plans. On‑demand content from networks often has commercials.\",\"used\":[2,3]}",
+  "prompt_tokens": 607,
+  "completion_tokens": 105
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: If I see this commercial one more time on @115940 then I’m cancelling my account <link>\n    brand: Apologies! While there's no way to block an specific ad, updating: <link> just might help to mix things up.\n\ncustomer: I swear @115940 doesn’t do anything for their customers when they are having issues. I’ve been complaining for weeks\n    brand: Apologies for the delayed reply! We saw your initial tweet &amp; followed up with more details there: <link>\n\ncustomer: i’m about to cancel my subscription. this happens every 2 minutes no matter what i watch. @116602 works just fine as well as every other app on my TV <link>\n    brand: We're sorry to hear about the trouble &amp; would love to help! What device is in use? For now, start here: <link>\n\ncustomer: I’m canceling my subscription since I can’t watch the Cubs game right now. That’s terrible smh @115940\n    brand: Sorry--we'd truly hate to see you go! The Cubs/Dodgers game on TBS has since been restored: <link>\n\ncustomer: Okay. Ready to cancel @115940 at this point, because this commercial volume thing is really awful. Over it.\n    brand: Apologies, Casey! Were you able to get in touch w/ us over phone/chat: <link> so we can further investigate?\n\nCustomer message:\ni swear @115940 if this god awful commercial plays ONE MORE time i'm canceling my subscription <link>\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with the brand's tone and troubleshooting approach for technical issues.\"\n}",
+  "prompt_tokens": 615,
+  "completion_tokens": 62
+ }
+}

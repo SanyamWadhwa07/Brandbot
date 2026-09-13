@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: on my new Apple TV 4K auto play has more than 30 seconds wait time between episodes. Any way to make it under 10 seconds?\n    brand: There's no way to adjust the wait, but you can skip it w/ Fliptray: <link> We'll share this w/ the team!\n\n[1] customer: Yeah, New Hulu is awful. It's almost impossible to find the new episodes of my shows. It shouldn't take 30 min to do that. @115940\n    brand: Sorry! New eps will display \"NEW\" over the thumbnail. Add shows to My Stuff to be notified when new eps are posted for shows.\n\n[2] customer: I am having service issues. The service fast forwards through the entire show. I have tried everything to fix. 1 hour wait on phone.\n    brand: Sorry for the trouble and long hold time. If there are any persisting issues, let us know what device you're on when this happens\n\n[3] customer: Just signed up &amp; can't get shows supposed to be on Hulu, No Chat support, Phone wait is 45 minutes. Not impressed.\n    brand: Apologies for the rough start! Which shows are you on the lookout for? A lot of current series were just on break—so let us know!\n\n[4] customer: whyyy do you stop several times during the last 5 min of an episode and blame it on a connection issue? It worked for 45 min. Quit it\n    brand: Apologies for any frustration, Magnolia! If you're still experiencing the same behavior, contact: <link>\n\nNew message:\nyour wait times between episodes is way to long",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We can’t change the auto‑play delay, but you can skip it using Fliptray: <link>.\",\"used\":[0]}",
+  "prompt_tokens": 592,
+  "completion_tokens": 91
+ }
+}

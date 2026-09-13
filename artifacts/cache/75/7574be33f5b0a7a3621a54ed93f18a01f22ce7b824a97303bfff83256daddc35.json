@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: When watching HULU on my iPhone, the closed captioning turns itself on when an episode of Will and Grace ends and the next episode plays automatically. How can this be avoided?\n    brand: Hi, Holly! If you select the gear icon during playback, are cc's off? If so, try uninstalling/reinstalling Hulu Any change?\n\ncustomer: I hate that @115940 autoplays #TheHandmaidsTale after EVERY show. I've already watched the whole series. #STOPit @hulu_support! Play my queue!\n    brand: Thank you for pointing this out to us! We'll share your feedback with our team and continue to keep track of similar reports.\n\ncustomer: Dear @115940, please stop auto playing shows I haven’t added to my list after I’ve finished watching something. This update sucks.\n    brand: Autoplay's designed to play all eps from within a series. Once that's done, it may make suggestions. We'll share your feedback.\n\ncustomer: Why must @115940 continue to auto play a show I have never watched at the end of everything? Make it stop 😣 #Nashville is not my thing 😒\n    brand: Sorry for any frustrations, Erika! Autoplay does it's best to suggest similar content. We'll share your feedback w/ our team.\n\ncustomer: Just when I thought @115940 couldn't get worse. They have a \"new experience\". Harder to remove shows and can't turn autoplay off. Why Hulu?\n    brand: Help is here! From what section are you trying to remove shows? To disable autoplay, please see: <link>\n\nCustomer message:\nMan, I had to turn off autoplay. Frickin @115940. When I’d finish the most recent episode of a series, it would sometimes start some random series that I guess they thought I’d like. Now my “continue watching” is a polluted cesspool.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is a helpful, on-brand clarifying question that aligns with previous support interactions.\"\n}",
+  "prompt_tokens": 689,
+  "completion_tokens": 63
+ }
+}

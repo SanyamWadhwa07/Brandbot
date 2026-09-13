@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: your Apple TV app is terrible, needs to be faster and easier to navigate.\n    brand: We'd love to help! Try <link> for the lagging issues and <link> for an overview on the update.\n\n[1] customer: Your content is awesome, but your new Roku app is awful. It's ugly, cumbersome, and I have to restart my Roku to get it to work. Wtf\n    brand: Sorry for the frustration! For the restart issue, check out: <link> To leave feedback: <link>\n\n[2] customer: the updated Hulu app on Roku is terrible. I don’t even open the app anymore, it is that poorly designed. Happy to detail why\n    brand: Sorry to hear you aren't a fan! We're continuing to make updates based on viewer feedback so we'd love details.\n\n[3] customer: your iOS app never works anymore, and the new UI is seriously the worst app I’ve used in the past 5 years. You can just tell us you don’t want to keep our business.\n    brand: Oh no! Sorry for any frustration! Are you getting any errors? Please try: <link> --including uninstall/reinstall.\n\n[4] customer: your Fire TV app is terrible. Why can’t you fix it? I’ve been waiting for months and I think I’ll cancel\n    brand: Apologies! We'd hate to see you go! Let's have you try: <link> Any improvement?\n\nNew message:\nyour Roku app is dreadful it needs to reworked ASAP.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry for the frustration! For any Roku issues, check out: <link> and feel free to share more feedback: <link>\",\"used\":[1]}",
+  "prompt_tokens": 565,
+  "completion_tokens": 95
+ }
+}

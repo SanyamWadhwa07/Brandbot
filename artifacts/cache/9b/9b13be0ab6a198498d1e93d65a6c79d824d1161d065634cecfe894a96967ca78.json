@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: app is so ridiculous, one touch of the screen and it restarts the episode or changes where you are in the episode 😡😡\n    brand: Sorry for any trouble. Is this iOS? If so, try: <link> and checking for updates. We'll standby.\n\ncustomer: your app is terrible. One show is displayed at a time, and tapping anywhere on the screen skips the video to a random point\n    brand: Sorry to hear you aren't a fan! We're continuing to make updates based on viewer feedback: <link> 1/2\n\ncustomer: your guys app is SO frustrating! I’ll just tap on the screen and I’ve skipped to the end of the show. fix it pleaseeeee!\n    brand: Apologies! That should only occur if you hold and swipe. We'll pass this feedback along to our team. 💚\n\ncustomer: The Hulu iPad app is a pain to use. Keeping it simple: How do I see episode descriptions? Can I turn off auto play?\n    brand: Hi! To see an ep description, select \"...\" over the top righthand side of the thumbnail. For autoplay: <link>\n\ncustomer: app Your app doesn't even tell me what episode I'm watching in notifications. This app horible, you refuse to fix. Losing me.\n    brand: We're sad to lose you, JT! 😭 We'll pass along all of your feedback while we work to make improvements: <link>\n\nCustomer message:\nyour app sucks, especially on the iPhone X because everything is purely based on touch commands 🙄. Can’t touch the screen without it jumping around in the episode. Trying to watch RHOBH but shit be stupid sensitive.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer already specified they are using an iPhone X, making the question redundant and unhelpful.\"\n}",
+  "prompt_tokens": 617,
+  "completion_tokens": 64
+ }
+}

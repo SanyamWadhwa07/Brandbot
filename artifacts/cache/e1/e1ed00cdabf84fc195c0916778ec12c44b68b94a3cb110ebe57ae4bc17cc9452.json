@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @115940 what's going on with yall this week??? I can't watch any of my shows on Roku or my laptop but they all show up on my phone. I don't wana watch TV on a 2\" x 4\" screen, I want to continue to watch them on Roku. Is this going to be an ongoing problem or what?\n    brand: Apologies, Lauren! If you're not seeing new episodes, we're investigating. In the meantime you can navigate to Seasons / Episodes.\n\n[1] customer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\n[2] customer: why do all of the commercials lag, but the show I'm watching plays without a problem?\n    brand: Apologies! Call/chat (<link> if troubleshooting doesn't fix it: <link> <link>\n\n[3] customer: watching Broncos v Giants game live and seems very choppy. No other channels appear to have the same issue. Any reason?\n    brand: We're sorry to hear about the trouble, Chris! What device is in use when this occurs? Any change after: <link>\n\n[4] customer: trying to watch The X-Files and it keeps buffering every few seconds. What’s up? Netflix is working just fine!!!!\n    brand: Oh no! Which device do you use? For now, try a quick device+modem/router reboot along w/: <link>\n\nNew message:\ngetting tons of lag watching NCAA Football right now, any issues?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We’re sorry you’re experiencing lag, especially with NCAA Football. Could you let us know which device you’re using? In the meantime, try a quick device + modem/router reboot and check this guide: <link>\",\"used\":[3]}",
+  "prompt_tokens": 595,
+  "completion_tokens": 118
+ }
+}

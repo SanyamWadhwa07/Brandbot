@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Worst thing #1 about @115940. Some commercials freeze &amp; have to be restart. Then it restarts before the commercial so it can happen again 😒\n    brand: What device are you using when ads freeze? Hover over ep thumbnails on site for expiration date. The Bold Type eps are back!\n\n[1] customer: Nothing better then trying to watch @115940 and it plays commercials and then freezes with 1 second left.\n    brand: Oh no! Apologies, Allyssa. What device are you using? Does this occur during all content? Start with: <link>\n\n[2] customer: Dear @115940, why do the commercials you force me to watch always freeze and I cannot finish even one episode of anything?! 😩\n    brand: Oh no! Sorry, Morgan. Does this occur with all ads or a specific one? What device is in use? Let us know more so we can help!\n\n[3] customer: why is it that the program freezes constantly but the commercials don’t? Don’t have this problem with @116602.\n    brand: Oh no! Do any errors pop up? What device do you use? Let's start by working through the steps here: <link>\n\n[4] customer: why does the @179540 commercial always freeze? I've literally had to restart 7 times. 🙄\n    brand: Oh no! Is this on a Samsung device? Please call us/chat so we can collect some details: <link>\n\nNew message:\nI don't watch @115940 because it always freezes, so I have to refresh it, then have to watch 8 commercials..",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! Sorry to hear that. What device are you using when @115940 freezes? Does it happen with all ads? Let us know so we can help!\",\"used\":[0,1,2,3,4]}",
+  "prompt_tokens": 585,
+  "completion_tokens": 102
+ }
+}

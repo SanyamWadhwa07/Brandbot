@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: So @115940 charged me $11.99 but none of my accounts are active...how Sway!?\n    brand: Oh no! 🤔 We'd like to help track down the open account Kim. Please call the number listed in blue here: <link>\n\ncustomer: When you're trying to chat with @115940 about them being sneaky and charging your card but you can't get through.. <link>\n    brand: Oh no! Our apologies for any trouble connecting. If you haven't reached us yet, try us at this # <link> next.\n\ncustomer: Canceled @115940 it charged my card anyway so angry 😡😡😡😡😡\n    brand: Sorry to hear about this! Chat w/ us: <link> so we can take a closer look into this for you.\n\ncustomer: Clearly @115940 has no interest in being customer friendly if I can't contact them any way and they keep charging my credit card\n    brand: (2/2) Try calling us at the number listed here: <link> and keep us posted. We'll stay tuned for your reply!\n\ncustomer: Cancelled my account but @115940 still charged me. 🙃\n    brand: Oh no! That shouldn't be the case. Mind contacting us here: <link> for help? We'll get this sorted ASAP! ✅\n\nCustomer message:\nSick of @115940 charging my card when i don’t even have an account.\n\nDraft reply:\nOh no! 🤔 We'd like to help track down the open account Kim. Please call the number listed in blue here: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the name Kim, which is not present in the current customer's message.\"\n}",
+  "prompt_tokens": 602,
+  "completion_tokens": 64
+ }
+}

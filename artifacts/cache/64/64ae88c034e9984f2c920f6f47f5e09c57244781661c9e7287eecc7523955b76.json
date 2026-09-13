@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Where's the new episode of The Brave. It says there was one on Monday, but its not on Hulu. last showing was from 10/16.\n    brand: Sorry for the delay, Kristin! We've completed the mission and are happy to report that E5 is now up: <link>\n\n[1] customer: why aren’t the newest episodes of The Mick on Hulu!?\n    brand: Hey there! No new eps since 10/17, but Aunt Mickey is back this week, 11/7. We'll have the ep up the day after, so stay tuned! 🙌\n\n[2] customer: Why hasn’t the new episode of Law and Order:SVU aired on Hulu yet?\n    brand: Hi! The next episode of this show doesn't air until 11/8: <link> Apologies for any confusion!\n\n[3] customer: Hey @115940 why is the series finale for Will and Grace not available!?\n    brand: It is, Allyson! It's just in an odd spot. You can find the two part finale in the \"Clips\" section: <link> 😊\n\n[4] customer: hey why are the new episodes of #TheMick not on the site?\n    brand: The show didn't air new eps due to the World Series, but it was back last night! <link> Ep 5 is available now!\n\nNew message:\nwhere's the newest episode of the Mindy project? It's showing on my phone but not my tv! :(",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 561,
+  "completion_tokens": 47
+ }
+}

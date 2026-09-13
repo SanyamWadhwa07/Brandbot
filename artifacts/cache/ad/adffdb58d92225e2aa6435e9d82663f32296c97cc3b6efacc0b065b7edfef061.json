@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I love how the @115940 version of #RAW in Manchester UK cut out the debut of Pete Dunne.... the UK Champion making one of the biggest debuts of the year. <link>\n    brand: Sorry for any frustration in that regard! We don't make those cuts/edits on our end, but we'll definitely share your input.\n\n[1] customer: Trying @115940 live for the @6884 and the buffering is annoying. Also commercials randomly coming on in the middle of a play. #thanksbutno\n    brand: That shouldn't be! Which device do you use? If you try a quick reboot of your device+modem/router, notice any improvement after?\n\n[2] customer: I hate that @115940 now dims the screen when you're FF-ing etc. It's super frustrating. I understand dimming after || for a few -but not this.\n    brand: Apologies for any frustration, Sarah! We've expressed your FF feedback to our developers for review. We hope that helps. ✅\n\n[3] customer: Had to stop watching #TNF on @115940 and switch to @115821 because of the buffering problems. Get it fixed @115940!!!\n    brand: Sorry to hear you were having trouble, Andy! Which device are you using? To start off, we recommend: <link>\n\n[4] customer: When @115940 does the thing where it comes out of full screen when it jumps to the next episode in a series 🙄😒😒\n    brand: Hey there! Are you experiencing this in browser? Or through a pop-out window? Which browser do you use?\n\nNew message:\nHey @115940 your screen formatting is cutting out the marquee gag in the opening credits of the @141928 stream. And it's BUGGING THE HELL OUT OF ME.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry for any frustration! We don’t edit or cut content on our end, but we’ll definitely pass your feedback along.\",\"used\":[0]}",
+  "prompt_tokens": 623,
+  "completion_tokens": 136
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: wanna be Champs? Make it so we can download things to our device!\n    brand: Excellent suggestion! We'll download the request and send it over to our developers.\n\n[1] customer: when will @115940 let us download stuff\n    brand: Hey! We don't offer offline streaming at this stage, but we understand the benefit it could bring. We'll share your interest!\n\n[2] customer: Hey @115940 I’m gonna need you to get a download option for my phone..k thanks 💁🏼\n    brand: Hi there, Maegan. Great suggestion! We'll be sure to share the interest in an offline viewing/download option w/our dev team!\n\n[3] customer: Hulu for Switch should give us the option to download TV episodes and movies for offline viewings. Would be great when taking the Switch on the go aka all the time. @115940 @hulu_support\n    brand: Great suggestion, Michael! We'll be sure to share the interest in this feature with out dev team!\n\n[4] customer: Hulu live is absolute poop. Deleted and downloaded again on Apple TV. Nothing live coming thru. Going back 2 cable next month.\n    brand: So sorry for the trouble! Our team is investigating issues with live playback/working on a fix. Apologies for the frustration!\n\nNew message:\nwe need a download button🤗",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Great suggestion! We'll share the interest in a download button with our dev team.\",\"used\":[0,1,2,3]}",
+  "prompt_tokens": 528,
+  "completion_tokens": 91
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: If I see this commercial one more time on @115940 then I’m cancelling my account <link>\n    brand: Apologies! While there's no way to block an specific ad, updating: <link> just might help to mix things up.\n\n[1] customer: Hey @115940 not that I mind, but why do I keep seeing @179540 commercials in Spanish? A language I do not speak. Seems like a waste of ad dollars.\n    brand: We're sorry to hear about the ad-related frustration! We'd love to grab more details from you here: <link>\n\n[2] customer: <link> if I see this commercial one more time I’m gonna go insane @115940\n    brand: Sorry for any frustration! 😩 Currently there are a limited number of advertisers per show. We'll share your feedback!\n\n[3] customer: I keep getting this message during ads but my WiFi connection is fine. This only happens during the ads. <link>\n    brand: Oh no! If on Vizio, we're looking into this. Please contact us via phone/chat so we can collect details: <link>\n\n[4] customer: Has anyone else had trouble with @115940 repeatedly crashing on commercials? It does this on all 4 of our devices (2 TVs, Xbox, iPad)\n    brand: Sorry to hear about this! Still need a hand? If so, try the steps here: <link> for each respective device.\n\nNew message:\nI’m sending you my bill when this @2064 #cybermonday commercial drives me insane. #MakeItStop 😩👎 <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry for the frustration! While we can’t block a specific spot, updating your ad preferences might help: <link>. We appreciate your feedback!\",\"used\":[0,2]}",
+  "prompt_tokens": 584,
+  "completion_tokens": 108
+ }
+}

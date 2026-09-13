@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I don’t get why “Martin” is not on @115940\n    brand: Hi, Michael! We don't have the rights to stream Martin at this time, but we'll forward your request along to our content team. 👍\n\ncustomer: ¿Why isn't The Fresh Prince on @116602 or @115940 or anything?\n    brand: Hi, Arturo! Hulu here. 👋🏽 We'd love to let our content team know you're ready for The Fresh Prince to arrive on Hulu! 💚\n\ncustomer: When @115940 come to Brazil?\n    brand: Hi Luciano! We don't currently have rights to stream content outside the US but we'll share your interest with our team. 🇧🇷\n\ncustomer: Man, I truly do not get the new @115940 UX for Roku. It seems specifically designed to get in your way.\n    brand: Oh no! We're sorry to hear this, Adam. Have you seen: <link> What are some pain-points you're running into?\n\ncustomer: Why does @115940 not have Jane the Virgin?!!???!??!?!\n    brand: Sorry for any disappointment, Emily! We have the rights to stream S4 on Hulu with Live TV, but not our on-demand plans.\n\nCustomer message:\nHow come we cant get Fresh Prince, Martin or the Fridays on @115940 or @116602\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the content availability question and asks an irrelevant question about the user's device.\"\n}",
+  "prompt_tokens": 582,
+  "completion_tokens": 64
+ }
+}

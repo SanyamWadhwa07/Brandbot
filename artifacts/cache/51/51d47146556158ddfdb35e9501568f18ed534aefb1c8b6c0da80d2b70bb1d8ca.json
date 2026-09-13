@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: The @115725 ads are just painfully bad. The fact @115940 plays them back to back is worse. <link>\n    brand: Sorry! If the same ad plays back-to-back, that's not intentional. To discuss, give us a call/chat: <link>\n\ncustomer: I wouldn't mind the commercials on @115940 so much if they didn't play the same ones a million times in a row.\n    brand: Sorry for the repeats! We have a limited # of advertisers per show. Try updating: <link> to mix things up. 👍🏻\n\ncustomer: Hey @115940 not that I mind, but why do I keep seeing @179540 commercials in Spanish? A language I do not speak. Seems like a waste of ad dollars.\n    brand: We're sorry to hear about the ad-related frustration! We'd love to grab more details from you here: <link>\n\ncustomer: Hey @115940, every time the @122986 Pixel ad comes when I'm using my @129764, it reboots Hulu. For past 45 min it keeps crashing. #annoying\n    brand: Apologies, Anahita! This behavior is being investigated by our team. To collect more info pls chat w/ us <link>\n\ncustomer: My only complaint with @115940 is when it comes back from commercial it doesn't resume where it left off. It starts back 5min before the commercial began. Fast forwarded to get back. Had to watch commercials 3 times before it was back to the right spot. 😲\n    brand: Oh no! Which device does this occur on, Scott? Let's see if these steps help out: <link> Any improvement?\n\nCustomer message:\nthe @2064 ad with the lady in the bath is SO BAD and @115940 plays it twice in a row. Not, like, two ad breaks in a row; it plays one version then immediately plays another version. I now just mute immediately and associate ON w disgust, so, job well done, marketers?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and asks for necessary device information to troubleshoot.\"\n}",
+  "prompt_tokens": 732,
+  "completion_tokens": 62
+ }
+}

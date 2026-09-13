@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: has something changed regarding the no commercials plan for on demand CBS dramas such as Madam Secretary?\n    brand: It seems like you may have our Live TV add-on. If so, recent CBS content is available via network on-demand and may contain ads.\n\ncustomer: I just bought Hulu (No Commercials) with Live TV $43.99/mo - but all I watch including reruns has commercials - why?\n    brand: Like traditional broadcast TV, our live service will have ad breaks. Though, On-Demand content should not: <link>\n\ncustomer: I have Hulu (no commercials) with live TV and when I am watching a show that is not live i still have commercials. Why?\n    brand: On-demand content from networks will have ads: <link> Share the show title and we'll confirm this is intended!\n\ncustomer: why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?\n    brand: King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>\n\ncustomer: Where's the new episode of The Brave. It says there was one on Monday, but its not on Hulu. last showing was from 10/16.\n    brand: Sorry for the delay, Kristin! We've completed the mission and are happy to report that E5 is now up: <link>\n\nCustomer message:\nAlso, very frustrating to have Live TV with no commercials and another show I watch (Shark Tank) most recent episode that aired 11/25 is only via ABC on-demand WITH commercials? It's been a week since it aired! How come there isn't a Hulu no commercials version??\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the specific question about Shark Tank and the No Commercials plan policy.\"\n}",
+  "prompt_tokens": 624,
+  "completion_tokens": 62
+ }
+}

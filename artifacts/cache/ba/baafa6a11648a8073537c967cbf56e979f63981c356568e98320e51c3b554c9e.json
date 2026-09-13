@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: No @684 on @115940 @hulu_support?!?! WTF is wrong with you morons? Are you telling me I have to go back to @115946?? You suck hulu.\n    brand: Sorry, Brian! AMC isn't currently available live on Hulu just yet, but we'll be sure to share your interest in seeing it added. 👍\n\n[1] customer: Is Prison Break on @115940 @hulu_support ? If so this maybe a good time to leave @119973 @116602 since they took it off... #SOS\n    brand: Hey! Eps aren't currently available, but we're hoping to have them soon. Keep an eye on: <link> for updates!\n\n[2] customer: ‼️‼️‼️‼️ @115940 @hulu_support really dropped the ball today with this TBS error‼️‼️ I just want to see my @117118 ‼️‼️\n    brand: Sorry! The issue was resolved (<link> but we understand your frustration and hope this doesn't happen again.\n\n[3] customer: Speaking of failing... hey @hulu_support any day now getting @191353, @314139 and the @9833. So much right but those leave a big hole.\n    brand: Thanks for this feedback! We're always working to expand our lineup, so we'll pass your requests to our content team. 📺❤️\n\n[4] customer: Dear @115940 @hulu_support please bring back Daria , thank you. <link>\n    brand: Hi there! We can't make any promises, but we'll be sure to forward your request along to our content team for consideration. 👍\n\nNew message:\n@hulu_support: Are you bringing @117310 back on your lineup?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hi! We can’t promise anything, but we’ll pass your request to our content team for consideration. 👍\",\"used\":[4]}",
+  "prompt_tokens": 612,
+  "completion_tokens": 110
+ }
+}

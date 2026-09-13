@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hulu was working fine on android. Yesterday got error \"Sorry but we need to validate your home network.\" Updated app. Still no\n    brand: Hm, has your Home location changed? When was the last time you checked-in? Check out: <link> for details.\n\ncustomer: when I watch Home Improvement, I get an error message saying to check my network connection. Network connection is fine.\n    brand: Oh no! If it's still happening, try: <link> Call/chat if that doesn't take care of it (<link>\n\ncustomer: I hate @115940 yall aint shit, how yall want me to connect to my home network if im not home?\n    brand: Sorry! If you have Live TV, you'll need to connect to your Home network to stream. For further support: <link>\n\ncustomer: Hey @115940 network error has occurred. Service cannot be accessed at this time. reference code 300? happens quite often. cancel Hi @116602\n    brand: We're sorry to see you go! If you'd like us to look into this, feel free to contact us by phone or chat: <link>\n\ncustomer: I keep getting a little box saying my network is disconnected but it’s not and I can watch Hulu on my Phone or iPad fine\n    brand: Apologies! If this is on Vizio, we're investigating. Please call us/chat us so we can take a look: <link>\n\nCustomer message:\nwhy does my husbands account deny him logging in because of ‘Home network’ error? I tried connecting home network but it said unable to. We can’t connect to a home network via hotspot which is what we use. So he can’t watch?\n\nDraft reply:\nHm, has your Home location changed? When was the last time you checked-in? Check out: <link> for details.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the specific issue regarding hotspot usage and the inability to set a home network.\"\n}",
+  "prompt_tokens": 649,
+  "completion_tokens": 63
+ }
+}

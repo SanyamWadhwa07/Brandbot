@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\n[1] customer: trying to watch episode of SNL and i get this screen frozen w/content audio playing. Your app is broken! I’m on FireTV fix it! <link>\n    brand: Ah, this looks like an issue we're investigating. If <link> is no help, 💬 or 📞 in: <link>\n\n[2] customer: My iPhone app won’t play video anymore. I select the vid then it crashes. Tried un/reinstalling app, nothin works. Help!\n    brand: Sorry to hear that, Robin! Let's see if we can help. Try out these steps: <link> and <link>\n\n[3] customer: since your new look update all you app does is constantly freeze during shows smh\n    brand: That shouldn't be the case! What device is this occurring on? Any change after resetting the connection: <link>\n\n[4] customer: my app on iOS keeps crashing EVERY TIME I open a video. I’ve re installed. I’ve restarted my phone. HELP\n    brand: Sorry to hear this! Let's try running through these steps: <link> and <link> Any better?\n\nNew message:\nThe iPad app freezes when the video is put in picture in picture mode. Anything on an update or fix? <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"That shouldn't happen! Can you try the troubleshooting steps here: <link> and let us know if it improves?\",\"used\":[3,4]}",
+  "prompt_tokens": 578,
+  "completion_tokens": 102
+ }
+}

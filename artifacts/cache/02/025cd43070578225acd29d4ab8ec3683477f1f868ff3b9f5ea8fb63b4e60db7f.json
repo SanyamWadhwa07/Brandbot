@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why was Chicago pd not a new episode it was a new episode last night?\n    brand: Sorry for any confusion, Katie! Chicago PD didn't air a new episode this week due to the World Series: <link>\n\ncustomer: Hey @115940 and @132338, where the hell is last night's Smackdown Live episode?\n    brand: Uh oh! The new ep should be on all supported devices and: <link> If you're missing it, let us know your device.\n\ncustomer: the new episodes of Law and Order SVU and Star that aired last night are missing! Usually they’re up by 2am please fix it!\n    brand: Sorry for any confusion, Tesia! Both of these shows didn't air new eps this week due to the World Series. We hope this helps!\n\ncustomer: why is the latest episode of #TotalBellas showing last week's?\n    brand: Uh oh! Everything looks in order on our end. If rebooting your device doesn't help, follow up here: <link>\n\ncustomer: Why is last night's SVU episode not on @115940 yet? 👀 @168148\n    brand: Hey, Aerial! Lieutenant Benson &amp; the SVU crew were busy at a conference. Fear not—New episodes will resume airing Nov. 8th! 💚👍\n\nCustomer message:\nI don't see the new #Empire episode from last night! Help!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and effectively troubleshoots the issue by asking for the device.\"\n}",
+  "prompt_tokens": 577,
+  "completion_tokens": 65
+ }
+}

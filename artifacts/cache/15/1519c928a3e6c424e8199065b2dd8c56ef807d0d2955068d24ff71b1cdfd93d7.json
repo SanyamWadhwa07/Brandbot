@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Omg I'm about to cancel Hulu cause their new layout is the WORST <link>\n    brand: Oh no! 😭 Check out this helpful guide: <link> We will absolutely share your feedback with our team.\n\n[1] customer: When I access <link> from Google Chrome iOS browser, all I get is the spinning circle, page never shows up <link>\n    brand: Yikes! Sorry for the delay. If you still need assistance, call the number in blue on this page: <link>\n\n[2] customer: Updated Amazon Fire TV app. Now stuck at this screen. Halp. <link>\n    brand: Apologies! Looks like you were affected by an issue we ran into. Try restarting! If no change --&gt; <link>\n\n[3] customer: Hulu is giving this error when I try to use it on my AppleTV &amp; iPad. Help! <link>\n    brand: We're sorry to hear about the trouble, Wendy! Are you using an ATV 4 or 2nd/3rd gen? For iOS, try: <link>\n\n[4] customer: Hulu why! All my devices are getting this error. 😔 <link>\n    brand: Oh no! Try checking for any app updates and running through: <link> Does the error go away after that?\n\nNew message:\nwhat the freak is this “up next” stuff blocking the top corner? Get it off my screen! <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! 😭 Check out this helpful guide: <link> We will absolutely share your feedback with our team.\",\"used\":[0]}",
+  "prompt_tokens": 556,
+  "completion_tokens": 96
+ }
+}

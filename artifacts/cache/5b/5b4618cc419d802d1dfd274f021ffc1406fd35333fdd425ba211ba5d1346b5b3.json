@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why does connection stop every single time the Kevin Saves the World commercial ends?\n    brand: Apologies! We'd like to collect some details regarding this--please call us/chat us when possible: <link>\n\ncustomer: Hulu, why do you not have the season finale of #RHOA ? It just goes from S9E19 to S9E21.\n    brand: Oh no! We've passed this information on to the team and they're looking into it. Hopefully we can get that updated soon! 🤞\n\ncustomer: Hey @115940 why is the series finale for Will and Grace not available!?\n    brand: It is, Allyson! It's just in an odd spot. You can find the two part finale in the \"Clips\" section: <link> 😊\n\ncustomer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\ncustomer: Why does EVERY @122986 commercial cause my app to shutdown and restart?\n    brand: Sorry, Anne! We're looking into this issue on Samsung. We'd love to collect more info from you here: <link>\n\nCustomer message:\nWhy why must you put an end to #EastLosHigh\n\nDraft reply:\nApologies! We'd like to collect some details regarding this--please call us/chat us when possible: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft treats a question about show cancellation as a technical issue, failing to address the customer's query.\"\n}",
+  "prompt_tokens": 584,
+  "completion_tokens": 67
+ }
+}

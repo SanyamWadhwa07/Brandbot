@@ -1,0 +1,5265 @@
+{
+ "system": "nearest",
+ "handlings": [
+  {
+   "thread_id": 557411,
+   "message": "I’ll never understand why @115940 automagically plays a random show when your show ends. The show they pick isn’t ever in the same genre either",
+   "intent": "playback_error",
+   "confidence": 0.7621484398841858,
+   "route": "auto",
+   "reason": "",
+   "reply": "Autoplay suggests content once all eps of a series have been viewed. If that's not the case, follow up: <link>",
+   "cited": [
+    1764511
+   ],
+   "top_score": 0.7621484398841858,
+   "margin": 0.009179949760437012,
+   "forced": false
+  },
+  {
+   "thread_id": 447722,
+   "message": "paying for it but can’t use it 😑😑😑 Can I get some help <link>",
+   "intent": "billing_refund",
+   "confidence": 0.7408653497695923,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble--this is likely related to: <link> Thanks for bearing with us!",
+   "cited": [
+    2625028
+   ],
+   "top_score": 0.7408653497695923,
+   "margin": 0.007421374320983887,
+   "forced": false
+  },
+  {
+   "thread_id": 2874927,
+   "message": "I am getting error code BYA-403-007. What the heck, I don’t pay extra to watch error screens. I hope there is a refund coming back to your subscribers.",
+   "intent": "playback_error",
+   "confidence": 0.7685650587081909,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! We'd love to help. Try: <link> If that doesn't fix it, let us know which devices are affected.",
+   "cited": [
+    214880
+   ],
+   "top_score": 0.7685650587081909,
+   "margin": 0.0024306774139404297,
+   "forced": false
+  },
+  {
+   "thread_id": 2833157,
+   "message": "there is a ton of buffering on your roku app!",
+   "intent": "playback_error",
+   "confidence": 0.7836486101150513,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Are you running into trouble across all channels? Did the steps we sent over: <link> help?",
+   "cited": [
+    955889
+   ],
+   "top_score": 0.7836486101150513,
+   "margin": 0.00739288330078125,
+   "forced": false
+  },
+  {
+   "thread_id": 467843,
+   "message": "the captions on it's always sunny are messed up- they're incorrect but also cutting off early in the middle of a word in the middle of a sentence.. please fix it!!",
+   "intent": "app_bug",
+   "confidence": 0.8000028133392334,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Which device do you use &amp; which eps? For now, try rebooting your device+modem/router. Any change afterwards?",
+   "cited": [
+    416266
+   ],
+   "top_score": 0.8000028133392334,
+   "margin": 0.08261191844940186,
+   "forced": false
+  },
+  {
+   "thread_id": 2862246,
+   "message": "Why isn’t season 18 on Netflix or Hulu 🗿",
+   "intent": "content_availability",
+   "confidence": 0.8327220678329468,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, we had the eps as they were airing and they have since expired... dun-dun. We'll express your interest in them here!",
+   "cited": [
+    2098930
+   ],
+   "top_score": 0.8327220678329468,
+   "margin": 0.009303689002990723,
+   "forced": false
+  },
+  {
+   "thread_id": 2871751,
+   "message": "Dear @hulu_support the entire habe is stuck on advertisement mode. So I can't get it to the live point and its already an half hour into the game <link>",
+   "intent": "service_outage",
+   "confidence": 0.7597845196723938,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Are you only having trouble with this particular episode? What device are you using? Try: <link>",
+   "cited": [
+    389797
+   ],
+   "top_score": 0.7597845196723938,
+   "margin": 0.01400226354598999,
+   "forced": false
+  },
+  {
+   "thread_id": 522836,
+   "message": "haven't been able to watch since Fire Stick update last night. What's going on?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7548086643218994,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear about the trouble. Have you already tried: <link> If so, reach out: <link>",
+   "cited": [
+    2188125
+   ],
+   "top_score": 0.7548086643218994,
+   "margin": 0.02009671926498413,
+   "forced": false
+  },
+  {
+   "thread_id": 2914722,
+   "message": "Canceling my @115940 account because we cannot tolerate the ads. Who the fack puts ads in a paid service? Hulu? More like WHOlu do you think you are making me watch these ads.",
+   "intent": "ads_complaint",
+   "confidence": 0.7413288950920105,
+   "route": "auto",
+   "reason": "",
+   "reply": "Let's fix that! Are you still seeing ads? If so, please reach out to us by phone or chat here: <link>",
+   "cited": [
+    754329
+   ],
+   "top_score": 0.7413288950920105,
+   "margin": 0.014200270175933838,
+   "forced": false
+  },
+  {
+   "thread_id": 457251,
+   "message": "Ok @hulu_support live tv play for 3 mins then stops I has restarted the computer and it’s still messed up. Why must I tweet you every week ?",
+   "intent": "service_outage",
+   "confidence": 0.827930212020874,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies for the trouble, Jeff! Let us know which devices are impacted so we can try further steps (<link>",
+   "cited": [
+    308360
+   ],
+   "top_score": 0.827930212020874,
+   "margin": 0.0015586614608764648,
+   "forced": false
+  },
+  {
+   "thread_id": 2545323,
+   "message": "I've only got 1 stream currently playing but Hulu seems to think I have more. Is there anyway to force the app to check again? Pressing Retry doesn't work. 🤷🏻‍♂️ <link>",
+   "intent": "live_tv_channels",
+   "confidence": 0.76507568359375,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! We sent out a fix for this error on Chromecast. You should be up and running after restarting your devices. 👍",
+   "cited": [
+    2157413
+   ],
+   "top_score": 0.76507568359375,
+   "margin": 0.001136183738708496,
+   "forced": false
+  },
+  {
+   "thread_id": 450336,
+   "message": "Why doesn’t my @115940 TV app have all the episodes that my iPad has 😩",
+   "intent": "watchlist_issue",
+   "confidence": 0.7830864191055298,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any confusion, Alaina! A new episode didn't air this week because of the World Series: <link>",
+   "cited": [
+    1584209
+   ],
+   "top_score": 0.7830864191055298,
+   "margin": 0.008581876754760742,
+   "forced": false
+  },
+  {
+   "thread_id": 2815088,
+   "message": "Hi May I suscribe to use Hulu from Buenos Aires.TY",
+   "intent": "other",
+   "confidence": 0.7936675548553467,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi Mohammad! To add HBO, you will need to switch to a Hulu-billed account. For full instructions, see: <link>",
+   "cited": [
+    955596
+   ],
+   "top_score": 0.7936675548553467,
+   "margin": 0.07309377193450928,
+   "forced": false
+  },
+  {
+   "thread_id": 2842965,
+   "message": "is there a way y’all can add The Big Bang Theory? Please! Save a life",
+   "intent": "other",
+   "confidence": 0.7242448329925537,
+   "route": "auto",
+   "reason": "",
+   "reply": "We'll definitely pass along the interest! We're always working to add more content you love to our growing library. 💚",
+   "cited": [
+    2308608
+   ],
+   "top_score": 0.7242448329925537,
+   "margin": 0.008092105388641357,
+   "forced": false
+  },
+  {
+   "thread_id": 2857535,
+   "message": "I wanna try out Hulu with my Spotify subscription but everytime I go sign up, it says page not found.",
+   "intent": "account_access",
+   "confidence": 0.7767608165740967,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble and delay! This issue is not resolved and you should be able to re-subscribe from your account page!",
+   "cited": [
+    711900
+   ],
+   "top_score": 0.7767608165740967,
+   "margin": 0.0037508010864257812,
+   "forced": false
+  },
+  {
+   "thread_id": 467817,
+   "message": "can I get some assistance with my account? Struggling to tune-in to live TV from my app. Not a happy camper.",
+   "intent": "account_access",
+   "confidence": 0.7423619627952576,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Sean! If no luck resetting that password here: <link> then call this number: <link>",
+   "cited": [
+    1132223
+   ],
+   "top_score": 0.7423619627952576,
+   "margin": 0.02105802297592163,
+   "forced": false
+  },
+  {
+   "thread_id": 447712,
+   "message": "Technology may be better, but at least when you’re rewinding or fast forwarding a VHS you know exactly where to stop. Looking at you @115940",
+   "intent": "app_bug",
+   "confidence": 0.8012281656265259,
+   "route": "auto",
+   "reason": "",
+   "reply": "Try using a quick tap. It should only fast forward or rewind when using a dragging motion after the playback bar is visible.",
+   "cited": [
+    1377275
+   ],
+   "top_score": 0.8012281656265259,
+   "margin": 0.035051167011260986,
+   "forced": false
+  },
+  {
+   "thread_id": 2816479,
+   "message": "Hi I have hulu like it but it keeps saying log in to watch this video after we watch a show it wont go to the next one till we log in even though I thought we logged in already odd but yea could you please fix it if its a bug thank you",
+   "intent": "service_outage",
+   "confidence": 0.7979975938796997,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! Does logging out of your account and back in help? If not, reach out to us here: <link>",
+   "cited": [
+    2032160
+   ],
+   "top_score": 0.7979975938796997,
+   "margin": 0.014301776885986328,
+   "forced": false
+  },
+  {
+   "thread_id": 521579,
+   "message": "It never ends. If I have used @hulu_support for years on devices &amp; auth them via Hulu acct, why this all of the sudden? GPS my carrier! <link>",
+   "intent": "service_outage",
+   "confidence": 0.7718328237533569,
+   "route": "auto",
+   "reason": "",
+   "reply": "Yikes! What specific error message are you running into, and on which device? For now, try: <link>",
+   "cited": [
+    753871
+   ],
+   "top_score": 0.7718328237533569,
+   "margin": 0.008996725082397461,
+   "forced": false
+  },
+  {
+   "thread_id": 2579812,
+   "message": "Hi Hulu, any chance of adding ABC to my Live subscription? zip code: 06437",
+   "intent": "billing_refund",
+   "confidence": 0.7167283296585083,
+   "route": "auto",
+   "reason": "",
+   "reply": "No date to share just yet, but our team is definitely aware of the interest and we'll continue to share feedback with our team.",
+   "cited": [
+    214891
+   ],
+   "top_score": 0.7167283296585083,
+   "margin": 0.009512364864349365,
+   "forced": false
+  },
+  {
+   "thread_id": 92896,
+   "message": "why is Hulu not working and I can't talk to anyone and your have nothing helpful on your support site.",
+   "intent": "playback_error",
+   "confidence": 0.8030003309249878,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Albert! We ran into a known issue with Live TV but it should be resolved now. Thanks for bearing with us!",
+   "cited": [
+    1485588
+   ],
+   "top_score": 0.8030003309249878,
+   "margin": 0.04147052764892578,
+   "forced": false
+  },
+  {
+   "thread_id": 2831206,
+   "message": "I'm a student who who already has hulu at the No Commercials Plan @ $11.99/mos. How can I take advantage of the Premium Spotify offer for students where it's included with the basic Hulu package w/out interfering with my current Hulu package?",
+   "intent": "service_outage",
+   "confidence": 0.7149764895439148,
+   "route": "auto",
+   "reason": "",
+   "reply": "Ah! We can sort this out. Please reach out here: <link> so we can get to the bottom of this ASAP!",
+   "cited": [
+    1288001
+   ],
+   "top_score": 0.7149764895439148,
+   "margin": 0.0019086003303527832,
+   "forced": false
+  },
+  {
+   "thread_id": 2894815,
+   "message": "So, what time does this show normally air?",
+   "intent": "content_availability",
+   "confidence": 0.789984941482544,
+   "route": "auto",
+   "reason": "",
+   "reply": "While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>",
+   "cited": [
+    1187464
+   ],
+   "top_score": 0.789984941482544,
+   "margin": 0.027624964714050293,
+   "forced": false
+  },
+  {
+   "thread_id": 2617188,
+   "message": "please i’m begging you remove that AWFUL @2064 cyber monday commercial i hate it so much 😭 it keeps playing back to back",
+   "intent": "ads_complaint",
+   "confidence": 0.6918138265609741,
+   "route": "auto",
+   "reason": "",
+   "reply": "We have a limited number of advertisers per show, but we're working to increase variety! Try updating: <link>",
+   "cited": [
+    2106169
+   ],
+   "top_score": 0.6918138265609741,
+   "margin": 0.01266169548034668,
+   "forced": false
+  },
+  {
+   "thread_id": 2972727,
+   "message": "I get this every time I try to login <link>",
+   "intent": "account_access",
+   "confidence": 0.8172142505645752,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry--you likely ran into: <link> Should you still have trouble, please try: <link>",
+   "cited": [
+    43875
+   ],
+   "top_score": 0.8172142505645752,
+   "margin": 0.031330108642578125,
+   "forced": false
+  },
+  {
+   "thread_id": 457248,
+   "message": "having trouble managing my DVR. How can I get some answers?",
+   "intent": "other",
+   "confidence": 0.7500251531600952,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear of the trouble, Stacey! For real-time help, please call this number in blue: <link> 📲 We'll help!",
+   "cited": [
+    1273938
+   ],
+   "top_score": 0.7500251531600952,
+   "margin": 0.031091630458831787,
+   "forced": false
+  },
+  {
+   "thread_id": 2833646,
+   "message": "When are you going to fix the Watchlist not syncing with My List? Or why there are even two list to begin with. I can't believe this is still an issue, it's almost 2018 - this is like app making 101.",
+   "intent": "app_bug",
+   "confidence": 0.755946159362793,
+   "route": "auto",
+   "reason": "",
+   "reply": "No ETA to share as we're working on resolving the issue ASAP. Call/chat to see your options are: <link>",
+   "cited": [
+    1378030
+   ],
+   "top_score": 0.755946159362793,
+   "margin": 0.002330005168914795,
+   "forced": false
+  },
+  {
+   "thread_id": 561256,
+   "message": "live tv buffering is a joke. You’re gonna force me back to the dark side of cable",
+   "intent": "playback_error",
+   "confidence": 0.7979150414466858,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Let's see if these help, Daniel: <link> If it continues, let us know which devices are having trouble.",
+   "cited": [
+    308757
+   ],
+   "top_score": 0.7979150414466858,
+   "margin": 0.0018047690391540527,
+   "forced": false
+  },
+  {
+   "thread_id": 595971,
+   "message": "your wait times between episodes is way to long",
+   "intent": "watchlist_issue",
+   "confidence": 0.7837646007537842,
+   "route": "auto",
+   "reason": "",
+   "reply": "There's no way to adjust the wait, but you can skip it w/ Fliptray: <link> We'll share this w/ the team!",
+   "cited": [
+    255310
+   ],
+   "top_score": 0.7837646007537842,
+   "margin": 0.03820490837097168,
+   "forced": false
+  },
+  {
+   "thread_id": 2924716,
+   "message": "will season6 of @750058 be added to #Hulu anytime soon. 🤔",
+   "intent": "content_availability",
+   "confidence": 0.7578690052032471,
+   "route": "auto",
+   "reason": "",
+   "reply": "In the past, we've received the latest a bit after the next starts airing. You can view Cult eps live with: <link>",
+   "cited": [
+    272326
+   ],
+   "top_score": 0.7578690052032471,
+   "margin": 0.004139900207519531,
+   "forced": false
+  },
+  {
+   "thread_id": 553792,
+   "message": "Why do you only have random episodes of shows like I Love Lucy and Happy Days instead of full seasons?",
+   "intent": "content_availability",
+   "confidence": 0.7761834859848022,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Amit! We have the rights to a limited number of episodes at this time. We'll share your interest in seeing more added!",
+   "cited": [
+    1754891
+   ],
+   "top_score": 0.7761834859848022,
+   "margin": 0.009708523750305176,
+   "forced": false
+  },
+  {
+   "thread_id": 525116,
+   "message": "I am watching Shield on ABC and it's skipping. I'm watching on a browser. I'm not happy. Missing part of my show is not what I pay for.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7931085824966431,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.",
+   "cited": [
+    962954
+   ],
+   "top_score": 0.7931085824966431,
+   "margin": 0.015118837356567383,
+   "forced": false
+  },
+  {
+   "thread_id": 2973721,
+   "message": "Is there a way for me to watch a single episode of anything without it stopping to buffer—literally—every 30 seconds?",
+   "intent": "watchlist_issue",
+   "confidence": 0.7829562425613403,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! Are you using a Samsung device by chance? If so, we're investigating. Please reach out here: <link>",
+   "cited": [
+    1093675
+   ],
+   "top_score": 0.7829562425613403,
+   "margin": 0.02356243133544922,
+   "forced": false
+  },
+  {
+   "thread_id": 2914752,
+   "message": "What's done is done. <link>",
+   "intent": "other",
+   "confidence": 0.7298070192337036,
+   "route": "auto",
+   "reason": "",
+   "reply": "Glad to hear you're back in business! Let us know if we can assist with anything else down the line. Happy streaming!",
+   "cited": [
+    441217
+   ],
+   "top_score": 0.7298070192337036,
+   "margin": 0.006457865238189697,
+   "forced": false
+  },
+  {
+   "thread_id": 448901,
+   "message": "Your intro sound whenever your app is started is far too loud. How can I disable it?",
+   "intent": "app_bug",
+   "confidence": 0.8203181624412537,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!",
+   "cited": [
+    63461
+   ],
+   "top_score": 0.8203181624412537,
+   "margin": 0.022999703884124756,
+   "forced": false
+  },
+  {
+   "thread_id": 569022,
+   "message": "hey I'm trying to watch the auburn vs Georgia game and it keeps buffering constantly. Anything I else I turn it too works perfectly fine. What's going on here?",
+   "intent": "playback_error",
+   "confidence": 0.7569102048873901,
+   "route": "auto",
+   "reason": "",
+   "reply": "No outages to report right now, so which device is this occurring on? Any specific network? Try: <link> 2/2",
+   "cited": [
+    2642101
+   ],
+   "top_score": 0.7569102048873901,
+   "margin": 0.02201664447784424,
+   "forced": false
+  },
+  {
+   "thread_id": 2925919,
+   "message": "why am I seeing commercials when i pay for no commercials?",
+   "intent": "ads_complaint",
+   "confidence": 0.7976667284965515,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! Are you still seeing ads? If so, please reach out to us here: <link> We'll take a look on our end",
+   "cited": [
+    968134
+   ],
+   "top_score": 0.7976667284965515,
+   "margin": 0.003272831439971924,
+   "forced": false
+  },
+  {
+   "thread_id": 89734,
+   "message": "Trying to watch 2006 version of Penelope and end up getting 1966's version. @115940 @hulu_support #whatsupwiththat #greatmoviebtw <link>",
+   "intent": "service_outage",
+   "confidence": 0.7250844836235046,
+   "route": "auto",
+   "reason": "",
+   "reply": "They're up on our service and can be found here: <link> and here <link> Enjoy!",
+   "cited": [
+    861628
+   ],
+   "top_score": 0.7250844836235046,
+   "margin": 0.011967360973358154,
+   "forced": false
+  },
+  {
+   "thread_id": 2834766,
+   "message": "on my windows app, the screen will flash over and over \"unable to play video\" (or something I can't read it, it flickers so quickly). My app is up to date, my computer is up to date i've tried reinstalling it, etc. still happens.",
+   "intent": "playback_error",
+   "confidence": 0.7477039098739624,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear that, Robin! Let's see if we can help. Try out these steps: <link> and <link>",
+   "cited": [
+    1244887
+   ],
+   "top_score": 0.7477039098739624,
+   "margin": 0.009543061256408691,
+   "forced": false
+  },
+  {
+   "thread_id": 561305,
+   "message": "How long is chat support? I need help and been waiting. There's no queue time or anything. How do I even know if someone is available?",
+   "intent": "account_access",
+   "confidence": 0.8589639663696289,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies for the delay, Susan. That sounds really frustrating. Were you able to eventually get through and get some help? 🙂",
+   "cited": [
+    1914183
+   ],
+   "top_score": 0.8589639663696289,
+   "margin": 0.02810347080230713,
+   "forced": false
+  },
+  {
+   "thread_id": 2817412,
+   "message": "Was going to watch Star Trek: Beyond on #Hulu today, but decided to use a different service, since you still don't have surround sound like Dolby Digital. Get it together already. Stereo only is pathetic. #audio",
+   "intent": "live_tv_channels",
+   "confidence": 0.7559751272201538,
+   "route": "auto",
+   "reason": "",
+   "reply": "Strange! Which device is this occurring on, Tati? Try running through these steps: <link> Any improvement now?",
+   "cited": [
+    1082505
+   ],
+   "top_score": 0.7559751272201538,
+   "margin": 0.02776646614074707,
+   "forced": false
+  },
+  {
+   "thread_id": 104277,
+   "message": "Everytime I login to my account on desktop it just logs me back out. What’s up?",
+   "intent": "account_access",
+   "confidence": 0.7444645166397095,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delayed reply! If you're still running into trouble, let us know the device in use and try: <link>",
+   "cited": [
+    5426
+   ],
+   "top_score": 0.7444645166397095,
+   "margin": 0.002790987491607666,
+   "forced": false
+  },
+  {
+   "thread_id": 2818920,
+   "message": "I have to give you a binary gender to sign up for an account so you can make sexist (and, presumably, heterosexist) assumptions about my viewing habits? Gross, Hulu. Not a good start.",
+   "intent": "account_access",
+   "confidence": 0.7460798025131226,
+   "route": "auto",
+   "reason": "",
+   "reply": "Thanks for your feedback! We understand your concern and will be introducing changes to this in the near future.",
+   "cited": [
+    1067162
+   ],
+   "top_score": 0.7460798025131226,
+   "margin": 0.0029358863830566406,
+   "forced": false
+  },
+  {
+   "thread_id": 463565,
+   "message": "How come season 18 of @168148 isn’t on @115940 ??? I need to watch it now!",
+   "intent": "content_availability",
+   "confidence": 0.8912346959114075,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, we had the eps as they were airing and they have since expired... dun-dun. We'll express your interest in them here!",
+   "cited": [
+    2098930
+   ],
+   "top_score": 0.8912346959114075,
+   "margin": 0.024165689945220947,
+   "forced": false
+  },
+  {
+   "thread_id": 448892,
+   "message": "The new @115940 is the worst thing ever. I don’t understand why any person with a brain would think that it is efficient.",
+   "intent": "content_availability",
+   "confidence": 0.7514397501945496,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Sorry to hear, Jacob. What are some pain-points you're running into? We'd love to help, or at very least, field the feedback.",
+   "cited": [
+    1744585
+   ],
+   "top_score": 0.7514397501945496,
+   "margin": 0.030003130435943604,
+   "forced": false
+  },
+  {
+   "thread_id": 89750,
+   "message": "I've been having an issue with my account where every time I log in on my laptop, it acts like its going to log me in, then goes straight back to the home page without me being logged in. Is it an account problem or something else?",
+   "intent": "account_access",
+   "confidence": 0.7421743869781494,
+   "route": "auto",
+   "reason": "",
+   "reply": "It's likely you have pop-up blocker enabled, Adam! Double check that this is turned off so the FB login screen can load. 👍",
+   "cited": [
+    1104065
+   ],
+   "top_score": 0.7421743869781494,
+   "margin": 0.018044233322143555,
+   "forced": false
+  },
+  {
+   "thread_id": 565557,
+   "message": "fix your live streaming it fucking sucks",
+   "intent": "playback_error",
+   "confidence": 0.7630653381347656,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Do any errors pop up? What device are you using? Let's start with general troubleshooting here: <link>",
+   "cited": [
+    2495674
+   ],
+   "top_score": 0.7630653381347656,
+   "margin": 0.019060969352722168,
+   "forced": false
+  },
+  {
+   "thread_id": 565510,
+   "message": "help me understand how ADs work in Hulu. Watching How I met your mother seasons and I have to bear same ads again and again.",
+   "intent": "ads_complaint",
+   "confidence": 0.7186423540115356,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're sorry to hear about the trouble! Try: <link> Follow up here: <link> if no change.",
+   "cited": [
+    191895
+   ],
+   "top_score": 0.7186423540115356,
+   "margin": 0.007259249687194824,
+   "forced": false
+  },
+  {
+   "thread_id": 2617211,
+   "message": "when will season 4 of steven universe be up?? I can't wait to rewatch!!",
+   "intent": "content_availability",
+   "confidence": 0.8016296029090881,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there! We don't have news to pass along just yet, but we'll let our team know you're on the lookout for more episodes. 💚",
+   "cited": [
+    1257681
+   ],
+   "top_score": 0.8016296029090881,
+   "margin": 0.05814284086227417,
+   "forced": false
+  },
+  {
+   "thread_id": 553778,
+   "message": "in the beta version of the website, where do I go to find what's in my Cloud DVR?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7218846082687378,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble, we were able to get the feed up quickly (<link> To reach out: <link>",
+   "cited": [
+    1806183
+   ],
+   "top_score": 0.7218846082687378,
+   "margin": 0.003262460231781006,
+   "forced": false
+  },
+  {
+   "thread_id": 2944205,
+   "message": "your Roku app is dreadful it needs to reworked ASAP.",
+   "intent": "app_bug",
+   "confidence": 0.7663007378578186,
+   "route": "auto",
+   "reason": "",
+   "reply": "We'd love to help! Try <link> for the lagging issues and <link> for an overview on the update.",
+   "cited": [
+    829669
+   ],
+   "top_score": 0.7663007378578186,
+   "margin": 0.0009973645210266113,
+   "forced": false
+  },
+  {
+   "thread_id": 2924712,
+   "message": "Can’t load into my account to update my payment info. Are you servers down?",
+   "intent": "account_access",
+   "confidence": 0.7391945123672485,
+   "route": "auto",
+   "reason": "",
+   "reply": "Our apologies for the long hold times and any frustration, Lo Lo. Phones will be your best resource to look into billing matters.",
+   "cited": [
+    2196378
+   ],
+   "top_score": 0.7391945123672485,
+   "margin": 0.0030524730682373047,
+   "forced": false
+  },
+  {
+   "thread_id": 2862207,
+   "message": "are you guys going to keep the layout for the Xbox app? I keep hoping it's going to change every time I open it, but it hasn't happened yet. The layout is very confusing and atrocious",
+   "intent": "app_bug",
+   "confidence": 0.7783975601196289,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any frustrations, Ryan! We appreciate the feedback &amp; are actively working to improve the experience based on viewer input",
+   "cited": [
+    859955
+   ],
+   "top_score": 0.7783975601196289,
+   "margin": 0.00933849811553955,
+   "forced": false
+  },
+  {
+   "thread_id": 2875734,
+   "message": "why do i gotta watch 6 adds before watching a fucking episode in a show 😭😭😭",
+   "intent": "watchlist_issue",
+   "confidence": 0.75079345703125,
+   "route": "auto",
+   "reason": "",
+   "reply": "A few shows are not included in No Commercials: <link> You'll also see ads during live &amp; on-demand content.",
+   "cited": [
+    1000094
+   ],
+   "top_score": 0.75079345703125,
+   "margin": 0.012935996055603027,
+   "forced": false
+  },
+  {
+   "thread_id": 2873771,
+   "message": "EN2 keeps skipping back and replaying same video of WI/VA game. We turned it off. On to Netflix now. What the heck????",
+   "intent": "app_bug",
+   "confidence": 0.7745100259780884,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey, Ross! Sorry about last night. Things are running much smoother now. If ever needed we offer: <link> too. 👍🏽",
+   "cited": [
+    1835869
+   ],
+   "top_score": 0.7745100259780884,
+   "margin": 0.018174469470977783,
+   "forced": false
+  },
+  {
+   "thread_id": 104261,
+   "message": "So @116602 in Honduras NO PROBLEM. @115821 and @115940 unavailable..wtf?! Guess I’m canceling! #buhbye",
+   "intent": "content_availability",
+   "confidence": 0.7822755575180054,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're sorry to lose you, Ramón! We'll be sure to share your experience with our team. Let us know if we can further assist.",
+   "cited": [
+    2498989
+   ],
+   "top_score": 0.7822755575180054,
+   "margin": 0.01062476634979248,
+   "forced": false
+  },
+  {
+   "thread_id": 457258,
+   "message": "I’ve reset my password like 20 times and haven’t received a link via email. Please assist",
+   "intent": "account_access",
+   "confidence": 0.8455233573913574,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear you're having trouble! Chat w/ us: <link> and we'd be happy to lend a hand with this!",
+   "cited": [
+    1671841
+   ],
+   "top_score": 0.8455233573913574,
+   "margin": 0.038634419441223145,
+   "forced": false
+  },
+  {
+   "thread_id": 2865318,
+   "message": "Hey @116602. @115940 deleted my girlfriend's account because she was constantly having trouble with her account. You guys wouldn't ever do anything like that right?",
+   "intent": "account_access",
+   "confidence": 0.71877121925354,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any unexpected charges! Call us from the # on this page so we can take a look: <link>",
+   "cited": [
+    1775170
+   ],
+   "top_score": 0.71877121925354,
+   "margin": 0.008430004119873047,
+   "forced": false
+  },
+  {
+   "thread_id": 2973726,
+   "message": "if you want to get rid of these 2 minute adds every couple minutes that’d be great 👍",
+   "intent": "app_bug",
+   "confidence": 0.6659940481185913,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there, Judith! We actually do offer a No Commercials plan for $11.99/mo if you're interested: <link>",
+   "cited": [
+    1108770
+   ],
+   "top_score": 0.6659940481185913,
+   "margin": 0.023373723030090332,
+   "forced": false
+  },
+  {
+   "thread_id": 563208,
+   "message": "Sick of @115940 charging my card when i don’t even have an account.",
+   "intent": "billing_refund",
+   "confidence": 0.7974768280982971,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! 🤔 We'd like to help track down the open account Kim. Please call the number listed in blue here: <link>",
+   "cited": [
+    365810
+   ],
+   "top_score": 0.7974768280982971,
+   "margin": 0.00043314695358276367,
+   "forced": false
+  },
+  {
+   "thread_id": 2579808,
+   "message": "why don't any of you have #Suburgatory streaming? Is it a licensing issue?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7713621854782104,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We currently don't have the proper licensing agreements set in place to offer TWD. We'll definitely share your interest!",
+   "cited": [
+    2357617
+   ],
+   "top_score": 0.7713621854782104,
+   "margin": 0.03370261192321777,
+   "forced": false
+  },
+  {
+   "thread_id": 2953083,
+   "message": "When will the last two episodes of The Long Road Home be added?",
+   "intent": "content_availability",
+   "confidence": 0.7996540069580078,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Melissa! Check under the \"Clips\" section—you should see both of those episodes available!",
+   "cited": [
+    1230829
+   ],
+   "top_score": 0.7996540069580078,
+   "margin": 0.005567610263824463,
+   "forced": false
+  },
+  {
+   "thread_id": 570979,
+   "message": "Seriously, this has been the entire game: <link>",
+   "intent": "other",
+   "confidence": 0.7564064860343933,
+   "route": "auto",
+   "reason": "",
+   "reply": "No issues to report on our end but we're here to help out. Have you tried: <link> What device is this on?",
+   "cited": [
+    13418
+   ],
+   "top_score": 0.7564064860343933,
+   "margin": 0.002909243106842041,
+   "forced": false
+  },
+  {
+   "thread_id": 564379,
+   "message": "Hey @115940 why is the SEC championship game messing up so bad?",
+   "intent": "playback_error",
+   "confidence": 0.7331100702285767,
+   "route": "auto",
+   "reason": "",
+   "reply": "We wanted to reach out again and apologize for the inconvenience, Greg. We know this situation was not ideal. 🙁",
+   "cited": [
+    2333486
+   ],
+   "top_score": 0.7331100702285767,
+   "margin": 0.010126113891601562,
+   "forced": false
+  },
+  {
+   "thread_id": 2872790,
+   "message": "can y'all just automatically play the next episode in the series once the credits appear!?!? bc me doing it manually puts a damper in my whole benge watching lazy flow i have going on. thx.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7446765899658203,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any trouble! Can you tell us which device you were on, and what show/ep you were watching and what show/ep played next?",
+   "cited": [
+    1735625
+   ],
+   "top_score": 0.7446765899658203,
+   "margin": 0.005206286907196045,
+   "forced": false
+  },
+  {
+   "thread_id": 2967915,
+   "message": "have a sync problem during commercials and running into shows recorded on DVR. <link>",
+   "intent": "app_bug",
+   "confidence": 0.789236307144165,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.",
+   "cited": [
+    962954
+   ],
+   "top_score": 0.789236307144165,
+   "margin": 0.009039878845214844,
+   "forced": false
+  },
+  {
+   "thread_id": 2818059,
+   "message": "Is everyone’s @115940 down or is it just mine?",
+   "intent": "content_availability",
+   "confidence": 0.7266937494277954,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We just replied to: <link> Please try that. You can also reach us at this #: <link>",
+   "cited": [
+    998318
+   ],
+   "top_score": 0.7266937494277954,
+   "margin": 0.0032817721366882324,
+   "forced": false
+  },
+  {
+   "thread_id": 455681,
+   "message": "been waiting 20mins for empire to load and play with no problems .. Rebooted my phone twice... #shitty",
+   "intent": "playback_error",
+   "confidence": 0.6973893046379089,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay! Please try these steps: <link> If the issue persists, please let us know your device.",
+   "cited": [
+    262769
+   ],
+   "top_score": 0.6973893046379089,
+   "margin": 0.027629435062408447,
+   "forced": false
+  },
+  {
+   "thread_id": 2943107,
+   "message": "Omfg @115940 the new design is fucking horrible. Why change something that’s working? I wanna see where I left off and shows that I’m watching with new episodes, and just everything like how it was before.",
+   "intent": "app_bug",
+   "confidence": 0.7659896612167358,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're always trying to improve, so we'll share your feedback, Cameron. Anything specific you aren't loving w/the new interface?",
+   "cited": [
+    921398
+   ],
+   "top_score": 0.7659896612167358,
+   "margin": 0.0020798444747924805,
+   "forced": false
+  },
+  {
+   "thread_id": 561224,
+   "message": "first World Series now SEC champ game... why??",
+   "intent": "other",
+   "confidence": 0.6986703872680664,
+   "route": "auto",
+   "reason": "",
+   "reply": "That shouldn't be! Which device are you on+which game? Were you watching live or is this happening on a recording?",
+   "cited": [
+    1658202
+   ],
+   "top_score": 0.6986703872680664,
+   "margin": 0.031972527503967285,
+   "forced": false
+  },
+  {
+   "thread_id": 2953090,
+   "message": "Man, I had to turn off autoplay. Frickin @115940. When I’d finish the most recent episode of a series, it would sometimes start some random series that I guess they thought I’d like. Now my “continue watching” is a polluted cesspool.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7824704051017761,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Holly! If you select the gear icon during playback, are cc's off? If so, try uninstalling/reinstalling Hulu Any change?",
+   "cited": [
+    210148
+   ],
+   "top_score": 0.7824704051017761,
+   "margin": 0.0156327486038208,
+   "forced": false
+  },
+  {
+   "thread_id": 559382,
+   "message": "hi would you please tell me when is Marvel Agent of Shield be available on Hulu? Thanks",
+   "intent": "live_tv_channels",
+   "confidence": 0.814511775970459,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Heather! No news to share at the moment, but we'd be happy to pass along the interest to the appropriate teams.",
+   "cited": [
+    198625
+   ],
+   "top_score": 0.814511775970459,
+   "margin": 0.008337080478668213,
+   "forced": false
+  },
+  {
+   "thread_id": 453106,
+   "message": "we are SOOO upset @14528 was removed from your streaming options. It’s my son’s favorite show and one of the only ones we allow him to watch since it’s educational. Can you consider bringing it back? #sadday",
+   "intent": "playback_error",
+   "confidence": 0.7205851078033447,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Michael! Our streaming rights expired, but we'll let our team know your sister would like to see Leverage return. 💚",
+   "cited": [
+    1776177
+   ],
+   "top_score": 0.7205851078033447,
+   "margin": 0.004574179649353027,
+   "forced": false
+  },
+  {
+   "thread_id": 453112,
+   "message": "not to be a bitch but i pay good money for your service and i feel i should be able to watch Daria commerical free whenever i want... ??? yeah???",
+   "intent": "ads_complaint",
+   "confidence": 0.7000508308410645,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We'd love to help– first make sure it's not one of these shows: <link> If not: <link>",
+   "cited": [
+    1851765
+   ],
+   "top_score": 0.7000508308410645,
+   "margin": 0.014223039150238037,
+   "forced": false
+  },
+  {
+   "thread_id": 2737417,
+   "message": "WHERE ARE THE NEW SVU EPISODES",
+   "intent": "other",
+   "confidence": 0.7680190801620483,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! No outages at the moment, but we'd love to help with any trouble. To get signed in, check out: <link>",
+   "cited": [
+    2571118
+   ],
+   "top_score": 0.7680190801620483,
+   "margin": 0.01886606216430664,
+   "forced": false
+  },
+  {
+   "thread_id": 570983,
+   "message": "My Hulu Live is buffering waaaaaaaay too much during this SEC Championship game @hulu_support",
+   "intent": "playback_error",
+   "confidence": 0.7954397201538086,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! That shouldn't be the case, Mike. We'll help. What device are you streaming with? Let's try: <link>",
+   "cited": [
+    1156279
+   ],
+   "top_score": 0.7954397201538086,
+   "margin": 0.003910183906555176,
+   "forced": false
+  },
+  {
+   "thread_id": 2321278,
+   "message": "I am trying to watch Handmaid's Tale and once the show starts, I either lose sound or video or the whole thing. I am using Apple TV to connect. I can sometimes watch using my iPad, the Hulu app and mirroring. Why is the Apple TV connection is not working?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7806917428970337,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Bobby! This was a known issue we were looking into, but it’s now resolved. You should be good after rebooting your device.",
+   "cited": [
+    2157411
+   ],
+   "top_score": 0.7806917428970337,
+   "margin": 0.01511603593826294,
+   "forced": false
+  },
+  {
+   "thread_id": 457263,
+   "message": "So yesterday I thought I had canceled my @115940 account but was still charged today for another month which overdrafted my account $30 so now I’m about -$40 in the hole 😊 and they won’t refund me 😊😊😊😊😊",
+   "intent": "billing_refund",
+   "confidence": 0.7503178119659424,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any unexpected charges! Call us from the # on this page so we can take a look: <link>",
+   "cited": [
+    1775170
+   ],
+   "top_score": 0.7503178119659424,
+   "margin": 0.0053566694259643555,
+   "forced": false
+  },
+  {
+   "thread_id": 2863910,
+   "message": "Dear @115940 / @hulu_support - Can you please fix the ad version so it doesn't always freeze when playing commercials? Pretty please. 👏🏼 Yes, I know there is an ad free version. Yes, I can afford it. But, I like having commercials. 🤷🏻‍♀️ So can you please fix it. Xo -christy",
+   "intent": "service_outage",
+   "confidence": 0.8413292169570923,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry! Please work through these steps: <link> and ensure you're meeting live reqs: <link>",
+   "cited": [
+    795428
+   ],
+   "top_score": 0.8413292169570923,
+   "margin": 0.0005092024803161621,
+   "forced": false
+  },
+  {
+   "thread_id": 2948756,
+   "message": "why do I pay monthly for something that doesn’t actually keep shows up to date??? #obnoxiousAF",
+   "intent": "billing_refund",
+   "confidence": 0.7087447643280029,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi Jada! Ads help us offer the latest TV shows for $7.99/mo. We do have other plan options available: <link>",
+   "cited": [
+    1359842
+   ],
+   "top_score": 0.7087447643280029,
+   "margin": 0.0019033551216125488,
+   "forced": false
+  },
+  {
+   "thread_id": 2903394,
+   "message": "we need a download button🤗",
+   "intent": "other",
+   "confidence": 0.6667342185974121,
+   "route": "auto",
+   "reason": "",
+   "reply": "Excellent suggestion! We'll download the request and send it over to our developers.",
+   "cited": [
+    2982049
+   ],
+   "top_score": 0.6667342185974121,
+   "margin": 0.0037533044815063477,
+   "forced": false
+  },
+  {
+   "thread_id": 563232,
+   "message": "you’ve got to fix the SEC championship game! You’re killing me",
+   "intent": "playback_error",
+   "confidence": 0.7187788486480713,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry about that! Please try a quick reboot of your device and the TBS feed should be back up for you!",
+   "cited": [
+    1808552
+   ],
+   "top_score": 0.7187788486480713,
+   "margin": 0.04050242900848389,
+   "forced": false
+  },
+  {
+   "thread_id": 2737412,
+   "message": "Hi @115940 and @181080 I think y’all should hang out. Ever since the last Roku update, Hulu crashes every few minutes. I’ve spent hours with support with both companies and got a big old ¯\\_(ツ)_/¯ back.",
+   "intent": "content_availability",
+   "confidence": 0.7720204591751099,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>",
+   "cited": [
+    1740558
+   ],
+   "top_score": 0.7720204591751099,
+   "margin": 0.014805316925048828,
+   "forced": false
+  },
+  {
+   "thread_id": 507563,
+   "message": "I canceled my subscription months ago but I'm still getting charged... Why?",
+   "intent": "billing_refund",
+   "confidence": 0.8112400770187378,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're ready to help! Please grab your billing statement and call us at this #: <link> We'll take it from there!",
+   "cited": [
+    756699
+   ],
+   "top_score": 0.8112400770187378,
+   "margin": 0.0005956888198852539,
+   "forced": false
+  },
+  {
+   "thread_id": 559305,
+   "message": "Can you please provide a product that does not buffer on live TV every five seconds? Get better servers.",
+   "intent": "playback_error",
+   "confidence": 0.7871375679969788,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies, Craig! Which device are you on? Are you noticing this w/a certain channel? For now try a quick device+modem reboot.",
+   "cited": [
+    1637616
+   ],
+   "top_score": 0.7871375679969788,
+   "margin": 0.012609779834747314,
+   "forced": false
+  },
+  {
+   "thread_id": 2866512,
+   "message": "hey when are y’all getting more dubbed naruto shippuden?",
+   "intent": "content_availability",
+   "confidence": 0.7558691501617432,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We do have some dubbed episodes available, but we can definitely share your interest in seeing more on our service!",
+   "cited": [
+    2678910
+   ],
+   "top_score": 0.7558691501617432,
+   "margin": 0.00460207462310791,
+   "forced": false
+  },
+  {
+   "thread_id": 2982133,
+   "message": "So, in other words you are ok if I go and cancel my Hulu subscription right now? WOW! That is some weird customer support. Just release it for older models. What a dumb idea just doing it for 2017 unless you have a deal with Samsung to help them sell TVs <link>",
+   "intent": "billing_refund",
+   "confidence": 0.7653851509094238,
+   "route": "auto",
+   "reason": "",
+   "reply": "1/2) Sorry to hear about the unexpected charge! For 1:1 assistance, please reach out by phone/chat here: <link>",
+   "cited": [
+    2398958
+   ],
+   "top_score": 0.7653851509094238,
+   "margin": 0.007552742958068848,
+   "forced": false
+  },
+  {
+   "thread_id": 467822,
+   "message": "what is this next up non-sense and how do I make it go away? <link>",
+   "intent": "other",
+   "confidence": 0.6710216999053955,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies for the trouble! If this continues after: <link> please follow up here: <link>",
+   "cited": [
+    774044
+   ],
+   "top_score": 0.6710216999053955,
+   "margin": 0.0008868575096130371,
+   "forced": false
+  },
+  {
+   "thread_id": 2944193,
+   "message": "Couldn’t help but notice the new update on Fire TV still has the terrible new interface, which is the only thing that needed fixed.",
+   "intent": "app_bug",
+   "confidence": 0.7709654569625854,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay! No plans to roll back the UI, but we'd love to gather any input for our devs: <link>",
+   "cited": [
+    256000
+   ],
+   "top_score": 0.7709654569625854,
+   "margin": 0.01701819896697998,
+   "forced": false
+  },
+  {
+   "thread_id": 2797313,
+   "message": "please remove the annoying ass old navy commercial plz?!",
+   "intent": "ads_complaint",
+   "confidence": 0.6094101667404175,
+   "route": "escalate",
+   "reason": "nearest precedent scores 0.61, nothing close enough to copy",
+   "reply": "",
+   "cited": [],
+   "top_score": 0.6094101667404175,
+   "margin": 0.00475388765335083,
+   "forced": false
+  },
+  {
+   "thread_id": 89786,
+   "message": "why does every show I watch buffer constantly? I’m not having this problem with any other streaming service.",
+   "intent": "playback_error",
+   "confidence": 0.8294025659561157,
+   "route": "auto",
+   "reason": "",
+   "reply": "Don't go, Betty! Let's see what we can do to smooth things out. What device does this occur on? Try: <link>",
+   "cited": [
+    1202205
+   ],
+   "top_score": 0.8294025659561157,
+   "margin": 0.013643980026245117,
+   "forced": false
+  },
+  {
+   "thread_id": 569999,
+   "message": "getting tons of lag watching NCAA Football right now, any issues?",
+   "intent": "playback_error",
+   "confidence": 0.7145967483520508,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies, Lauren! If you're not seeing new episodes, we're investigating. In the meantime you can navigate to Seasons / Episodes.",
+   "cited": [
+    2378819
+   ],
+   "top_score": 0.7145967483520508,
+   "margin": 0.003990471363067627,
+   "forced": false
+  },
+  {
+   "thread_id": 2925913,
+   "message": "choosing an episode of a show is way too many clicks. Also the app that comes on smart tvs doesn't let us choose user accounts?",
+   "intent": "watchlist_issue",
+   "confidence": 0.7415257096290588,
+   "route": "auto",
+   "reason": "",
+   "reply": "Don't go, Eric! We'd love to help. What brand is your smart TV? What's the wording of the error? Try: <link>",
+   "cited": [
+    962944
+   ],
+   "top_score": 0.7415257096290588,
+   "margin": 0.0020734071731567383,
+   "forced": false
+  },
+  {
+   "thread_id": 2898156,
+   "message": "having trouble watching CNN. It's not supposed to be blocked based on my location, but it is. <link>",
+   "intent": "live_tv_channels",
+   "confidence": 0.7633812427520752,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Alex! Try checking for any app updates/uninstalling and reinstalling. We've rolled out an iOS update that should fix this.💜",
+   "cited": [
+    815294
+   ],
+   "top_score": 0.7633812427520752,
+   "margin": 0.0014334917068481445,
+   "forced": false
+  },
+  {
+   "thread_id": 600837,
+   "message": "your live stream is not working today. Not impressed",
+   "intent": "playback_error",
+   "confidence": 0.7808874249458313,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Suanna! We ran into a known issue tonight, but it should be fixed now. Let us know if problems persists on your end.",
+   "cited": [
+    1486099
+   ],
+   "top_score": 0.7808874249458313,
+   "margin": 0.010657787322998047,
+   "forced": false
+  },
+  {
+   "thread_id": 565585,
+   "message": "trying to watch Auburn vs. Georgia on HuluLive TV on CBS. It keeps saying part if the stream is missing. Hard-wired X-Box. Other channels good. Ideas?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7318149209022522,
+   "route": "auto",
+   "reason": "",
+   "reply": "So sorry about that, Ryan! Our team has reached out for insight. For now, try using the network's app: <link>",
+   "cited": [
+    1595246
+   ],
+   "top_score": 0.7318149209022522,
+   "margin": 0.00306546688079834,
+   "forced": false
+  },
+  {
+   "thread_id": 2259149,
+   "message": "will the #CFL #greycup be on #HuluLiveTV? Please say yes!",
+   "intent": "other",
+   "confidence": 0.6660144925117493,
+   "route": "auto",
+   "reason": "",
+   "reply": "It's currently streaming, Chariya! Watch last night's episode here: <link> Happy streaming!",
+   "cited": [
+    2263639
+   ],
+   "top_score": 0.6660144925117493,
+   "margin": 0.01035088300704956,
+   "forced": false
+  },
+  {
+   "thread_id": 2898160,
+   "message": "Yo, I'm just trying to watch some family guy and ya'll keep \"encountering errors\"",
+   "intent": "watchlist_issue",
+   "confidence": 0.7352749109268188,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Lowell! Please try: <link> If the issue continues, contact us by phone/chat: <link>",
+   "cited": [
+    1716502
+   ],
+   "top_score": 0.7352749109268188,
+   "margin": 0.008948922157287598,
+   "forced": false
+  },
+  {
+   "thread_id": 507575,
+   "message": "fix your damn xbox app, I'm honestly tired of trying to launch it and getting constant \"a loading error has occurred\". 😒 Why am I paying for something I can barley use...",
+   "intent": "playback_error",
+   "confidence": 0.7684929370880127,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! This issue is being investigated. To collect more info to share w/our team, please chat w/ us: <link>",
+   "cited": [
+    1702791
+   ],
+   "top_score": 0.7684929370880127,
+   "margin": 0.009101927280426025,
+   "forced": false
+  },
+  {
+   "thread_id": 520343,
+   "message": "can I get some help please Hulu?",
+   "intent": "other",
+   "confidence": 0.7682153582572937,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies for the delay, Raquel! Still need assistance? Please reach our phone/chat teams here: <link> 📲",
+   "cited": [
+    31629
+   ],
+   "top_score": 0.7682153582572937,
+   "margin": 0.002771914005279541,
+   "forced": false
+  },
+  {
+   "thread_id": 2956883,
+   "message": "My @115940 app on my @1647 tv decides to always “reload” in the middle of shows. It is the most annoying thing in the world. nothing wrong w my wifi either so dont try that 😒",
+   "intent": "playback_error",
+   "confidence": 0.7790267467498779,
+   "route": "auto",
+   "reason": "",
+   "reply": "That's not the experience we had hoped for! Are you casting w/ iOS or Android? Any errors? Check out: <link>",
+   "cited": [
+    2029782
+   ],
+   "top_score": 0.7790267467498779,
+   "margin": 0.00013595819473266602,
+   "forced": false
+  },
+  {
+   "thread_id": 909204,
+   "message": "omg why is the new episode of empire not available on @115940 ??? #EmpireFOX #BreakingNews #BlackTwitter <link>",
+   "intent": "content_availability",
+   "confidence": 0.7882871627807617,
+   "route": "auto",
+   "reason": "",
+   "reply": "No new eps since 10/18—but the Lyons return tonight: <link> We'll have the ep up tomorrow, so stay-tuned!",
+   "cited": [
+    2140267
+   ],
+   "top_score": 0.7882871627807617,
+   "margin": 0.011273384094238281,
+   "forced": false
+  },
+  {
+   "thread_id": 571978,
+   "message": "The iPad app freezes when the video is put in picture in picture mode. Anything on an update or fix? <link>",
+   "intent": "app_bug",
+   "confidence": 0.7417992353439331,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅",
+   "cited": [
+    300293
+   ],
+   "top_score": 0.7417992353439331,
+   "margin": 0.0006066560745239258,
+   "forced": false
+  },
+  {
+   "thread_id": 2949912,
+   "message": "strange question. Are trailers also exclusive to Hulu subs only? Cause now we see it after the episode is out and that’s a strange way to promote a show.",
+   "intent": "content_availability",
+   "confidence": 0.707995593547821,
+   "route": "auto",
+   "reason": "",
+   "reply": "We hate spoilers too! Which show are you getting ads for+which show is being watched? Also, does it appear to be a network ad?",
+   "cited": [
+    769863
+   ],
+   "top_score": 0.707995593547821,
+   "margin": 0.0012430548667907715,
+   "forced": false
+  },
+  {
+   "thread_id": 2873773,
+   "message": "MNF dvr repeating and not showing game",
+   "intent": "playback_error",
+   "confidence": 0.6783374547958374,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble, Chad! Which device do you use? If you try a quick reboot of the device, any improvement after?",
+   "cited": [
+    1109384
+   ],
+   "top_score": 0.6783374547958374,
+   "margin": 0.012899041175842285,
+   "forced": false
+  },
+  {
+   "thread_id": 2967953,
+   "message": "how can i download tv shows to my ipad to watch on my commute to work?????",
+   "intent": "live_tv_channels",
+   "confidence": 0.6921035051345825,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies, Ellie! That's not the experience we're hoping for. Does this continue after: <link> Let us know.",
+   "cited": [
+    1067611
+   ],
+   "top_score": 0.6921035051345825,
+   "margin": 0.0076143741607666016,
+   "forced": false
+  },
+  {
+   "thread_id": 565560,
+   "message": "CBS in Madison WI is constantly buffering but all other channels, including Fox 47 are fine. Seems to occur when a big game is on, which sucks because I want to watch that game lol",
+   "intent": "playback_error",
+   "confidence": 0.7813503742218018,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?",
+   "cited": [
+    2209325
+   ],
+   "top_score": 0.7813503742218018,
+   "margin": 0.009285032749176025,
+   "forced": false
+  },
+  {
+   "thread_id": 2928619,
+   "message": "your app sucks, especially on the iPhone X because everything is purely based on touch commands 🙄. Can’t touch the screen without it jumping around in the episode. Trying to watch RHOBH but shit be stupid sensitive.",
+   "intent": "app_bug",
+   "confidence": 0.8008772134780884,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any trouble. Is this iOS? If so, try: <link> and checking for updates. We'll standby.",
+   "cited": [
+    820924
+   ],
+   "top_score": 0.8008772134780884,
+   "margin": 0.03599286079406738,
+   "forced": false
+  },
+  {
+   "thread_id": 454498,
+   "message": "I have the Spotify+Student Discount and had linked it with Hulu about a month ago. Now it tells me I don't have the subscription anymore. I tried to activate it again but it says it's troubleshooting. What do I do?",
+   "intent": "billing_refund",
+   "confidence": 0.820670485496521,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi Victoria! Are the email addresses on the accounts the same? Check out the tips and steps we have here: <link>",
+   "cited": [
+    958733
+   ],
+   "top_score": 0.820670485496521,
+   "margin": 0.010729432106018066,
+   "forced": false
+  },
+  {
+   "thread_id": 2815080,
+   "message": "help! I upgraded to live but ended up not needing it and switched back right away. Can I get my money back??",
+   "intent": "billing_refund",
+   "confidence": 0.715474009513855,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! If that appears here: <link> w/ your zip, follow up: <link> &amp; we'll take a look.",
+   "cited": [
+    1228186
+   ],
+   "top_score": 0.715474009513855,
+   "margin": 0.0002561807632446289,
+   "forced": false
+  },
+  {
+   "thread_id": 604037,
+   "message": "I wish @116602 or @115940 would stream the series \"Las Vegas\" such a good show.",
+   "intent": "playback_error",
+   "confidence": 0.7833833694458008,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!",
+   "cited": [
+    1510913
+   ],
+   "top_score": 0.7833833694458008,
+   "margin": 0.004776477813720703,
+   "forced": false
+  },
+  {
+   "thread_id": 2914728,
+   "message": "I LOVE 💛 my #iPhoneX but I’ve seen the recent news about #HULUXSPRINT how do I get that? I would love #Hulu @115940 💚💛",
+   "intent": "content_availability",
+   "confidence": 0.7640213370323181,
+   "route": "auto",
+   "reason": "",
+   "reply": "Yikes! What specific trouble are you having and which device is in use? If it's tech related, try: <link>",
+   "cited": [
+    1025165
+   ],
+   "top_score": 0.7640213370323181,
+   "margin": 0.005973696708679199,
+   "forced": false
+  },
+  {
+   "thread_id": 2842932,
+   "message": "Hey @115940 , if I get error code cdn-3-2c91e5a6 I think I going to have a BF",
+   "intent": "content_availability",
+   "confidence": 0.7871598601341248,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay! We had some issues with Live TV two nights ago, but all should be good now. Thanks for bearing with us!",
+   "cited": [
+    2642714
+   ],
+   "top_score": 0.7871598601341248,
+   "margin": 0.018899500370025635,
+   "forced": false
+  },
+  {
+   "thread_id": 2873793,
+   "message": "keep getting the “video not available in your area” error while trying to watch monday night football. Watching on a firestick. Reset device logged out and back on. Still having issues.",
+   "intent": "playback_error",
+   "confidence": 0.7796231508255005,
+   "route": "auto",
+   "reason": "",
+   "reply": "Our sincere apologies, Jen! What channels are affected? When you have a moment, let's try: <link> Any better?",
+   "cited": [
+    2098863
+   ],
+   "top_score": 0.7796231508255005,
+   "margin": 0.023319244384765625,
+   "forced": false
+  },
+  {
+   "thread_id": 2411578,
+   "message": "i need help with my subscription i just signed up for Live TV and my playstation doenst support it and i cant get it to cancel.",
+   "intent": "billing_refund",
+   "confidence": 0.7611319422721863,
+   "route": "auto",
+   "reason": "",
+   "reply": "(1/2) We'd hate to lose you, Cristofer! 😭 Our sincere apologies for the continued trouble on your Vizio and our delayed response.",
+   "cited": [
+    2274861
+   ],
+   "top_score": 0.7611319422721863,
+   "margin": 0.01697099208831787,
+   "forced": false
+  },
+  {
+   "thread_id": 604047,
+   "message": "Why why must you put an end to #EastLosHigh",
+   "intent": "other",
+   "confidence": 0.690158486366272,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! We'd like to collect some details regarding this--please call us/chat us when possible: <link>",
+   "cited": [
+    270494
+   ],
+   "top_score": 0.690158486366272,
+   "margin": 0.016295135021209717,
+   "forced": false
+  },
+  {
+   "thread_id": 2911039,
+   "message": "Dear @115940, There wasn't a checkbox for \"You recommended I watch The Real Housewives of Beverly Hill and it's clear you don't know me at all\" in the why are you canceling your subscription exit questionnaire. But that's why. Best, AC",
+   "intent": "billing_refund",
+   "confidence": 0.735863208770752,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!",
+   "cited": [
+    1009649
+   ],
+   "top_score": 0.735863208770752,
+   "margin": 0.014395594596862793,
+   "forced": false
+  },
+  {
+   "thread_id": 2967913,
+   "message": "I JUST GOT A HULU SO I CAN WATCH NEW EPISODES OF SHAMELESS AND THEY DONT HAVE THE NEW EPISODES AND IM LIVID BECAUSE NOW IVE WASTED 12 DOLLARS",
+   "intent": "other",
+   "confidence": 0.6712877154350281,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there! No news yet, but we'll share the interest. Keep 12 Monkeys in Watchlist/My Stuff for updates. 💚",
+   "cited": [
+    1061578
+   ],
+   "top_score": 0.6712877154350281,
+   "margin": 0.005304157733917236,
+   "forced": false
+  },
+  {
+   "thread_id": 564374,
+   "message": "switched over to live TV and trying to watch SEC Championship game. Have over 100mb internet and it is just buffering — going to have to cancel this!",
+   "intent": "playback_error",
+   "confidence": 0.8022555112838745,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies for any trouble, Aaron! What devices are you using to stream these games? Let's start with: <link>",
+   "cited": [
+    1592742
+   ],
+   "top_score": 0.8022555112838745,
+   "margin": 0.003881216049194336,
+   "forced": false
+  },
+  {
+   "thread_id": 454482,
+   "message": "Do you offer 4K streaming? If yes via the Amazon Fire Tv device or built in app on Samsung tv? Thx",
+   "intent": "live_tv_channels",
+   "confidence": 0.7492992877960205,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! This is a known issue we're investigating. Please let us know if the following steps help: <link>",
+   "cited": [
+    1031227
+   ],
+   "top_score": 0.7492992877960205,
+   "margin": 0.005868315696716309,
+   "forced": false
+  },
+  {
+   "thread_id": 2721097,
+   "message": "is it possible to use my subscription while I am traveling abroad? Everything I try to play I get an error",
+   "intent": "account_access",
+   "confidence": 0.7197065353393555,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi Victoria! Are the email addresses on the accounts the same? Check out the tips and steps we have here: <link>",
+   "cited": [
+    958733
+   ],
+   "top_score": 0.7197065353393555,
+   "margin": 0.002357006072998047,
+   "forced": false
+  },
+  {
+   "thread_id": 2891793,
+   "message": "why couldn't I watch #MNF today?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7407629489898682,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear this, Ashlei! 😔 Which device were you streaming from? Any improvement after running: <link>",
+   "cited": [
+    1064129
+   ],
+   "top_score": 0.7407629489898682,
+   "margin": 0.004461407661437988,
+   "forced": false
+  },
+  {
+   "thread_id": 2925890,
+   "message": "why change the format and not keep your customers watch list? Very annoying",
+   "intent": "watchlist_issue",
+   "confidence": 0.6788359880447388,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! While there's not a way to block shows, you can find all your favorites in My Stuff: <link>",
+   "cited": [
+    2263544
+   ],
+   "top_score": 0.6788359880447388,
+   "margin": 0.001627206802368164,
+   "forced": false
+  },
+  {
+   "thread_id": 523891,
+   "message": "is your chat support not working? been waiting to be connected to an agent for probably 20min...",
+   "intent": "account_access",
+   "confidence": 0.8657640218734741,
+   "route": "auto",
+   "reason": "",
+   "reply": "Yikes! Sorry for the delay. If still not resolved, mind giving us a call here: <link> We'd love to help!",
+   "cited": [
+    215648
+   ],
+   "top_score": 0.8657640218734741,
+   "margin": 0.00538402795791626,
+   "forced": false
+  },
+  {
+   "thread_id": 2819830,
+   "message": "I’m sending you my bill when this @2064 #cybermonday commercial drives me insane. #MakeItStop 😩👎 <link>",
+   "intent": "ads_complaint",
+   "confidence": 0.7108620405197144,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! While there's no way to block an specific ad, updating: <link> just might help to mix things up.",
+   "cited": [
+    741231
+   ],
+   "top_score": 0.7108620405197144,
+   "margin": 0.024973273277282715,
+   "forced": false
+  },
+  {
+   "thread_id": 509439,
+   "message": "I got screwed over by customer service and ended up paying 2 extra months of a service that was supposed to get cancelled. What is life?#hulu #HELP",
+   "intent": "service_outage",
+   "confidence": 0.7529067397117615,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any frustrations, Rena! Give us a call: <link> and we'd be happy to get this sorted out for you.",
+   "cited": [
+    400653
+   ],
+   "top_score": 0.7529067397117615,
+   "margin": 0.0010843276977539062,
+   "forced": false
+  },
+  {
+   "thread_id": 2721079,
+   "message": "Dear @2064, your new holiday ad with the woman in the bathtub singing about shopping online is by far the MOST OBNOXIOUS AD I've ever had to listen to (50+ times thanks to @115940's inability to have a variety of ads)",
+   "intent": "ads_complaint",
+   "confidence": 0.6969950199127197,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any ad-related frustrations! We have a limited # of advertisers on each show but we're working to increase variety.",
+   "cited": [
+    1616419
+   ],
+   "top_score": 0.6969950199127197,
+   "margin": 0.006560087203979492,
+   "forced": false
+  },
+  {
+   "thread_id": 2849807,
+   "message": "I was not able to log into my account via my computer and did not receive reset email. (I tried twice, and it's not in my spam folder.) But I couldn't contact support through the website without logging in. My credit card is still being charged monthly. (1/2)",
+   "intent": "billing_refund",
+   "confidence": 0.7645500898361206,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! We're happy to look into this. For 1:1 assistance, please give us a call at the number here: <link>",
+   "cited": [
+    302065
+   ],
+   "top_score": 0.7645500898361206,
+   "margin": 0.0030118823051452637,
+   "forced": false
+  },
+  {
+   "thread_id": 2874922,
+   "message": "Hate that my @115940 app keeps crashing on the Fire Stick 😫😫 what's good to watch on Netflix",
+   "intent": "playback_error",
+   "confidence": 0.7977202534675598,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're here to see how we can keep you in the app! What device is this &amp; do you get an error message before being kicked out?",
+   "cited": [
+    1483281
+   ],
+   "top_score": 0.7977202534675598,
+   "margin": 0.014340698719024658,
+   "forced": false
+  },
+  {
+   "thread_id": 2925922,
+   "message": "As a fun bonus, if you accidentally tap literally anywhere on the screen while watching a video on the new @115940 app (maybe you wanted to check the time), you’ll be jumped to another point of the video! Hope you remembered your place. #ux",
+   "intent": "app_bug",
+   "confidence": 0.7657915353775024,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble! We'll share your experience on iOS with the appropriate team. If you have any other questions, let us know.",
+   "cited": [
+    2029780
+   ],
+   "top_score": 0.7657915353775024,
+   "margin": 0.002244234085083008,
+   "forced": false
+  },
+  {
+   "thread_id": 539335,
+   "message": "Also, very frustrating to have Live TV with no commercials and another show I watch (Shark Tank) most recent episode that aired 11/25 is only via ABC on-demand WITH commercials? It's been a week since it aired! How come there isn't a Hulu no commercials version??",
+   "intent": "ads_complaint",
+   "confidence": 0.7654041051864624,
+   "route": "auto",
+   "reason": "",
+   "reply": "It seems like you may have our Live TV add-on. If so, recent CBS content is available via network on-demand and may contain ads.",
+   "cited": [
+    414370
+   ],
+   "top_score": 0.7654041051864624,
+   "margin": 0.03325831890106201,
+   "forced": false
+  },
+  {
+   "thread_id": 505709,
+   "message": "help, why has the cloud dvr stopped recording anything on my profile? What do I do?",
+   "intent": "live_tv_channels",
+   "confidence": 0.7371519804000854,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! Our team is aware of this issue with Survivor are working on a fix. Blacklist is available on-demand though! 1/2",
+   "cited": [
+    1476284
+   ],
+   "top_score": 0.7371519804000854,
+   "margin": 0.010447561740875244,
+   "forced": false
+  },
+  {
+   "thread_id": 551478,
+   "message": "Your updates are absolute trash @115940 @hulu_support. I know you dont care b/c Ive read the message boards, &amp; you do nothing that the customers ask for. But wow.",
+   "intent": "service_outage",
+   "confidence": 0.793396532535553,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear that, Christine! Let's see if we can help. Try these steps: <link> and <link>",
+   "cited": [
+    1296607
+   ],
+   "top_score": 0.793396532535553,
+   "margin": 0.0007107257843017578,
+   "forced": false
+  },
+  {
+   "thread_id": 451517,
+   "message": "I don't see the new #Empire episode from last night! Help!",
+   "intent": "content_availability",
+   "confidence": 0.7189845442771912,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any confusion, Katie! Chicago PD didn't air a new episode this week due to the World Series: <link>",
+   "cited": [
+    1600561
+   ],
+   "top_score": 0.7189845442771912,
+   "margin": 0.01184755563735962,
+   "forced": false
+  },
+  {
+   "thread_id": 2922379,
+   "message": "Dear, @115940 @hulu_support Why can't I get the live TV I'm paying for in my fancy Hulu package? It was *always* buffering on my @13691 3, and it apparently isn't even available on my Sony smart TV. I got this for football. When will this be resolved?! #FixIt",
+   "intent": "service_outage",
+   "confidence": 0.8352914452552795,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hm, that's weird. Sorry to hear this, Logan! Seeing any errors? Give these a shot: <link> Any improvement?",
+   "cited": [
+    1001532
+   ],
+   "top_score": 0.8352914452552795,
+   "margin": 0.028057754039764404,
+   "forced": false
+  },
+  {
+   "thread_id": 466853,
+   "message": "why does my DVR keep automatically deleting things? I will stop a recorded show midway through, then try to come back to it and it's gone",
+   "intent": "watchlist_issue",
+   "confidence": 0.799177348613739,
+   "route": "auto",
+   "reason": "",
+   "reply": "That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?",
+   "cited": [
+    940395
+   ],
+   "top_score": 0.799177348613739,
+   "margin": 0.02904611825942993,
+   "forced": false
+  },
+  {
+   "thread_id": 565520,
+   "message": "where is the second season of #ThisIsUs?!?!",
+   "intent": "content_availability",
+   "confidence": 0.7329992055892944,
+   "route": "auto",
+   "reason": "",
+   "reply": "We sure will! No release date to share at this time, but add to WL/My Stuff for updates and keep an eye on: <link>",
+   "cited": [
+    934458
+   ],
+   "top_score": 0.7329992055892944,
+   "margin": 0.0025057196617126465,
+   "forced": false
+  },
+  {
+   "thread_id": 517238,
+   "message": "I'm a loyal customer, so you've decided to raise my rate by 30%! THAT'S AN INSANE INCREASE! Who is the marketing genius behind this one? Hey @115940 - I smell blood in the water, need new customers?",
+   "intent": "billing_refund",
+   "confidence": 0.6613637208938599,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay. We'd love to see what options may be available for you! Contact us here to confirm: <link> ✅",
+   "cited": [
+    906168
+   ],
+   "top_score": 0.6613637208938599,
+   "margin": 0.02550196647644043,
+   "forced": false
+  },
+  {
+   "thread_id": 2840943,
+   "message": "the @2064 ad with the lady in the bath is SO BAD and @115940 plays it twice in a row. Not, like, two ad breaks in a row; it plays one version then immediately plays another version. I now just mute immediately and associate ON w disgust, so, job well done, marketers?",
+   "intent": "ads_complaint",
+   "confidence": 0.7320835590362549,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry! If the same ad plays back-to-back, that's not intentional. To discuss, give us a call/chat: <link>",
+   "cited": [
+    2587977
+   ],
+   "top_score": 0.7320835590362549,
+   "margin": 0.019705653190612793,
+   "forced": false
+  },
+  {
+   "thread_id": 2903388,
+   "message": "do you offer any trials longer than a week for the Hulu Live TV Beta? I'm thinking about switching from Playstation Vue.",
+   "intent": "billing_refund",
+   "confidence": 0.7908183932304382,
+   "route": "auto",
+   "reason": "",
+   "reply": "Our Live TV trial is for one-week at this time, but we can express your interest in seeing a longer option in the future.",
+   "cited": [
+    748133
+   ],
+   "top_score": 0.7908183932304382,
+   "margin": 0.03115236759185791,
+   "forced": false
+  },
+  {
+   "thread_id": 594438,
+   "message": "this is absolute robbery. Trying to stick with you guys but almost not worth it.",
+   "intent": "billing_refund",
+   "confidence": 0.6173462867736816,
+   "route": "escalate",
+   "reason": "nearest precedent scores 0.62, nothing close enough to copy",
+   "reply": "",
+   "cited": [],
+   "top_score": 0.6173462867736816,
+   "margin": 0.009116649627685547,
+   "forced": false
+  },
+  {
+   "thread_id": 2982128,
+   "message": ".@115940 be breaking down all the time during commercials...",
+   "intent": "ads_complaint",
+   "confidence": 0.845881462097168,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear about this! Still need a hand? If so, try the steps here: <link> for each respective device.",
+   "cited": [
+    1764997
+   ],
+   "top_score": 0.845881462097168,
+   "margin": 0.0565953254699707,
+   "forced": false
+  },
+  {
+   "thread_id": 501395,
+   "message": "hey Hulu 🙋🏻‍♀️ my account keeps logging me out automatically after I log in 🙁 what gives?",
+   "intent": "account_access",
+   "confidence": 0.7597424387931824,
+   "route": "auto",
+   "reason": "",
+   "reply": "That shouldn't be the case! Is this happening on an ATV 4? If so, any change after working through: <link>",
+   "cited": [
+    797836
+   ],
+   "top_score": 0.7597424387931824,
+   "margin": 0.013303518295288086,
+   "forced": false
+  },
+  {
+   "thread_id": 537662,
+   "message": "What happened to the Shahs of Sunset on your service? I have live TV with no commercials, and the Shahs of Sunset landing page/series page is completely gone from search results!",
+   "intent": "live_tv_channels",
+   "confidence": 0.7416871786117554,
+   "route": "auto",
+   "reason": "",
+   "reply": "King of the Hill is made avail. by the network for live TV subs &amp; will have commercials. More on this ➡️ <link>",
+   "cited": [
+    1693152
+   ],
+   "top_score": 0.7416871786117554,
+   "margin": 0.004574418067932129,
+   "forced": false
+  },
+  {
+   "thread_id": 2617186,
+   "message": "I noticed that episodes I’ve watched on the new app on Xbox One, do not show as watched on the older app on my Samsung TV. Is this a know limitation?",
+   "intent": "watchlist_issue",
+   "confidence": 0.8155372142791748,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry! What model is your ATV: 2, 3, or 4? Is Watchlist not displaying \"New Episode\" notifications? Mind sharing a screenshot?",
+   "cited": [
+    2209269
+   ],
+   "top_score": 0.8155372142791748,
+   "margin": 0.010773658752441406,
+   "forced": false
+  },
+  {
+   "thread_id": 2923361,
+   "message": "can you put The Challenge &amp; The Real World back on I don’t have cable &amp; im missing all the new seasons!!!!!!",
+   "intent": "content_availability",
+   "confidence": 0.7805724143981934,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi there! We have the rights to stream past seasons of both series. No news on more eps just yet, but we'll share your interest.",
+   "cited": [
+    2196240
+   ],
+   "top_score": 0.7805724143981934,
+   "margin": 0.02507317066192627,
+   "forced": false
+  },
+  {
+   "thread_id": 455694,
+   "message": "when will Blue Bloods new season that’s airing now be on Hulu?? I’m dying here! 🤪",
+   "intent": "content_availability",
+   "confidence": 0.7301969528198242,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey, Tim! No news to share at the moment but we'll let our team know you'd like to see them sooner rather than later!",
+   "cited": [
+    294615
+   ],
+   "top_score": 0.7301969528198242,
+   "margin": 0.004492759704589844,
+   "forced": false
+  },
+  {
+   "thread_id": 2862253,
+   "message": "Seriously @115940, there's no way to restart an episode on FireTV without manually rewinding the whole thing? That's a pretty gigantic UX fail.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7944989800453186,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! We came here to help, not fight. Try: <link> Let us know the device and error if that doesn't work.",
+   "cited": [
+    207872
+   ],
+   "top_score": 0.7944989800453186,
+   "margin": 0.02203744649887085,
+   "forced": false
+  },
+  {
+   "thread_id": 2863901,
+   "message": "why does your app keep crashing on my smart tv and then again on my Xbox one. Fix your crap or I’ll deactivate my account.",
+   "intent": "playback_error",
+   "confidence": 0.8304932117462158,
+   "route": "auto",
+   "reason": "",
+   "reply": "Uh oh! If you're using a Samsung, try rebooting device. If another brand is in use, try: <link> Any change?",
+   "cited": [
+    2209418
+   ],
+   "top_score": 0.8304932117462158,
+   "margin": 0.026241302490234375,
+   "forced": false
+  },
+  {
+   "thread_id": 525114,
+   "message": "why does my husbands account deny him logging in because of ‘Home network’ error? I tried connecting home network but it said unable to. We can’t connect to a home network via hotspot which is what we use. So he can’t watch?",
+   "intent": "account_access",
+   "confidence": 0.7114827632904053,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hm, has your Home location changed? When was the last time you checked-in? Check out: <link> for details.",
+   "cited": [
+    196518
+   ],
+   "top_score": 0.7114827632904053,
+   "margin": 0.009757280349731445,
+   "forced": false
+  },
+  {
+   "thread_id": 565528,
+   "message": "any plans of Hulu and Discovery coming together?",
+   "intent": "other",
+   "confidence": 0.7540400624275208,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Jay! While we don't have a set date, MASH and more Reba are on the way! Keep tabs here for updates: <link>",
+   "cited": [
+    2151399
+   ],
+   "top_score": 0.7540400624275208,
+   "margin": 0.031818687915802,
+   "forced": false
+  },
+  {
+   "thread_id": 565533,
+   "message": "is the connection always this bad during every single football game? I’ve literally only seen 3 playsbin about the last 4-5 minutes",
+   "intent": "playback_error",
+   "confidence": 0.7512339353561401,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Which device do you use? Which specific game/channel is affected? If you try a quick device+modem reboot, any change?",
+   "cited": [
+    1019773
+   ],
+   "top_score": 0.7512339353561401,
+   "margin": 0.011919260025024414,
+   "forced": false
+  },
+  {
+   "thread_id": 2967931,
+   "message": "The only the show that makes me wish I had cable instead of Hulu, Netflix, hbo go, and amazon is INK MASTER like damn @115940 why you take my show away 😢",
+   "intent": "playback_error",
+   "confidence": 0.7387832403182983,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We're always looking to connect viewers to as much of the content that they love. We'll share your interest in MSG!",
+   "cited": [
+    262380
+   ],
+   "top_score": 0.7387832403182983,
+   "margin": 0.018940329551696777,
+   "forced": false
+  },
+  {
+   "thread_id": 561198,
+   "message": "How come we cant get Fresh Prince, Martin or the Fridays on @115940 or @116602",
+   "intent": "content_availability",
+   "confidence": 0.7847402095794678,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Michael! We don't have the rights to stream Martin at this time, but we'll forward your request along to our content team. 👍",
+   "cited": [
+    956822
+   ],
+   "top_score": 0.7847402095794678,
+   "margin": 0.003965318202972412,
+   "forced": false
+  },
+  {
+   "thread_id": 2963461,
+   "message": "how come no news networks live feeds are working currently on Apple TV?",
+   "intent": "playback_error",
+   "confidence": 0.7572447061538696,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, that was us, Austin. We got our team on it and should be back in action on your end. If not, try another reboot for us.",
+   "cited": [
+    1486815
+   ],
+   "top_score": 0.7572447061538696,
+   "margin": 0.0010728836059570312,
+   "forced": false
+  },
+  {
+   "thread_id": 97517,
+   "message": "I got an email to verify my account by Dec 1 or my account would be terminated. is this legit?",
+   "intent": "account_access",
+   "confidence": 0.742954432964325,
+   "route": "auto",
+   "reason": "",
+   "reply": "We appreciate you tweeting, Jon! We'd love to get our team to take a look with you, give us a call: <link>",
+   "cited": [
+    2201125
+   ],
+   "top_score": 0.742954432964325,
+   "margin": 0.04909569025039673,
+   "forced": false
+  },
+  {
+   "thread_id": 2837637,
+   "message": "i got a question!",
+   "intent": "content_availability",
+   "confidence": 0.6228437423706055,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hello Tyler! We'd love to help here if possible. For a private 1 on 1 call/chat, please contact: <link> ✅",
+   "cited": [
+    928678
+   ],
+   "top_score": 0.6228437423706055,
+   "margin": 0.007794678211212158,
+   "forced": false
+  },
+  {
+   "thread_id": 2865308,
+   "message": "So a free trial that costs 5.99? Lol idc that I had to pay for it, but don't lure me in with a free trial if there isn't one @115940 @109764 <link>",
+   "intent": "billing_refund",
+   "confidence": 0.7776482105255127,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're happy to take a look and see what happened. When you have a chance, reach out: <link>",
+   "cited": [
+    55458
+   ],
+   "top_score": 0.7776482105255127,
+   "margin": 0.006766617298126221,
+   "forced": false
+  },
+  {
+   "thread_id": 2898152,
+   "message": "I just got #HuluLive and it's still in beta. Got some bugs to work out like: DVR always on hurts live signal. Signal interruption. No live or DVR on PS4 (Vue must be upset) Maybe bring in history channel? IFC? TWD? but I know different services buy channels. <link>",
+   "intent": "playback_error",
+   "confidence": 0.7550305128097534,
+   "route": "auto",
+   "reason": "",
+   "reply": "Uh oh! Please try powering off your device for 1-2 minutes. If no luck, please let us know the device you're using to stream.",
+   "cited": [
+    1237926
+   ],
+   "top_score": 0.7550305128097534,
+   "margin": 0.004192709922790527,
+   "forced": false
+  },
+  {
+   "thread_id": 2875725,
+   "message": "Does Hulu w/live TV have limited capability &amp; channel access on Xbox One S?",
+   "intent": "playback_error",
+   "confidence": 0.7469208240509033,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry! This is related to a Live TV issue we're working to fix. For now, please use our partner apps: <link>",
+   "cited": [
+    1484624
+   ],
+   "top_score": 0.7469208240509033,
+   "margin": 0.02711385488510132,
+   "forced": false
+  },
+  {
+   "thread_id": 525111,
+   "message": "when is the next episode 2 of east los season 5 gonna come on @115940",
+   "intent": "content_availability",
+   "confidence": 0.7654005289077759,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Kenneth! Episode 5 will air on FOX on 11/3 and will be up on Hulu the next day. Keep the show in WL/My Stuff for updates.",
+   "cited": [
+    2623581
+   ],
+   "top_score": 0.7654005289077759,
+   "margin": 0.03893512487411499,
+   "forced": false
+  },
+  {
+   "thread_id": 2982140,
+   "message": "I need help with a BYA-403-010 error code on my Roku express even though I'm in my living room. @hulu_support",
+   "intent": "service_outage",
+   "confidence": 0.815872073173523,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! You can review and remove devices at: <link> For streaming issues, try these: <link>",
+   "cited": [
+    188029
+   ],
+   "top_score": 0.815872073173523,
+   "margin": 0.03800898790359497,
+   "forced": false
+  },
+  {
+   "thread_id": 2869511,
+   "message": "Hulu users are not capable of switching profiles(not accounts) on smart TVs. Not sure who needs to update this option but please help with this issue. It's quite restricting and it would be greatly appreciated by all users. Thanks",
+   "intent": "account_access",
+   "confidence": 0.7850097417831421,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there! No news at this time, but we'll share the interest! For the most up-to-date info: <link>",
+   "cited": [
+    3171
+   ],
+   "top_score": 0.7850097417831421,
+   "margin": 0.042933642864227295,
+   "forced": false
+  },
+  {
+   "thread_id": 2818900,
+   "message": "i swear @115940 if this god awful commercial plays ONE MORE time i'm canceling my subscription <link>",
+   "intent": "ads_complaint",
+   "confidence": 0.7437583208084106,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! While there's no way to block an specific ad, updating: <link> just might help to mix things up.",
+   "cited": [
+    741231
+   ],
+   "top_score": 0.7437583208084106,
+   "margin": 0.0056005120277404785,
+   "forced": false
+  },
+  {
+   "thread_id": 509461,
+   "message": "umm on the iphone and this kept popping up <link>",
+   "intent": "other",
+   "confidence": 0.745002269744873,
+   "route": "auto",
+   "reason": "",
+   "reply": "Uh oh! Please try: <link> If it continues, contact us here: <link> for further support.",
+   "cited": [
+    1657105
+   ],
+   "top_score": 0.745002269744873,
+   "margin": 0.0015575289726257324,
+   "forced": false
+  },
+  {
+   "thread_id": 453102,
+   "message": "what’s with all the glitches lately? Commercials are bad enough, but it especially sucks when they close down and restart the app, and I can’t even watch my show.",
+   "intent": "playback_error",
+   "confidence": 0.7726386785507202,
+   "route": "auto",
+   "reason": "",
+   "reply": "Yikes! We want to help. Try running through these steps: <link> and <link> Better after that?",
+   "cited": [
+    949735
+   ],
+   "top_score": 0.7726386785507202,
+   "margin": 0.0023206472396850586,
+   "forced": false
+  },
+  {
+   "thread_id": 559386,
+   "message": "For the love of god @116602 please bring back how I met your mother. @115940 and it's constant errors are making me crazy.",
+   "intent": "content_availability",
+   "confidence": 0.7101790904998779,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Travis! Still need help? If so, try: <link> No improvement? Pls chat w/ us <link>",
+   "cited": [
+    1767284
+   ],
+   "top_score": 0.7101790904998779,
+   "margin": 4.5359134674072266e-05,
+   "forced": false
+  },
+  {
+   "thread_id": 2819813,
+   "message": "and @115940 that tone deaf commercial is awful. Why??? It's playing over and over again and it hurts!!",
+   "intent": "ads_complaint",
+   "confidence": 0.7429689764976501,
+   "route": "auto",
+   "reason": "",
+   "reply": "We're sorry to hear about the ad-related frustration! We'd love to grab more details from you here: <link>",
+   "cited": [
+    777424
+   ],
+   "top_score": 0.7429689764976501,
+   "margin": 0.01583009958267212,
+   "forced": false
+  },
+  {
+   "thread_id": 2911037,
+   "message": "still getting loading error. Had it for four days now. Reinstalled app and everything. Help.",
+   "intent": "playback_error",
+   "confidence": 0.7977269291877747,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! This issue is being investigated. To collect more info to share w/our team, please chat w/ us: <link>",
+   "cited": [
+    1702791
+   ],
+   "top_score": 0.7977269291877747,
+   "margin": 0.015986204147338867,
+   "forced": false
+  },
+  {
+   "thread_id": 511188,
+   "message": "why can't I just watch this week's new episodes in a lineup? Why the hell is my queue some weird mixture of shit you want me to watch and old things I used to watch and random things related to things I used you watch? Can you fix this shit?!?! I'm about to unsubscribe.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7562408447265625,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Hannah. This sounds like something we're looking into. Which device do you use+which shows have you noticed this with?",
+   "cited": [
+    2432196
+   ],
+   "top_score": 0.7562408447265625,
+   "margin": 0.022303342819213867,
+   "forced": false
+  },
+  {
+   "thread_id": 2873801,
+   "message": "what happened to ESPN on Hulu Live? It is no longer on my channel lineup",
+   "intent": "live_tv_channels",
+   "confidence": 0.7668247222900391,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay! This may be related to an issue we're currently investigating. For now, try: <link>",
+   "cited": [
+    2080444
+   ],
+   "top_score": 0.7668247222900391,
+   "margin": 0.011160671710968018,
+   "forced": false
+  },
+  {
+   "thread_id": 2905250,
+   "message": "ummmm where's the latest episode of star and empire. It's been a while",
+   "intent": "content_availability",
+   "confidence": 0.8283547163009644,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Chris! The show didn't air due to the World Series. It's back this week! Check out: <link>",
+   "cited": [
+    1735631
+   ],
+   "top_score": 0.8283547163009644,
+   "margin": 0.04087942838668823,
+   "forced": false
+  },
+  {
+   "thread_id": 2813901,
+   "message": "I get it, its #CyberMonday. But I swear I will delete my @115940 account if I see that damn @2064 commercial again. <link>",
+   "intent": "ads_complaint",
+   "confidence": 0.7763729095458984,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies! While there's no way to block an specific ad, updating: <link> just might help to mix things up.",
+   "cited": [
+    741231
+   ],
+   "top_score": 0.7763729095458984,
+   "margin": 0.0027365684509277344,
+   "forced": false
+  },
+  {
+   "thread_id": 458817,
+   "message": "when is episode 9 of @16840 getting put on hulu",
+   "intent": "content_availability",
+   "confidence": 0.7102174758911133,
+   "route": "auto",
+   "reason": "",
+   "reply": "Due to the World Series, The Orville is on a break, but will resume airing on 10/26 and the ep will be on Hulu the next day.",
+   "cited": [
+    1242063
+   ],
+   "top_score": 0.7102174758911133,
+   "margin": 0.008661985397338867,
+   "forced": false
+  },
+  {
+   "thread_id": 2911030,
+   "message": "why is the app constantly pausing and buffering lately? It's not connection because it is happening at several different locations and devices for me. From ps4 to Android phone.",
+   "intent": "playback_error",
+   "confidence": 0.8088197112083435,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Sorry for the delay. If your PS4 is still buffering, let's try applying: <link> Notice an improvement?",
+   "cited": [
+    796900
+   ],
+   "top_score": 0.8088197112083435,
+   "margin": 0.06056612730026245,
+   "forced": false
+  },
+  {
+   "thread_id": 2893056,
+   "message": "I returned to finish movie and It's the *Leesa*mattress spot that gets hung up. I kept reloading till the spot finished to get through and back to movie.",
+   "intent": "app_bug",
+   "confidence": 0.7188049554824829,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Which device do you use? For now, please try a quick reboot of your device+modem along with: <link>",
+   "cited": [
+    2140195
+   ],
+   "top_score": 0.7188049554824829,
+   "margin": 0.011727333068847656,
+   "forced": false
+  },
+  {
+   "thread_id": 2918060,
+   "message": "Hulu problems 🙄",
+   "intent": "other",
+   "confidence": 0.756868839263916,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link>",
+   "cited": [
+    765190
+   ],
+   "top_score": 0.756868839263916,
+   "margin": 0.04005640745162964,
+   "forced": false
+  },
+  {
+   "thread_id": 2974728,
+   "message": "now that I have Hulu ig it’s time to follow you guys. Quick question I see S4 of SU is there but they all say upcoming how long a wait is upcoming?",
+   "intent": "other",
+   "confidence": 0.7088432312011719,
+   "route": "auto",
+   "reason": "",
+   "reply": "No set date to share just yet, but take a peek here: <link> for some good news.",
+   "cited": [
+    2223075
+   ],
+   "top_score": 0.7088432312011719,
+   "margin": 0.0055925846099853516,
+   "forced": false
+  },
+  {
+   "thread_id": 2819836,
+   "message": "Hey @hulu_support I have an unauthorized charge, can you help me?",
+   "intent": "service_outage",
+   "confidence": 0.8537548184394836,
+   "route": "auto",
+   "reason": "",
+   "reply": "Uh oh! Please give us a call at the phone number here: <link> with the last 4 digits of the cc and billing ZIP.",
+   "cited": [
+    2306860
+   ],
+   "top_score": 0.8537548184394836,
+   "margin": 0.040299952030181885,
+   "forced": false
+  },
+  {
+   "thread_id": 2903390,
+   "message": "can i stream two profiles at once with the basic subscription of $7.99? @hulu_support",
+   "intent": "service_outage",
+   "confidence": 0.764681875705719,
+   "route": "auto",
+   "reason": "",
+   "reply": "Morning! Not a way to disable the feature. Are you being prompted to create a second one?",
+   "cited": [
+    1128869
+   ],
+   "top_score": 0.764681875705719,
+   "margin": 0.0066741108894348145,
+   "forced": false
+  },
+  {
+   "thread_id": 464764,
+   "message": "why does Hulu play live sporting events from the beginning? Cancelling my account in favor of YouTube TV, which recognizes live events properly.",
+   "intent": "live_tv_channels",
+   "confidence": 0.766015887260437,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! If you accessed the event from My Stuff, try heading directly to the live network page. It should still be airing!",
+   "cited": [
+    963959
+   ],
+   "top_score": 0.766015887260437,
+   "margin": 0.0017688274383544922,
+   "forced": false
+  },
+  {
+   "thread_id": 455670,
+   "message": "so, every time I try to play a Hulu original on my PS4, it will play for 5 seconds, then buffer for 10-20 seconds. Just now realizing it's only Hulu originals. (Idk why) but future man, and runaways will play, but in 5 sec increments. Is there a fix?",
+   "intent": "playback_error",
+   "confidence": 0.7243435978889465,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear you had trouble! Still need help? Try steps: <link> for your device. Notice any improvement?",
+   "cited": [
+    1764388
+   ],
+   "top_score": 0.7243435978889465,
+   "margin": 0.011368870735168457,
+   "forced": false
+  },
+  {
+   "thread_id": 2943116,
+   "message": "Hey @115940 @hulu_support, knock it off! Let me watch the show without your fucking stupid service sending me back a couple of scenes! Fuck off!",
+   "intent": "service_outage",
+   "confidence": 0.7788296341896057,
+   "route": "auto",
+   "reason": "",
+   "reply": "Aw, shucks! We're glad to hear all is well now, Ren. Don't hesitate to tweet us in the future. We're here if you need us!",
+   "cited": [
+    898345
+   ],
+   "top_score": 0.7788296341896057,
+   "margin": 0.0023750662803649902,
+   "forced": false
+  },
+  {
+   "thread_id": 462083,
+   "message": "please put vikings season 5 on ASAP!",
+   "intent": "content_availability",
+   "confidence": 0.6829804182052612,
+   "route": "auto",
+   "reason": "",
+   "reply": "We got you! S5 of Vanderpump Rules is coming to Hulu on 11/7. We'll share your interest in seeing RHOD added to our lineup.",
+   "cited": [
+    931742
+   ],
+   "top_score": 0.6829804182052612,
+   "margin": 0.017832517623901367,
+   "forced": false
+  },
+  {
+   "thread_id": 102075,
+   "message": "your new introduction is fucking ridiculous got me waking up half my household with a intro sound similar windows vista and xp. Y'all gotta do better I'm sure I'm not the only one",
+   "intent": "app_bug",
+   "confidence": 0.6725262403488159,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!",
+   "cited": [
+    63461
+   ],
+   "top_score": 0.6725262403488159,
+   "margin": 0.017133474349975586,
+   "forced": false
+  },
+  {
+   "thread_id": 583820,
+   "message": "why is it every big sporting event has issues with playing? It keeps loading and skipping! I'm really considering going back to cable...",
+   "intent": "playback_error",
+   "confidence": 0.7801610231399536,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! We'd be happy to help. Which device do you use+which channel is affected? For now, try a quick device+modem reboot.",
+   "cited": [
+    1009646
+   ],
+   "top_score": 0.7801610231399536,
+   "margin": 0.0022608041763305664,
+   "forced": false
+  },
+  {
+   "thread_id": 587998,
+   "message": "fix your live game of the SEC championship. I’ve tried 4 different service providers on 3 different devices. All doing the same thing: skipping, freezing, and closing the stream.",
+   "intent": "playback_error",
+   "confidence": 0.78547203540802,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear you're still having trouble! We'd love to take a closer look at things via phone or chat: <link>",
+   "cited": [
+    372063
+   ],
+   "top_score": 0.78547203540802,
+   "margin": 0.006932675838470459,
+   "forced": false
+  },
+  {
+   "thread_id": 2842945,
+   "message": "Why am I paying extra for no commercials and I'm still seeing them? 🙄 #Hulu",
+   "intent": "ads_complaint",
+   "confidence": 0.7598816156387329,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! If you're still running into trouble after: <link> please reach out here: <link>",
+   "cited": [
+    2112244
+   ],
+   "top_score": 0.7598816156387329,
+   "margin": 0.0025298595428466797,
+   "forced": false
+  },
+  {
+   "thread_id": 592882,
+   "message": "Ok also why isn't Elf on Hulu? @115940 please advise also.",
+   "intent": "content_availability",
+   "confidence": 0.870968222618103,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi! We don't currently have the rights, but we'd be happy to share your interest in seeing it available!",
+   "cited": [
+    1213968
+   ],
+   "top_score": 0.870968222618103,
+   "margin": 0.00575566291809082,
+   "forced": false
+  },
+  {
+   "thread_id": 2914712,
+   "message": "Just got a 5.1 system and discovered that Hulu doesn't offer surround sound on its streams. This is pretty ridiculous, considering that the cost is similar to cable and all cable services offer surround sound for broadcast television.",
+   "intent": "live_tv_channels",
+   "confidence": 0.7649152278900146,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there! We don't have any news yet but we are looking into surround sound formatting. Thanks for following up with the interest!",
+   "cited": [
+    830950
+   ],
+   "top_score": 0.7649152278900146,
+   "margin": 0.0013878941535949707,
+   "forced": false
+  },
+  {
+   "thread_id": 2943105,
+   "message": "It would be hard for me to hate the new @115940 interface more. <link>",
+   "intent": "app_bug",
+   "confidence": 0.860672116279602,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry to hear this, Nicole! Please share a few specifics at: <link> We're basing updates on user feedback.",
+   "cited": [
+    2188270
+   ],
+   "top_score": 0.860672116279602,
+   "margin": 0.00138777494430542,
+   "forced": false
+  },
+  {
+   "thread_id": 2944197,
+   "message": "when will my monthly rate come down",
+   "intent": "billing_refund",
+   "confidence": 0.6602922677993774,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Vincent! We're investigating this and we'll be sure to share the feedback to make improvements to our service.",
+   "cited": [
+    1483862
+   ],
+   "top_score": 0.6602922677993774,
+   "margin": 0.0023610591888427734,
+   "forced": false
+  },
+  {
+   "thread_id": 2842953,
+   "message": "are there any plans to bring the watchlist into the Hulu with Live Beta? The My Stuff is good and all, but sometimes I want to set a specific list. It was one of hulu's best features.",
+   "intent": "watchlist_issue",
+   "confidence": 0.7855638265609741,
+   "route": "auto",
+   "reason": "",
+   "reply": "iPad and select devices (<link> use the new app+My Stuff. Did you import WL when first opening the new app?",
+   "cited": [
+    1795347
+   ],
+   "top_score": 0.7855638265609741,
+   "margin": 0.0052481889724731445,
+   "forced": false
+  },
+  {
+   "thread_id": 601935,
+   "message": "Hey. why does your shows, show adult explicit content during comercials, in kids shows? PLEASE STOP IT!",
+   "intent": "content_availability",
+   "confidence": 0.6893227100372314,
+   "route": "auto",
+   "reason": "",
+   "reply": "Which specific shows did you notice a different color outline for, and on what device? We'll happily take a look on our end.",
+   "cited": [
+    1759443
+   ],
+   "top_score": 0.6893227100372314,
+   "margin": 0.004424333572387695,
+   "forced": false
+  },
+  {
+   "thread_id": 2918040,
+   "message": "I tried online help but no one was there hulu logs me out even if I'm in the middle of something here's proof <link>",
+   "intent": "service_outage",
+   "confidence": 0.8034447431564331,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the trouble! Our team is investigating this for us, please reach out using: <link> when you can.",
+   "cited": [
+    1333532
+   ],
+   "top_score": 0.8034447431564331,
+   "margin": 0.04001212120056152,
+   "forced": false
+  },
+  {
+   "thread_id": 2972706,
+   "message": "just signed up, can’t log in. Get kicked out after 5 seconds. Please help this is incredibly frustrating.",
+   "intent": "account_access",
+   "confidence": 0.7289023399353027,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry about that! Sounds like you were affected by: <link> If you're still running into trouble, let us know",
+   "cited": [
+    745481
+   ],
+   "top_score": 0.7289023399353027,
+   "margin": 0.007363677024841309,
+   "forced": false
+  },
+  {
+   "thread_id": 2924758,
+   "message": "It's messier than before, especially with multiple people watching shows on the one profile <link>",
+   "intent": "watchlist_issue",
+   "confidence": 0.6875555515289307,
+   "route": "auto",
+   "reason": "",
+   "reply": "Thanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!",
+   "cited": [
+    196586
+   ],
+   "top_score": 0.6875555515289307,
+   "margin": 0.0023807287216186523,
+   "forced": false
+  },
+  {
+   "thread_id": 501391,
+   "message": "Okay but WHY is the season 8 finale oh Will and Grace not on Hulu with the rest? @115940?????????????",
+   "intent": "content_availability",
+   "confidence": 0.8609169721603394,
+   "route": "auto",
+   "reason": "",
+   "reply": "We do! Catch up on those episodes here: <link> and here: <link> Happy streaming!",
+   "cited": [
+    1272964
+   ],
+   "top_score": 0.8609169721603394,
+   "margin": 0.013722002506256104,
+   "forced": false
+  },
+  {
+   "thread_id": 2816486,
+   "message": "Protip: if you’re going to make me pay for a service and watch ads, DON’T MAKE ME WATCH THE SAME ONE EVERY SINGLE BREAK. #mostannoying #netflixisbetter",
+   "intent": "ads_complaint",
+   "confidence": 0.7069560289382935,
+   "route": "auto",
+   "reason": "",
+   "reply": "Apologies, Robert! What specific trouble are you having and on which device? Are specific ads to blame? Just let us know!",
+   "cited": [
+    1017069
+   ],
+   "top_score": 0.7069560289382935,
+   "margin": 0.0004652738571166992,
+   "forced": false
+  },
+  {
+   "thread_id": 85981,
+   "message": "For the last few weeks to a month I've been having playback issues. Lots of stuttering and stopping and I have to pause and rewind to resume playback as usual. This has happened on two different LG TVs and on the kindle app.",
+   "intent": "playback_error",
+   "confidence": 0.7563076019287109,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry about that! Our team is checking things out. Please try a quick powercycle (<link> to reset things.",
+   "cited": [
+    740618
+   ],
+   "top_score": 0.7563076019287109,
+   "margin": 0.023067772388458252,
+   "forced": false
+  },
+  {
+   "thread_id": 448899,
+   "message": "Frustrated loyal customer. Why do new customers get a low price or “returning” customers (who have LEFT you) get a low price? But I, who have stayed with you, keep paying full price? I’d appreciate if we can discuss a loyalty discount so that I don’t need to leave.",
+   "intent": "billing_refund",
+   "confidence": 0.7777614593505859,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for the delay. We'd love to see what options may be available for you! Contact us here to confirm: <link> ✅",
+   "cited": [
+    906168
+   ],
+   "top_score": 0.7777614593505859,
+   "margin": 0.061702847480773926,
+   "forced": false
+  },
+  {
+   "thread_id": 2965034,
+   "message": "Someone needs to get the entire sponge bob series going @116602 @115940 your move",
+   "intent": "content_availability",
+   "confidence": 0.7606298327445984,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍",
+   "cited": [
+    989010
+   ],
+   "top_score": 0.7606298327445984,
+   "margin": 0.020937025547027588,
+   "forced": false
+  },
+  {
+   "thread_id": 451508,
+   "message": "when will the newest episode of Empire be up?",
+   "intent": "content_availability",
+   "confidence": 0.8194110989570618,
+   "route": "auto",
+   "reason": "",
+   "reply": "Empire didn't have a new ep last week, but the show will return to TV tonight, and added to our on-demand service the next day!",
+   "cited": [
+    2123481
+   ],
+   "top_score": 0.8194110989570618,
+   "margin": 0.011478543281555176,
+   "forced": false
+  },
+  {
+   "thread_id": 2896576,
+   "message": "Almost finished with the news I’m watching (or trying to...), and keep getting this sweet error. @hulu_support @115940 - I’m not asking for a hover board, just to watch a show I’m paying $40/mo. to watch. Any help would be appreciated. Well, I was... cancelled <link>",
+   "intent": "service_outage",
+   "confidence": 0.793705940246582,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Let's get this sorted, Ren. Please call us at the number listed here: <link> and we'll investigate.",
+   "cited": [
+    883778
+   ],
+   "top_score": 0.793705940246582,
+   "margin": 0.0006394386291503906,
+   "forced": false
+  },
+  {
+   "thread_id": 2966335,
+   "message": "jersey shore reunion BETTER be on hulu @115940 @hulu_support",
+   "intent": "service_outage",
+   "confidence": 0.689702033996582,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry, Laura! Our rights to RTP expired. We always aim to connect users to as much content they love, so we'll share your input.",
+   "cited": [
+    2381547
+   ],
+   "top_score": 0.689702033996582,
+   "margin": 0.009513258934020996,
+   "forced": false
+  },
+  {
+   "thread_id": 2813903,
+   "message": "CBS is constantly buffering again!!!",
+   "intent": "playback_error",
+   "confidence": 0.7572993636131287,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?",
+   "cited": [
+    2209325
+   ],
+   "top_score": 0.7572993636131287,
+   "margin": 0.0009862780570983887,
+   "forced": false
+  },
+  {
+   "thread_id": 2545470,
+   "message": "how soon before we see S3 of @117874 ???",
+   "intent": "content_availability",
+   "confidence": 0.7996973991394043,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey there! We asked Tiny Rick and he says you can catch season three with our Live TV service (<link> 👏",
+   "cited": [
+    716400
+   ],
+   "top_score": 0.7996973991394043,
+   "margin": 0.02783215045928955,
+   "forced": false
+  },
+  {
+   "thread_id": 89729,
+   "message": "My life would drastically improve if one of you added spongebob episodes @116602 @115940 Jusssayin.",
+   "intent": "content_availability",
+   "confidence": 0.776623547077179,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍",
+   "cited": [
+    989010
+   ],
+   "top_score": 0.776623547077179,
+   "margin": 0.040954649448394775,
+   "forced": false
+  },
+  {
+   "thread_id": 2869516,
+   "message": "Do you know when Keeping Up With The Kardashians Season 14 will be on Hulu?",
+   "intent": "content_availability",
+   "confidence": 0.7967203855514526,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi there, Macky! No news to share on adding S14 at this time, but we'll share your interest with our team. 💜",
+   "cited": [
+    273546
+   ],
+   "top_score": 0.7967203855514526,
+   "margin": 0.0066416263580322266,
+   "forced": false
+  },
+  {
+   "thread_id": 464784,
+   "message": "why does your live tv skip and repeat itself like 5 times? This is fucking annoying",
+   "intent": "app_bug",
+   "confidence": 0.7832179665565491,
+   "route": "auto",
+   "reason": "",
+   "reply": "Yikes! Thanks for reaching out. What devices and channels are affected? When you have a moment, let's try: <link>",
+   "cited": [
+    2160365
+   ],
+   "top_score": 0.7832179665565491,
+   "margin": 0.015009164810180664,
+   "forced": false
+  },
+  {
+   "thread_id": 2847551,
+   "message": "I really need a new Netflix/Hulu show",
+   "intent": "content_availability",
+   "confidence": 0.699260413646698,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey, Jake! Hulu here. 👋🏽 We've passed along the request to see more Scooby-Doo streaming on Hulu in the future! ✅",
+   "cited": [
+    363909
+   ],
+   "top_score": 0.699260413646698,
+   "margin": 0.01086348295211792,
+   "forced": false
+  },
+  {
+   "thread_id": 511261,
+   "message": "Hey why the heck will shows sometimes refuse to be marked as “all caught up” and hang out at the top of “my stuff” telling me to “watch latest episode” even though I already have and the white line showing I have is there too?",
+   "intent": "watchlist_issue",
+   "confidence": 0.7405652403831482,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Dennis! Thanks for reaching out! Which device do you use to stream? Are you noticing this w/a certain show?",
+   "cited": [
+    871660
+   ],
+   "top_score": 0.7405652403831482,
+   "margin": 0.000894010066986084,
+   "forced": false
+  },
+  {
+   "thread_id": 2949929,
+   "message": "When you have 3 more episodes of @113174 but then it’s taken off @115940 .... 😒 <link>",
+   "intent": "content_availability",
+   "confidence": 0.7991626858711243,
+   "route": "auto",
+   "reason": "",
+   "reply": "Our sincere apologies, Dana! Thanks for bringing this to our attention. We've reached out to our team and are working on fixing it.",
+   "cited": [
+    2214756
+   ],
+   "top_score": 0.7991626858711243,
+   "margin": 0.0033121705055236816,
+   "forced": false
+  },
+  {
+   "thread_id": 520349,
+   "message": "Hey @115940 I’m watching a movie with my kids and and have to have them close their eyes through the ads: sex, violence, and dead bodies in three consecutive commercials. Check your selection of what commercials go with what shows!",
+   "intent": "ads_complaint",
+   "confidence": 0.7357267141342163,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Let's see if we can help, Luke. Try out these steps: <link> Any improvement after?",
+   "cited": [
+    273939
+   ],
+   "top_score": 0.7357267141342163,
+   "margin": 0.02097463607788086,
+   "forced": false
+  },
+  {
+   "thread_id": 2926744,
+   "message": "I use the Samsung tv Smart Hub version of your app but don’t see a way to change account profiles on it. Can you provide any info on this?",
+   "intent": "account_access",
+   "confidence": 0.8270164132118225,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey Larry! Profiles are still being rolled out across different devices. We'll be sure to share the interest w/Samsung TVs!",
+   "cited": [
+    1305434
+   ],
+   "top_score": 0.8270164132118225,
+   "margin": 0.050712645053863525,
+   "forced": false
+  },
+  {
+   "thread_id": 2865321,
+   "message": "Please post good morning America for today on the hulu app android Ty",
+   "intent": "service_outage",
+   "confidence": 0.7086325883865356,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! We'd like to help. If no improvement after trying: <link> please contact: <link> ✅",
+   "cited": [
+    989980
+   ],
+   "top_score": 0.7086325883865356,
+   "margin": 0.022294163703918457,
+   "forced": false
+  },
+  {
+   "thread_id": 2444843,
+   "message": "please add #NFLRedZone @9833 @331517 to your live tv. This will make it too notch of the other guys. Oh and maybe @196559 please and thank you",
+   "intent": "playback_error",
+   "confidence": 0.8138137459754944,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hi, Xavior! We're always looking to connect our viewers to as much of the content they love. We'll share your requests!",
+   "cited": [
+    268507
+   ],
+   "top_score": 0.8138137459754944,
+   "margin": 0.011975765228271484,
+   "forced": false
+  },
+  {
+   "thread_id": 2875746,
+   "message": "if you could just add VH1, TLC, and WE to your live channel line up I would switch from Sling.",
+   "intent": "live_tv_channels",
+   "confidence": 0.7905858755111694,
+   "route": "auto",
+   "reason": "",
+   "reply": "Hey! For channel listings in your area, enter your ZIP here: <link> For live content, head to Browse&gt;Networks&gt;Live.",
+   "cited": [
+    1035232
+   ],
+   "top_score": 0.7905858755111694,
+   "margin": 0.011067807674407959,
+   "forced": false
+  },
+  {
+   "thread_id": 2869496,
+   "message": "How does one turn down the quality on Android TV? Not fond of using 40GB a day when I have 300GB a month :-\\",
+   "intent": "other",
+   "confidence": 0.6850104331970215,
+   "route": "auto",
+   "reason": "",
+   "reply": "Oh no! Let's get you back to the Pearsons. Which device do you use? Any errors? For now, try: <link>",
+   "cited": [
+    1760090
+   ],
+   "top_score": 0.6850104331970215,
+   "margin": 0.0055512189865112305,
+   "forced": false
+  },
+  {
+   "thread_id": 2890127,
+   "message": "why are we seeing commercials on shark tank in Hulu with tv with no commercials plan. We didn’t before we added the tv option.",
+   "intent": "ads_complaint",
+   "confidence": 0.7391108274459839,
+   "route": "auto",
+   "reason": "",
+   "reply": "Sorry for any trouble Steven! Only 7 shows will play an ad before and after the ep: <link> Do you have Live TV?",
+   "cited": [
+    955880
+   ],
+   "top_score": 0.7391108274459839,
+   "margin": 0.005917549133300781,
+   "forced": false
+  }
+ ],
+ "verdicts": [
+  {
+   "thread_id": 557411,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern about random autoplay suggestions."
+  },
+  {
+   "thread_id": 447722,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2874927,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the technical issue while ignoring the refund request."
+  },
+  {
+   "thread_id": 2833157,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses to similar buffering complaints on Roku devices."
+  },
+  {
+   "thread_id": 467843,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and effectively gathers necessary troubleshooting information."
+  },
+  {
+   "thread_id": 2862246,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses and maintains the brand's established tone."
+  },
+  {
+   "thread_id": 2871751,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established support pattern for technical streaming issues perfectly."
+  },
+  {
+   "thread_id": 522836,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with the brand's established tone and troubleshooting process for technical issues."
+  },
+  {
+   "thread_id": 2914722,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for users complaining about ads on paid accounts."
+  },
+  {
+   "thread_id": 457251,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses the customer by the wrong name, Jeff, instead of the current customer."
+  },
+  {
+   "thread_id": 2545323,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses a Chromecast error, which is irrelevant to the customer's issue regarding stream limits."
+  },
+  {
+   "thread_id": 450336,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is completely irrelevant to the customer's question about missing episodes on their TV app."
+  },
+  {
+   "thread_id": 2815088,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft is completely irrelevant to the customer's question about international access from Argentina."
+  },
+  {
+   "thread_id": 2842965,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and response style for content requests."
+  },
+  {
+   "thread_id": 2857535,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft claims the issue is not resolved, which contradicts the context of helping a new user."
+  },
+  {
+   "thread_id": 467817,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses a password issue, but the customer is reporting a live TV streaming error."
+  },
+  {
+   "thread_id": 447712,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and directly addresses the user's frustration with playback controls."
+  },
+  {
+   "thread_id": 2816479,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue with a standard troubleshooting step."
+  },
+  {
+   "thread_id": 521579,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established brand pattern of asking for device details and providing troubleshooting links."
+  },
+  {
+   "thread_id": 2579812,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies regarding channel availability and maintains the brand's tone."
+  },
+  {
+   "thread_id": 92896,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes a specific known issue that was not confirmed for this customer's current situation."
+  },
+  {
+   "thread_id": 2831206,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is fine as it directs the customer to support for account-specific billing and subscription management."
+  },
+  {
+   "thread_id": 2894815,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding episode availability and tone."
+  },
+  {
+   "thread_id": 2617188,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding repetitive advertisements and includes the standard troubleshooting link."
+  },
+  {
+   "thread_id": 2972727,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft perfectly matches the brand's established tone and troubleshooting process for login errors."
+  },
+  {
+   "thread_id": 457248,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Stacey, which is not the name of the current customer."
+  },
+  {
+   "thread_id": 2833646,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding technical issues and provides the standard support link."
+  },
+  {
+   "thread_id": 561256,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Daniel, instead of addressing the current user."
+  },
+  {
+   "thread_id": 595971,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and directly addresses the customer's concern."
+  },
+  {
+   "thread_id": 2924716,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft references the wrong show and provides irrelevant information about Cult instead of the requested show."
+  },
+  {
+   "thread_id": 553792,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding limited licensing rights for specific episodes."
+  },
+  {
+   "thread_id": 525116,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2973721,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue by asking for device information."
+  },
+  {
+   "thread_id": 2914752,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and past responses to similar customer feedback."
+  },
+  {
+   "thread_id": 448901,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses and addresses the customer's feedback appropriately."
+  },
+  {
+   "thread_id": 569022,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2925919,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft matches the brand's established tone and follows the precedent of directing users to support links."
+  },
+  {
+   "thread_id": 89734,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the specific issue of the wrong movie version and provides irrelevant links."
+  },
+  {
+   "thread_id": 2834766,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Robin, instead of addressing the current user."
+  },
+  {
+   "thread_id": 561305,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's specific questions about wait times and availability by using an irrelevant template."
+  },
+  {
+   "thread_id": 2817412,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's feedback about surround sound and uses an irrelevant, generic troubleshooting template."
+  },
+  {
+   "thread_id": 104277,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses for login issues and uses the established brand tone."
+  },
+  {
+   "thread_id": 2818920,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with the brand's established response pattern for this specific feedback."
+  },
+  {
+   "thread_id": 463565,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and accurately addresses the customer's inquiry."
+  },
+  {
+   "thread_id": 448892,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Jacob, but the customer did not provide their name in the message."
+  },
+  {
+   "thread_id": 89750,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses a Facebook login issue, but the customer is experiencing a general login loop on laptop."
+  },
+  {
+   "thread_id": 565557,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and troubleshooting process for live streaming issues."
+  },
+  {
+   "thread_id": 565510,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft treats a general question about ad frequency as a technical error requiring troubleshooting steps."
+  },
+  {
+   "thread_id": 2617211,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft perfectly matches the tone and content of previous successful replies to the same customer query."
+  },
+  {
+   "thread_id": 553778,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is completely irrelevant to the customer's question about finding Cloud DVR content."
+  },
+  {
+   "thread_id": 2944205,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes the issue is lagging, which the customer did not specify."
+  },
+  {
+   "thread_id": 2924712,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses a placeholder name Lo Lo which does not match the current customer."
+  },
+  {
+   "thread_id": 2862207,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern about the layout."
+  },
+  {
+   "thread_id": 2875734,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is grounded in past responses and addresses the customer's frustration regarding ad frequency."
+  },
+  {
+   "thread_id": 2873771,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes the issue is resolved and uses a generic response instead of troubleshooting the current report."
+  },
+  {
+   "thread_id": 104261,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Ramón, instead of addressing the current user."
+  },
+  {
+   "thread_id": 457258,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2865318,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is irrelevant to the customer's question about account deletion policies."
+  },
+  {
+   "thread_id": 2973726,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern about ads."
+  },
+  {
+   "thread_id": 563208,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Kim, which is not present in the current customer's message."
+  },
+  {
+   "thread_id": 2579808,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly references The Walking Dead instead of the show the customer actually asked about."
+  },
+  {
+   "thread_id": 2953083,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly assumes the episodes are in Clips, which is specific to Will and Grace."
+  },
+  {
+   "thread_id": 570979,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and troubleshooting process for streaming issues."
+  },
+  {
+   "thread_id": 564379,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Greg, which is inappropriate for this specific interaction."
+  },
+  {
+   "thread_id": 2872790,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established pattern of asking for device and episode details to investigate the issue."
+  },
+  {
+   "thread_id": 2967915,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and effectively addresses the customer's reported issue."
+  },
+  {
+   "thread_id": 2818059,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses to similar service outage inquiries."
+  },
+  {
+   "thread_id": 455681,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established brand pattern for troubleshooting playback issues perfectly."
+  },
+  {
+   "thread_id": 2943107,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, which is unprofessional and confusing."
+  },
+  {
+   "thread_id": 561224,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft uses a proven, effective response style from past interactions to troubleshoot the customer's issue."
+  },
+  {
+   "thread_id": 2953090,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses closed captioning issues, which is irrelevant to the customer's complaint about autoplay and continue watching."
+  },
+  {
+   "thread_id": 559382,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Heather, which is incorrect for this specific customer."
+  },
+  {
+   "thread_id": 453106,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and references the wrong show from a past example."
+  },
+  {
+   "thread_id": 453112,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding commercial-free subscription concerns and follows the established brand tone."
+  },
+  {
+   "thread_id": 2737417,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The reply ignores the customer's question about specific content and provides irrelevant troubleshooting steps for sign-in issues."
+  },
+  {
+   "thread_id": 570983,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Mike, but the customer's name was not provided in the message."
+  },
+  {
+   "thread_id": 2321278,
+   "grounded": false,
+   "addresses": true,
+   "safe": false,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly claims a known issue is resolved and uses the wrong customer name."
+  },
+  {
+   "thread_id": 457263,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and appropriately directs the customer to support channels."
+  },
+  {
+   "thread_id": 2863910,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established pattern of providing troubleshooting links for ad-related freezing issues."
+  },
+  {
+   "thread_id": 2948756,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's complaint about content updates and provides an irrelevant response about ads."
+  },
+  {
+   "thread_id": 2903394,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and response style for feature requests."
+  },
+  {
+   "thread_id": 563232,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly assumes the game is on TBS, which is not mentioned in the customer message."
+  },
+  {
+   "thread_id": 2737412,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The customer specified they are using a Roku device, so asking for the TV brand is irrelevant."
+  },
+  {
+   "thread_id": 507563,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and effectively directs the customer to the appropriate support channel."
+  },
+  {
+   "thread_id": 559305,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Craig, which is not the name of the current customer."
+  },
+  {
+   "thread_id": 2866512,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's inquiry appropriately."
+  },
+  {
+   "thread_id": 2982133,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is irrelevant to the customer's complaint about device support and is clearly a template error."
+  },
+  {
+   "thread_id": 467822,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2944193,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies regarding UI feedback and the lack of rollback plans."
+  },
+  {
+   "thread_id": 89786,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Betty, which is not the customer's name."
+  },
+  {
+   "thread_id": 569999,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is irrelevant to the customer's issue regarding live sports lag."
+  },
+  {
+   "thread_id": 2925913,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's specific questions and uses an irrelevant template addressing a different user."
+  },
+  {
+   "thread_id": 2898156,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the location-based issue and provides irrelevant troubleshooting steps for an iOS app update."
+  },
+  {
+   "thread_id": 600837,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and references a specific time not mentioned by the user."
+  },
+  {
+   "thread_id": 565585,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Ryan, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2259149,
+   "grounded": false,
+   "addresses": false,
+   "safe": false,
+   "tone": false,
+   "send": false,
+   "reason": "The draft is completely irrelevant to the customer's question about the CFL Grey Cup."
+  },
+  {
+   "thread_id": 2898160,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 507575,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with past replies for similar technical issues on Xbox."
+  },
+  {
+   "thread_id": 520343,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Raquel, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2956883,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft asks about casting, but the customer explicitly stated they are using a TV app."
+  },
+  {
+   "thread_id": 909204,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and accurately addresses the customer's inquiry."
+  },
+  {
+   "thread_id": 571978,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established pattern of providing troubleshooting links for app performance issues."
+  },
+  {
+   "thread_id": 2949912,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is irrelevant to the customer's question about trailers and does not address their concern."
+  },
+  {
+   "thread_id": 2873773,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Chad, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2967953,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses technical buffering issues instead of the customer's specific question about offline download features."
+  },
+  {
+   "thread_id": 565560,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established pattern of troubleshooting specific channel issues by asking for device information."
+  },
+  {
+   "thread_id": 2928619,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar technical issues on iOS devices."
+  },
+  {
+   "thread_id": 454498,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is fine and follows the established troubleshooting process for Spotify-Hulu account linking issues."
+  },
+  {
+   "thread_id": 2815080,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses a template for channel availability issues, which is irrelevant to a billing refund request."
+  },
+  {
+   "thread_id": 604037,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding content requests and maintains the brand's established tone."
+  },
+  {
+   "thread_id": 2914728,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's question about a specific promotion and provides an irrelevant troubleshooting response."
+  },
+  {
+   "thread_id": 2842932,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes a past outage that may not be relevant to the customer's current error code."
+  },
+  {
+   "thread_id": 2873793,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses a connection error, but the customer is reporting a location-based content restriction error."
+  },
+  {
+   "thread_id": 2411578,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": false,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and references a device not mentioned in the message."
+  },
+  {
+   "thread_id": 604047,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft treats a question about show cancellation as a technical issue, failing to address the customer's query."
+  },
+  {
+   "thread_id": 2911039,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and references irrelevant content instead of the customer's actual feedback."
+  },
+  {
+   "thread_id": 2967913,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft references the wrong show and fails to address the customer's specific complaint about Shameless."
+  },
+  {
+   "thread_id": 564374,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Aaron, instead of addressing the current user."
+  },
+  {
+   "thread_id": 454482,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the 4K question and incorrectly treats it as a technical streaming issue."
+  },
+  {
+   "thread_id": 2721097,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is irrelevant to the customer's question about traveling abroad."
+  },
+  {
+   "thread_id": 2891793,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Ashlei, which was not provided in the current message."
+  },
+  {
+   "thread_id": 2925890,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The reply ignores the customer's specific complaint about the watchlist and addresses blocking shows instead."
+  },
+  {
+   "thread_id": 523891,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern appropriately."
+  },
+  {
+   "thread_id": 2819830,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar complaints about repetitive advertisements."
+  },
+  {
+   "thread_id": 509439,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Rena, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2721079,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft perfectly matches the tone and content of previous responses to similar ad-related complaints."
+  },
+  {
+   "thread_id": 2849807,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and provides the necessary support link to resolve the issue."
+  },
+  {
+   "thread_id": 2874922,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft asks for the device type even though the customer explicitly stated they use a Fire Stick."
+  },
+  {
+   "thread_id": 2925922,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies regarding the same specific app feedback."
+  },
+  {
+   "thread_id": 539335,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly references CBS content instead of the ABC show mentioned by the customer."
+  },
+  {
+   "thread_id": 505709,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft references specific shows not mentioned by the customer and ignores the actual issue reported."
+  },
+  {
+   "thread_id": 551478,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and assumes a technical issue when none was specified."
+  },
+  {
+   "thread_id": 451517,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses the wrong show and uses the wrong customer name."
+  },
+  {
+   "thread_id": 2922379,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and ignores the specific device compatibility issue mentioned."
+  },
+  {
+   "thread_id": 466853,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with the brand's established tone and troubleshooting process for technical playback issues."
+  },
+  {
+   "thread_id": 565520,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and appropriately manages expectations regarding release dates."
+  },
+  {
+   "thread_id": 517238,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns with the brand's established tone and procedure for handling pricing complaints."
+  },
+  {
+   "thread_id": 2840943,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's concern about back-to-back ads."
+  },
+  {
+   "thread_id": 2903388,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and directly addresses the customer's inquiry."
+  },
+  {
+   "thread_id": 2982128,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar technical issues regarding commercials."
+  },
+  {
+   "thread_id": 501395,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes the device is an Apple TV 4 without asking the customer for their device type."
+  },
+  {
+   "thread_id": 537662,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is completely irrelevant to the customer's question about a missing show."
+  },
+  {
+   "thread_id": 2617186,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft asks about Apple TV models instead of addressing the user's issue regarding Xbox and Samsung TV."
+  },
+  {
+   "thread_id": 2923361,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly claims the brand has rights to past seasons, which is not stated in the prompt."
+  },
+  {
+   "thread_id": 455694,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Tim, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2862253,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The reply ignores the specific UX complaint about FireTV and provides irrelevant troubleshooting steps for app crashes."
+  },
+  {
+   "thread_id": 2863901,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses and addresses the user's issue effectively."
+  },
+  {
+   "thread_id": 525114,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the specific issue regarding hotspot usage and the inability to set a home network."
+  },
+  {
+   "thread_id": 565528,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is completely irrelevant to the customer's question about Hulu and Discovery."
+  },
+  {
+   "thread_id": 565533,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft perfectly mirrors the brand's established troubleshooting protocol for live streaming issues."
+  },
+  {
+   "thread_id": 2967931,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly references MSG instead of the customer's specific show, Ink Master."
+  },
+  {
+   "thread_id": 561198,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft only addresses Martin and ignores the customer's questions about Fresh Prince and The Fridays."
+  },
+  {
+   "thread_id": 2963461,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and assumes a specific issue that may not be accurate."
+  },
+  {
+   "thread_id": 97517,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Jon, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2837637,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Tyler, but the customer did not provide their name in this message."
+  },
+  {
+   "thread_id": 2865308,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and appropriately directs the customer to support for investigation."
+  },
+  {
+   "thread_id": 2898152,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established tone and troubleshooting steps used in previous similar support interactions."
+  },
+  {
+   "thread_id": 2875725,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes a service outage instead of answering the customer's specific question about device compatibility."
+  },
+  {
+   "thread_id": 525111,
+   "grounded": false,
+   "addresses": true,
+   "safe": false,
+   "tone": true,
+   "send": false,
+   "reason": "The draft provides incorrect information about a different show and episode than what the customer requested."
+  },
+  {
+   "thread_id": 2982140,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar error code issues."
+  },
+  {
+   "thread_id": 2869511,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and past responses to similar feature requests."
+  },
+  {
+   "thread_id": 2818900,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies to identical customer complaints."
+  },
+  {
+   "thread_id": 509461,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and troubleshooting process for technical errors."
+  },
+  {
+   "thread_id": 453102,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue effectively."
+  },
+  {
+   "thread_id": 559386,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, addressing them as Travis instead of the actual customer."
+  },
+  {
+   "thread_id": 2819813,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar complaints about ad frequency and content."
+  },
+  {
+   "thread_id": 2911037,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for persistent loading errors and provides the correct support link."
+  },
+  {
+   "thread_id": 511188,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, which is unprofessional and confusing."
+  },
+  {
+   "thread_id": 2873801,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for missing channel inquiries and follows the established brand tone."
+  },
+  {
+   "thread_id": 2905250,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft assumes a specific reason for the delay not provided by the customer or current context."
+  },
+  {
+   "thread_id": 2813901,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies to similar ad-related complaints and follows the established brand tone."
+  },
+  {
+   "thread_id": 458817,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft references the wrong show and incorrect dates not relevant to the customer's specific inquiry."
+  },
+  {
+   "thread_id": 2911030,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the Android device mentioned by the customer and only addresses the PS4."
+  },
+  {
+   "thread_id": 2893056,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established pattern of asking for the device and providing troubleshooting steps."
+  },
+  {
+   "thread_id": 2918060,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and troubleshooting process for general service issues."
+  },
+  {
+   "thread_id": 2974728,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses regarding upcoming content availability and maintains the brand's tone."
+  },
+  {
+   "thread_id": 2819836,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for unauthorized charge inquiries and follows the established brand tone."
+  },
+  {
+   "thread_id": 2903390,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's question about concurrent streaming and instead addresses a completely different topic."
+  },
+  {
+   "thread_id": 464764,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is grounded in past responses and directly addresses the user's issue with live event playback."
+  },
+  {
+   "thread_id": 455670,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's issue appropriately."
+  },
+  {
+   "thread_id": 2943116,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": false,
+   "send": false,
+   "reason": "The draft uses a canned response meant for a positive interaction, ignoring the customer's technical issue."
+  },
+  {
+   "thread_id": 462083,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply ignores the customer's request about Vikings and instead discusses Vanderpump Rules."
+  },
+  {
+   "thread_id": 102075,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's feedback appropriately."
+  },
+  {
+   "thread_id": 583820,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's technical issues appropriately."
+  },
+  {
+   "thread_id": 587998,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for similar technical issues and maintains the brand's tone."
+  },
+  {
+   "thread_id": 2842945,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft fails to ask for necessary details like the show or device to troubleshoot the issue."
+  },
+  {
+   "thread_id": 592882,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with the brand's established tone and policy regarding content availability."
+  },
+  {
+   "thread_id": 2914712,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies regarding surround sound feedback."
+  },
+  {
+   "thread_id": 2943105,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the name Nicole, but the customer's name is not provided in the current message."
+  },
+  {
+   "thread_id": 2944197,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the customer's question about pricing and provides an irrelevant response about technical service issues."
+  },
+  {
+   "thread_id": 2842953,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft is a canned response that does not address the customer's specific question about Live Beta."
+  },
+  {
+   "thread_id": 601935,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft reply is completely irrelevant to the customer's complaint about inappropriate advertisements."
+  },
+  {
+   "thread_id": 2918040,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies for technical issues and directs the user to support."
+  },
+  {
+   "thread_id": 2972706,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns with established brand tone and provides a consistent troubleshooting resource for login issues."
+  },
+  {
+   "thread_id": 2924758,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Bryan, instead of addressing the current user."
+  },
+  {
+   "thread_id": 501391,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses and provides the requested links to the missing episodes."
+  },
+  {
+   "thread_id": 2816486,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Robert, which is inappropriate for this specific interaction."
+  },
+  {
+   "thread_id": 85981,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply is consistent with past responses and addresses the user's reported playback issues."
+  },
+  {
+   "thread_id": 448899,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established tone and past responses to similar loyalty discount inquiries."
+  },
+  {
+   "thread_id": 2965034,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with previous replies to the same request and maintains the brand's established tone."
+  },
+  {
+   "thread_id": 451508,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft accurately reflects the brand's established policy and tone for handling episode availability inquiries."
+  },
+  {
+   "thread_id": 2896576,
+   "grounded": false,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name, Ren, instead of addressing the current user."
+  },
+  {
+   "thread_id": 2966335,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses a canned response about a different show and incorrect customer name."
+  },
+  {
+   "thread_id": 2813903,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft aligns perfectly with the brand's established troubleshooting process and tone for buffering issues."
+  },
+  {
+   "thread_id": 2545470,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and accurately addresses the customer's question."
+  },
+  {
+   "thread_id": 89729,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with previous replies to the same request and maintains the brand's tone."
+  },
+  {
+   "thread_id": 2869516,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is identical to a past reply provided for the exact same customer query."
+  },
+  {
+   "thread_id": 464784,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft follows the established tone and troubleshooting process used in previous similar customer interactions."
+  },
+  {
+   "thread_id": 2847551,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft is irrelevant to the customer's request and uses a name from a different conversation."
+  },
+  {
+   "thread_id": 511261,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and effectively gathers necessary information to troubleshoot the issue."
+  },
+  {
+   "thread_id": 2949929,
+   "grounded": false,
+   "addresses": true,
+   "safe": false,
+   "tone": true,
+   "send": false,
+   "reason": "The draft incorrectly addresses the user as Dana and promises a fix for content removal, which is inaccurate."
+  },
+  {
+   "thread_id": 520349,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft uses the wrong customer name and provides irrelevant troubleshooting steps for an ad content complaint."
+  },
+  {
+   "thread_id": 2926744,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft is consistent with past replies and addresses the customer's question accurately."
+  },
+  {
+   "thread_id": 2865321,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The reply follows the established brand tone and provides standard troubleshooting resources for content availability issues."
+  },
+  {
+   "thread_id": 2444843,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": true,
+   "reason": "The draft matches the brand's established tone and process for handling channel requests perfectly."
+  },
+  {
+   "thread_id": 2875746,
+   "grounded": true,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The reply ignores the customer's specific channel requests and provides irrelevant navigation instructions instead."
+  },
+  {
+   "thread_id": 2869496,
+   "grounded": false,
+   "addresses": false,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft ignores the specific question about data usage and Android TV settings."
+  },
+  {
+   "thread_id": 2890127,
+   "grounded": true,
+   "addresses": true,
+   "safe": true,
+   "tone": true,
+   "send": false,
+   "reason": "The draft addresses the customer by the wrong name, Steven, which is unprofessional and confusing."
+  }
+ ]
+}

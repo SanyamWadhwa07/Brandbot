@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: not sure how you can take channels away from when I upgraded to Hulu live but Fox Sports North magically disappeared from my options\n    brand: Apologies! If that appears here: <link> w/ your zip, follow up: <link> &amp; we'll take a look.\n\ncustomer: I have done EVERYTHING and still your live service is TERRIBLE. Figure it out and give me my money back\n    brand: We're sorry to hear of the trouble. We'd like to take a look from our end. Please contact: <link> for help! ✅\n\ncustomer: Bring back PIP on I pad and I'll come back to Hulu. I'm done paying for less functionality than before the update. I'm out!\n    brand: We're sorry to see you go! We'll be sure to express your interest in seeing Picture in Picture as a feature in the new experience.\n\ncustomer: hey. Just upgraded to the live tv subscription but my 3rd gen Apple TV won’t do live....or am I wrong?\n    brand: Sadly, Live TV isn't supported on that generation of Apple TV. You should be able to access it through: <link>\n\ncustomer: so how can I get all the money back that you stole from me the last few months for your \"live tv\" service?\n    brand: We're sorry to hear about your continued frustration, Mike. Please contact us again via phone or chat for 1:1 support.\n\nCustomer message:\nhelp! I upgraded to live but ended up not needing it and switched back right away. Can I get my money back??\n\nDraft reply:\nApologies! If that appears here: <link> w/ your zip, follow up: <link> &amp; we'll take a look.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses a template for channel availability issues, which is irrelevant to a billing refund request.\"\n}",
+  "prompt_tokens": 614,
+  "completion_tokens": 64
+ }
+}

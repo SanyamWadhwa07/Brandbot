@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: For some reason 2 of our shows didn’t record on our cloud dvr service. What can we do? Survivor &amp; Blacklist\n    brand: Apologies! Our team is aware of this issue with Survivor are working on a fix. Blacklist is available on-demand though! 1/2\n\n[1] customer: I don’t see an option to access the cloud dvr when I’m using the live service on a browser on PC.\n    brand: My Stuff and DVR are not available on site—yet. Updates are coming but for now you'll need to access these from another device.\n\n[2] customer: I'm trying to manage my account and cancel live tv/cloud but when I click the manahe button under add ons, it just takes me back to my account page. I've tried a couple different browsers and same issue.\n    brand: Our apologies, Carrie. We're looking into this! Call/chat: <link> and we'll take care of that for you.\n\n[3] customer: I've been dealing with my dvr space running low for months now, yet nothing is showing up as recorded. I'm done #YOUSUCK\n    brand: Sorry! This sounds like something we're investigating. Please call us/chat us here: <link>\n\n[4] customer: How much do extras cost for the live TV package? 200 hrs cloud dvr and how many rooms does the DVR hook up to?\n    brand: Hi! Hulu with Live TV starts at $39.99/mo, with the Enhanced DVR Add-on being +$14.99/mo: <link> 1/2\n\nNew message:\nhelp, why has the cloud dvr stopped recording anything on my profile? What do I do?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry you’re seeing this! We’re looking into the cloud DVR issue. Please reach out via chat or call so we can sort it out: <link>\",\"used\":[0,3]}",
+  "prompt_tokens": 602,
+  "completion_tokens": 99
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Only reason I have @115940 is because of greys anatomy but they STILL haven't put up last weeks episode.\n    brand: Hey there! When new episodes of Grey's air we'll always be \"your person\" and add them, but there wasn't one on TV last week.\n\n[1] customer: I literally have @115940 Live because I thought I could watch @318653 on it but I was wrong so I’m cancelling my @115940 😢\n    brand: Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!\n\n[2] customer: Upset with @115940 almost everyday for the past week or 2 I've got a load error and can't watch my shows\n    brand: Apologies, Alexandra! Still having trouble? If so, please connect w/ us: <link> so we can investigate.\n\n[3] customer: I wish that @116602 and @115940 had a “random episode” button for TV series. I’d use it all day long.\n    brand: Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!\n\n[4] customer: When @115940 doesn’t have the newest @5185 episode with @89800 yet. <link>\n    brand: Sorry, Alisha! We're investigating, but you should be able to find it now in Seasons / Episodes: <link> 💜\n\nNew message:\nHello @115940 I was wondering why my episode of Bobs Burgers loaded 1400 SECONDS OF ADVERTISEMENT WHEN I PAY $44 A MONTH TO NOT HAVE TO WATCH EVEN 15 SECONDS OF AN ADVERTISEMENT IM JUST HERE TO ASK A SIMPLE AND POLITE QUESTION THANK YOU",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 617,
+  "completion_tokens": 69
+ }
+}

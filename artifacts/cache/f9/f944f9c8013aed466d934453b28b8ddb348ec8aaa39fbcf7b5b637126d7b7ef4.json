@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: when I watch always sunny, my captions move too quickly and are not matched up with the speech. Can you fix it please?\n    brand: Oh no! Which device do you use &amp; which eps? For now, try rebooting your device+modem/router. Any change afterwards?\n\ncustomer: just wondering why SNL's closed captions are always messed up, either ahead or behind the speech.\n    brand: We'd love to look into this, Jay! Do you have an example from a certain ep with a rough timestamp? Which device are you using?\n\ncustomer: This is the third time I've started a program and the captions timing are off.\n    brand: Apologies, Eric! Please let us know the content affected and the specific device you're streaming from. We'll investigate!\n\ncustomer: watching the 1st ep to the 2nd season of #ThisIsUs . the captions timing is way off and needs adjustment.\n    brand: Hey Eric! Which device do you use to stream? If you try a quick device+modem reboot, notice any improvement after?\n\ncustomer: I want Hulu to hire me to fix the captions for Atlanta. “girl, you are sumn else”. white interpretation: “girl, you are some mess.” 🤦🏾‍♀️\n    brand: Thanks for pointing this out to us! The captions for Atlanta have been revised. Let us know if you have further questions.\n\nCustomer message:\nthe captions on it's always sunny are messed up- they're incorrect but also cutting off early in the middle of a word in the middle of a sentence.. please fix it!!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of asking for the device to investigate the reported issue.\"\n}",
+  "prompt_tokens": 598,
+  "completion_tokens": 62
+ }
+}

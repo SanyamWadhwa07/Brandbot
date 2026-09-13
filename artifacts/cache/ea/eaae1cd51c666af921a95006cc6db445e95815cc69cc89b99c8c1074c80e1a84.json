@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: trying to watch episode of SNL and i get this screen frozen w/content audio playing. Your app is broken! I’m on FireTV fix it! <link>\n    brand: Ah, this looks like an issue we're investigating. If <link> is no help, 💬 or 📞 in: <link>\n\n[1] customer: My video freezes, but the audio continues. Also, A&amp;E is no longer available for some reason. HELP\n    brand: Oh no! 😔 After checking, A&amp;E is avail. Which device/channels froze during playback? Try: <link> Any changes?\n\n[2] customer: My iPhone app won’t play video anymore. I select the vid then it crashes. Tried un/reinstalling app, nothin works. Help!\n    brand: Sorry to hear that, Robin! Let's see if we can help. Try out these steps: <link> and <link>\n\n[3] customer: all videos on my app r saying “encountered error while playing” is this for every1 rn? If so when is it expected to be fixed?\n    brand: Sorry for any frustration! Please reach out here: <link> for assistance. We'll help sort this out. ✅\n\n[4] customer: Why is the video pausing/lagging but not audio? Doing this on fire stick and Xbox. No other streaming service is doing this.\n    brand: Sorry! Is this happening during live TV or on-demand shows? Let's try powering off your devices and modem/router for 1-2 minutes.\n\nNew message:\nHulu finally working on Amazon Fire Tv. However, regular video pauses while audio continues. I have emptied cache, deleted data, uninstalled and reinstalled the app with no luck. This does NOT happen with Netflix, Amazon, or any other service. Network 100 Mb+",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry! Is this happening during live TV or on‑demand shows? Let’s try powering off your Fire TV and modem/router for 1‑2 minutes, then restart the app.\",\"used\":[4]}",
+  "prompt_tokens": 634,
+  "completion_tokens": 128
+ }
+}

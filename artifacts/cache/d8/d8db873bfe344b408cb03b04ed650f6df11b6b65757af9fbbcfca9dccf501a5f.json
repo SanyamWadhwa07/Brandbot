@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: when is the new seasons of American Dad gonna be in hulu?\n    brand: Hey, Tim! No news to share at the moment but we'll let our team know you'd like to see them sooner rather than later!\n\ncustomer: So when is the new season of Rick and Morty going to be on @115940\n    brand: We have the newest season of Rick and Morty on Hulu live. ⚡️ Our base plans typically have access soon after it airs on TV.\n\ncustomer: when is season 3 of the new English dub of Sailor Moon coming out on Hulu\n    brand: Hey India! No news to share on adding S3 dubbed at this time, but we'll share your interest with our team. 🌙\n\ncustomer: So @115940 when is season 3 of Freakish coming out? Because ya cant just end season 2 like that. Ya hurting me here. #Freakish #FreakishonHulu\n    brand: No news to share at the moment but we'll be sure to let our team know you're interested! Thanks for the support of the show.\n\ncustomer: Question. Is the new season of Supernatural going to Hulu? It would be season 13.\n    brand: We're not able to offer the show on our on-demand plans. We're able to make select eps available with our new Live TV plan.\n\nCustomer message:\nwhen will Blue Bloods new season that’s airing now be on Hulu?? I’m dying here! 🤪\n\nDraft reply:\nHey, Tim! No news to share at the moment but we'll let our team know you'd like to see them sooner rather than later!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name, Tim, instead of addressing the current user.\"\n}",
+  "prompt_tokens": 598,
+  "completion_tokens": 62
+ }
+}

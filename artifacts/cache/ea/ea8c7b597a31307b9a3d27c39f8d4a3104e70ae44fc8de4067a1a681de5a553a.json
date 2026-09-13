@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hello, i have tried resetting my password at <link> 3 times and i never receive via email the link.\n    brand: Sorry to hear you're having trouble! Chat w/ us: <link> and we'd be happy to lend a hand with this!\n\ncustomer: So @115940 won't send me the link to reset my password...won't let me sign up under another email...y'all just don't want my money huh.\n    brand: Did you check your spam/trash folders? If it doesn't appear there, call us at number here: <link> so we can help.\n\ncustomer: Can’t remember my @115940 password &amp; I don’t use that email address anymore so no way to get a reset link. Help.\n    brand: Sorry for the delay, Jules! Please call us at the phone number here: <link> so we can take care of you.\n\ncustomer: Hi! Someone changed my password (hacked). Asked reset link x 3 over an hour ago - no email. Not in junk. What can I do?\n    brand: Sorry for the delay and trouble, Melanie! So we can get our team on this with you, please call using: <link>\n\ncustomer: My account was hacked and the reset password to my email doesn't send the activation link.\n    brand: Oh no! We'd love to help with this, Alex, Call the # listed on this page when you get the chance: <link>\n\nCustomer message:\nI’ve reset my password like 20 times and haven’t received a link via email. Please assist\n\nDraft reply:\nSorry to hear you're having trouble! Chat w/ us: <link> and we'd be happy to lend a hand with this!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's issue appropriately.\"\n}",
+  "prompt_tokens": 626,
+  "completion_tokens": 61
+ }
+}

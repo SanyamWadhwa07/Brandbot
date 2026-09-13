@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I keep getting charged despite having cancelled my subscription, HELP!!!!\n    brand: We're ready to help! Please grab your billing statement and call us at this #: <link> We'll take it from there!\n\ncustomer: I canceled my subscription with you in October.. I was just charged again in November, a month later. I called customer support and was given an estimated hour wait time. I want my money back as I do not use your service and haven't done so in over a month.\n    brand: 1/2) Sorry to hear about the unexpected charge! For 1:1 assistance, please reach out by phone/chat here: <link>\n\ncustomer: I canceled my subscription after buying it so I would receive a month of service but I got billed again for 2 months?\n    brand: Apologies for any confusion. We'd like to look into this for you! Contact us here for help: <link> ✅\n\ncustomer: I received a charge today even though I cancelled my account in July, is this a hack or is your subscription service failing?\n    brand: We'd love to take a closer look at this on our end, Quincy! Call/chat so we can pull up your info: <link>\n\ncustomer: was getting charged double for Hulu for the past 4+months so cancelled my account and still getting charged???\n    brand: Sorry to hear about this! Chat or call us here: <link> so we can get to the bottom of this ASAP!\n\nCustomer message:\nI canceled my subscription months ago but I'm still getting charged... Why?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply fails to address the billing issue and does not provide the required contact link.\"\n}",
+  "prompt_tokens": 590,
+  "completion_tokens": 62
+ }
+}

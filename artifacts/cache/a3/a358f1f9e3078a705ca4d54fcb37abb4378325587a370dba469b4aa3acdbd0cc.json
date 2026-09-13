@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: second week in a row issues with live! Watching Cowboys goes to 1:00 game then restarts 4:00 game! Going back to Sling\n    brand: Sorry for the trouble, Chad! Which device do you use? If you try a quick reboot of the device, any improvement after?\n\ncustomer: Of course my @115940 live is stuck on an endless loop during game 7. Fuck you Hulu @hulu_support\n    brand: That's no good! Were you able to try out the steps we sent previously? Check out: <link> Any change?\n\ncustomer: I tried to watch the baseball game (Houston vs NY) and it skipped around. The show I recorded won't play. That's on my tablet. Online I can get the show to play, but the current episode I recorded is not there. I am paying way too much for this frustration.\n    brand: Sorry for the continued trouble! We'd be happy to go over some troubleshooting here. Which specific device(s) are you using?\n\ncustomer: how come shows aren't showing up in my dvr again?\n    brand: Apologies, Michael! Try these: <link> and call/chat us (<link> if still happening after.\n\ncustomer: any idea why I keep getting a playback failure when I try to watch the Cubs game? If I go to another live channel it works.\n    brand: There was an issue but we were able to resolve it quickly. Try streaming the game now and let us know if you have any trouble.\n\nCustomer message:\nMNF dvr repeating and not showing game\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and effectively initiates the standard troubleshooting process.\"\n}",
+  "prompt_tokens": 597,
+  "completion_tokens": 60
+ }
+}

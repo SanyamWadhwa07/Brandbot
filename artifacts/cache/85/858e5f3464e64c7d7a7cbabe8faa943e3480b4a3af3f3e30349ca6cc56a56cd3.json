@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: plz put the season 5 on there of Vanderpump Rules and also Real Housewives of Dallas plz. #PumpRules #RHOD\n    brand: We got you! S5 of Vanderpump Rules is coming to Hulu on 11/7. We'll share your interest in seeing RHOD added to our lineup.\n\ncustomer: why is episode 5 of empire not on HULU PLUS?\n    brand: No new eps since 10/18—but the Lyons are back tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\ncustomer: So I got hooked on Homeland, just to find out that I can't watch past season 4 with y'all. Season 7 is slated to start sometime in early 2018....so what are the chances of season 5 &amp; 6 getting added soon?\n    brand: Want to catch up on the rest of Homeland today? All seasons are available with the SHOWTIME Add-on (<link>\n\ncustomer: when you are guys going to put season 5 of prison Break in your library?\n    brand: The rights are tied up, but we hope to make eps available soon! Keep an eye on this pg for updates: <link>\n\ncustomer: When will M*A*S*H and season 5 &amp; 6 of Reba be available for streaming? And don't say 'coming soon' - a date would be appreciated\n    brand: Hi, Bryan! We do not have a release date to share at this time since they have not been finalized. Apologies for any trouble!\n\nCustomer message:\nplease put vikings season 5 on ASAP!\n\nDraft reply:\nWe got you! S5 of Vanderpump Rules is coming to Hulu on 11/7. We'll share your interest in seeing RHOD added to our lineup.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft reply ignores the customer's request about Vikings and instead discusses Vanderpump Rules.\"\n}",
+  "prompt_tokens": 628,
+  "completion_tokens": 63
+ }
+}

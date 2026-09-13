@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: having problems on my roku streaming stick with hulu tv Its constantly buffering is this a problem with roku generally or my internet?\n    brand: Ah, this may very well be an issue we're looking into. Please chat or call in: <link> so we can confirm. 👍\n\ncustomer: .@hulu_support The buffering is really bad tonight. I've reset router, Roku, etc. Live shows are really buffering badly.\n    brand: Oh no! You may have been affected by a known issue we've since resolved. Still having issues? If so: <link>\n\ncustomer: have roku 3 with hulu live and getting recurring buffering status. have dsl 40mb service (wired conn). why is this?\n    brand: Do both live and on-demand content buffer like this? Is your Roku hardwired? Give these steps a shot: <link>\n\ncustomer: what's up with buffering on hulu tv beta and audio/video don't match up. Please fix the bug on roku.\n    brand: Uh oh! Is this sync behavior affecting all content you select? Let us know if this continues after: <link> 💚\n\ncustomer: hey @115940 and @hulu_support, my hulu app on my @127972 (roku 3) keeps crashing. works when i reset, then crashes after i go back in. 😢\n    brand: Apologies, Bethanne! If you haven't already, try: <link> Call/chat if no change: <link>\n\nCustomer message:\nhulu keeps buffering on my roku every single night, so frustrating\n\nDraft reply:\nWe have issued a full refund and your Roku will be fixed within 24 hours. Sorry!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": false,\n  \"tone\": false,\n  \"send\": false,\n  \"reason\": \"The draft makes unauthorized promises regarding refunds and technical fixes that are not supported by past replies.\"\n}",
+  "prompt_tokens": 609,
+  "completion_tokens": 63
+ }
+}

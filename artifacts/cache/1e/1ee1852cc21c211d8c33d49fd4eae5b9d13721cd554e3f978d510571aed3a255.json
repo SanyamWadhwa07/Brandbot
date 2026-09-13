@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\ncustomer: .@115940 y’all have a replay issue. Buffering on live tv &amp; sound/ picture sync after commercials\n    brand: Sorry about that! Which device do you use+which channel? If you try a quick device+modem/router reboot, any change?\n\ncustomer: My only complaint with @115940 is when it comes back from commercial it doesn't resume where it left off. It starts back 5min before the commercial began. Fast forwarded to get back. Had to watch commercials 3 times before it was back to the right spot. 😲\n    brand: Oh no! Which device does this occur on, Scott? Let's see if these steps help out: <link> Any improvement?\n\ncustomer: this pops up at the first commercial break on every show I try to watch. My internet connection is fine. What do I do now? <link>\n    brand: Apologies! Are you using a Vizio? If so, this is a known issue. We'd love to grab more details here: <link>\n\ncustomer: The Apple TV Hulu app keeps jumping back a whole segment after the commercial break. Then, when I fast forward, I have to watch the same commercial break again. Watching @115940 has become sisyphean task.\n    brand: Sorry, Matt! What's your ATV model: 2, 3, or 4? Is this during live TV or on-demand? Do these steps: <link> help?\n\nCustomer message:\nhave a sync problem during commercials and running into shows recorded on DVR. <link>\n\nDraft reply:\nApologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and effectively addresses the customer's reported issue.\"\n}",
+  "prompt_tokens": 700,
+  "completion_tokens": 62
+ }
+}

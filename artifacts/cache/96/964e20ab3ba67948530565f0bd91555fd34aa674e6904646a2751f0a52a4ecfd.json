@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I subscribed for commercial free but I am till seeing commericlas on my TV shows? Please advise\n    brand: Hi! We'd love to help– first make sure it's not one of these shows: <link> If not: <link>\n\ncustomer: I paid for commercial-free @115940 , so why am I watching a commercial right now?\n    brand: Hey! A handful of shows are not included and will have a brief commercial before + after each episode: <link>\n\ncustomer: What’s the point of paying for a subscription service if I still have to watch commercials? Yeah I’m looking at you @115940 and @127550\n    brand: Ads offset the high cost of the newer content offered. Have you heard about our No Commercials add-on: <link>\n\ncustomer: I pay way too much per month for your service to get stuck watching ads. Any add-on should auto include an ad free experience\n    brand: We're sorry to hear about the trouble! If this continues after: <link> follow up here: <link>\n\ncustomer: why am i getting ad-block errors on videos when i'm paying for no commericals, and dont even had an ad-blocker installed?\n    brand: Are you still running into this error message? If so, please reach out to us here: <link> We'll take a look.\n\nCustomer message:\nnot to be a bitch but i pay good money for your service and i feel i should be able to watch Daria commerical free whenever i want... ??? yeah???\n\nDraft reply:\nHi! We'd love to help– first make sure it's not one of these shows: <link> If not: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses regarding commercial-free subscription concerns and follows the established brand tone.\"\n}",
+  "prompt_tokens": 614,
+  "completion_tokens": 65
+ }
+}

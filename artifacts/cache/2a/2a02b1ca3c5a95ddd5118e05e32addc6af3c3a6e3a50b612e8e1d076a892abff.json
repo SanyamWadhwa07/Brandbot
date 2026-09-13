@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: ....your chat feature sucks....been waiting for an agent to connect for like 20 hours now.... <link>\n    brand: Yikes! Sorry for the delay. If still not resolved, mind giving us a call here: <link> We'd love to help!\n\n[1] customer: I’ve been waiting for almost 40 minutes for chat support. Still no agent. The phone wait is over 1 hour\n    brand: Apologies for the delay, Susan. That sounds really frustrating. Were you able to eventually get through and get some help? 🙂\n\n[2] customer: your customer support is awful. I’ve been waiting for almost an hour to be connected to an agent 🙄 waste of time and money. <link>\n    brand: Sorry for any frustration, Jessica! We'd love to lend hand, what's going on?\n\n[3] customer: what's up with @165284 being unavailable and me waiting 10 minutes in a chat queue waiting for an agent?\n    brand: Oh no! There was an earlier issue with the feed--are you still having trouble? If so, contact us: <link> .\n\n[4] customer: update: now agent's are unavailable. Is \"24/7 chat support\" fake news? Still love you though.\n    brand: Apologies for the continued trouble! Ad preferences can be changed at: <link> 💚\n\nNew message:\nis your chat support not working? been waiting to be connected to an agent for probably 20min...",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Yikes! Sorry for the delay. If you’re still waiting, could you give us a call here: <link> We’ll get you sorted!\",\"used\":[0]}",
+  "prompt_tokens": 556,
+  "completion_tokens": 96
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @115940, get your act together and put the select profile option on smart TVs already. It's been months and people do share devices.\n    brand: Hey there! No news at this time, but we'll share the interest! For the most up-to-date info: <link>\n\ncustomer: is there a way to switch profiles on a smart tv?\n    brand: Hey Jennifer! Profiles are available on select devices at this time: <link> We hope to support more in the future!\n\ncustomer: Hey @115940 I can’t switch profiles on a Roku 2, what gives?\n    brand: Sorry, Walter! Roku 2 didn't receive the new update with Profiles: <link> We'll share your interest with the team!\n\ncustomer: I've been using you through Spotify student and they recently accidentally switched my account to standard premium...\n    brand: Uh oh! When time allows, give us a call (number listed in blue): <link> We'll help get things squared away! 👍\n\ncustomer: When will you allow us to change profiles on Smart TVs (Sony specifically) ?\n    brand: Hey there, Derek! No news to share on Profiles coming to Sony, but we're working on adding more supported devices soon.\n\nCustomer message:\nHulu users are not capable of switching profiles(not accounts) on smart TVs. Not sure who needs to update this option but please help with this issue. It's quite restricting and it would be greatly appreciated by all users. Thanks\n\nDraft reply:\nHey there! No news at this time, but we'll share the interest! For the most up-to-date info: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft aligns perfectly with the brand's established tone and past responses to similar feature requests.\"\n}",
+  "prompt_tokens": 599,
+  "completion_tokens": 64
+ }
+}

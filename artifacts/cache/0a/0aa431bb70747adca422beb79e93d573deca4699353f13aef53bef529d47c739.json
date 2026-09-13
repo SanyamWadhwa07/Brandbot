@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I️ literally hate how repetitive your commercials are. Can’t you get more advertisers? #goawayginny #stopthatawfulrunningsong #SOS\n    brand: We have a limited number of advertisers per show, but we're working to increase variety! Try updating: <link>\n\n[1] customer: I wouldn't mind the commercials on @115940 so much if they didn't play the same ones a million times in a row.\n    brand: Sorry for the repeats! We have a limited # of advertisers per show. Try updating: <link> to mix things up. 👍🏻\n\n[2] customer: My only complaint with @115940 is when it comes back from commercial it doesn't resume where it left off. It starts back 5min before the commercial began. Fast forwarded to get back. Had to watch commercials 3 times before it was back to the right spot. 😲\n    brand: Oh no! Which device does this occur on, Scott? Let's see if these steps help out: <link> Any improvement?\n\n[3] customer: The Apple TV Hulu app keeps jumping back a whole segment after the commercial break. Then, when I fast forward, I have to watch the same commercial break again. Watching @115940 has become sisyphean task.\n    brand: Sorry, Matt! What's your ATV model: 2, 3, or 4? Is this during live TV or on-demand? Do these steps: <link> help?\n\n[4] customer: You know what's annoying? When you're watching @209410 on @115940 and you keep seeing commercials for The Orville on Hulu. <link>\n    brand: Apologies, Jacob! Network ads may appear on occasion to advertise upcoming episodes. We'll share your feedback with our team!\n\nNew message:\nplease i’m begging you remove that AWFUL @2064 cyber monday commercial i hate it so much 😭 it keeps playing back to back",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We hear you! Our ad slots are limited, which can cause repeats. Updating the app may help mix things up: <link>\",\"used\":[0]}",
+  "prompt_tokens": 648,
+  "completion_tokens": 92
+ }
+}

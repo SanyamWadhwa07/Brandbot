@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why do some shows let you pick “episodes” at the top and some don’t? I’m trying to watch a different episode of RHOA and can’t find any way to select the episode I want <link>\n    brand: Our apologies, Jill! We're currently investigating. Call or chat so we can take a closer look together: <link> 💛\n\n[1] customer: when I click on a show it used to take me the episode list. Now the list I want is 3 clicks in, why make it harder to use?\n    brand: We'll share your feedback so we may continue making enhancements. For help navigating, please see: <link>\n\n[2] customer: why can’t I change which episode I’m watching? <link>\n    brand: Sorry to see this, we have our team looking into it with us. So we can gather some info, reach out: <link>\n\n[3] customer: When I want to watch other episodes of a TV show rather than the \"next\" episode, how do I access the various episodes and choose what I want? It was no problem on the old format, but I can't find it on the new one.\n    brand: Hey Deniece! When you're on the show page, scroll to the Episodes tab to view eps by season. On Roku, press * &gt; Go to Details.\n\n[4] customer: why aren’t the newest episodes of The Mick on Hulu!?\n    brand: Hey there! No new eps since 10/17, but Aunt Mickey is back this week, 11/7. We'll have the ep up the day after, so stay tuned! 🙌\n\nNew message:\nHulu, why do you pull episodes of current TV shows?! Episode 1 and then Episodes 4-7 of the Good Doctor. makes sense. <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 630,
+  "completion_tokens": 48
+ }
+}

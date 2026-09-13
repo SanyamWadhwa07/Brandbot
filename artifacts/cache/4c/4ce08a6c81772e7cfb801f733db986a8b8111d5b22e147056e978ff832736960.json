@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: having trouble managing my iTunes subscription account. Can’t log into Hulu webpage to ask for help directly. Please DM me.\n    brand: Sorry to hear of the trouble, Stacey! For real-time help, please call this number in blue: <link> 📲 We'll help!\n\ncustomer: I keep getting a “we have encountered a problem. Please try restarting the app.” Error. I’ve reset my Apple TV , and it didn’t help.\n    brand: Oh no! Try: <link> or <link> --including uninstalling/reinstalling our app. Any change after?\n\ncustomer: my Hulu has not been working for 2 months either on Roku or iPhone app\n    brand: Oh no! Have you tried: <link> If yes, reach out to our phone/chat support teams: <link>\n\ncustomer: my Hulu still isn’t working.. why\n    brand: Apologies, Chelsea! Try: <link> <link> Call/chat if not fixed (<link>\n\ncustomer: hey I’m having trouble getting on #HULU on my #NintendoSwitch. It’s saying I need to do something about location? What’s that about? <link>\n    brand: Sorry about that! We're currently investigating this error message. We appreciate your patience as we work to resolve it.\n\nCustomer message:\nhaving trouble managing my DVR. How can I get some answers?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful, maintains the brand's tone, and asks a clarifying question to assist the customer.\"\n}",
+  "prompt_tokens": 554,
+  "completion_tokens": 67
+ }
+}

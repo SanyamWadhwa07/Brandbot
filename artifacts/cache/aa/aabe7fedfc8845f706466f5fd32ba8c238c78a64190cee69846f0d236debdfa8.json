@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why is my @115940 account suddenly playing ads when I pay for ad free? @hulu_support\n    brand: Let's fix that! Are you still seeing ads? If so, please reach out to us by phone or chat here: <link>\n\ncustomer: Yo @115940 why are there ads if I'm paying for the service?\n    brand: Good question! Ads help us offer brand new episodes for $7.99/mo. We also offer a No Commercials plan: <link>\n\ncustomer: I am a little confused on why @115940 is showing me ads for a Spanish Novella.... I don't understand Spanish at all.I'm still gonna watch tho\n    brand: We're always looking to improve things, including ad targeting. Reach us ➡️ <link> so we can investigate!\n\ncustomer: Are @115940’s ads freezing for anyone else? Is it a conspiracy to annoy me into paying for the ad free subscription?\n    brand: Not at all, Alison! Apologies for the trouble. What device are you using? Start with: <link> Any change?\n\ncustomer: Why does my @115940 suddenly have ads? I definitely pay for no commercials for a reason. 🙄\n    brand: Uh oh! On what show/episode number are you seeing ads? What device are you using? Do you have Live TV with us?\n\nCustomer message:\nCanceling my @115940 account because we cannot tolerate the ads. Who the fack puts ads in a paid service? Hulu? More like WHOlu do you think you are making me watch these ads.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and attempts to troubleshoot the customer's issue.\"\n}",
+  "prompt_tokens": 618,
+  "completion_tokens": 63
+ }
+}

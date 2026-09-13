@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: is something up with the app? It randomly crashed on my smart tv today and now won't work anymore. It tries to reload and then shuts itself down and then tries again, nonstop. Help!!!\n    brand: Uh oh! If you're using a Samsung, try rebooting device. If another brand is in use, try: <link> Any change?\n\ncustomer: For whatever reason the HULU app on my tv continues to crash and cause issues for my tv\n    brand: Sorry to hear about this! Are you still running into this behavior? If so give these: <link> a shot. Better?\n\ncustomer: your Roku app is broken. Everytime I start it to watch a show, 1 min in and it hard resets my tv, every single time. I've uninstalled and reinstalled multiple times\n    brand: Sorry, Doug! Do you get an error when this happen? Does a specific ad trigger this? Try working through: <link>\n\ncustomer: why does the app crash and restart during commercials while I'm watching on my smart tv?\n    brand: Oh no! Which brand of TV is this on? Is it crashing during a specific ad, or just around the ad break in general?\n\ncustomer: I have a LG smart tv and my Huluplus app is not working any reason why\n    brand: Uh oh! What's the exact issue you're coming across? What's your LG's model number? Do these: <link> help?\n\nCustomer message:\nwhy does your app keep crashing on my smart tv and then again on my Xbox one. Fix your crap or I’ll deactivate my account.\n\nDraft reply:\nUh oh! If you're using a Samsung, try rebooting device. If another brand is in use, try: <link> Any change?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses and addresses the user's issue effectively.\"\n}",
+  "prompt_tokens": 616,
+  "completion_tokens": 61
+ }
+}

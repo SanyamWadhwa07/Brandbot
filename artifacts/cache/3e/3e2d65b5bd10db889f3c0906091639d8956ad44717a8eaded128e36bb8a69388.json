@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: the new app format is terrible. I preferred the old one way more. How do I tell it I don't want to see a show? Stop forcing that awful Sarah Silverman show on me every time I open my app. Thanks. @hulu_support\n    brand: Apologies! While there's not a way to block shows, you can find all your favorites in My Stuff: <link>\n\ncustomer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\ncustomer: why isn’t my watchlist updating properly?\n    brand: Yikes! Which shows have you noticed this with+which device is being used? Are the new episodes appearing from the show page?\n\ncustomer: Hi @115940 - in your Roku app is there any way to turn off the \"building your lineup\" thing that happens in sign in? Why would I want that if I have my own saved content. Also any way to turn off the insanely annoying 15 sec countdown at the end of a show?\n    brand: Hey, Phil. The Lineup loading is intended, but we'll share your feedback. You can toggle Autoplay off to turn off the counter.\n\ncustomer: I’m not liking this new @115940 update. Takes forever to watch a show because it keeps thinking I’m fast forwarding when I’m pausing!\n    brand: Oh no! Can you let us know which device this is happening on? In the meantime check out: <link>\n\nCustomer message:\nwhy change the format and not keep your customers watch list? Very annoying\n\nDraft reply:\nApologies! While there's not a way to block shows, you can find all your favorites in My Stuff: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's specific complaint about the watchlist and addresses blocking shows instead.\"\n}",
+  "prompt_tokens": 675,
+  "completion_tokens": 63
+ }
+}

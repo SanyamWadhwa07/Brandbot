@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: the World Series is unwatchable on live. It keeps jumping back to earlier in the game at random.\n    brand: Hey, Ross! Sorry about last night. Things are running much smoother now. If ever needed we offer: <link> too. 👍🏽\n\ncustomer: Why the hell does Hulu keep cutting out and reloading every time I try to watch The Good Place and Superstore?\n    brand: Sorry about that! On what device is this happening? Do any errors pop up? Please start with these steps: <link>\n\ncustomer: yo A&amp;E keeps playing reloading and playing the same 3 sec back l2-3 times then plays normal for a min and repeats\n    brand: Uh oh! What device is in use? Any errors pop up? Please power off your device for 1-2 minutes then uninstall/reinstall our app.\n\ncustomer: any idea why I keep getting a playback failure when I try to watch the Cubs game? If I go to another live channel it works.\n    brand: There was an issue but we were able to resolve it quickly. Try streaming the game now and let us know if you have any trouble.\n\ncustomer: watching Cubs game last night. Would watch then the stream would go back 1s and play again repeatedly did this all night.\n    brand: Sorry about that, Adam! We've received similar reports regarding this and we're currently investigating last night's game.\n\nCustomer message:\nEN2 keeps skipping back and replaying same video of WI/VA game. We turned it off. On to Netflix now. What the heck????\n\nDraft reply:\nHey, Ross! Sorry about last night. Things are running much smoother now. If ever needed we offer: <link> too. 👍🏽",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft assumes the issue is resolved and uses a generic response instead of troubleshooting the current report.\"\n}",
+  "prompt_tokens": 603,
+  "completion_tokens": 64
+ }
+}

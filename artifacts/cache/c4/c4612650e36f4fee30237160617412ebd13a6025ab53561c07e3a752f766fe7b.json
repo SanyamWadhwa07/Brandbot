@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: The Hulu app on my phone (iphone6) won't load any videos. I keep getting an error and prompted to watch later. @hulu_support\n    brand: Apologies, Mercedes! Try: <link> for us. If that error continues, follow up here: <link> 👍🏻\n\n[1] customer: I keep getting errors on @115940 when watching Live on AppleTV. Started happening since last update. @hulu_support\n    brand: Sorry to hear this! Are you seeing any errors? Try giving these a shot: <link> Any improvement?\n\n[2] customer: In the middle of watching AHS &amp; I switch tabs to check my SC ,now it won't play at all. I press to resume &amp; nothing @hulu_support @115940\n    brand: Oh no! Are other videos working without issue? Try the steps for your device here: <link> Any change?\n\n[3] customer: is down right now. Can't log in on Roku, can't play video on Android app. Tech @hulu_support wait is over an hour.\n    brand: Sorry! We did have an outage, but should be back in business now: <link> If you still need help, let us know! 💚\n\n[4] customer: @hulu_support...getting super irritated keep getting an error saying can't play video 😡\n    brand: Yikes! We'd love to help with this. Run through the device-specific steps here: <link> Any improvement?\n\nNew message:\nFor the last 2 weeks my hulu app keeps giving me \"Error playing this video. Sorry we encountered an error playing this video\"",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Please try the device‑specific troubleshooting steps here: <link> Let us know if it improves.\",\"used\":[4]}",
+  "prompt_tokens": 594,
+  "completion_tokens": 97
+ }
+}

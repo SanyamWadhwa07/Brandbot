@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why isn’t my watchlist updating properly?\n    brand: Yikes! Which shows have you noticed this with+which device is being used? Are the new episodes appearing from the show page?\n\n[1] customer: why aren’t y’all updating Empire episodes?\n    brand: Hi! The Lyons fam took a short vacay, but are back this week, 11/8. We'll have the new ep available next-day—so stay tuned!\n\n[2] customer: Its been 2 weeks now and @115940 hasn't updated @39038... what am I supposed to do!? 😭\n    brand: Hey, Angela! No new eps have aired since 10/17 but not to worry the 99 is back on the 7th! Add to My Stuff for all updates.\n\n[3] customer: why isn’t the new season of Rick &amp; Morty up yet and why aren’t you updating American Horror Story? smh I might as well get cable 🙄\n    brand: Hi there! We have the rights to stream past seasons of both series. No news on more eps just yet, but we'll share your interest.\n\n[4] customer: Hi, Hulu. The web program is not updating the latest shows available to the mobile app. Is there a reason for the change?\n    brand: Sorry, Kristin! This is something we're looking into w /Watchlist. Thanks for bearing w/ us while we look into it!\n\nNew message:\nwhy isn't The Good Doctor being updated 😢 SOS",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Yikes! Which device are you using and have you checked the show page for new episodes? Let us know so we can help get The Good Doctor updating!\",\"used\":[0]}",
+  "prompt_tokens": 561,
+  "completion_tokens": 91
+ }
+}

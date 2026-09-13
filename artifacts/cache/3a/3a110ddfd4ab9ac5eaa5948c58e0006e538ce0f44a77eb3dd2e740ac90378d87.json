@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: ... @hulu_support Where is the 2 part series of Will and grace from 2006. Plz plz help me.\n    brand: They're up on our service and can be found here: <link> and here <link> Enjoy!\n\n[1] customer: I use to love yall. Thought you guys were the best. Why is Yu Yu Hakusho not in English? Can we get that fixed? @115940 @hulu_support\n    brand: Sorry! We typically get all subbed or all dubbed w/animes, but we'll share the interest in adding dubbed Yu Yu Hakusho!\n\n[2] customer: Have I mentioned today that @hulu_support is a steaming pile of manure. I’ll never forget the terrible experience during the World Series.\n    brand: Sorry to hear this! If you haven't already, our phone/chat team would happy to take a closer look: <link>\n\n[3] customer: Thank you so much @hulu_support I'm back in business! <link>\n    brand: Awesome! 😊 We're glad to hear that. If you come across any trouble in the future just let us know. Have a great weekend!\n\n[4] customer: So my sister is very upset that Leverage was taken off @115940 and she would really like it back if possible. @hulu_support\n    brand: Hey Michael! Our streaming rights expired, but we'll let our team know your sister would like to see Leverage return. 💚\n\nNew message:\nMaybe y'all should have another look at Planet Hulk (2011), @hulu_support. Don't think it belongs in the \"Kids\" section.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 588,
+  "completion_tokens": 43
+ }
+}

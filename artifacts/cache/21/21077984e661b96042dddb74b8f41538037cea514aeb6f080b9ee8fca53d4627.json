@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I hate that @115940 just automatically plays a random show after I’m done with an episode I’m watching 🙄\n    brand: Autoplay suggests content once all eps of a series have been viewed. If that's not the case, follow up: <link>\n\ncustomer: Hey @115940 why doesn’t the next thing on my lineup just start playing instead of a random show I don’t even watch. Thanks\n    brand: Autoplay is designed to play different content after your show ends. We're always working to improve so we'll share your input!\n\ncustomer: My favorite thing about @115940 as algorithm is that every time they play a Spanish commercial to me someone had to pay for an ad that I can’t understand.\n    brand: Sorry for any trouble! Spanish ads may play for many reasons, but call/chat so we can take a look: <link>\n\ncustomer: Why must @115940 continue to auto play a show I have never watched at the end of everything? Make it stop 😣 #Nashville is not my thing 😒\n    brand: Sorry for any frustrations, Erika! Autoplay does it's best to suggest similar content. We'll share your feedback w/ our team.\n\ncustomer: why @115940 autoplay always tryna play something I've already watched?!\n    brand: That shouldn't be the case! Which device is this occurring on? Is it content in My Stuff/Watchlist or random eps you've seen?\n\nCustomer message:\nI’ll never understand why @115940 automagically plays a random show when your show ends. The show they pick isn’t ever in the same genre either\n\nDraft reply:\nAutoplay suggests content once all eps of a series have been viewed. If that's not the case, follow up: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's concern about random autoplay suggestions.\"\n}",
+  "prompt_tokens": 644,
+  "completion_tokens": 64
+ }
+}

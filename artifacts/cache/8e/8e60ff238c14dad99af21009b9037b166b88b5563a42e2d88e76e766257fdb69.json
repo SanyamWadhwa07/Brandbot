@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: yall prolly not gonna get naruto shippuden dubbed huh?\n    brand: Hi! We do have some dubbed episodes available, but we can definitely share your interest in seeing more on our service!\n\n[1] customer: why is only the first 2 season of naruto shippiden dubbed, the dubbed is already on episode 314?\n    brand: Hey there! We only have the rights to stream select dubbed episodes at this time, but we'll share your request with our team.\n\n[2] customer: can we get more dubbed episodes of naruto shippuden because it’s been a minute\n    brand: We're happy to put in a request for more on your behalf! Make sure you keep the series in Watchlist/My Stuff for updates. 👍🏻\n\n[3] customer: why is there no naruto shippuden dubbed seasons 3 through 9 at all its been on hulu for a long time now an no dub\n    brand: Sorry! Eps have been expiring on our base plans (<link> but they are still offered on Hulu w/Live TV.\n\n[4] customer: when are u guyes gonna get the rest of the episode of Naruto shippudian dubbed there’s only 98 out of 500\n    brand: Hi! No news on this at the moment, but we'd be happy to share your interest with our content team here!\n\nNew message:\nhey when are y’all getting more dubbed naruto shippuden?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hi! No news on more dubbed episodes right now, but we’ll gladly share your interest with our content team!\",\"used\":[0]}",
+  "prompt_tokens": 553,
+  "completion_tokens": 115
+ }
+}

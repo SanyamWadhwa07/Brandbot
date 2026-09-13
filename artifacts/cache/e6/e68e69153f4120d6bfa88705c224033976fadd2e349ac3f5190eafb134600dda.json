@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: you both need more Scooby-Doo shows. Step up ya game.\n    brand: Hey, Jake! Hulu here. 👋🏽 We've passed along the request to see more Scooby-Doo streaming on Hulu in the future! ✅\n\ncustomer: there were rumours that mash and more seasons of Reba were coming to Hulu several months ago... is that still ever happening or can we just forget about it...?\n    brand: Hi, Jay! While we don't have a set date, MASH and more Reba are on the way! Keep tabs here for updates: <link>\n\ncustomer: needs season 3 of Rick and Morty\n    brand: S3 is currently available on Hulu with Live TV! Due to rights, our base plans should have access after it fully airs on TV.\n\ncustomer: needs to get FX shows.... like wtf\n    brand: Hey there! Looking for any specific shows in particular? We'd be happy to share your request with our content team. 💜\n\ncustomer: why isn't the last 2 episodes of Will and Grace available? #sadface\n    brand: Hey Melissa! Check under the \"Clips\" section—you should see both of those episodes available!\n\nCustomer message:\nI really need a new Netflix/Hulu show\n\nDraft reply:\nHey, Jake! Hulu here. 👋🏽 We've passed along the request to see more Scooby-Doo streaming on Hulu in the future! ✅",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft is irrelevant to the customer's request and uses a name from a different conversation.\"\n}",
+  "prompt_tokens": 540,
+  "completion_tokens": 64
+ }
+}

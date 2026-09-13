@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: it says the newest episode of Lucifer was supposed o be available at midnight it’s 1 am when will I get to watch it\n    brand: While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>\n\ncustomer: I'd be fine with just being able to watch AMC shows an hour after it airs. Also pls add The Glades and Lie to me to the on demand\n    brand: We'll let our team know you'd love to see AMC &amp; BBC America added to our Live plan, plus The Glades &amp; Lie to Me on-demand!\n\ncustomer: I don't understand why it says I can watch the new Greys at 2am but it's 2:08am and I can't watch it?\n    brand: Sorry for the delay! The time eps can be posted varies due to many factors, but we always try and post ASAP!\n\ncustomer: If a show is added to MyStuff, shouldn't it be on the DVR within hours of airing? Still not seeing it.\n    brand: Oh no, it should be! If it's still not appearing in your DVR, please DM your email address and phone number so we can further assist\n\ncustomer: whenever I’m watching a show that’s currently live and I’m behind by 30min, the show cuts off when it ends on the hr.\n    brand: Sorry to hear about this, Scott! That shouldn't be the case. What device are you streaming from? We'd be happy to lend a hand!\n\nCustomer message:\nSo, what time does this show normally air?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's specific question about air times and asks for device information instead.\"\n}",
+  "prompt_tokens": 615,
+  "completion_tokens": 64
+ }
+}

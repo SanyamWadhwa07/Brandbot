@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Is The System Down?\n    brand: Hi! No outages at the moment, but we'd love to help with any trouble. To get signed in, check out: <link>\n\ncustomer: WHY ARE U NOT WORKING\n    brand: Let's find out, Angela! Are you seeing any error messages? What device are you using? The more info you can share, the better.\n\ncustomer: PICK UP THE PHONE SWEATY\n    brand: Sorry for any trouble connecting! If you're still looking to get in touch, try us over Live Chat: <link> instead.\n\ncustomer: FIX YOUR VIZIO APP DAMMIT\n    brand: Hey, Kenneth! Apologies for the delay, but we'd love to help. What errors are you running into? Try: <link> ✅\n\ncustomer: WHY ARE YOU NOT WOORRRKKIIINGGGG\n    brand: Oh no! Let's get you up and running again. What's the issue at hand? What device is in use? For now, try: <link>\n\nCustomer message:\nWHERE ARE THE NEW SVU EPISODES\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's specific question about content availability and asks for device information instead.\"\n}",
+  "prompt_tokens": 488,
+  "completion_tokens": 64
+ }
+}

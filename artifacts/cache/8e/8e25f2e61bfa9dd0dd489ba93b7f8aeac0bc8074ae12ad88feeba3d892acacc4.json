@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: It’s 2017, how about 5.1 surround sound?\n    brand: Hey there! We don't have any news yet but we are looking into surround sound formatting. Thanks for following up with the interest!\n\ncustomer: Is there a good reason you guys don’t have at least 5.1 surround? Forget catching up with 2017, just catch up with 2007, FFS.\n    brand: Hi, David! We don't have any details to share, but we're always looking to make enhancements. We'll share your feedback.\n\ncustomer: I know it's a beta, @115940 , but \"Hulu with Live TV\" is hands down the least reliable streaming TV service I've tried.\n    brand: We're sorry to hear this, Shawn. Which device are you on? Is it only some networks? Try: <link> We'll standby.\n\ncustomer: you're the biggest media streaming service after Netflix, why does huluTV run so poorly?\n    brand: That shouldn't be happening! We'd like to take a closer look—please reach out here: <link> so we can assist\n\ncustomer: I've been trying out @115940 Live (beta version) and although it has glitches, it could be a solid substitute for cable tv. I'm liking it.\n    brand: Glitches?! 😱 That's not supposed to happen. Tell us more about the problems you've been having, including the device in use.\n\nCustomer message:\nJust got a 5.1 system and discovered that Hulu doesn't offer surround sound on its streams. This is pretty ridiculous, considering that the cost is similar to cable and all cable services offer surround sound for broadcast television.\n\nDraft reply:\nHey there! We don't have any news yet but we are looking into surround sound formatting. Thanks for following up with the interest!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies regarding surround sound feedback.\"\n}",
+  "prompt_tokens": 656,
+  "completion_tokens": 57
+ }
+}

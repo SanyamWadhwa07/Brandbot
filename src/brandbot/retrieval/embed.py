@@ -70,4 +70,6 @@ def embed(texts: list[str], task: str, cache_dir: Path = CACHE_DIR) -> np.ndarra
             np.save(cache_dir / f"{keys[i]}.npy", vector)
             vectors[i] = vector
 
+    if not vectors:
+        return np.empty((0, config.EMBED_DIM), dtype=np.float32)
     return np.stack(vectors)

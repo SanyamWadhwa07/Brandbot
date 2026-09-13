@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hulu live has been unwatchable today. No other app has this issue. About to cancel service and go back to PlayStation Vue.\n    brand: Oh no! We'd hate to see you go! Which device are you on? Are all channels affected? For now, try a quick device+modem reboot.\n\n[1] customer: we have no service on any devices that we own, it simply logs out or says content isn’t available. PS4 Apple TV and iPhone\n    brand: Uh oh! Do you see any alerts on your acct: <link> If not, reach out by phone/chat: <link>\n\n[2] customer: FS1 will not go to a live stream. This is why I have your service, but for two weeks the service fails when I want to watch\n    brand: Mind letting us know the device you're using to stream, Patrick? Does the game buffer online too: <link>\n\n[3] customer: For a couple of days now I keep getting the message “video no longer available” when trying to watch CBS on live TV\n    brand: Sorry! That sounds like a known issue we're investigating. We'd be happy to help sort this out for you here: <link>\n\n[4] customer: guys I just upgraded to your live service and now literally every channel is \"not available in my area.\" What's happening?\n    brand: Sorry, Cam! We're currently investigating this and we appreciate you bearing w/us. For now, try: <link>\n\nNew message:\nI have the live service, keeps telling me video is not available on my device? Any thoughts?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry! That sounds like a known issue we’re looking into. Please let us know the device you’re using and we’ll help you sort it out here: <link>\",\"used\":[3,4]}",
+  "prompt_tokens": 581,
+  "completion_tokens": 101
+ }
+}

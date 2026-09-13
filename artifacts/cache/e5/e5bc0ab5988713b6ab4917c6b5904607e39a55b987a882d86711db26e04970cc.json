@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Bruh @115940 is robbing me!! I cancelled my account 2 months ago and their still charging me &amp; It wont let me sign in or recover my password!!\n    brand: Sorry for any unexpected charges! Call us from the # on this page so we can take a look: <link>\n\ncustomer: soo, somehow my @115940 account got reactivated and i was charged, again, when i cancelled it last month\n    brand: We'd love to take a closer look at things for you, Casey! Call/chat so we can pull up your account: <link>\n\ncustomer: Yo shoutout to @115940 for charging my empty bank account for some reason now I’m $90 overdrawn. Super fucking pissed.\n    brand: Sorry to hear this! 😔 At your earliest convenience, call/chat us: <link> We'll get to the bottom of this!\n\ncustomer: was getting charged double for Hulu for the past 4+months so cancelled my account and still getting charged???\n    brand: Sorry to hear about this! Chat or call us here: <link> so we can get to the bottom of this ASAP!\n\ncustomer: I would like to get a refund for $7.99 which was charged to my account on Oct. 17th. I canceled my account\n    brand: Apologies for the delay! Please contact: <link> and have handy the cancellation email. We'll sort this out! ✅\n\nCustomer message:\nSo yesterday I thought I had canceled my @115940 account but was still charged today for another month which overdrafted my account $30 so now I’m about -$40 in the hole 😊 and they won’t refund me 😊😊😊😊😊\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the billing and overdraft issue, asking an irrelevant question about the user's device instead.\"\n}",
+  "prompt_tokens": 637,
+  "completion_tokens": 66
+ }
+}

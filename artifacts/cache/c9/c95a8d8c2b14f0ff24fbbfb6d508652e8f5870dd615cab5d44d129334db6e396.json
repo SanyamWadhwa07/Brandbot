@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: when is season 4 of steven universe gonna be on your service, season's been over for like months now\n    brand: Hey there! We don't have news to pass along just yet, but we'll let our team know you're on the lookout for more episodes. 💚\n\ncustomer: when is season 4 of #BroadCity coming back to Hulu? 🗽🐀 <link>\n    brand: No news yet, but we're hoping to have the entire season after its full run on TV. Pin: <link> for any updates!\n\ncustomer: when will season 4 of Younger be available on Hulu?!\n    brand: Hi Megan! No release date to share right now, but keep an eye on this page for updates: <link> 😊\n\ncustomer: Hey @115940 - when is season 4 of @180004 new episodes showing up?? <link>\n    brand: Hey Steve! Thanks for reaching out. We don't have news to share just yet, but we'll let our team know you're on the lookout. 💚\n\ncustomer: when will the fourth season of Steven Universe be available? I’m asking for a friend.\n    brand: Hi, Ashley! We don't have any info to share, but we'll pass the request to Steven. Make sure it's in WL/My Stuff for updates. 💎\n\nCustomer message:\nwhen will season 4 of steven universe be up?? I can't wait to rewatch!!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's question about release dates and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 579,
+  "completion_tokens": 65
+ }
+}

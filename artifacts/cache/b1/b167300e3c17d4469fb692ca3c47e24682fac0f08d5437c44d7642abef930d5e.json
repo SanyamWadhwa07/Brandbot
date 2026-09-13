@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why aren't you working right now Hulu? You worked until I paid the extra $$ to not watch commercials, now I can't even log back in.\n    brand: Oh no! If you're still running into trouble after: <link> please reach out here: <link>\n\ncustomer: I literally pay extra money to not have commercials and you’re trying to make me have them again???? UMM NO, and it always freezes\n    brand: Sorry, Lacey! It sounds like you were impacted by: <link> Try rebooting the device and modem/router for us\n\ncustomer: weird that I pay an extra monthly fee for no commercials and yet I still have to watch commercials... <link>\n    brand: Oh no! Sorry to hear this, Delaney. What device was it, and which show? Was the show included here: <link>\n\ncustomer: Paid the extra $ for \"no commercials\" on @115940 &amp; I'm stuck watching commercials! Wtf\n    brand: Hi! No Commercials only impacts our library and not Live TV, recordings, or network on-demand. On which show(s) are you seeing ads?\n\ncustomer: I keep getting commercials even though I’m paying for no commercials please help\n    brand: Sorry, Brian! On which show are you running into ads and what device are you using to watch it? Do you have the Live TV Add-on?\n\nCustomer message:\nWhy am I paying extra for no commercials and I'm still seeing them? 🙄 #Hulu\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses and asks necessary clarifying questions to troubleshoot the issue.\"\n}",
+  "prompt_tokens": 581,
+  "completion_tokens": 62
+ }
+}

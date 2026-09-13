@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: ...My ipad will load the show that I am watching and play for a minute then will buffer why is this happening?? Please help!\n    brand: Apologies, Ellie! That's not the experience we're hoping for. Does this continue after: <link> Let us know.\n\ncustomer: not able to watch shows on my ipad. R u guys down or something? Deleted and reinstalled the app and still doesn't work.\n    brand: Oh no! Please try a quick reboot of your iPad+modem/router ( <link> ). If no change: <link>\n\ncustomer: can you please get your damn app working. Not paying $43.99 a month to not be able to watch live tv. Xbox one and iPad app both down.\n    brand: Oh no! What's the exact behavior you're running into? Same error on both devices? Try: <link> for now.\n\ncustomer: when is @115940 going to let you download episodes to your phone because i work in a wifi-less cave\n    brand: Thank you for the suggestion! No news on this yet, but we'll share your interest with the team.\n\ncustomer: any chance will we get offline downloads like netflix ? I have daily train commute could be very useful to catch up\n    brand: We'd love to! We don't have any news to share just yet, but we'll definitely make sure your input is heard by the right people.\n\nCustomer message:\nhow can i download tv shows to my ipad to watch on my commute to work?????\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the specific question about downloads and asks for information already provided by the customer.\"\n}",
+  "prompt_tokens": 590,
+  "completion_tokens": 63
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: The only thing I really regret about getting rid of my cable &amp; switching to @115940 Live TV is lack of MSG to watch @169444 tonight.\n    brand: Hi! We're always looking to connect viewers to as much of the content that they love. We'll share your interest in MSG!\n\ncustomer: live you suck! I cannot watch anything live without it messing up. I even have a show recording right now, tried to watch from beginning and it still messed up. @Ask_Spectrum if you can offer us cable (along with internet) for 40 bucks I’d say so long to @115940 live!\n    brand: Oh no! 😭 What exactly is happening? Which channels and devices are affected? Let's try these: <link>\n\ncustomer: They took @533745 off of @115940 ?!?! Like why am i still paying for Hulu when they remove every show i want to watch and don’t even let me know. 🖕🏻\n    brand: Sorry! Our rights to RTP expired. Rights can change suddenly and require we remove shows on short notice. We'll share the input!\n\ncustomer: I hate the new @115940 interface. Can't find anything. I feel like I lost all my favorite shows.\n    brand: Aw man! You should have seen an option to import your Watchlist to My Stuff after the update: <link> 1/2\n\ncustomer: Umm excuse me @115940 why isn't @87231 available.....I just canceled cable for you and I would like to watch it!\n    brand: Hey! BD isn't part of the Hulu library. With Live TV, you can watch new eps as network on-demand: <link>\n\nCustomer message:\nThe only the show that makes me wish I had cable instead of Hulu, Netflix, hbo go, and amazon is INK MASTER like damn @115940 why you take my show away 😢\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft asks for device info instead of addressing the content availability issue mentioned by the customer.\"\n}",
+  "prompt_tokens": 698,
+  "completion_tokens": 63
+ }
+}

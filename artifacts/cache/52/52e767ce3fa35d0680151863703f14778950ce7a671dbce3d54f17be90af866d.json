@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: is there a timeline on fixing the app for Amazon Fire? I’m an inch away from canceling this live garbage.\n    brand: No ETA to share as we're working on resolving the issue ASAP. Call/chat to see your options are: <link>\n\ncustomer: Anyone else having issues with their @115940 queue? Why is my desktop list not the same as the one on the app? They don’t sync...??\n    brand: Sorry! We're still rolling out the new Hulu experience across platforms. For more info on WL/My Stuff: <link>\n\ncustomer: Any reason why American Horror Story won't sync with my Apple TV's TV app to show me there's a new episode?\n    brand: Hi Jake! If an ep has aired in the last week, you should see a \"New\" icon on the image. Is this not showing up on your end?\n\ncustomer: your app for AppleTV and Amazon FireTV have been sooooooooo glitchy since the fancy new start page. So so very frustrating.\n    brand: Oh no! What kind of trouble are you running into, Jill? We're here to help or pass along feedback to our team for review. 💚\n\ncustomer: Hello! Why doesn't the desktop version of Hulu look like the new UI on my phone? My watchlist doesn't sync between the 2. 😢\n    brand: Hi! We're rolling out the new interface to one device at a time. Our site hasn't made the switch yet: <link>\n\nCustomer message:\nWhen are you going to fix the Watchlist not syncing with My List? Or why there are even two list to begin with. I can't believe this is still an issue, it's almost 2018 - this is like app making 101.\n\nDraft reply:\nNo ETA to share as we're working on resolving the issue ASAP. Call/chat to see your options are: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses regarding technical issues and provides the standard support link.\"\n}",
+  "prompt_tokens": 656,
+  "completion_tokens": 62
+ }
+}

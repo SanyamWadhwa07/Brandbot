@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: constant buffering, pausing, and poor picture quality when it comes to streaming live sporting events. Suggestions??\n    brand: Oh no! We'd be happy to help. Which device do you use+which channel is affected? For now, try a quick device+modem reboot.\n\ncustomer: the constant buffering during sporting events is simply inexcusable. Hulu Live isn’t ready for prime time.\n    brand: Oh no! Let's see if we can help, Jarrod. Which device are you streaming from? For now, try: <link> Any better?\n\ncustomer: Your streaming service on live sporting events is shit, @115940 I’m experiencing constant disconnections I don’t experience on sling.\n    brand: Oh no! That's not what we like to hear, what device are you streaming from? We're here to help!\n\ncustomer: your streaming service quality is awful. I’d love to watch one game without it freezing up every 2 minutes.\n    brand: Sorry for the interruption yesterday! We resolved it ASAP, but we'll definitely be sharing your experience with the right team.\n\ncustomer: The reliability of your sports streaming is very concerning. MNF is impossible to watch.\n    brand: Sorry, Bradley! Our team is aware of the issue on ESPN right now and are working on a fix. For now: <link>\n\nCustomer message:\nwhy is it every big sporting event has issues with playing? It keeps loading and skipping! I'm really considering going back to cable...\n\nDraft reply:\nOh no! We'd be happy to help. Which device do you use+which channel is affected? For now, try a quick device+modem reboot.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's technical issues appropriately.\"\n}",
+  "prompt_tokens": 597,
+  "completion_tokens": 62
+ }
+}

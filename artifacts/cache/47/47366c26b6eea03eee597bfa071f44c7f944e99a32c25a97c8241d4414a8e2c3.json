@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: live stream for sports needs A LOT of improvement 👎🏻. Glitchy and constantly freezing. @115946 zero issues.\n    brand: Sorry to hear you're still having trouble! We'd love to take a closer look at things via phone or chat: <link>\n\ncustomer: live stream issues again. watching fox sports ohio and it just went black and froze. Would not let me go live or rewind\n    brand: Sorry, Scott! We're working to fix a known issue with Live TV. Please use our partner apps for now: <link>\n\ncustomer: your live tv service is garbage. Constantly freezes and now it didn’t record a game I MADE SURE was in “my stuff”. I will be canceling as soon as my billing period is up\n    brand: Apologies! That's not the experience we're hoping for. What device is in use? What game did you try to record? We're here to help!\n\ncustomer: you’re live tv service is struggling. Would be nice to watch a game without it freezing every 5 seconds.\n    brand: That's no good! What device do you use to stream+which channel? If you try a quick device+modem reboot, any change after?\n\ncustomer: fix your live tv stream for the baseball World Series, I've tried three devices. All of them are looping the same crap over and over!!\n    brand: So sorry for the trouble, Matthew! Our team is actively investigating issues with live playback and we're working on a fix.\n\nCustomer message:\nfix your live game of the SEC championship. I’ve tried 4 different service providers on 3 different devices. All doing the same thing: skipping, freezing, and closing the stream.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies by asking for device information to troubleshoot the reported issue.\"\n}",
+  "prompt_tokens": 628,
+  "completion_tokens": 63
+ }
+}

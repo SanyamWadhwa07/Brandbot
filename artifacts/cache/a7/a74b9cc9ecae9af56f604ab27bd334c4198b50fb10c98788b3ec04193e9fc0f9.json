@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I wonder when @115940 is either going to fix the constant live TV streaming issues or issuing me refunds...\n    brand: Sorry for this experience! Which device do you use to stream? For now, please try out: <link> Any change?\n\n[1] customer: Fox live tv is currently not working. Would like to watch @182483. Keeps saying Playback Failure. Error Code\n    brand: Uh oh! What device is in use? Mind sharing a screenshot of the error? For now, power off your device and modem/router for 2 min.\n\n[2] customer: Why is @115940 live just buffering constantly? It’s pretty much unwatchable. Sling doesn’t do that.\n    brand: Oh no! That shouldn't be the case. What device are you using? Notice any improvement after applying: <link>\n\n[3] customer: Love @115940 but lost home internet&amp; just learned can’t Mirror Hulu on iPad hdmi adapter. Wanted to get Hulu live. Guess I’ll have to cancel all of Hulu &amp; look at @115946 or something like that 😢 why #Hulu why???\n    brand: We'd hate to see you go! HDMI mirroring isn't supported at this time, but we'll be sure to share the interest in this w/our team\n\n[4] customer: and @118302 need to fix #Hulu streaming!!! #buffering &amp; #skipping #nonstop! I’m about to #cancel my @115940 #subscription!\n    brand: Oh no! Let's see if we can help. Try out: <link> and <link> Any improvement after that?\n\nNew message:\nPlease, @115940, fix your in-browser live tv. It rarely functions and when it does, it cannot detect when I’ve stopped streaming from my other devices.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry you’re seeing this! Which device/browser are you using for live TV? In the meantime, try these steps: <link> and let us know if it improves things.\",\"used\":[0,2,4]}",
+  "prompt_tokens": 627,
+  "completion_tokens": 108
+ }
+}

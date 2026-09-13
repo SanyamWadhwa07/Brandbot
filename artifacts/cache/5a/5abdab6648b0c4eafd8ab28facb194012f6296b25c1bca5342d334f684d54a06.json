@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What is the deal with Fox News always buffering. It doesn't happen on other live streams.\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?\n\ncustomer: trying to watch The X-Files and it keeps buffering every few seconds. What’s up? Netflix is working just fine!!!!\n    brand: Oh no! Which device do you use? For now, try a quick device+modem/router reboot along w/: <link>\n\ncustomer: are you having issues with the PS4 app? It keeps buffering every 20 seconds or so. Thanks! 😄\n    brand: Sorry to hear this, Kevin! Does this occur across all content? Let us know if this continues after: <link>\n\ncustomer: Is Hulu doing something about this Buffering? I am on day 2 with Directv Now and not a single buffering incident.\n    brand: Sorry! Still having issues? What device and content is this happening on? In the meantime, try these: <link>\n\ncustomer: what is up with all the buffering problems with Hulu Live?\n    brand: Oh no! Let's turn this around, Jeff. If you're still using Roku, please go to Roku's home &gt; Settings &gt; System &gt; SystemUpdate.\n\nCustomer message:\nCBS is constantly buffering again!!!\n\nDraft reply:\nOh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft aligns perfectly with the brand's established troubleshooting process and tone for buffering issues.\"\n}",
+  "prompt_tokens": 570,
+  "completion_tokens": 63
+ }
+}

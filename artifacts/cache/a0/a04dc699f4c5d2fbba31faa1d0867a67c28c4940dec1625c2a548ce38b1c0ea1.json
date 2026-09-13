@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Has anyone else had trouble with @115940 repeatedly crashing on commercials? It does this on all 4 of our devices (2 TVs, Xbox, iPad)\n    brand: Sorry to hear about this! Still need a hand? If so, try the steps here: <link> for each respective device.\n\ncustomer: the current @115911 commercial keeps crashing my @138021 Blu-ray player. What can I do to fix it?\n    brand: Apologies! This is a known issue we're investigating. To help us locate the ad, please reach out: <link>\n\ncustomer: had a problem with @115940 constantly restarting during commercials on our Samsung tv. Exited out of the app and now it won't even load the homepage.\n    brand: Oh no! If no improvement after troubleshooting with: <link> please reach out here: <link> ✅\n\ncustomer: got up and running better but now @115940 just disconnects at every commercial 🤔😑\n    brand: Sorry for the trouble! If these steps: <link> don't help, please reach back out here: <link>\n\ncustomer: Excuse me @115940 why are your commercials so sad? I don't understand.\n    brand: Apologies! You can tailor your ad-preferences to make your ad experience more relevant and useful: <link>\n\nCustomer message:\n.@115940 be breaking down all the time during commercials...\n\nDraft reply:\nSorry to hear about this! Still need a hand? If so, try the steps here: <link> for each respective device.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies for similar technical issues regarding commercials.\"\n}",
+  "prompt_tokens": 591,
+  "completion_tokens": 59
+ }
+}

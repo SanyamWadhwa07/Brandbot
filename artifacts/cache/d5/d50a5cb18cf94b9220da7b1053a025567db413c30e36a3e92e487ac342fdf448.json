@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: it says the newest episode of Lucifer was supposed o be available at midnight it’s 1 am when will I get to watch it\n    brand: While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>\n\n[1] customer: I'd be fine with just being able to watch AMC shows an hour after it airs. Also pls add The Glades and Lie to me to the on demand\n    brand: We'll let our team know you'd love to see AMC &amp; BBC America added to our Live plan, plus The Glades &amp; Lie to Me on-demand!\n\n[2] customer: I don't understand why it says I can watch the new Greys at 2am but it's 2:08am and I can't watch it?\n    brand: Sorry for the delay! The time eps can be posted varies due to many factors, but we always try and post ASAP!\n\n[3] customer: If a show is added to MyStuff, shouldn't it be on the DVR within hours of airing? Still not seeing it.\n    brand: Oh no, it should be! If it's still not appearing in your DVR, please DM your email address and phone number so we can further assist\n\n[4] customer: whenever I’m watching a show that’s currently live and I’m behind by 30min, the show cuts off when it ends on the hr.\n    brand: Sorry to hear about this, Scott! That shouldn't be the case. What device are you streaming from? We'd be happy to lend a hand!\n\nNew message:\nSo, what time does this show normally air?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 588,
+  "completion_tokens": 74
+ }
+}

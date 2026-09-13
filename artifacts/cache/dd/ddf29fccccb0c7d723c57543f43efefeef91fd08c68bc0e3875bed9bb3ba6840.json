@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I have a question for you. Can you DM me?\n    brand: Hello Tyler! We'd love to help here if possible. For a private 1 on 1 call/chat, please contact: <link> ✅\n\ncustomer: when will there be new episodes of #IronChefAmerica? (asking for me and my pint of ice cream)\n    brand: Hi, Leona! We don't have any news, but we'll share your interest. In the meantime, keep that ice cream cool in the freezer. 📺🍨\n\ncustomer: - You guys need to get the original series of Dallas please!\n    brand: Hey Jarvy—we hear you! We'll let our team know you'd love to see this series available on Hulu.\n\ncustomer: yo! I need your help.\n    brand: Hi there, we'd be happy to assist. Let us know more details like show, device, error, etc. For direct help: <link>\n\ncustomer: I have a problem! Can some one DM me?\n    brand: We'd love to help, so let us know more details! For 1:1 support, please reach out by phone or chat: <link>\n\nCustomer message:\ni got a question!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies asking for more details to assist the customer.\"\n}",
+  "prompt_tokens": 519,
+  "completion_tokens": 61
+ }
+}

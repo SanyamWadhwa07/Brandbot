@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: on my new Apple TV 4K auto play has more than 30 seconds wait time between episodes. Any way to make it under 10 seconds?\n    brand: There's no way to adjust the wait, but you can skip it w/ Fliptray: <link> We'll share this w/ the team!\n\ncustomer: Yeah, New Hulu is awful. It's almost impossible to find the new episodes of my shows. It shouldn't take 30 min to do that. @115940\n    brand: Sorry! New eps will display \"NEW\" over the thumbnail. Add shows to My Stuff to be notified when new eps are posted for shows.\n\ncustomer: I am having service issues. The service fast forwards through the entire show. I have tried everything to fix. 1 hour wait on phone.\n    brand: Sorry for the trouble and long hold time. If there are any persisting issues, let us know what device you're on when this happens\n\ncustomer: Just signed up &amp; can't get shows supposed to be on Hulu, No Chat support, Phone wait is 45 minutes. Not impressed.\n    brand: Apologies for the rough start! Which shows are you on the lookout for? A lot of current series were just on break—so let us know!\n\ncustomer: whyyy do you stop several times during the last 5 min of an episode and blame it on a connection issue? It worked for 45 min. Quit it\n    brand: Apologies for any frustration, Magnolia! If you're still experiencing the same behavior, contact: <link>\n\nCustomer message:\nyour wait times between episodes is way to long\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is polite, addresses the issue, and follows the brand's established pattern of asking for device details.\"\n}",
+  "prompt_tokens": 611,
+  "completion_tokens": 68
+ }
+}

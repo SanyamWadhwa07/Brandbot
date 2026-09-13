@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I just upgraded to LiveTV to watch on my AppleTV and its saying I need to update my location. When I do this all I get is an error and now I can't watch Hulu at all... any suggestions. <link>\n    brand: Sorry to hear about the trouble. Have you already tried: <link> If so, reach out: <link>\n\ncustomer: was watching Hulu and then received message around 9:30 pm EST that somehow I suddenly didn’t have an active subscription?\n    brand: Oh no! Sorry for any inconvenience, Elizabeth. For help, please call the number listed in blue here: <link> 📲\n\ncustomer: thanks for breaking the Hulu app on Roku. Worked fine before the update, firmware up to date. Not able to watch anything now\n    brand: Oh no! These steps: <link> may help. If not, please follow up with the details of the issue you're seeing.\n\ncustomer: My browser watchlist stopped updating yesterday. I can only see new episodes by manually searching or checking the android app. Tried on multiple PCs, both Firefox and Chrome.\n    brand: Sorry to hear this, Rachel! Try clearing your cache as well: <link> If no change ➡️ <link>\n\ncustomer: Positive feedback: Been watching World Series and Sunday Night Football. No issues like last night. Actually seems improved.\n    brand: Thank you so much for sharing this feedback! Our team pushed out a fix, so we're glad to hear you're streaming smoothly!\n\nCustomer message:\nhaven't been able to watch since Fire Stick update last night. What's going on?\n\nDraft reply:\nSorry to hear about the trouble. Have you already tried: <link> If so, reach out: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with the brand's established tone and troubleshooting process for technical issues.\"\n}",
+  "prompt_tokens": 607,
+  "completion_tokens": 63
+ }
+}

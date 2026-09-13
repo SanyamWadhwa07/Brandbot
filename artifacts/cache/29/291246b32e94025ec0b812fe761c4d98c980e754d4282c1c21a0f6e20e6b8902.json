@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Any reported issues? Been having trouble loading the app on my Amazon FireTV for a couple hours now. Never gets past the loading status bar even after several restarts.\n    brand: Sorry for the trouble, Brian! Try a quick reboot of your Fire TV+modem/router along w/: <link> Any change?\n\n[1] customer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\n[2] customer: Heya! I've been having trouble with the Windows Store app lately. It wouldn't load at all, so I reinstalled it 1/2\n    brand: Hi! We're so sorry for the trouble. Our team has been investigating this behavior—this should be resolved! Apologies again!\n\n[3] customer: I keep getting a “we have encountered a problem. Please try restarting the app.” Error. I’ve reset my Apple TV , and it didn’t help.\n    brand: Oh no! Try: <link> or <link> --including uninstalling/reinstalling our app. Any change after?\n\n[4] customer: your Fire TV app is terrible. Why can’t you fix it? I’ve been waiting for months and I think I’ll cancel\n    brand: Apologies! We'd hate to see you go! Let's have you try: <link> Any improvement?\n\nNew message:\nHaving problems on Xbox One X with the Hulu app not loading or barely getting to my recommendation list. Any suggestions?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 591,
+  "completion_tokens": 66
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: will the new season of @160679 be available??\n    brand: In the past, we've received the latest a bit after the next starts airing. You can view Cult eps live with: <link>\n\n[1] customer: Dear @115940 can you guys pls put recent seasons of @44481 &amp; add #TeenMom_OG pls. Thank you\n    brand: Hi there! The most recent season of Catfish is currently on Hulu: <link> We'll share your request for Teen Mom.\n\n[2] customer: when will all 5 seasons of @12209 be added 😭😭😭🙏🙏🙏\n    brand: Sorry for the delay. We don't have any news to share yet. We will contact Michael to see if he can break the episodes into Hulu.\n\n[3] customer: I would very much like the new season of Nathan For You to be on @115940, please and thank you.\n    brand: Thanks for writing us, Tony! We're always expanding our content library, and would love to pass along this request for you. 👍\n\n[4] customer: So I got hooked on Homeland, just to find out that I can't watch past season 4 with y'all. Season 7 is slated to start sometime in early 2018....so what are the chances of season 5 &amp; 6 getting added soon?\n    brand: Want to catch up on the rest of Homeland today? All seasons are available with the SHOWTIME Add-on (<link>\n\nNew message:\nwill season6 of @750058 be added to #Hulu anytime soon. 🤔",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Thanks for reaching out! We don’t have any news on season 6 of that show yet, but we’ll pass your request along. Stay tuned for updates!\",\"used\":[3]}",
+  "prompt_tokens": 579,
+  "completion_tokens": 107
+ }
+}

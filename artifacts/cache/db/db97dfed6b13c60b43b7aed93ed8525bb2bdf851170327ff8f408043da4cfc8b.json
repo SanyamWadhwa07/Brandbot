@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: you need to REMOVE the adds. They’re annoying and there’s too many. I don’t mind paying more if it means no more adds. Thanks.\n    brand: Hey there, Judith! We actually do offer a No Commercials plan for $11.99/mo if you're interested: <link>\n\ncustomer: Hulu Live is great in theory. But when I pay for a service I expect it to work not buffer every 30 sec.\n    brand: Apologies! Please power off your device and modem/router for 2 mins. If buffering persists, let us know the device in use.\n\ncustomer: I don’t have time for 4 commercials every 4 minutes. How can I disappear them?\n    brand: Hey Frank! It sounds like you might be interested in our No Commercials Add-on. Get started ➡️ <link>\n\ncustomer: Why do y'all play 30 seconds of ads and then play the intro to the show and the cut to another 90 seconds of ads 😡\n    brand: Hey Owen! The number of ads and breaks varies from show to show, network to network. We're happy to pass along your feedback!\n\ncustomer: Subtitles for Chance S2:E1 are messed up - they're like 5 min off - Basically impossible to watch for people that need them.\n    brand: Thanks for pointing this out, Eliot! Please let us know the device you're using so we can attempt to reproduce this on our end.\n\nCustomer message:\nif you want to get rid of these 2 minute adds every couple minutes that’d be great 👍\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the ad complaint and asks for device info, which is irrelevant to ad frequency.\"\n}",
+  "prompt_tokens": 602,
+  "completion_tokens": 64
+ }
+}

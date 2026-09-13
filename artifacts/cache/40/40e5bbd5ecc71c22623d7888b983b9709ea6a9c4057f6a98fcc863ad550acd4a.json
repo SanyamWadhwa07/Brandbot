@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when will dirk gently season 2 be on Hulu?\n    brand: Hey there! We don't have news to pass along at the moment, but we'll be sure to let our team know you're on the lookout.\n\n[1] customer: will you guys have season 2 of dirk gently?\n    brand: Hey there! No news yet, but we'll be sure to share your interest! For now, bookmark: <link> for any updates.\n\n[2] customer: I think your website is broken. I have hulu+ and nothing will play just says waiting for <link>\n    brand: Sorry to hear you were having trouble! Still need a hand? Try: <link> Any improvement?\n\n[3] customer: curious, but when Shameless new episodes start will they also be available on hulu showtime?\n    brand: Sorry for the delay. We'd like to help. The SHOWTIME on Hulu plan mirrors what's available same time as the network! 🙌🏾\n\n[4] customer: ever since the new hulu experience, Hulu dumps me every 10 minutes or so. Rebooted. Reconfigured. Tired of paying 4 nothing\n    brand: Oh no! On what device? Any error messages? Live TV is in beta, the new experience is not. Sorry for the confusion!\n\nNew message:\nwaiting for dirk gently to be on hulu is painful",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey there! We don't have news yet, but we'll be sure to let our team know you're on the lookout.\",\"used\":[0]}",
+  "prompt_tokens": 536,
+  "completion_tokens": 128
+ }
+}

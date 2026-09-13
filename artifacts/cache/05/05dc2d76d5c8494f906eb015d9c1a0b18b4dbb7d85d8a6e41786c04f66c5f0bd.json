@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Please fix your live streaming. I pay $40 to watch shows buffer CONSTANTLY and barely play. This is awful.\n    brand: Oh no! Do any errors pop up? What device are you using? Let's start with general troubleshooting here: <link>\n\n[1] customer: fix your live TV stream before you charge for it...\n    brand: What kind of trouble are you running into, Brad? What device is in use? Are multiple channels affected? We're here to help. 💚\n\n[2] customer: live sucks. It buffers like crazy, making it impossible to enjoy. I'll be cancelling til I hear it's fixed.\n    brand: Sorry to hear about that, it's not what we like to read and would love to assist. What device? Try: <link>\n\n[3] customer: your live stream sucks\n    brand: That's not what we like to hear, Bill. What issue are you coming across? What device are you using? We're here to help.\n\n[4] customer: if you want me to keep the live streaming and pay $40 a month you better fix it.\n    brand: Were the steps provided of any help? Are all channels affected? Or just one? Also, please double-check: <link>\n\nNew message:\nfix your live streaming it fucking sucks",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Can you tell us what device you’re using and if any error messages appear? Let’s get this sorted – try our troubleshooting steps: <link>\",\"used\":[0]}",
+  "prompt_tokens": 515,
+  "completion_tokens": 120
+ }
+}

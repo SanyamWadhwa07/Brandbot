@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hello! Why doesn't the desktop version of Hulu look like the new UI on my phone? My watchlist doesn't sync between the 2. 😢\n    brand: Hi! We're rolling out the new interface to one device at a time. Our site hasn't made the switch yet: <link>\n\n[1] customer: any reason why can’t watch you any of my iOS devices? Apple TV and IPhone both showing error messages.\n    brand: Oh no! Is it the same error on both devices? If possible, send screenshots our way. For now, try: <link>\n\n[2] customer: Cannot watch across all devices, account says \"We're having trouble loading your lineup. Check connection and try again.\"\n    brand: Apologies, Justin! You may have run into: <link> If you're still having trouble, try: <link>\n\n[3] customer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\n[4] customer: why isn’t my watchlist updating properly?\n    brand: Yikes! Which shows have you noticed this with+which device is being used? Are the new episodes appearing from the show page?\n\nNew message:\nIs there a setting I have disabled that causes my watchlist to not sync from device to device? I use 2 different Androids, an Xbox One and a PC and they never seem to line up",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Yikes! Which shows are affected and which device(s) are you seeing the issue on? New episodes should still appear on the show page. Let us know the details so we can dig in.\",\"used\":[4]}",
+  "prompt_tokens": 605,
+  "completion_tokens": 107
+ }
+}

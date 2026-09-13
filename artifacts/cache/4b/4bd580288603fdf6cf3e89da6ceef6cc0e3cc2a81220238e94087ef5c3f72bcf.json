@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why did the stream for OU-Tech just disappear?\n    brand: Sorry for the delay! This may be related to an issue we're currently investigating. For now, try: <link>\n\n[1] customer: what the heck happened to Interstellar and why is it now available anymore??\n    brand: Hi! Looking through our telescope, we noticed that Interstellar has expired. We'll get our astronauts to put in the request.\n\n[2] customer: FS1 has just vanished from Hulu live?!?!\n    brand: Hi there, sorry for the trouble! What device are you using? Can you access the network from Browse &gt; Networks &gt; Live or A-Z?\n\n[3] customer: I JUST noticed CW isn't actually on my @115940 live channel lineup. Anyone know what gives?\n    brand: Sorry, Danielle! The CW is only available as network on-demand, but we're working to bring it live. We'll share the interest!\n\n[4] customer: not sure how you can take channels away from when I upgraded to Hulu live but Fox Sports North magically disappeared from my options\n    brand: Apologies! If that appears here: <link> w/ your zip, follow up: <link> &amp; we'll take a look.\n\nNew message:\nwhat happened to ESPN on Hulu Live? It is no longer on my channel lineup",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Apologies! If ESPN shows up here: <link> with your zip, please follow up: <link> and we’ll investigate further.\",\"used\":[4]}",
+  "prompt_tokens": 524,
+  "completion_tokens": 110
+ }
+}

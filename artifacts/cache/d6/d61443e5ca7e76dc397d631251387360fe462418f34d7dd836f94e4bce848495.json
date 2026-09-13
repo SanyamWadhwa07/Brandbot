@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @115940 what's going on with yall this week??? I can't watch any of my shows on Roku or my laptop but they all show up on my phone. I don't wana watch TV on a 2\" x 4\" screen, I want to continue to watch them on Roku. Is this going to be an ongoing problem or what?\n    brand: Apologies, Lauren! If you're not seeing new episodes, we're investigating. In the meantime you can navigate to Seasons / Episodes.\n\ncustomer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\ncustomer: why do all of the commercials lag, but the show I'm watching plays without a problem?\n    brand: Apologies! Call/chat (<link> if troubleshooting doesn't fix it: <link> <link>\n\ncustomer: watching Broncos v Giants game live and seems very choppy. No other channels appear to have the same issue. Any reason?\n    brand: We're sorry to hear about the trouble, Chris! What device is in use when this occurs? Any change after: <link>\n\ncustomer: trying to watch The X-Files and it keeps buffering every few seconds. What’s up? Netflix is working just fine!!!!\n    brand: Oh no! Which device do you use? For now, try a quick device+modem/router reboot along w/: <link>\n\nCustomer message:\ngetting tons of lag watching NCAA Football right now, any issues?\n\nDraft reply:\nApologies, Lauren! If you're not seeing new episodes, we're investigating. In the meantime you can navigate to Seasons / Episodes.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft reply is irrelevant to the customer's issue regarding live sports lag.\"\n}",
+  "prompt_tokens": 631,
+  "completion_tokens": 61
+ }
+}

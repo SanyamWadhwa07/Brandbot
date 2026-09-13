@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @115940 all of my Roku devices get this error several times when watching programs. Started with the updated interface. Please fix... <link>\n    brand: Sorry, Travis! Still need help? If so, try: <link> No improvement? Pls chat w/ us <link>\n\ncustomer: I love @115940 but it’s always glitchy af. I need y’all to get it together\n    brand: Uh oh! What kind of trouble are you running into, and on what device? We'd love to see how we can help. 💚\n\ncustomer: So it is @115940 or @115858 that’s broken right now? Any idea why the restore purchase option doesn’t work? Oh and the ‘pop’ hold music is 👎\n    brand: Apologies, Michael! Please contact Apple support: <link> for assistance with your iTunes-billed account.\n\ncustomer: All I wanna do is catch up on @180004 and @115940 refuses to work. Funk you Hulu, ur moms a hoe.\n    brand: Sorry, Taylor! We expect to receive S4 in its entirety sometime after its season run ends. Stay tuned: <link>\n\ncustomer: your new interface on @127972 sucks. You make it so difficult to find shows and lord help me if I want to watch anything other than the most recent episode. On the plus side, I guess it’s prettier than the last one?\n    brand: Sorry for any frustration! Your shows are in My Stuff: <link> We recommend checking out: <link>\n\nCustomer message:\nFor the love of god @116602 please bring back how I met your mother. @115940 and it's constant errors are making me crazy.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and addresses the technical issue reported by the customer.\"\n}",
+  "prompt_tokens": 655,
+  "completion_tokens": 63
+ }
+}

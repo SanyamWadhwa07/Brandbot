@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Getting an \"Error Code 503\" on the @115940 @127972 app. \"We're having trouble loading this right now\".\n    brand: Oh no! Thanks for reporting this, Albert. Let's try: <link> Call/chat if not fixed (<link>\n\n[1] customer: Upset with @115940 almost everyday for the past week or 2 I've got a load error and can't watch my shows\n    brand: Apologies, Alexandra! Still having trouble? If so, please connect w/ us: <link> so we can investigate.\n\n[2] customer: Why is my @115940 not loading 🙄🙄 Netflix will load and play but Hulu won’t load the page at all\n    brand: Yikes! Still having trouble loading our app? What device are you using? For now, please try: <link> ✅\n\n[3] customer: anyone else having @115940 issue not loading today? @hulu_support\n    brand: Oh no! If you're still having trouble let us know which device is in use. In the meantime checkout: <link>\n\n[4] customer: ever since the update, I get a failure to load message/my show stops during the last 4 minutes of the episode when on @127972 🆘\n    brand: We're ready to help, Katy! Does this happen across all content? Please try: <link> Any better?\n\nNew message:\nYo @115940, you're killing me with the \"having trouble loading right now\"",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! Sorry you’re seeing the “having trouble loading right now” message. Please try this fix: <link>. If it’s still not working, reach out via chat or call: <link>.\",\"used\":[0]}",
+  "prompt_tokens": 560,
+  "completion_tokens": 113
+ }
+}

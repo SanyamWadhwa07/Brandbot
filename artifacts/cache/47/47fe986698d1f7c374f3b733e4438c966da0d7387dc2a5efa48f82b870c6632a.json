@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: i have an error code: cdn-2-7b82af5c. pls advise\n    brand: Sorry for the delay! We had some issues with Live TV two nights ago, but all should be good now. Thanks for bearing with us!\n\ncustomer: my xbox one is consistently giving me Playback Failure and error code cdn-2-b3ccda54 with everything I try and play. I're tried installing the app and even did a hard reset on my xbox and I still cannot resolve this.\n    brand: Sorry! Make sure you've tried everything here: <link> If the issue persists: <link>\n\ncustomer: having problem s with my account... keep getting code. cdn-2-e083ae55. It's not my internet. Happening on Syfy and travel channel\n    brand: Apologies! We had an outage which has since been resolved: <link> Still running into this? If so, what device?\n\ncustomer: why do I keep getting this error: cdn-2-d2aead01? There is nothing wrong with my internet connection btw.\n    brand: Sorry for the delay, Jason! Were you using live TV perhaps? If so, it sounds like you were affected by a known issue we've fixed.\n\ncustomer: Hey @115940 network error has occurred. Service cannot be accessed at this time. reference code 300? happens quite often. cancel Hi @116602\n    brand: We're sorry to see you go! If you'd like us to look into this, feel free to contact us by phone or chat: <link>\n\nCustomer message:\nHey @115940 , if I get error code cdn-3-2c91e5a6 I think I going to have a BF\n\nDraft reply:\nSorry for the delay! We had some issues with Live TV two nights ago, but all should be good now. Thanks for bearing with us!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft assumes a past outage that may not be relevant to the customer's current error code.\"\n}",
+  "prompt_tokens": 665,
+  "completion_tokens": 65
+ }
+}

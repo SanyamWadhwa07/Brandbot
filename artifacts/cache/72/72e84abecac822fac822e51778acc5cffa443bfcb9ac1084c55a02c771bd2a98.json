@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: are y’all gonna be adding more channels to the live selection\n    brand: Thanks for the interest, Angel! What are you looking for? We're always working to expand our lineup: <link>\n\n[1] customer: Any plans to add @699 to the live channel lineup? That would be amazing.\n    brand: Hi Phillip! No news to share, but we're always working to add more networks. We'll alley-oop 🏀 your request to our content team\n\n[2] customer: when will you add @20517 channels to your live channels package?!? Like @30408 and @224379 !! I️ NEED @2443 <link>\n    brand: Good morning, Mark! We're always open to suggestions like this, so we'll be sure to pass those network requests along the the team.\n\n[3] customer: 1 of your competitor now has 3 of 4 main local channels here the Greenville S.C. any more coming to Hulu live tv? #wantmorethanjustFOX\n    brand: Hey, Phillip! No news to share at the moment, but we're always working to expand our offerings. We'll share the interest!\n\n[4] customer: when is the live tv coming out of beta?Need more live channels for the price.Need 60fps <link> is confusing.HBObundle\n    brand: Thanks for the feedback! We're continuing to make updates based on viewer input, so we'll pass along your requests.\n\nNew message:\nhey, any news about getting more channels added to live tv?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Thanks for checking in! We're always working to expand the live lineup and will pass your request along to the team. Stay tuned!\",\"used\":[0,1,2,3,4]}",
+  "prompt_tokens": 563,
+  "completion_tokens": 95
+ }
+}

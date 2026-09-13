@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I've had constant buffering problems since the latest ps4 app update. Never before that. What's up and how can I fix it?\n    brand: Oh no! Sorry for the delay. If your PS4 is still buffering, let's try applying: <link> Notice an improvement?\n\ncustomer: are you having issues with the PS4 app? It keeps buffering every 20 seconds or so. Thanks! 😄\n    brand: Sorry to hear this, Kevin! Does this occur across all content? Let us know if this continues after: <link>\n\ncustomer: my Hulu app intermittently stops and starts. All other apps are working fine. Restarted as well. Streaming issue.\n    brand: Oh no! What device and content is this happening on? In the meantime, try these: <link>\n\ncustomer: why are you buffering every few seconds? It freaking sucks &amp; no it's not my connection.\n    brand: Oh no! That shouldn't be happening. Try the steps for your device here: <link> Any improvement?\n\ncustomer: any issues with your PS4 app? It just started working on our PS4, but with a direct connection, constant buffer.\n    brand: Hey, Veronica! Apologies for the delay. 😔 If you're still getting that error on your PS4, let's try: <link> ✅\n\nCustomer message:\nwhy is the app constantly pausing and buffering lately? It's not connection because it is happening at several different locations and devices for me. From ps4 to Android phone.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer already specified they are using multiple devices, so asking which device they are using is redundant.\"\n}",
+  "prompt_tokens": 582,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I've had so many buffering issues with @115940 live TV on @127972. But it works just fine for me on @116439. @hulu_support\n    brand: Hm, that's weird. Sorry to hear this, Logan! Seeing any errors? Give these a shot: <link> Any improvement?\n\ncustomer: just curious why my Hulu live STILL isn’t working properly a whole week later @115940 @hulu_support\n    brand: Oh no! Sorry to hear this. What device are you streaming on? Notice any error messages? Let's try: <link> ✅\n\ncustomer: Gee it’s Wednesday @hulu_support once again cannot play @131187 Yes I tried all above options your about to ask Yes I’m considering unsubscribing since the main reason I have hulu live is for @131187\n    brand: We want you to be able to watch both! Have you been able to give our team a call/chat at this point: <link>\n\ncustomer: Don't know why I'm paying for @115940 it freezes &amp; buffers nearly every 30 seconds. Already missed Judge's solo HR. #annoyed @hulu_support\n    brand: Let's see if the steps for your device (<link> smooth it out. If not, reach out: <link>\n\ncustomer: I want to love @115940 live tv! @hulu_support the constant buffering is unacceptable. No issues with Vue or Sling. If that's fixed, I'm sold.\n    brand: Eek! We want you to love us, too! Have you tried the suggestions for your specific device here: <link> ?\n\nCustomer message:\nDear, @115940 @hulu_support Why can't I get the live TV I'm paying for in my fancy Hulu package? It was *always* buffering on my @13691 3, and it apparently isn't even available on my Sony smart TV. I got this for football. When will this be resolved?! #FixIt\n\nDraft reply:\nHm, that's weird. Sorry to hear this, Logan! Seeing any errors? Give these a shot: <link> Any improvement?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name and ignores the specific device compatibility issue mentioned.\"\n}",
+  "prompt_tokens": 744,
+  "completion_tokens": 61
+ }
+}

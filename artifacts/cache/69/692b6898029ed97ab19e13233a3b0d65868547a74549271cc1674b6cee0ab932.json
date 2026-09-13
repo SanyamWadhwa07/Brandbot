@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: My only complaint with @115940 is when it comes back from commercial it doesn't resume where it left off. It starts back 5min before the commercial began. Fast forwarded to get back. Had to watch commercials 3 times before it was back to the right spot. 😲\n    brand: Oh no! Which device does this occur on, Scott? Let's see if these steps help out: <link> Any improvement?\n\n[1] customer: had a problem with @115940 constantly restarting during commercials on our Samsung tv. Exited out of the app and now it won't even load the homepage.\n    brand: Oh no! If no improvement after troubleshooting with: <link> please reach out here: <link> ✅\n\n[2] customer: Why does @115940 decided to not work right when I get addicted to This Is Us?? :(((\n    brand: Oh no! Let's get you back to the Pearsons. Which device do you use? Any errors? For now, try: <link>\n\n[3] customer: Why aren't you working right now Hulu? You worked until I paid the extra $$ to not watch commercials, now I can't even log back in.\n    brand: Oh no! If you're still running into trouble after: <link> please reach out here: <link>\n\n[4] customer: I wish my @115940 account didn’t randomly decide it’s not available in my region... even though it worked yesterday 🤔\n    brand: Yikes, that sounds frustrating! What device are you using? Notice any improvement after trying these: <link>\n\nNew message:\nProbably not going to be able to use my @115940 account until after Christmas because I can’t skip a triggering holiday commercial. Awesome.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 607,
+  "completion_tokens": 76
+ }
+}

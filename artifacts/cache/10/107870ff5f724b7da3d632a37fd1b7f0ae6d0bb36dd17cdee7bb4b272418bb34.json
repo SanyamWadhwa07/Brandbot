@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: wtf when I go on the Apple TV app it’s saying there’s no new episodes but when I go into the shows that should have new episodes today there’s a new episode 🤔 but why isn’t it showing new episodes on the watchlist?\n    brand: Sorry! What model is your ATV: 2, 3, or 4? Is Watchlist not displaying \"New Episode\" notifications? Mind sharing a screenshot?\n\ncustomer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\ncustomer: Is Watchlist broken? I logged in on the new Switch app this afternoon, and there were a bunch of shows with new episodes on my watchlist, but I log in at home on my TV(also website) and only 2 shows with \"New Episodes.\"\n    brand: Uh oh! Were you logged into the correct Profile? Which series did you notice the discrepancy with? The more info, the better. 👍🏻\n\ncustomer: How do I mark episodes as watched without having to play them in full, in either the new Apple TV or iPhone app? Thanks.\n    brand: There isn't a mark as watched button available, but we'll definitely share the request to see one implemented in future updates. 💚\n\ncustomer: The new @115940 @127972 app is awful and I need them to return to the old ways. I want to view all episodes, not watch a random one.\n    brand: You should be able to access all content from the series page by navigating to \"Episodes\". Try watching: <link>\n\nCustomer message:\nI noticed that episodes I’ve watched on the new app on Xbox One, do not show as watched on the older app on my Samsung TV. Is this a know limitation?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the specific devices mentioned by the customer and asks for information already provided.\"\n}",
+  "prompt_tokens": 702,
+  "completion_tokens": 62
+ }
+}

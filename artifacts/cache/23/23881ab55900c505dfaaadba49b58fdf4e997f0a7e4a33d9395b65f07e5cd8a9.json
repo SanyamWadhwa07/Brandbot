@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: when I’m watching a TV series on my iPad why does it repeat the same episode and not play the next episode automatically?\n    brand: That shouldn't be happening! Try powering down your iPad for a few mins as well as: <link> Any change?\n\n[1] customer: your app on Roku keeps crashing every 5 mins. Can't even go through any show without getting interrupted for like 10 times!\n    brand: Yikes! We want to help. Try running through these steps: <link> and <link> Better after that?\n\n[2] customer: lately n the app after commercials play the whole episode starts over from the beginning playing the same scene repeatedly.\n    brand: Yikes! Which device is this occurring on? Any specific show? To start, try running through these steps: <link>\n\n[3] customer: Hulu app on my iPad doesn't play episodes in order it plays 3 then repeats again. Seems to be because of the new format? Is there a fix?\n    brand: Sorry, Amy! Is this happening with all shows or a specific one? Please try: <link> and let us know if they help.\n\n[4] customer: this keeps popping up every time I try to watch a show.. I’ve restarted my iPad and closed the app several times 🤔🤷🏽‍♀️ <link>\n    brand: Oh dear! 😔 When time allows, check for a Hulu update via App Store. If not avail, try: <link> Any changes?\n\nNew message:\nWhy is this happening with every show when I try playing something from the tv TV app? It’s been happening with almost every single episode I’ve watched all weekend long. This isn’t the first time either although it was only 1-2 episodes once every blue moon. <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Which device are you using and any specific show? Please try these steps: <link> and let us know if it helps.\",\"used\":[2]}",
+  "prompt_tokens": 627,
+  "completion_tokens": 190
+ }
+}

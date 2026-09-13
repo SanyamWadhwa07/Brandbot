@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: live tv streaming is buffering nonstop. I am hard wired.\n    brand: Oh no! Let's see if these help, Daniel: <link> If it continues, let us know which devices are having trouble.\n\ncustomer: you need to get this buffering under control. My internet is perfect, your live tv sucks and I will be cancelling if it isn’t fixed.\n    brand: We'd hate to lose you, Karyn! 😭 Try: <link> If that doesn't resolve it, let us know which devices you're using.\n\ncustomer: live tv buffering is making Hulu unwatchable! Every device, every live event. Only Hulu.\n    brand: Oh no! That's so frustrating. Let's give the steps for your device here a try: <link> Any improvement?\n\ncustomer: so live tv keeps buffering and jumping back. I can’t watch my shows properly....\n    brand: Apologies, Nicole! Our team has since resolved this issue: <link> Thanks for bearing with us!\n\ncustomer: You’re live tv feeds are terrible. Keeps buffering every 3 seconds. It’s not my internet connection either. Disappointed I wasted $59.\n    brand: Sorry, Brian! There was a Live TV issue yesterday, but it's now fixed. Let us know if you're stilling experiencing trouble.\n\nCustomer message:\nlive tv buffering is a joke. You’re gonna force me back to the dark side of cable\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions and appropriately asks for device information to troubleshoot.\"\n}",
+  "prompt_tokens": 567,
+  "completion_tokens": 61
+ }
+}

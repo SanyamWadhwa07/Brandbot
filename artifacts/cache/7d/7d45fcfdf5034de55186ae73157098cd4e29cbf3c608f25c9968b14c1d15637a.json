@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: The new(ish) @115940 app on @127972 is one of the worst things I have ever seen.\n    brand: Oh no! Sorry to hear, Jacob. What are some pain-points you're running into? We'd love to help, or at very least, field the feedback.\n\ncustomer: Hey @115940! I 100% love your product but the new UI is truly awful. Can we talk so I can help you improve the user experience? Love, ME.\n    brand: Hulu here! Try: <link> while we work to make improvements based on input (<link>\n\ncustomer: Goddamn the new @115940 sucks. It never wants to work\n    brand: Sorry to hear this! Which device are you on? Are you getting any error messages? For now, please try: <link>\n\ncustomer: Tell me I’m not the only one who hates the @115940 redesign. Sure, it looks pretty, but it’s less user-friendly. Can’t browse shows quickly😪\n    brand: Oh no! We're working to make improvement based on viewer feedback. Have you already seen: <link> ?\n\ncustomer: Hey, @115940, the updates are terrible. Please revert to the old style. I can't find anything. It's ugly and takes forever to load.\n    brand: Oh no! We'd love to help, Rob. Which device is this on? Do you see any errors? Try: <link> Any better?\n\nCustomer message:\nThe new @115940 is the worst thing ever. I don’t understand why any person with a brain would think that it is efficient.\n\nDraft reply:\nOh no! Sorry to hear, Jacob. What are some pain-points you're running into? We'd love to help, or at very least, field the feedback.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the name Jacob, but the customer did not provide their name in the message.\"\n}",
+  "prompt_tokens": 658,
+  "completion_tokens": 64
+ }
+}

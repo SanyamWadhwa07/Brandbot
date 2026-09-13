@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Whoever the customer service rep was that helped me @115940 was awesome. Thank you for your patience and kindness ;) you deserve s raise!! <link>\n    brand: Aw! Thanks for tweeting your kind words. Do you mind sending us a DM w/ the email on file? We'd like to see who you spoke with.\n\n[1] customer: S/O to @115940 for having such great customer service this late at night #AintNobodyGonnaHackMeTonight 😂👍\n    brand: Yay! We're so glad to hear about this experience. We really appreciate your kind words! Thank you for sharing this with us here 💚\n\n[2] customer: Called @115940 customer service. RUDE RUDE RUDE!!!! SO DISSAPPOINTED.\n    brand: Oh no! That's not what we like to hear. DM us the email address on file and the billing zip code. We'll share this feedback!\n\n[3] customer: I was on the phone with @115940 customer support for TWO HOURS. The agent was rude, condescending, lied to me, and didn’t fix anything! #help\n    brand: Oh no! That's not the experience we're hoping for. Mind DMing us the email on file and billing zip? We'll look into this.\n\n[4] customer: So I switched to @115940 live and I keep having issues.... may have to go back to Sling. I just want my HGTV😤\n    brand: Sorry, Holly! We understand where you're coming from and wanted to apologize for the trouble. This issue should now be resolved!\n\nNew message:\nJust had the best customer service call with John from @115940; guys, find him and give him a raise! <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Aw! Thanks for the shoutout about John 😊 Could you DM us the email on file? We’d love to let the team know and give him the recognition he deserves!\",\"used\":[0]}",
+  "prompt_tokens": 606,
+  "completion_tokens": 153
+ }
+}

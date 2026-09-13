@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I get logged out of Hulu on my Apple TV every single day for over a week now. It’s getting extremely annoying.\n    brand: That shouldn't be the case! Is this happening on an ATV 4? If so, any change after working through: <link>\n\ncustomer: the Hulu app logged me out, &amp; when I try to log in, I get \"An error occurred. Please try again later\" &amp; I know the login\n    brand: Sorry for the delayed reply! If you're still running into trouble, let us know the device in use and try: <link>\n\ncustomer: I get logged out and I have to log in pretty much every day on my Apple TV. I’ve reset the ATV and I still have same problem\n    brand: Does uninstalling/reinstalling our app help? If not, please contact us by phone or chat here: <link>\n\ncustomer: Is Hulu down? I randomly got signed out while watching and now it won't let me login for a number of different reasons on Roku\n    brand: Sorry for the delay, Kayla! Still need help? Let's take a moment to work through: <link> &amp; keep us posted!\n\ncustomer: I’ve been randomly logged out of the app on iOS &amp; keep getting “an error occurred, please try again later” when I try 2 log in\n    brand: We're sorry to hear about the trouble, Jordan! Does this behavior continue after working through: <link>\n\nCustomer message:\nhey Hulu 🙋🏻‍♀️ my account keeps logging me out automatically after I log in 🙁 what gives?\n\nDraft reply:\nThat shouldn't be the case! Is this happening on an ATV 4? If so, any change after working through: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft assumes the device is an Apple TV 4 without asking the customer for their device type.\"\n}",
+  "prompt_tokens": 616,
+  "completion_tokens": 65
+ }
+}

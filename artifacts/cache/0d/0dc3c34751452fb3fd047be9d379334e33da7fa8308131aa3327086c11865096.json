@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Are you by chance offering a trial period longer than 7 days for Hulu Live TV? I’ve had Hulu in the past for several years.\n    brand: Our Live TV trial is for one-week at this time, but we can express your interest in seeing a longer option in the future.\n\ncustomer: would I be able to get a 7 day free trial for Hulu liveTV if I did so about 2 months ago? I heard about the new setup. Thanks!\n    brand: Typically, all Hulu free trials allow one per user/year. Let's check into your eligibility here: <link> ✅\n\ncustomer: I was supposed to get a 2 month trial subscription with my Roku, but only got one month. How do I fix that?\n    brand: Hi Phillip! Give us a call here: <link> We'd be happy to take a look and see what we can do.\n\ncustomer: - I got an email that said I could get HBO free for 30 days. Now when I go to sign up it says 1 week???\n    brand: Apologies, Michael! Our free trial for the HBO add-on is now 1 week. We'll share the interest in seeing 1 month in the future.\n\ncustomer: Can't reach you via Chat, won't connect -was in a 30 day trial, upgraded to Live but didn't get the 7 day free live trial? why\n    brand: So sorry for the trouble getting in touch—we're happy to take a look! Give us a quick call here: <link>\n\nCustomer message:\ndo you offer any trials longer than a week for the Hulu Live TV Beta? I'm thinking about switching from Playstation Vue.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's question about trial length and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 621,
+  "completion_tokens": 65
+ }
+}

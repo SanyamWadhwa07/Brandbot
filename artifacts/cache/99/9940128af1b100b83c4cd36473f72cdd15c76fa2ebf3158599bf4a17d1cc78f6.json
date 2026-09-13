@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Live TV is not working all night and your chat and phone support is not working or in an hour long wait time.\n    brand: Sorry, Albert! We ran into a known issue with Live TV but it should be resolved now. Thanks for bearing with us!\n\ncustomer: I am having trouble loading your support site in Microsoft Edge and the chat is not letting me type in IE, is this normal?\n    brand: Apologies! You should be able to access our help site in both. Does this continue after working through: <link>\n\ncustomer: what's going on? I need a response from support and phones and chat aren't working. This is unacceptable service.\n    brand: Sincere apologies! We had run into issues w/ NBC this weekend that we're still looking into. As for ESPN, is it still down now?\n\ncustomer: how do I get someone to address my problem? I go to HULU and the NBC shows play fine but the ABC ones have connection issues.\n    brand: Sorry for the trouble/delay! We're happy to see how we can further assist. What device do you use? Do any errors pop up on ABC?\n\ncustomer: yooo why isn’t my account working?\n    brand: Yo! Not sure why but we'll figure it out! 👍🏽 Chat w/ us: <link> so we can gather more info from you.\n\nCustomer message:\nwhy is Hulu not working and I can't talk to anyone and your have nothing helpful on your support site.\n\nDraft reply:\nSorry, Albert! We ran into a known issue with Live TV but it should be resolved now. Thanks for bearing with us!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft assumes a specific known issue that was not confirmed for this customer's current situation.\"\n}",
+  "prompt_tokens": 585,
+  "completion_tokens": 64
+ }
+}

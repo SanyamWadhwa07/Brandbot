@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: For some reason 2 of our shows didn’t record on our cloud dvr service. What can we do? Survivor &amp; Blacklist\n    brand: Apologies! Our team is aware of this issue with Survivor are working on a fix. Blacklist is available on-demand though! 1/2\n\ncustomer: I don’t see an option to access the cloud dvr when I’m using the live service on a browser on PC.\n    brand: My Stuff and DVR are not available on site—yet. Updates are coming but for now you'll need to access these from another device.\n\ncustomer: I'm trying to manage my account and cancel live tv/cloud but when I click the manahe button under add ons, it just takes me back to my account page. I've tried a couple different browsers and same issue.\n    brand: Our apologies, Carrie. We're looking into this! Call/chat: <link> and we'll take care of that for you.\n\ncustomer: I've been dealing with my dvr space running low for months now, yet nothing is showing up as recorded. I'm done #YOUSUCK\n    brand: Sorry! This sounds like something we're investigating. Please call us/chat us here: <link>\n\ncustomer: How much do extras cost for the live TV package? 200 hrs cloud dvr and how many rooms does the DVR hook up to?\n    brand: Hi! Hulu with Live TV starts at $39.99/mo, with the Enhanced DVR Add-on being +$14.99/mo: <link> 1/2\n\nCustomer message:\nhelp, why has the cloud dvr stopped recording anything on my profile? What do I do?\n\nDraft reply:\nApologies! Our team is aware of this issue with Survivor are working on a fix. Blacklist is available on-demand though! 1/2",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft references specific shows not mentioned by the customer and ignores the actual issue reported.\"\n}",
+  "prompt_tokens": 645,
+  "completion_tokens": 62
+ }
+}

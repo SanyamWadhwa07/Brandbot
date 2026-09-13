@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Okay @hulu_support @115940 you guys are the best. They gave me my money back! Thanks, guys. It's why I'll never turn you off lol ♡\n    brand: Aw, shucks! We're glad to hear all is well now, Ren. Don't hesitate to tweet us in the future. We're here if you need us!\n\ncustomer: as I @hulu_support @115940 now you just stop episodes and make me start from the beginning over and over? Do I get my money back or anything?\n    brand: Sorry to hear about this! Which device do you use to stream? Is this behavior occurring with a specific ad, perhaps?\n\ncustomer: Dear @115940 you and @hulu_support need to fix this or I’ll be canceling my membership🤷🏼‍♀️. Yes I’ve uninstalled and installed 🤦🏼‍♀️ <link>\n    brand: Sorry for any frustration! If no improvement after trying: <link> please contact: <link> ✅\n\ncustomer: No @684 on @115940 @hulu_support?!?! WTF is wrong with you morons? Are you telling me I have to go back to @115946?? You suck hulu.\n    brand: Sorry, Brian! AMC isn't currently available live on Hulu just yet, but we'll be sure to share your interest in seeing it added. 👍\n\ncustomer: Yet again @hulu_support @115940’s terrible app is skipping around and ruining shows\n    brand: Oh no! Have you had a chance to reach out via phone or chat? If you haven't, please contact us here: <link>\n\nCustomer message:\nHey @115940 @hulu_support, knock it off! Let me watch the show without your fucking stupid service sending me back a couple of scenes! Fuck off!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is professional, addresses the technical issue, and follows the brand's established troubleshooting tone.\"\n}",
+  "prompt_tokens": 675,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I just upgraded to LiveTV to watch on my AppleTV and its saying I need to update my location. When I do this all I get is an error and now I can't watch Hulu at all... any suggestions. <link>\n    brand: Sorry to hear about the trouble. Have you already tried: <link> If so, reach out: <link>\n\n[1] customer: was watching Hulu and then received message around 9:30 pm EST that somehow I suddenly didn’t have an active subscription?\n    brand: Oh no! Sorry for any inconvenience, Elizabeth. For help, please call the number listed in blue here: <link> 📲\n\n[2] customer: thanks for breaking the Hulu app on Roku. Worked fine before the update, firmware up to date. Not able to watch anything now\n    brand: Oh no! These steps: <link> may help. If not, please follow up with the details of the issue you're seeing.\n\n[3] customer: My browser watchlist stopped updating yesterday. I can only see new episodes by manually searching or checking the android app. Tried on multiple PCs, both Firefox and Chrome.\n    brand: Sorry to hear this, Rachel! Try clearing your cache as well: <link> If no change ➡️ <link>\n\n[4] customer: Positive feedback: Been watching World Series and Sunday Night Football. No issues like last night. Actually seems improved.\n    brand: Thank you so much for sharing this feedback! Our team pushed out a fix, so we're glad to hear you're streaming smoothly!\n\nNew message:\nhaven't been able to watch since Fire Stick update last night. What's going on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! Sorry for the trouble on your Fire Stick. Try these steps: <link>. If it doesn’t help, please let us know more details so we can investigate further.\",\"used\":[2]}",
+  "prompt_tokens": 590,
+  "completion_tokens": 93
+ }
+}

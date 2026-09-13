@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Excuse my French, @1648 &amp; @115940 but where the FUCK is my SVU episode??? Every Wednesday night and today- no new episode!!???\n    brand: Sorry for any confusion, Alaina! A new episode didn't air this week because of the World Series: <link>\n\n[1] customer: The new @115940 @127972 app is awful and I need them to return to the old ways. I want to view all episodes, not watch a random one.\n    brand: You should be able to access all content from the series page by navigating to \"Episodes\". Try watching: <link>\n\n[2] customer: when will the newest episode of @209872 be in my Hulu Live TV?\n    brand: Soon! CW content is currently made available on-demand, so new episodes will be posted the day after they air on TV.\n\n[3] customer: Blindspot S2 has 22 episodes but @115940 only has 17? Where are the last 5?\n    brand: Hi! The episodes mysteriously expired, but thanks to our tattoos they're back on Hulu now. We're sorry for the trouble!\n\n[4] customer: Why does @115940 play Spanish episodes of whatever you've just watched in English? This duplicates the viewing habits of NO ONE ON EARTH.\n    brand: Hi! We'd love to look into this. For which show are you running into this behavior? What device do you use to stream?\n\nNew message:\nWhy doesn’t my @115940 TV app have all the episodes that my iPad has 😩",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hi! You should be able to see the full library from the series page – just tap “Episodes” in the app. If something’s still missing, let us know the show and device you’re using!\",\"used\":[1]}",
+  "prompt_tokens": 572,
+  "completion_tokens": 107
+ }
+}

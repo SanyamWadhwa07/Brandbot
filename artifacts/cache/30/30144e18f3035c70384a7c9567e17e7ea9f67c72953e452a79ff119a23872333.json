@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: So my sister is very upset that Leverage was taken off @115940 and she would really like it back if possible. @hulu_support\n    brand: Hey Michael! Our streaming rights expired, but we'll let our team know your sister would like to see Leverage return. 💚\n\ncustomer: .@115940 you have been crushing it lately. Boy Meets World is back in our lives. Now we just need to get King of the Hill streaming again!\n    brand: We're always looking to connect viewers with their favorite shows! We'll share your request for King of the Hill!\n\ncustomer: I hate the new @115940 interface. Can't find anything. I feel like I lost all my favorite shows.\n    brand: Aw man! You should have seen an option to import your Watchlist to My Stuff after the update: <link> 1/2\n\ncustomer: why is @115940 playing with my feelings ? i just want to watch my show\n    brand: Sorry! Please get back to us with the details of the issue and the device in use. For now, try: <link>\n\ncustomer: Really upset that we don't got a Hulu Brazil version and I won't be able to watch the new @88723 series... :( @115940 , come on, @34583 needs competition ☺\n    brand: Hi! We don't currently have rights to stream content outside the US, but we'll be sure to pass along your interest! 💚 🇧🇷\n\nCustomer message:\nwe are SOOO upset @14528 was removed from your streaming options. It’s my son’s favorite show and one of the only ones we allow him to watch since it’s educational. Can you consider bringing it back? #sadday\n\nDraft reply:\nHey Michael! Our streaming rights expired, but we'll let our team know your sister would like to see Leverage return. 💚",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name and references the wrong show from a past example.\"\n}",
+  "prompt_tokens": 668,
+  "completion_tokens": 62
+ }
+}

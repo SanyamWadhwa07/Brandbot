@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: missed the first half of the game. Any update on the status of why the nbc stream of ND vs WF isn’t working?\n    brand: So sorry about that, Ryan! Our team has reached out for insight. For now, try using the network's app: <link>\n\ncustomer: I just lost half of my channels to include TNT, USA, and History.\n    brand: Yikes! Sorry for the delay—are they still missing now? If so, try a powercycle (<link> Any better?\n\ncustomer: Would be great to have AMC before The Walking Dead on Sunday! That and BBC America only 2 channels missing.\n    brand: We hear you there, Todd! We don't have the rights at the moment, but we'll definitely pass your suggestions along to the team.\n\ncustomer: I want Hulu Live TV, but Hulu Premium streams poorly compared to #Amazon, #Netflix and #YouTube. Why? And pls don't blame my network.\n    brand: Hey, Charles! We'd love to help you enjoy a smooth streaming experience. What device are you using? Try: <link>\n\ncustomer: why did the stream for OU-Tech just disappear?\n    brand: Sorry for the delay! This may be related to an issue we're currently investigating. For now, try: <link>\n\nCustomer message:\ntrying to watch Auburn vs. Georgia on HuluLive TV on CBS. It keeps saying part if the stream is missing. Hard-wired X-Box. Other channels good. Ideas?\n\nDraft reply:\nSo sorry about that, Ryan! Our team has reached out for insight. For now, try using the network's app: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name, Ryan, instead of addressing the current user.\"\n}",
+  "prompt_tokens": 591,
+  "completion_tokens": 62
+ }
+}

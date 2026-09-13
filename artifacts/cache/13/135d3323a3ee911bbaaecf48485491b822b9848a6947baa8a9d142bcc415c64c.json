@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: live tv streaming is buffering nonstop. I am hard wired.\n    brand: Oh no! Let's see if these help, Daniel: <link> If it continues, let us know which devices are having trouble.\n\n[1] customer: you need to get this buffering under control. My internet is perfect, your live tv sucks and I will be cancelling if it isn’t fixed.\n    brand: We'd hate to lose you, Karyn! 😭 Try: <link> If that doesn't resolve it, let us know which devices you're using.\n\n[2] customer: live tv buffering is making Hulu unwatchable! Every device, every live event. Only Hulu.\n    brand: Oh no! That's so frustrating. Let's give the steps for your device here a try: <link> Any improvement?\n\n[3] customer: so live tv keeps buffering and jumping back. I can’t watch my shows properly....\n    brand: Apologies, Nicole! Our team has since resolved this issue: <link> Thanks for bearing with us!\n\n[4] customer: You’re live tv feeds are terrible. Keeps buffering every 3 seconds. It’s not my internet connection either. Disappointed I wasted $59.\n    brand: Sorry, Brian! There was a Live TV issue yesterday, but it's now fixed. Let us know if you're stilling experiencing trouble.\n\nNew message:\nlive tv buffering is a joke. You’re gonna force me back to the dark side of cable",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that, friend! 😞 Try these steps: <link>. If it’s still lagging, let us know which device you’re using so we can dig deeper.\",\"used\":[0,1,2,3,4]}",
+  "prompt_tokens": 546,
+  "completion_tokens": 115
+ }
+}

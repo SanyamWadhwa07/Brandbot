@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I want Hulu to auto play the next episode of the show I’m watching. I don’t want it to auto play an entirely different show. Plz fix\n    brand: Sorry for any trouble! Can you tell us which device you were on, and what show/ep you were watching and what show/ep played next?\n\ncustomer: If you really want to fix it 1. Set autoplay to stop after end of series available episodes. 2. After a show, bounce back to home screen. <link>\n    brand: We appreciate the requests! We'll share this with our developers while we work to implement feedback: <link>\n\ncustomer: why can't I choose an episode instead of watching what is next.in the series??? maybe I like re-watching some episodes.\n    brand: You can definitely re-watch previously streamed episodes. On a Roku? If so, press * &amp; select details for an episode listing.\n\ncustomer: When watching HULU on my iPhone, the closed captioning turns itself on when an episode of Will and Grace ends and the next episode plays automatically. How can this be avoided?\n    brand: Hi, Holly! If you select the gear icon during playback, are cc's off? If so, try uninstalling/reinstalling Hulu Any change?\n\ncustomer: when I’m watching a TV series on my iPad why does it repeat the same episode and not play the next episode automatically?\n    brand: That shouldn't be happening! Try powering down your iPad for a few mins as well as: <link> Any change?\n\nCustomer message:\ncan y'all just automatically play the next episode in the series once the credits appear!?!? bc me doing it manually puts a damper in my whole benge watching lazy flow i have going on. thx.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and effectively gathers necessary information to troubleshoot.\"\n}",
+  "prompt_tokens": 634,
+  "completion_tokens": 61
+ }
+}

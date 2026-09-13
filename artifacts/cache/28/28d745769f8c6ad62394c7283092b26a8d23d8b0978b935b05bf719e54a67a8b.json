@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why isn’t my @115940 working?!\n    brand: Yikes! What specific trouble are you having and which device is in use? If it's tech related, try: <link>\n\ncustomer: When is @115940 live going to be available on my Samsung 😭😭\n    brand: Hey Natalie! No release date to share at this time, but keep an eye on: <link> Our team is working on it!\n\ncustomer: So I switched to @115940 live and I keep having issues.... may have to go back to Sling. I just want my HGTV😤\n    brand: Sorry, Holly! We understand where you're coming from and wanted to apologize for the trouble. This issue should now be resolved!\n\ncustomer: Why doesn’t @115940 have #Riverdale?! 🙄😔\n    brand: Hey Brittany! We have the rights to stream Riverdale on Hulu with Live TV: <link> We'll share your interest!\n\ncustomer: So if @115940 could just put #HannahMontana on their site that would be great 🙄\n    brand: Hey there! We're always looking to add content that our viewers want to see, so we'll share your request with our team. 💜\n\nCustomer message:\nI LOVE 💛 my #iPhoneX but I’ve seen the recent news about #HULUXSPRINT how do I get that? I would love #Hulu @115940 💚💛\n\nDraft reply:\nYikes! What specific trouble are you having and which device is in use? If it's tech related, try: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's question about a specific promotion and provides an irrelevant troubleshooting response.\"\n}",
+  "prompt_tokens": 596,
+  "completion_tokens": 64
+ }
+}

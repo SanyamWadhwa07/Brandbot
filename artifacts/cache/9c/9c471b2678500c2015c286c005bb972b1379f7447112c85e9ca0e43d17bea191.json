@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I’m having major Hulu problems\n    brand: Hulu here! Still having trouble? If so, try: <link> If that's no help, chat/call in: <link>\n\n[1] customer: I have a problem! Can some one DM me?\n    brand: We'd love to help, so let us know more details! For 1:1 support, please reach out by phone or chat: <link>\n\n[2] customer: How to make an awful day even worse: My @115940 refuses to work\n    brand: That's no good! Which device do you use? Please try a quick device+modem/reboot: <link> Any change after?\n\n[3] customer: Live has been terrible lately. <link>\n    brand: Oh no! Is this on Fire Stick? Which channel was being viewed? If you try a quick reboot of the Fire Stick+modem, any change?\n\n[4] customer: Man, I thought Sling was bad, but they've got nothing on @115940 crashing my goddamn TV. I'm cancelling that shit.\n    brand: Sorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>\n\nNew message:\nI have a terrible problem",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"answerable\": true,\n  \"reply\": \"We’re sorry you’re having trouble. Could you share more details about the issue? For 1:1 help, you can also reach us by phone or chat: <link>\",\n  \"used\": [1]\n}",
+  "prompt_tokens": 511,
+  "completion_tokens": 134
+ }
+}

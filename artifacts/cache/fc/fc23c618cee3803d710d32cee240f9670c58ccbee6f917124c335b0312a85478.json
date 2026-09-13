@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: my app keeps doing this <link>\n    brand: Uh oh! Please try: <link> If it continues, contact us here: <link> for further support.\n\n[1] customer: here is the message I keep getting <link>\n    brand: Apologies for the delay. If you're still running into this error, please contact: <link> for expedited help!\n\n[2] customer: I keep getting this message <link>\n    brand: Yikes! If the error is still present, please try: <link> &amp; follow up w/ us here ➡️ <link>\n\n[3] customer: this has been happening for days now with my Hulu app! What’s up? <link>\n    brand: Hey Jorge! Check to see if an app update is available. That should fix this! Also check out: <link>\n\n[4] customer: keep being Getting this on Chromecast. Rebooted tried multiple devices. Outage? <link>\n    brand: Sorry, Doug! We just sent out a fix for this error on Chromecast, so please try rebooting. Thanks for bearing with us!\n\nNew message:\numm on the iphone and this kept popping up <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Uh oh! Please try: <link> If it continues, contact us here: <link> for further support.\",\"used\":[0]}",
+  "prompt_tokens": 498,
+  "completion_tokens": 98
+ }
+}

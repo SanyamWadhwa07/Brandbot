@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: at least 3 times now, we have watched a movie but I️t stops loading the last 5 minutes of the movie. WiFi is not the problem\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem along with: <link>\n\n[1] customer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\n[2] customer: Why the hell does Hulu keep cutting out and reloading every time I try to watch The Good Place and Superstore?\n    brand: Sorry about that! On what device is this happening? Do any errors pop up? Please start with these steps: <link>\n\n[3] customer: I've been trying to load Hulu up on our Samsung Smart TV, but it keeps reloading and starting over before it gets completely in. It's groundhog day all up in here doing the same reload over and over again. Other apps work, just not Hulu. What could be our problem?\n    brand: Sorry to hear this, Megan! It sounds like something we've been looking into. If you unplug the TV for 2-3 mins, will it load?\n\n[4] customer: hello?! Is Hulu down? We have been trying for the past 30 minutes to use it after pausing a movie and it’s down.\n    brand: Apologies! We are looking into an issue at this time. Keep tabs here for updates: <link>\n\nNew message:\nI returned to finish movie and It's the *Leesa*mattress spot that gets hung up. I kept reloading till the spot finished to get through and back to movie.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry about that! Which device are you using? Please try a quick reboot of your device and modem, then follow these steps: <link>\",\"used\":[0]}",
+  "prompt_tokens": 646,
+  "completion_tokens": 104
+ }
+}

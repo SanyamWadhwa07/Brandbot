@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: My iPhone app won’t play video anymore. I select the vid then it crashes. Tried un/reinstalling app, nothin works. Help!\n    brand: Sorry to hear that, Robin! Let's see if we can help. Try out these steps: <link> and <link>\n\ncustomer: Please fix the Hulu app for @115821 Fire stick. I have to repeatedly reload the app and my video EVERY time I use it. It take about 10 minutes before any video will play.\n    brand: Oh no! 😔 Let's see if we can improve playback w/: <link> If not, reach out here: <link>\n\ncustomer: PS3 app is stuck on rewind when trying to play any videos. Using premium if that makes a difference.\n    brand: Uh oh! Please work through these steps: <link> If the issue persists, mind sharing a video of the behavior?\n\ncustomer: your Roku app is broken. Everytime I start it to watch a show, 1 min in and it hard resets my tv, every single time. I've uninstalled and reinstalled multiple times\n    brand: Sorry, Doug! Do you get an error when this happen? Does a specific ad trigger this? Try working through: <link>\n\ncustomer: Hulu freezes every time a Google pixel ad is on not allowing me to watch anything. 2 days of plugging/unplugging &amp; restarting.\n    brand: Apologies for the trouble, Matt! We're investigating. Call/chat and we'll pass along your specifics: <link>\n\nCustomer message:\non my windows app, the screen will flash over and over \"unable to play video\" (or something I can't read it, it flickers so quickly). My app is up to date, my computer is up to date i've tried reinstalling it, etc. still happens.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer already specified they are using the Windows app, making the question redundant and unhelpful.\"\n}",
+  "prompt_tokens": 656,
+  "completion_tokens": 64
+ }
+}

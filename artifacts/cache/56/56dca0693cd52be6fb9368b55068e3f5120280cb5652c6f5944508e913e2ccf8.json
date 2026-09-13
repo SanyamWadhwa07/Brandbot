@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: just fyi, watching the World Series has been impossible tonight. Constant freezes on both iOS and Safari on Mac.\n    brand: So sorry for the delay! If this reoccurs, try steps from: <link> If no luck, call/chat: <link>\n\n[1] customer: Hulu App is junk. I watch less than 30 seconds, video goes blank green and audio continues. This happens every show/movie.\n    brand: Oh no! Is this happening on a Fire TV device by chance? If so, we're looking into this. Try switching out the HDMI port!\n\n[2] customer: Come on @115940 how are we supposed to binge watch Disneys Fairy Tale Weddings and eat our feelings in ice cream when theres only one episode?\n    brand: The 7-episode docuseries is set to premiere next Spring. The special we have up currently is what sparked the magic!\n\n[3] customer: your stream sucks. Trying to watch the Sixers tonight. Buffering is always coming up.\n    brand: Sorry for the trouble, Vince! Call/chat if troubleshooting (<link> doesn't resolve: <link>\n\n[4] customer: Subtitles for Chance S2:E1 are messed up - they're like 5 min off - Basically impossible to watch for people that need them.\n    brand: Thanks for pointing this out, Eliot! Please let us know the device you're using so we can attempt to reproduce this on our end.\n\nNew message:\nLooking for something to watch on Netflix, Hulu or Amazon will be the death of me and now my snacks are cold.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 574,
+  "completion_tokens": 70
+ }
+}

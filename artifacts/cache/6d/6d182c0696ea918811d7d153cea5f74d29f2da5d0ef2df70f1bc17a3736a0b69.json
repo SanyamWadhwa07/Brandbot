@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: live is this the peak of performance? I can't watch three plays of a football game without connection error. Please advise\n    brand: Oh no! Which device do you use? Which specific game/channel is affected? If you try a quick device+modem reboot, any change?\n\n[1] customer: streaming “live” is particularly bad during football games 6 weeks in.\n    brand: Sorry for this experience! Which device do you use+which game/channel is affected? For now, try a quick device+modem reboot\n\n[2] customer: 2 night in a row with problems in the Cubs game. Tonight it buffers every 30 seconds. Tested connection and it is fine.\n    brand: Apologies! We know how important October baseball is. Notice any improvement after working through: <link>\n\n[3] customer: really don't want to have to go back to Comcast, but why is the connection so poor every football Sunday?!?! 😩\n    brand: We hope you stick with us, Kelly! We did encounter an interruption yesterday AM, but we fixed it ASAP. Let us know if it reoccurs.\n\n[4] customer: Welp @115940 only last so long...there's no point in having it if I can't watch NFL football.\n    brand: Uh oh! What game are you trying to catch? Is it not airing on any of your available networks (<link>\n\nNew message:\nis the connection always this bad during every single football game? I’ve literally only seen 3 playsbin about the last 4-5 minutes",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry you’re seeing this again! Which device are you on and which game/channel? Try a quick device+modem reboot and let us know if it improves.\",\"used\":[0,1]}",
+  "prompt_tokens": 570,
+  "completion_tokens": 108
+ }
+}

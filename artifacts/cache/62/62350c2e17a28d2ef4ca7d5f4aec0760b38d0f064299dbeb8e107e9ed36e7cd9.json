@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Now I can’t even open Hulu. Why am I paying for this? <link>\n    brand: Sorry for the trouble--this is likely related to: <link> Thanks for bearing with us!\n\ncustomer: THIS is getting really REALLY very frustrating with the service I'm paying for!!! <link>\n    brand: Oh no, Bridget! We're truly sorry to hear of the trouble you experienced, and we'd love to help. Try: <link> ✅\n\ncustomer: I’ll look into it. Thank you <link>\n    brand: You're welcome. 🤗 We also have further steps for phones at: <link> and <link>\n\ncustomer: broooo. C'mon what am I paying for??? <link>\n    brand: Let's see if we can help! Which device is this? Try checking for any app updates, and these steps: <link>\n\ncustomer: No , this helps a lot . Thank you ! <link>\n    brand: Our pleasure! If you happen to need anything else, just @ us, we've got you covered. #happystreaming 🙌🏾\n\nCustomer message:\npaying for it but can’t use it 😑😑😑 Can I get some help <link>\n\nDraft reply:\nSorry for the trouble--this is likely related to: <link> Thanks for bearing with us!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's issue appropriately.\"\n}",
+  "prompt_tokens": 523,
+  "completion_tokens": 61
+ }
+}

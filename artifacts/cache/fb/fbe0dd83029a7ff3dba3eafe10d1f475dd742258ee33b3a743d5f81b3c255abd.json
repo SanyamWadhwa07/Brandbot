@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I have Hulu live tv and some of the sporting events are cut short is that something implemented or is something wrong.\n    brand: Hi! If you accessed the event from My Stuff, try heading directly to the live network page. It should still be airing!\n\ncustomer: Cubs Dodgers isn’t working. The only reason I subscribed is live sports. Get it together please.\n    brand: Sorry about that, Tex! The Cubs/Dodgers NLCS game has since been restored: <link>\n\ncustomer: the reason I have Hulu is so I can stream live tv and half the time your games never work. Can’t watch the #NEvsDEN. Do you know when it will be back up?\n    brand: Sorry for the delay, Cait! Our team became aware that an issue was affecting some NBC streams and are investigating the cause.\n\ncustomer: why is it that every time I try to watch a live Predators game in progress it starts from the beginning and I have to fast forward?!\n    brand: Sorry, Michael! We're looking into this on our end. We'd love to grab more details from you here: <link>\n\ncustomer: TV is really crappy right now. Can’t seem to watch a live sporting event without tons of issues.\n    brand: We want to help, Jeremiah! Which network are you watching and on which device? Start with: <link>\n\nCustomer message:\nwhy does Hulu play live sporting events from the beginning? Cancelling my account in favor of YouTube TV, which recognizes live events properly.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and appropriately asks for device details to troubleshoot.\"\n}",
+  "prompt_tokens": 575,
+  "completion_tokens": 62
+ }
+}

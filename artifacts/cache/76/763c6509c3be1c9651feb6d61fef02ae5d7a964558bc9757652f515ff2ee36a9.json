@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I keep getting a loading error on PlayStation 4. I have reset my console and uninstalled and reinstalled the app.\n    brand: Apologies! This issue is being investigated. To collect more info to share w/our team, please chat w/ us: <link>\n\ncustomer: updated app now I get load error for past 3 days!\n    brand: Oh no! What device are you using and what's the exact error? For now, try the steps here: <link> Any change?\n\ncustomer: I can't get the PlayStation 4 app to load up. It keeps telling me there's a loading error. Help please\n    brand: Oh no! Try these steps: <link> and reach out here: <link> if this behavior persists.\n\ncustomer: 2 days of this loading error \"Hulu has encountered an issue. Please try again later.\" What the?\n    brand: Sorry! If the error persists, try: <link> Should those not improve, call/chat ➡️ <link>\n\ncustomer: Hi @115940 your app isn't loading on my TV and it's been 2 days .. I can't handle this separation I need my shows 😭 #foreverloading\n    brand: Yikes! What device are you using? If a smart TV, let us know the brand and model number. For now, try: <link>\n\nCustomer message:\nstill getting loading error. Had it for four days now. Reinstalled app and everything. Help.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions and appropriately asks for the device to troubleshoot further.\"\n}",
+  "prompt_tokens": 576,
+  "completion_tokens": 62
+ }
+}

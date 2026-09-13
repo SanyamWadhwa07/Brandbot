@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Well @115940 isn't the answer. Damn thing keeps giving a playback error. Not continuing after my free week. Might just cancel tonight.\n    brand: Sorry to hear that, David! Which device(s) are you using to stream? Any specific network? Try out: <link>\n\n[1] customer: Either @116136 has started throttling my internet speed, or @115940 has bad servers, or gremlins are in my router. Since last week, Hulu keeps pausing for 15 seconds at a time on my smart TV. Seriously annoying.\n    brand: Apologies, Raechel! What's the brand and model number of your TV? Do any errors pop up? For now, try: <link>\n\n[2] customer: Hey @115940 when will you pick up Season 4 of @222857 so a girl can finish her binging? #Thanks <link>\n    brand: Hey Lacy! We don't have a release date to share just yet, but we'll let our team know you're anxious to view more eps. 💚\n\n[3] customer: All I want to do is watch some shit on @115940 but I experience playback failure every 5 goddamn minutes 🙃\n    brand: Uh oh! Is this during live TV or on-demand shows? What device do you use? Let's start with these: <link>\n\n[4] customer: Guess I can't watch @115940 when I'm out of town... #lameAF <link>\n    brand: 1/2) Sorry for the trouble! To access your Hulu w/Live TV subscription when on the go, you 1st need to connect the mobile...\n\nNew message:\nWhen you have a 5 day weekend and @115940 @135670 throttle your binge by slow releasing @136759... Hope I remember to watch the rest 😂 <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Can you tell us which device you’re using and any error messages you see? That’ll help us troubleshoot the slowdown. In the meantime, try these steps: <link>\",\"used\":[0,3]}",
+  "prompt_tokens": 632,
+  "completion_tokens": 138
+ }
+}

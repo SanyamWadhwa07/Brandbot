@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: will the new season of @160679 be available??\n    brand: In the past, we've received the latest a bit after the next starts airing. You can view Cult eps live with: <link>\n\ncustomer: Dear @115940 can you guys pls put recent seasons of @44481 &amp; add #TeenMom_OG pls. Thank you\n    brand: Hi there! The most recent season of Catfish is currently on Hulu: <link> We'll share your request for Teen Mom.\n\ncustomer: when will all 5 seasons of @12209 be added 😭😭😭🙏🙏🙏\n    brand: Sorry for the delay. We don't have any news to share yet. We will contact Michael to see if he can break the episodes into Hulu.\n\ncustomer: I would very much like the new season of Nathan For You to be on @115940, please and thank you.\n    brand: Thanks for writing us, Tony! We're always expanding our content library, and would love to pass along this request for you. 👍\n\ncustomer: So I got hooked on Homeland, just to find out that I can't watch past season 4 with y'all. Season 7 is slated to start sometime in early 2018....so what are the chances of season 5 &amp; 6 getting added soon?\n    brand: Want to catch up on the rest of Homeland today? All seasons are available with the SHOWTIME Add-on (<link>\n\nCustomer message:\nwill season6 of @750058 be added to #Hulu anytime soon. 🤔\n\nDraft reply:\nIn the past, we've received the latest a bit after the next starts airing. You can view Cult eps live with: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft references the wrong show and provides irrelevant information about Cult instead of the requested show.\"\n}",
+  "prompt_tokens": 622,
+  "completion_tokens": 63
+ }
+}

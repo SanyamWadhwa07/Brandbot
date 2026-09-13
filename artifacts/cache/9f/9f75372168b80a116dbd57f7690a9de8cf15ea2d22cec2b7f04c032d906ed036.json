@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Bruh @115940 is robbing me!! I cancelled my account 2 months ago and their still charging me &amp; It wont let me sign in or recover my password!!\n    brand: Sorry for any unexpected charges! Call us from the # on this page so we can take a look: <link>\n\ncustomer: Been trying to delete my @115940 account all day.. they ain’t going for it.\n    brand: We're sad to see you go! To cancel your account: <link> To delete your account: <link>\n\ncustomer: i have tried deleting my @115940 account for a month or so now, everytime i try @115940 tries to put a virus on my computer, everytime i call i\n    brand: Hello! We've been doing some digging on our end and believe we've tracked down your account. Here's what we found... 1/3\n\ncustomer: Man, I thought Sling was bad, but they've got nothing on @115940 crashing my goddamn TV. I'm cancelling that shit.\n    brand: Sorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>\n\ncustomer: Sometimes I wonder why I have a @115940 account if shows never load! Even when I have full internet bars!!!\n    brand: Sorry to hear you were having trouble! If you still need a hand, chat w/ us here: <link> for 1:1 support!👍🏽\n\nCustomer message:\nHey @116602. @115940 deleted my girlfriend's account because she was constantly having trouble with her account. You guys wouldn't ever do anything like that right?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's specific question about account deletion policies and asks an irrelevant troubleshooting question.\"\n}",
+  "prompt_tokens": 646,
+  "completion_tokens": 65
+ }
+}

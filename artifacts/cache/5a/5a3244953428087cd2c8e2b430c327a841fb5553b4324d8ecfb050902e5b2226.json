@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What is the deal with Fox News always buffering. It doesn't happen on other live streams.\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?\n\ncustomer: So frustrated watching the Ohio State - Penn State game on Hulu Live TV last night. @115940 Horrible buffering, app jumping around - painful.\n    brand: So sorry for the trouble/frustration! Our team investigated the live playback errors this weekend—this should now be resolved!\n\ncustomer: Hulu live has been almost unwatchable tonight with constant buffering and skipping back to beginning/middle of game.\n    brand: Sorry about that! We experienced an outage last night that affected live streaming but this has now been resolved.\n\ncustomer: why is your Live TV streaming continually buffering? It is impossible to watch the Cubs game right now. My isp is 250+mbps d/l <link>\n    brand: Our apologies, Chris! We'd love to help. Just let us know which devices are having the trouble: <link> 👍\n\ncustomer: The buffering issues during tonight’s @176804 vs @117118 game is absolutely horrible. Really ruining the experience.\n    brand: Our apologies, Mike! Rest assured we're actively investigating. In the meantime, these might help: <link>\n\nCustomer message:\nCBS in Madison WI is constantly buffering but all other channels, including Fox 47 are fine. Seems to occur when a big game is on, which sucks because I want to watch that game lol\n\nDraft reply:\nOh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of troubleshooting specific channel issues by asking for device information.\"\n}",
+  "prompt_tokens": 618,
+  "completion_tokens": 62
+ }
+}

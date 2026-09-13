@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Why is that I can make multiple profiles yet only 1 person at a time can use your service?I can run 5 profiles all @ once on @116602\n    brand: Sorry for any disappointment! Our base plan allows for one stream at a time due to rights: <link>\n\n[1] customer: I can only have a single stream at a time?\n    brand: Hey Jason! Our base plan &amp; No Commercials add-on include 1 stream. Live TV includes 2. More info: <link>\n\n[2] customer: I understand that I can only stream on one device with Hulu live TV but will I still have multiple streams on Reg Hulu?\n    brand: Hey, Jim! You can actually stream from up to 2 device at the same time with a Live TV plan. Check out: <link>\n\n[3] customer: I'm the only profile on my account. So with 1 profile, why must I choose my profile at every launch on @13691 ?\n    brand: Sorry for any frustrations! Currently, you'll be prompted to select a profile but we'll be sure to share your feedback.\n\n[4] customer: if I signed up for Hulu Live Tv would I have the streaming with it also? Or would it be separate?\n    brand: Hey there! Hulu with Live TV includes the Hulu library (<link> along with: <link> 💚\n\nNew message:\nif my account has 2 profiles on it, does that mean each profile can stream at the same time? Or is the “one stream” thing cemented for your entire account/all profiles?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey! Streams are tied to the account, not individual profiles. Our base plan lets only one stream at a time, while a Live TV plan lets up to 2 simultaneous streams across any profiles. More details: <link>\",\"used\":[0,1,2]}",
+  "prompt_tokens": 579,
+  "completion_tokens": 134
+ }
+}

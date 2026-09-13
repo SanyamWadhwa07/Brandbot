@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: ....your chat feature sucks....been waiting for an agent to connect for like 20 hours now.... <link>\n    brand: Yikes! Sorry for the delay. If still not resolved, mind giving us a call here: <link> We'd love to help!\n\ncustomer: I’ve been waiting for almost 40 minutes for chat support. Still no agent. The phone wait is over 1 hour\n    brand: Apologies for the delay, Susan. That sounds really frustrating. Were you able to eventually get through and get some help? 🙂\n\ncustomer: your customer support is awful. I’ve been waiting for almost an hour to be connected to an agent 🙄 waste of time and money. <link>\n    brand: Sorry for any frustration, Jessica! We'd love to lend hand, what's going on?\n\ncustomer: what's up with @165284 being unavailable and me waiting 10 minutes in a chat queue waiting for an agent?\n    brand: Oh no! There was an earlier issue with the feed--are you still having trouble? If so, contact us: <link> .\n\ncustomer: update: now agent's are unavailable. Is \"24/7 chat support\" fake news? Still love you though.\n    brand: Apologies for the continued trouble! Ad preferences can be changed at: <link> 💚\n\nCustomer message:\nis your chat support not working? been waiting to be connected to an agent for probably 20min...\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with the brand's tone and asks a relevant clarifying question to assist.\"\n}",
+  "prompt_tokens": 573,
+  "completion_tokens": 64
+ }
+}

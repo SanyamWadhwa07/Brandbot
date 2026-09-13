@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: your app on Roku keeps crashing every 5 mins. Can't even go through any show without getting interrupted for like 10 times!\n    brand: Yikes! We want to help. Try running through these steps: <link> and <link> Better after that?\n\ncustomer: hey My Hulu app isn’t working I’ll be able to log in and click my show but when I click an episode on any show it closes my app out.\n    brand: Yikes! Sorry to hear this, Micah. What device were you using to stream from? Try: <link> Any improvement?\n\ncustomer: Why is @115940 so glitchy?? I have to reopen the app like 3 times just to watch 1 episode of a show. #annoying #hulu #glitchy\n    brand: Oh no! Sorry for the delay. Let us know what device and we'll offer some specific tips. For now, try: <link>\n\ncustomer: your app for AppleTV and Amazon FireTV have been sooooooooo glitchy since the fancy new start page. So so very frustrating.\n    brand: Oh no! What kind of trouble are you running into, Jill? We're here to help or pass along feedback to our team for review. 💚\n\ncustomer: having issues lately playing back new shows like Mindy and Good Place. Ads play then Hulu crashes and restarts\n    brand: Ah, weird! What device is this happening on? Does it seem like only new eps are affected? Or maybe specific ads? Let us know!\n\nCustomer message:\nwhat’s with all the glitches lately? Commercials are bad enough, but it especially sucks when they close down and restart the app, and I can’t even watch my show.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies, addresses the issue, and asks for necessary device information.\"\n}",
+  "prompt_tokens": 625,
+  "completion_tokens": 64
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Umm why doesn’t @115940 have the finale of Will and Grace? There’s 2 episodes missing from season 8.\n    brand: We do! Catch up on those episodes here: <link> and here: <link> Happy streaming!\n\ncustomer: So @115940 doesn't have the original Will and Grace finale as part of season 8 and instead relegated it to the \"clips\" section.\n    brand: Not to worry! You can find the two part finale under the \"Clips\" section: <link> We hope this helps!\n\ncustomer: Why aren't the last two episodes of season 8 of #WillandGrace on @115940 ?\n    brand: Hey, Breana! The 2-part finale is under Clips/Extras, depending on your device. Let us know if there's any trouble from there!\n\ncustomer: where is the season 8 finale of Will &amp; Grace!!!! I MUST KNOW!! @1662 @119737\n    brand: Apologies! The 2nd half of the finale is located under Extras or Clips. If autoplay is enabled, it should play after the 1st half.\n\ncustomer: .@115940 Why are Will &amp; Grace season 8 finales missing from Hulu??? What the fluff?\n    brand: Don't worry, honey! We've got them. Head to the Clips or Extras section (depending on your device) to find the 2-part finale.\n\nCustomer message:\nOkay but WHY is the season 8 finale oh Will and Grace not on Hulu with the rest? @115940?????????????\n\nDraft reply:\nWe do! Catch up on those episodes here: <link> and here: <link> Happy streaming!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses and provides the requested links to the missing episodes.\"\n}",
+  "prompt_tokens": 625,
+  "completion_tokens": 62
+ }
+}

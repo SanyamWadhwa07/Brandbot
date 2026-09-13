@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: your smart tv app is awful. I can't watch more than a few minutes before i get an error. Might as well unsub!\n    brand: Don't go, Eric! We'd love to help. What brand is your smart TV? What's the wording of the error? Try: <link>\n\ncustomer: The Hulu iPad app is a pain to use. Keeping it simple: How do I see episode descriptions? Can I turn off auto play?\n    brand: Hi! To see an ep description, select \"...\" over the top righthand side of the thumbnail. For autoplay: <link>\n\ncustomer: hey My Hulu app isn’t working I’ll be able to log in and click my show but when I click an episode on any show it closes my app out.\n    brand: Yikes! Sorry to hear this, Micah. What device were you using to stream from? Try: <link> Any improvement?\n\ncustomer: hey my dads pissed because the app changed and he cant select which episode he wants to watch. Pls change it back\n    brand: Tell your dad that we'll share his feedback! Each series page should have an \"episodes\" tab if he'd like to pick and choose.\n\ncustomer: when I click on a show it used to take me the episode list. Now the list I want is 3 clicks in, why make it harder to use?\n    brand: We'll share your feedback so we may continue making enhancements. For help navigating, please see: <link>\n\nCustomer message:\nchoosing an episode of a show is way too many clicks. Also the app that comes on smart tvs doesn't let us choose user accounts?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft fails to address the user's specific question regarding user account selection on smart TVs.\"\n}",
+  "prompt_tokens": 611,
+  "completion_tokens": 64
+ }
+}

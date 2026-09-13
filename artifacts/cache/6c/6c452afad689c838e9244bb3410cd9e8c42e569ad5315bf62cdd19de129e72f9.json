@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hi There. getting a lot of playback stuttering/pausing issues and video not loading issues. WHY!? I'm in Northeast PA. ☹️\n    brand: Sorry about that! Our team is checking things out. Please try a quick powercycle (<link> to reset things.\n\ncustomer: are there issues with your Xbox app lately? I get constant playback errors and it's touch and go if it gets past the ads.\n    brand: Oh no! Is this on Xbox One or 360? Do you specific error code? For now, please try out: <link>\n\ncustomer: The Good Doctor has not been working on my Hulu app for 3 days. Gives a playback error. Help?\n    brand: Oh no! Let's try: <link> <link> Call or chat if still occurring (<link>\n\ncustomer: pls fix the PS4 app. It freezes in the loading screen and I can't watch anything. I tried deleting and reinstalling but still\n    brand: Oh no! Sorry for the delay. Please let us know if you notice an improvement after applying these steps: <link> ✅\n\ncustomer: my Hulu app intermittently stops and starts. All other apps are working fine. Restarted as well. Streaming issue.\n    brand: Oh no! What device and content is this happening on? In the meantime, try these: <link>\n\nCustomer message:\nFor the last few weeks to a month I've been having playback issues. Lots of stuttering and stopping and I have to pause and rewind to resume playback as usual. This has happened on two different LG TVs and on the kindle app.\n\nDraft reply:\nSorry about that! Our team is checking things out. Please try a quick powercycle (<link> to reset things.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses and addresses the user's reported playback issues.\"\n}",
+  "prompt_tokens": 606,
+  "completion_tokens": 62
+ }
+}

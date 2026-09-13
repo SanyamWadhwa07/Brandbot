@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Finally got it. Was not straight forward. <link>\n    brand: Glad to hear you're back in business! Let us know if we can assist with anything else down the line. Happy streaming!\n\ncustomer: Mine is back up and working now! <link>\n    brand: Sorry for the delay! We're glad to hear that you're back up and streaming. If you happen to need us again, we'll be here. ✅\n\ncustomer: Whoa, Hulu! <link>\n    brand: That shouldn't be! Try clearing Safari's cache: <link> along w/: <link> Any improvement?\n\ncustomer: I'm good now. Thanks. The reply I got put me on the right track. <link>\n    brand: Glad to hear you were able to get back on track, Randy! If there is anything else we can do for you, don’t hesitate to reach out.\n\ncustomer: \"Utitilities\" <link>\n    brand: Oops! Thanks for bringing this up. It looks like we've already gotten it corrected. If you notice anything else, just let us know!💚\n\nCustomer message:\nWhat's done is done. <link>\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is a standard, polite troubleshooting inquiry consistent with the brand's established support tone.\"\n}",
+  "prompt_tokens": 510,
+  "completion_tokens": 64
+ }
+}

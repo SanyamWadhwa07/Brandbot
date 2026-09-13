@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Any word on when S3 of 12 Monkeys will be available?\n    brand: Hey there! No news yet, but we'll share the interest. Keep 12 Monkeys in Watchlist/My Stuff for updates. 💚\n\ncustomer: Season 12, Intervention 'Skyler and Jessa'. It's playing someone named Susie and needs to be fixed. Skyler episode is the best\n    brand: Thanks for bringing this to our attention. We reached out to the appropriate team for more insight on this episode.\n\ncustomer: is season 12 of The Real Housewives of Orange County going up?\n    brand: Hey there! We don't have S12 news to share at this time, but we'll let our content team know you're anxious to see it join us.\n\ncustomer: Getting Playback errors on IOS On Southpark Season 12 Ep. 1\n    brand: Aw man! Try checking for any app updates and these steps: <link> and <link> Better after that?\n\ncustomer: Is season 12 of IASIP available on Hulu? Cause if so it may be time for that free trial. 👀\n    brand: Sorry for the delay, Nicholas! In case you're still wondering, we do have S12. Start your trial here: <link>\n\nCustomer message:\nI JUST GOT A HULU SO I CAN WATCH NEW EPISODES OF SHAMELESS AND THEY DONT HAVE THE NEW EPISODES AND IM LIVID BECAUSE NOW IVE WASTED 12 DOLLARS\n\nDraft reply:\nHey there! No news yet, but we'll share the interest. Keep 12 Monkeys in Watchlist/My Stuff for updates. 💚",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft references the wrong show and fails to address the customer's specific complaint about Shameless.\"\n}",
+  "prompt_tokens": 596,
+  "completion_tokens": 65
+ }
+}

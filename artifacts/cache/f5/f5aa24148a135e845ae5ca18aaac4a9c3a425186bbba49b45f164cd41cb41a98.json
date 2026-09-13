@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: app for Samsung tv not streaming... why?\n    brand: Apologies! This is a known issue we're investigating. Please let us know if the following steps help: <link>\n\ncustomer: will you be offering 4K streaming on the new #appletv\n    brand: 4K streaming currently isn't supported on this device, but we'll definitely express your interest in seeing it in the future.\n\ncustomer: is there any way to stream a show within the app to a smart tv from an iPhone?\n    brand: Although we don't currently support HDMI or Airplay from phone to TV, you may be interested in Chromecast: <link>\n\ncustomer: streaming working on my phone, not on devices connected to the tv. Looking for FS1. Help? Go Sounders!\n    brand: Sorry about that, Chris! We experienced a brief issue that was resolved. If you still need a hand w/ the FS1 feed let us know!\n\ncustomer: I am not able to stream on any device. PC, phone, fire stick, Chromecast. Network is fine on my end. What is the issue?\n    brand: Apologies, Alexander! For each device try: <link> If no improvement chat w/ us here: <link>\n\nCustomer message:\nDo you offer 4K streaming? If yes via the Amazon Fire Tv device or built in app on Samsung tv? Thx\n\nDraft reply:\nApologies! This is a known issue we're investigating. Please let us know if the following steps help: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the 4K question and incorrectly treats it as a technical streaming issue.\"\n}",
+  "prompt_tokens": 560,
+  "completion_tokens": 63
+ }
+}

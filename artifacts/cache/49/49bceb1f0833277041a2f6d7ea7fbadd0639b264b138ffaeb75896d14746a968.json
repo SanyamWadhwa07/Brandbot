@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Is @115940 down? Just keeps ‘loading’ for me\n    brand: Hi! We just replied to: <link> Please try that. You can also reach us at this #: <link>\n\ncustomer: Is there a seriously large DDOS attack happening right now? @115940 (via iOS) is down and so is @115786 Live.\n    brand: Sorry, Matt! If you're seeing login or playback errors, we're looking into it: <link> Does rebooting help?\n\ncustomer: WOW @115940 is really killing me lately with the app's constant crashing and now I learn we wont get Rick and Morty S3?\n    brand: Sorry for any frustration, Drew! Our rights to Rick &amp; Morty typically only allow us to stream past seasons/episodes from the show\n\ncustomer: Man, I thought Sling was bad, but they've got nothing on @115940 crashing my goddamn TV. I'm cancelling that shit.\n    brand: Sorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>\n\ncustomer: Why am I getting this message only on my phone .@115940? Can watch on every other devise.\n    brand: Hulu here! For a list of supported devices check out: <link> Let us know if you have any further questions. 👍🏽\n\nCustomer message:\nIs everyone’s @115940 down or is it just mine?\n\nDraft reply:\nHi! We just replied to: <link> Please try that. You can also reach us at this #: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses to similar service outage inquiries.\"\n}",
+  "prompt_tokens": 603,
+  "completion_tokens": 58
+ }
+}

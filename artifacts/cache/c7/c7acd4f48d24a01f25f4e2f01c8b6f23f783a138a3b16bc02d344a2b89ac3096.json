@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Best @10392 game of the year and @115940 has had an error message up all night. Such a fucking shame.\n    brand: We wanted to reach out again and apologize for the inconvenience, Greg. We know this situation was not ideal. 🙁\n\ncustomer: My “live” @115940 is now showing OU/Tech game as 13-14 after restarting my AppleTV. It was 20-21 before restarting.\n    brand: Apologies for the trouble! Our team is working on resolving this, but try this workaround for now: <link>\n\ncustomer: Awesome. @115940 Live TV dropped the Hurricanes game, probably because of the OT exceeding alotted programming time.\n    brand: Apologies, Mike! If you head to Browse &gt; Networks &gt; A-Z the game should show up for you. We'll share your report with the team.\n\ncustomer: Come on @115940 Just because a rain delay, I can no longer watch the #PSU game.\n    brand: Ah, sorry about that! Try backing out and picking up the live feed from the network page. If no dice, try: <link>\n\ncustomer: Seriously though @115940 why does every @128832 playoff game, or in this case the World Series, have playback issues?!?! Literally every 2 min😡\n    brand: Sorry about last night, Cyanne! The issue we experienced has been resolved. We appreciate your patience &amp; hope you catch Game 5 w/us!\n\nCustomer message:\nHey @115940 why is the SEC championship game messing up so bad?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful, polite, and uses a standard troubleshooting approach consistent with past brand interactions.\"\n}",
+  "prompt_tokens": 623,
+  "completion_tokens": 64
+ }
+}

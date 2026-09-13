@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why does the NFL game go back to the 1st qtr after commercials?\n    brand: That shouldn't be! Which device are you on+which game? Were you watching live or is this happening on a recording?\n\ncustomer: the reason I have Hulu is so I can stream live tv and half the time your games never work. Can’t watch the #NEvsDEN. Do you know when it will be back up?\n    brand: Sorry for the delay, Cait! Our team became aware that an issue was affecting some NBC streams and are investigating the cause.\n\ncustomer: why is it that every time I try to watch a live Predators game in progress it starts from the beginning and I have to fast forward?!\n    brand: Sorry, Michael! We're looking into this on our end. We'd love to grab more details from you here: <link>\n\ncustomer: why can’t I just go to straight live tv? Why start at the beginning of a game and call the pregame advertisement?? #help\n    brand: Hi Leslie! Which device do you use? This may help us provide further insight or share the feedback.\n\ncustomer: why won’t NFL games broadcast?\n    brand: Sorry to hear this! Do you receive the channel live &amp; are you located in the area it's airing locally: <link> ?\n\nCustomer message:\nfirst World Series now SEC champ game... why??\n\nDraft reply:\nThat shouldn't be! Which device are you on+which game? Were you watching live or is this happening on a recording?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft uses a proven, effective response style from past interactions to troubleshoot the customer's issue.\"\n}",
+  "prompt_tokens": 565,
+  "completion_tokens": 65
+ }
+}

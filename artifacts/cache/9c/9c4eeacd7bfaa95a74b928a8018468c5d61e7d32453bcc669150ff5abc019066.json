@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why are some shows outlined in different colors, is a mark whether or not its safe to watch with kids or colorscheme of the thumbnail?\n    brand: Which specific shows did you notice a different color outline for, and on what device? We'll happily take a look on our end.\n\ncustomer: why do I have adds when I watch my shows when I pay for no adds?\n    brand: A few shows are not included in No Commercials: <link> You'll also see ads during live &amp; on-demand content.\n\ncustomer: tell me why I get an ad commercial, followed by the end credits of my show, then more ads? That’s just cruel. Be nice plz.\n    brand: Yikes! That seems odd. If you run into this again, please reach out here: <link> so we can investigate.\n\ncustomer: you really shouldn't autoplay sarah Silverman's new show after SNL when the first episode is full nudity. #notappropriate\n    brand: Sorry for any upset! Autoplay typically plays shows from similar genres—but we'll absolutely pass this on. Thanks for sharing!\n\ncustomer: why do I have ads on CBS shows when I pay for ad free?\n    brand: Do you have Hulu with Live TV perhaps? It's possible the shows you're watching are network on-demand: <link>\n\nCustomer message:\nHey. why does your shows, show adult explicit content during comercials, in kids shows? PLEASE STOP IT!\n\nDraft reply:\nWhich specific shows did you notice a different color outline for, and on what device? We'll happily take a look on our end.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft reply is completely irrelevant to the customer's complaint about inappropriate advertisements.\"\n}",
+  "prompt_tokens": 584,
+  "completion_tokens": 61
+ }
+}

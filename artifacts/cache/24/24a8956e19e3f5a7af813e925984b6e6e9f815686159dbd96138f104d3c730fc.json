@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: at least 3 times now, we have watched a movie but I️t stops loading the last 5 minutes of the movie. WiFi is not the problem\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem along with: <link>\n\ncustomer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\ncustomer: Why the hell does Hulu keep cutting out and reloading every time I try to watch The Good Place and Superstore?\n    brand: Sorry about that! On what device is this happening? Do any errors pop up? Please start with these steps: <link>\n\ncustomer: I've been trying to load Hulu up on our Samsung Smart TV, but it keeps reloading and starting over before it gets completely in. It's groundhog day all up in here doing the same reload over and over again. Other apps work, just not Hulu. What could be our problem?\n    brand: Sorry to hear this, Megan! It sounds like something we've been looking into. If you unplug the TV for 2-3 mins, will it load?\n\ncustomer: hello?! Is Hulu down? We have been trying for the past 30 minutes to use it after pausing a movie and it’s down.\n    brand: Apologies! We are looking into an issue at this time. Keep tabs here for updates: <link>\n\nCustomer message:\nI returned to finish movie and It's the *Leesa*mattress spot that gets hung up. I kept reloading till the spot finished to get through and back to movie.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of asking for the device to troubleshoot the playback issue.\"\n}",
+  "prompt_tokens": 649,
+  "completion_tokens": 62
+ }
+}

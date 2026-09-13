@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: My DVR is saying I have 45.9 hours left, but I only have one show recorded on both my sign ins. <link>\n    brand: Apologies for the delay, please call us/chat us so that we can take a closer look on our end: <link>\n\n[1] customer: Why do I only have 9 hrs DVR left when I deleted all recordings over 24 hours ago?\n    brand: Oh no! That doesn't sound right. We'll take a look! Please reach out here: <link> so we can investigate.\n\n[2] customer: where are recordings today?Storage now 25 hours of 50 where only 2 hours taken and 3 shows from today missing. Fix pls\n    brand: Yikes! We definitely want to take a look. Please contact us by phone or chat: <link> with content examples.\n\n[3] customer: Any word on if you’ll add more DVR storage space to the paid tier?? 500 hours would be perfect (unlimited would be nice too).\n    brand: Hey, Fred. No news to share regarding an increased storage limit for DVR at this time, but we'll definitely share the request! 👍🏽\n\n[4] customer: I have a 60 minute DVR recording and it’s mostly unwatchable because of missing sections <link>\n    brand: Apologies. We've shared the details w/our team. This is likely related to an issue earlier today: <link>\n\nNew message:\nwhyyy does my DVR say I only have 23 of 50 hours of space available when I only have 1.5 hours of recordings?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"That doesn’t look right. Please reach out via phone or chat so we can investigate your DVR storage: <link>\",\"used\":[0,1,2]}",
+  "prompt_tokens": 584,
+  "completion_tokens": 93
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Navigating the @115940 app during Chromecasting is damn near impossible. Too bad I have to do it all the time since it disconnects constantly\n    brand: That's not the experience we had hoped for! Are you casting w/ iOS or Android? Any errors? Check out: <link>\n\ncustomer: Why is my @115940 keep restarting in the middle of every show? Right before the ads start the app completely reboots. #soannoyed #whyyyandhelp\n    brand: Oh no! What device is in use? Any brand of ad that triggers this? Does an error pop up? For now, try: <link>\n\ncustomer: had a problem with @115940 constantly restarting during commercials on our Samsung tv. Exited out of the app and now it won't even load the homepage.\n    brand: Oh no! If no improvement after troubleshooting with: <link> please reach out here: <link> ✅\n\ncustomer: Anybody else having an issue with @115940 while playing ABC shows? I’m fucking sick of it\n    brand: Apologies! We'd love to help, so please let us know more details and the device in use. For now, try: <link>\n\ncustomer: Why is @115940 so glitchy?? I have to reopen the app like 3 times just to watch 1 episode of a show. #annoying #hulu #glitchy\n    brand: Oh no! Sorry for the delay. Let us know what device and we'll offer some specific tips. For now, try: <link>\n\nCustomer message:\nMy @115940 app on my @1647 tv decides to always “reload” in the middle of shows. It is the most annoying thing in the world. nothing wrong w my wifi either so dont try that 😒\n\nDraft reply:\nThat's not the experience we had hoped for! Are you casting w/ iOS or Android? Any errors? Check out: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft asks about casting, but the customer explicitly stated they are using a TV app.\"\n}",
+  "prompt_tokens": 676,
+  "completion_tokens": 63
+ }
+}

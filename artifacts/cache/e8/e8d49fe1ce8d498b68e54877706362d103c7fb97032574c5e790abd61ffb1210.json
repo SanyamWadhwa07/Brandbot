@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: your smart tv app is awful. I can't watch more than a few minutes before i get an error. Might as well unsub!\n    brand: Don't go, Eric! We'd love to help. What brand is your smart TV? What's the wording of the error? Try: <link>\n\n[1] customer: The Hulu iPad app is a pain to use. Keeping it simple: How do I see episode descriptions? Can I turn off auto play?\n    brand: Hi! To see an ep description, select \"...\" over the top righthand side of the thumbnail. For autoplay: <link>\n\n[2] customer: hey My Hulu app isn’t working I’ll be able to log in and click my show but when I click an episode on any show it closes my app out.\n    brand: Yikes! Sorry to hear this, Micah. What device were you using to stream from? Try: <link> Any improvement?\n\n[3] customer: hey my dads pissed because the app changed and he cant select which episode he wants to watch. Pls change it back\n    brand: Tell your dad that we'll share his feedback! Each series page should have an \"episodes\" tab if he'd like to pick and choose.\n\n[4] customer: when I click on a show it used to take me the episode list. Now the list I want is 3 clicks in, why make it harder to use?\n    brand: We'll share your feedback so we may continue making enhancements. For help navigating, please see: <link>\n\nNew message:\nchoosing an episode of a show is way too many clicks. Also the app that comes on smart tvs doesn't let us choose user accounts?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 597,
+  "completion_tokens": 99
+ }
+}

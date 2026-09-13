@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: WTF why isn't TBS working on the Hulu app\n    brand: Apologies! We are very sorry for the trouble with the feed last night. The issue has since been resolved: <link>\n\n[1] customer: how come Empire isn’t working on Hulu???\n    brand: Sorry, Brandon! What's the behavior you're running into? Which device are you using? For now, please try: <link>\n\n[2] customer: yooo why isn’t my account working?\n    brand: Yo! Not sure why but we'll figure it out! 👍🏽 Chat w/ us: <link> so we can gather more info from you.\n\n[3] customer: why is my Showtime not working?\n    brand: Sorry, Adam! Which device do you use &amp; what behavior are you running into w/SHOWTIME content? Try: <link>\n\n[4] customer: Sunday Night Football not working in Atlanta.\n    brand: Sorry about this Michael! Our team is looking into this now, but as a workaround, try utilizing: <link>\n\nNew message:\nwhy is NBC not working on Hulu Live",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 477,
+  "completion_tokens": 70
+ }
+}

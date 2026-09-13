@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why does connection stop every single time the Kevin Saves the World commercial ends?\n    brand: Apologies! We'd like to collect some details regarding this--please call us/chat us when possible: <link>\n\n[1] customer: Hulu, why do you not have the season finale of #RHOA ? It just goes from S9E19 to S9E21.\n    brand: Oh no! We've passed this information on to the team and they're looking into it. Hopefully we can get that updated soon! 🤞\n\n[2] customer: Hey @115940 why is the series finale for Will and Grace not available!?\n    brand: It is, Allyson! It's just in an odd spot. You can find the two part finale in the \"Clips\" section: <link> 😊\n\n[3] customer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\n[4] customer: Why does EVERY @122986 commercial cause my app to shutdown and restart?\n    brand: Sorry, Anne! We're looking into this issue on Samsung. We'd love to collect more info from you here: <link>\n\nNew message:\nWhy why must you put an end to #EastLosHigh",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 554,
+  "completion_tokens": 80
+ }
+}

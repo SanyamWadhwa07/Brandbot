@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: having trouble managing my iTunes subscription account. Can’t log into Hulu webpage to ask for help directly. Please DM me.\n    brand: Sorry to hear of the trouble, Stacey! For real-time help, please call this number in blue: <link> 📲 We'll help!\n\n[1] customer: I keep getting a “we have encountered a problem. Please try restarting the app.” Error. I’ve reset my Apple TV , and it didn’t help.\n    brand: Oh no! Try: <link> or <link> --including uninstalling/reinstalling our app. Any change after?\n\n[2] customer: my Hulu has not been working for 2 months either on Roku or iPhone app\n    brand: Oh no! Have you tried: <link> If yes, reach out to our phone/chat support teams: <link>\n\n[3] customer: my Hulu still isn’t working.. why\n    brand: Apologies, Chelsea! Try: <link> <link> Call/chat if not fixed (<link>\n\n[4] customer: hey I’m having trouble getting on #HULU on my #NintendoSwitch. It’s saying I need to do something about location? What’s that about? <link>\n    brand: Sorry about that! We're currently investigating this error message. We appreciate your patience as we work to resolve it.\n\nNew message:\nhaving trouble managing my DVR. How can I get some answers?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 545,
+  "completion_tokens": 45
+ }
+}

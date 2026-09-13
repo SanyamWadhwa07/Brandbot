@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: please add @13668, @122354 and @13669 to Hulu live\n    brand: Hi, Xavior! We're always looking to connect our viewers to as much of the content they love. We'll share your requests!\n\ncustomer: when do you plan on adding CBS to #livetv. It's a toss up between you and @127550\n    brand: It's available live in some areas! We're always working to expand—be sure to keep an eye on: <link>\n\ncustomer: I’d hate to go back to @115946 and @186141 but @115940 live isn’t cutting it on a @127972 4 Ultra.\n    brand: Our app is a bit more demanding due to technical differences. After change after: <link> including general steps?\n\ncustomer: What’s the point of having @115946 or @115940 live tv if that shit lags no matter if you have the best damn internet available??? So stupid 😡😒\n    brand: That's not what we like to hear about! Try working through: <link> to see if it smooths out playback.\n\ncustomer: when will you add @20517 channels to your live channels package?!? Like @30408 and @224379 !! I️ NEED @2443 <link>\n    brand: Good morning, Mark! We're always open to suggestions like this, so we'll be sure to pass those network requests along the the team.\n\nCustomer message:\nplease add #NFLRedZone @9833 @331517 to your live tv. This will make it too notch of the other guys. Oh and maybe @196559 please and thank you\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's request for new channels and asks an irrelevant question about their device.\"\n}",
+  "prompt_tokens": 669,
+  "completion_tokens": 65
+ }
+}

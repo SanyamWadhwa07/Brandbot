@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: My @115940 kicked me out and won’t let me log in. What gives?\n    brand: Sorry about that! Sounds like you were affected by: <link> If you're still running into trouble, let us know\n\ncustomer: Ummmm why did I just get kicked out &amp; logged off of @115940 on my Roku stick? Now it won't let me log back in.\n    brand: Sorry, April! We ran into a network issue this weekend, but things should be back up now. Please reboot and try again now.\n\ncustomer: Is Hulu down? I randomly got signed out while watching and now it won't let me login for a number of different reasons on Roku\n    brand: Sorry for the delay, Kayla! Still need help? Let's take a moment to work through: <link> &amp; keep us posted!\n\ncustomer: Hi i can't sign up i get this error : System is busy. Please try again later. fo an hour now\n    brand: Sorry for the trouble! This issue should now be resolved. If you're still unable to sign up, give us a 📞: <link>\n\ncustomer: Laptop/Win10-app-\"an error occurred while connecting to the server (SV!)-app Del&amp;Instld now can't log in-Call wait is 45 min?\n    brand: Sorry, Luis! We ran into an issue with Windows 10, but the issue is now resolved. Let us know if you have any other questions.\n\nCustomer message:\njust signed up, can’t log in. Get kicked out after 5 seconds. Please help this is incredibly frustrating.\n\nDraft reply:\nSorry about that! Sounds like you were affected by: <link> If you're still running into trouble, let us know",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft aligns with established brand tone and provides a consistent troubleshooting resource for login issues.\"\n}",
+  "prompt_tokens": 628,
+  "completion_tokens": 62
+ }
+}

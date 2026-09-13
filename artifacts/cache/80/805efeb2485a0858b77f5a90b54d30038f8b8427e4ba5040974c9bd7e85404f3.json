@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: all I want is unlimited screens and no commercials but I don’t wanna have live tv, is that possible?\n    brand: Unlimited Screens is only available w/our Live TV add-on, but we'll share the interest in offering it w/ on-demand plans!\n\n[1] customer: That being said, being able to use multiple screens (currently laptop, phone, tablet, and TV) is awesome. <link>\n    brand: Good news! Picture-in-picture is now avail. on supported iPads: <link> We'll share your feedback! 👍\n\n[2] customer: Can you please do something about the limit on screens you can stream to? I have a family of five and one or two screens don't work. I don't want to go back to @116602 . And no I don't want your live tv service. Please help\n    brand: Current licensing agreements allow multiple streams with our Live TV add-on: <link> We'll share your feedback!\n\n[3] customer: if we can have multiple profiles we should be able to view on multiple screens. I don’t need the live TV and I’ll pay extra!\n    brand: Hi again! Per our rights, base plan users can watch on one device at a time. A workaround is to sign up for a second base account.\n\n[4] customer: have problem with my screen it say have to many screen being watching and I have multiple screens\n    brand: Oh no! Try a quick reboot of your device(s). If no change, call/chat us so we can take a look: <link>\n\nNew message:\ni need more screens 😩😞",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Our base plan supports one screen at a time. To add more simultaneous streams you’ll need the Live TV add‑on or a second base account. We’ll share your feedback!\",\"used\":[2,3]}",
+  "prompt_tokens": 580,
+  "completion_tokens": 120
+ }
+}

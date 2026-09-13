@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: What is the deal with Fox News always buffering. It doesn't happen on other live streams.\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?\n\n[1] customer: So frustrated watching the Ohio State - Penn State game on Hulu Live TV last night. @115940 Horrible buffering, app jumping around - painful.\n    brand: So sorry for the trouble/frustration! Our team investigated the live playback errors this weekend—this should now be resolved!\n\n[2] customer: Hulu live has been almost unwatchable tonight with constant buffering and skipping back to beginning/middle of game.\n    brand: Sorry about that! We experienced an outage last night that affected live streaming but this has now been resolved.\n\n[3] customer: why is your Live TV streaming continually buffering? It is impossible to watch the Cubs game right now. My isp is 250+mbps d/l <link>\n    brand: Our apologies, Chris! We'd love to help. Just let us know which devices are having the trouble: <link> 👍\n\n[4] customer: The buffering issues during tonight’s @176804 vs @117118 game is absolutely horrible. Really ruining the experience.\n    brand: Our apologies, Mike! Rest assured we're actively investigating. In the meantime, these might help: <link>\n\nNew message:\nCBS in Madison WI is constantly buffering but all other channels, including Fox 47 are fine. Seems to occur when a big game is on, which sucks because I want to watch that game lol",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear about the buffering on CBS Madison! Which device are you using? For now, try a quick reboot of your device and modem/router. Let us know if it improves.\",\"used\":[0]}",
+  "prompt_tokens": 579,
+  "completion_tokens": 108
+ }
+}

@@ -10,4 +10,12 @@ __pycache__/
 .ruff_cache/
 .venv/
 *.egg-info/
-data/interim/
+data/interim/*
+# The sampling record joins each golden label to its stratum. Kept out of
+# data/gold/ so no field there is model-derived, but committed so a fresh
+# clone can reproduce the join.
+!data/interim/gold_candidates.jsonl
+# The labels as first proposed, before review. Committed because the golden set
+# was reviewed rather than written from scratch, and a reader checking that claim
+# needs to see what the reviewer was shown.
+!data/interim/reference_labels.jsonl

@@ -1,0 +1,185 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>brandbot labeller</title>
+<style>
+  :root { --bg:#faf9f7; --fg:#1b1b1a; --dim:#6b6a67; --line:#e0ded9; --accent:#2f5d50; --warn:#8a4b2a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.55 ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--fg); }
+  header { display:flex; justify-content:space-between; align-items:baseline;
+           padding:10px 20px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); }
+  #bar { height:3px; background:var(--accent); width:0; transition:width .15s; }
+  main { max-width:820px; margin:0 auto; padding:22px 20px 90px; }
+  .msg { font-size:19px; line-height:1.5; padding:16px 18px; background:#fff;
+         border:1px solid var(--line); border-radius:8px; white-space:pre-wrap; }
+  h3 { font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim);
+       margin:24px 0 8px; font-weight:600; }
+  .opt { display:flex; gap:10px; padding:5px 9px; border-radius:6px; cursor:pointer; align-items:baseline; }
+  .opt:hover { background:#efece6; }
+  .opt.on { background:var(--accent); color:#fff; }
+  .opt.on .def, .opt.on kbd { color:#cfe0da; }
+  kbd { font:12px ui-monospace,monospace; background:#efece6; border:1px solid var(--line);
+        border-radius:4px; padding:1px 6px; min-width:22px; text-align:center; }
+  .def { color:var(--dim); font-size:13px; }
+  .turn { padding:7px 12px; border-left:3px solid var(--line); margin:5px 0; white-space:pre-wrap; font-size:14px; }
+  .turn.brand { border-color:var(--accent); background:#f2f5f3; }
+  #thread { display:none; }
+  #thread.show { display:block; }
+  footer { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--line);
+           padding:9px 20px; font-size:13px; color:var(--dim); display:flex; gap:18px; justify-content:center; }
+  button { font:inherit; padding:6px 14px; border:1px solid var(--line); background:#fff;
+           border-radius:6px; cursor:pointer; }
+  .warn { color:var(--warn); font-weight:600; }
+  #rules { margin:0; padding-left:20px; color:var(--dim); font-size:13px; }
+  #rules li { margin:3px 0; }
+</style>
+<div id="bar"></div>
+<header>
+  <strong>brandbot labeller</strong>
+  <span id="count"></span>
+</header>
+<main>
+  <h3>Customer message</h3>
+  <div class="msg" id="text"></div>
+
+  <h3>Intent <span class="def">— what do they want?</span></h3>
+  <div id="intents"></div>
+
+  <h3>What would satisfy them <span class="def">— what they want done, not what it is about</span></h3>
+  <div id="asks"></div>
+
+  <h3>Multi-intent</h3>
+  <div class="opt" id="multi"><kbd>M</kbd><span>message carries more than one intent</span></div>
+
+  <h3>Route <span class="def">— apply the rules, not what Hulu happened to do</span></h3>
+  <div id="routes"></div>
+
+  <h3>Rules <span class="def">— decided up front, so example 200 is called like example 3</span></h3>
+  <ul id="rules"></ul>
+
+  <h3>Full thread <span class="def">— decide the route first; revealing is recorded</span></h3>
+  <div class="opt" id="revealbtn"><kbd>R</kbd><span>reveal what Hulu actually replied</span></div>
+  <div id="thread"></div>
+</main>
+<footer>
+  <span><kbd>1-9</kbd><kbd>0</kbd> intent</span><span><kbd>A</kbd>/<kbd>E</kbd> route</span><span><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> wants</span>
+  <span><kbd>M</kbd> multi</span><span><kbd>R</kbd> reveal</span>
+  <span><kbd>&#8629;</kbd> next</span><span><kbd>&#8592;</kbd> back</span>
+  <button onclick="i=firstGap();render()">Next gap</button>
+  <button onclick="save()">Download JSONL</button>
+  <span id="status"></span>
+</footer>
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('payload').textContent);
+const KEY = 'brandbot-labels-' + DATA.set_name;
+let labels = JSON.parse(localStorage.getItem(KEY) || '{}');
+const done = id => labels[id] && labels[id].intent && labels[id].route && labels[id].ask;
+// Resume at the first gap, not the furthest point reached. A field added midway
+// through labelling leaves earlier examples incomplete, and landing past them is
+// how they end up silently missing from the set.
+const firstGap = () => {
+  const at = DATA.examples.findIndex(ex => !done(ex.id));
+  return at === -1 ? DATA.examples.length - 1 : at;
+};
+let i = firstGap();
+
+const el = id => document.getElementById(id);
+const cur = () => DATA.examples[i];
+const rec = () => {
+  const id = cur().id;
+  if (!labels[id]) {
+    const seed = DATA.prefill[id];
+    labels[id] = seed
+      ? {revealed:false, intent:seed.intent, route:seed.route, ask:seed.ask,
+         multi_intent:!!seed.multi_intent, from:seed}
+      : {revealed:false};
+  }
+  return labels[id];
+};
+const changed = r => !!r.from &&
+  (r.intent !== r.from.intent || r.route !== r.from.route || r.ask !== r.from.ask);
+
+function render() {
+  const ex = cur(), r = rec();
+  el('text').textContent = ex.text;
+  el('count').textContent = `${i+1} / ${DATA.examples.length}  ·  ${Object.values(labels).filter(l=>l.intent&&l.route&&l.ask).length} complete`
+    + `  ·  ${Object.values(labels).filter(changed).length} changed`;
+  el('bar').style.width = ((i+1)/DATA.examples.length*100) + '%';
+
+  el('intents').innerHTML = DATA.intents.map((t,n) =>
+    `<div class="opt ${r.intent===t.name?'on':''}" data-intent="${t.name}">
+       <kbd>${(n+1)%10}</kbd><span><b>${t.name}</b> <span class="def">${t.definition}</span></span></div>`).join('');
+  el('routes').innerHTML = DATA.routes.map(t =>
+    `<div class="opt ${r.route===t.code?'on':''}" data-route="${t.code}">
+       <kbd>${t.key}</kbd><span><b>${t.code}</b> <span class="def">${t.definition}</span></span></div>`).join('');
+
+  el('asks').innerHTML = DATA.asks.map(a =>
+    `<div class="opt ${r.ask===a.code?'on':''}" data-ask="${a.code}">
+       <kbd>${a.key}</kbd><span><b>${a.code}</b> <span class="def">${a.definition}</span></span></div>`).join('');
+  document.querySelectorAll('[data-ask]').forEach(d =>
+    d.onclick = () => { rec().ask = d.dataset.ask; commit(); });
+
+  el('rules').innerHTML = DATA.rules.map(t => `<li>${t}</li>`).join('');
+  el('multi').classList.toggle('on', !!r.multi_intent);
+  el('thread').className = r.revealed ? 'show' : '';
+  el('thread').innerHTML = ex.turns.map(t =>
+    `<div class="turn ${t.role}"><b>${t.role}</b> · ${t.text}</div>`).join('');
+  el('revealbtn').classList.toggle('on', !!r.revealed);
+  el('status').innerHTML = !(r.intent && r.route && r.ask)
+    ? '<span class="warn">incomplete</span>'
+    : changed(r) ? '<span class="warn">changed</span>' : (r.from ? 'as proposed' : '');
+
+  document.querySelectorAll('[data-intent]').forEach(d =>
+    d.onclick = () => { rec().intent = d.dataset.intent; commit(); });
+  document.querySelectorAll('[data-route]').forEach(d =>
+    d.onclick = () => { rec().route = d.dataset.route; commit(); });
+  el('multi').onclick = () => { rec().multi_intent = !rec().multi_intent; commit(); };
+  el('revealbtn').onclick = () => reveal();
+}
+
+function reveal() {
+  if (!rec().route) { el('status').innerHTML = '<span class="warn">pick a route first</span>'; return; }
+  rec().revealed = true; commit();
+}
+function commit() { localStorage.setItem(KEY, JSON.stringify(labels)); render(); }
+function go(n) { i = Math.max(0, Math.min(DATA.examples.length - 1, i + n)); render(); }
+
+addEventListener('keydown', e => {
+  if (e.key >= '0' && e.key <= '9') {
+    // 0 is the tenth slot, so a ten-intent taxonomy stays fully keyboard-driven.
+    const t = DATA.intents[e.key === '0' ? 9 : +e.key - 1];
+    if (t) { rec().intent = t.name; commit(); }
+  } else if (e.key === 'Enter') { go(1); }
+  else if (e.key === 'ArrowLeft') { go(-1); }
+  else if (e.key === 'ArrowRight') { go(1); }
+  else {
+    const k = e.key.toUpperCase();
+    if (k === 'M') { rec().multi_intent = !rec().multi_intent; commit(); }
+    else if (k === 'R') { reveal(); }
+    else {
+      const ask = DATA.asks.find(a => a.key === k);
+      if (ask) { rec().ask = ask.code; commit(); }
+      const route = DATA.routes.find(r => r.key === k);
+      if (route) { rec().route = route.code; commit(); }
+    }
+  }
+});
+
+function save() {
+  const lines = DATA.examples
+    .filter(ex => labels[ex.id] && labels[ex.id].intent && labels[ex.id].route && labels[ex.id].ask)
+    .map(ex => JSON.stringify({
+      id: ex.id, thread_id: ex.thread_id, text: ex.text,
+      intent: labels[ex.id].intent, route: labels[ex.id].route, ask: labels[ex.id].ask,
+      multi_intent: !!labels[ex.id].multi_intent,
+      revealed_reply: !!labels[ex.id].revealed,
+      reviewed: !!labels[ex.id].from,
+      changed: changed(labels[ex.id]),
+    }));
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines.join('\n') + '\n'], {type:'application/x-ndjson'}));
+  a.download = DATA.set_name + '.jsonl';
+  a.click();
+}
+render();
+</script>

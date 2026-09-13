@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Right on cue @hulu_support turn on a football game and immediately starts buffering. Please don't make me get cable back.\n    brand: No outages to report right now, so which device is this occurring on? Any specific network? Try: <link> 2/2\n\ncustomer: Dear @hulu_support plz fix your \"live TV\" from buffering every 30 sec.- this makes ftball unwatchable. @1640 lowers strean qual. to avoid\n    brand: Oh no! That shouldn't be the case, Mike. We'll help. What device are you streaming with? Let's try: <link>\n\ncustomer: why when I stream@anything else it is perfect. When I stream football it is always buffering. You le service sucks\n    brand: Oh no! We're investigating. In the meantime, try: <link> Let us know the device affected if trouble persists.\n\ncustomer: the Hulu Live TV product constantly buffers, and now it's stuck looping video during playoff baseball. Not good.\n    brand: Oh no! Which device are you using to stream, Dustin? For now, try out these steps: <link> Any change?\n\ncustomer: When Hulu Live Tv isn’t working and you have to watch the game like it’s the year 2000 #hulu #hululivetv #hulusucks @115940 fix the buffer <link>\n    brand: Sorry, Steven! We ran into an issue last night, but the issue is fixed: <link> Thanks for bearing with us!\n\nCustomer message:\nhey I'm trying to watch the auburn vs Georgia game and it keeps buffering constantly. Anything I else I turn it too works perfectly fine. What's going on here?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and effectively gathers necessary information to troubleshoot the issue.\"\n}",
+  "prompt_tokens": 634,
+  "completion_tokens": 62
+ }
+}

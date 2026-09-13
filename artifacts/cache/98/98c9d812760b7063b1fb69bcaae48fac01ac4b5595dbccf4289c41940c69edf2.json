@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: The new interface on Roku is like the latest Sony PS Store interface, which is horrible. Please bring back the old interface.\n    brand: Sorry for the delay! No plans to roll back the UI, but we'd love to gather any input for our devs: <link>\n\ncustomer: I don’t understand the new interface. It’s terrible can I get the old one back ? Or one that makes sense ?\n    brand: Sorry, Brandon! There aren't plans to roll back, but we'd love to help. Anything about the new app you're having issues with?\n\ncustomer: since they released there new interface, the app is now terrible. Never had an update on an app be worse than previous versions\n    brand: Hi, Brian! Apologies for any frustration with our app. Anything in particular you're having trouble with? We'd love to assist!\n\ncustomer: New interface on Roku is frustratingly confusing and nearly unusable. Must be changes/reversion soon or I'll have to leave service.\n    brand: Hi! We're continuously making enhancements: <link> For help navigating, visit: <link>\n\ncustomer: the new interface is trash. Bring back the “new episodes” and “popular episodes” feature please🙃\n    brand: We'd be happy to share these requests with our team! If you add shows to My Stuff, new eps will appear with a \"New\" icon there.\n\nCustomer message:\nCouldn’t help but notice the new update on Fire TV still has the terrible new interface, which is the only thing that needed fixed.\n\nDraft reply:\nSorry for the delay! No plans to roll back the UI, but we'd love to gather any input for our devs: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies regarding UI feedback and the lack of rollback plans.\"\n}",
+  "prompt_tokens": 602,
+  "completion_tokens": 62
+ }
+}

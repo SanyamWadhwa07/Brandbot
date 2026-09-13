@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: The only thing I really regret about getting rid of my cable &amp; switching to @115940 Live TV is lack of MSG to watch @169444 tonight.\n    brand: Hi! We're always looking to connect viewers to as much of the content that they love. We'll share your interest in MSG!\n\n[1] customer: terrible service tonight. Constantly skipping back and lagging. Unable to watch @126452 or the World Series right now.\n    brand: We experienced live streaming issues earlier tonight, but our team has fixed the issue. Apologies for the trouble, Daniel!\n\n[2] customer: Why is @115900 internet being trash and @115940 ALSO trash? Can’t watch anything without it buffering every 10 seconds 🤮\n    brand: Hello, thanks for reaching out about your service concerns and I'm happy to help! Can you please DM the full address? ~AT\n\n[3] customer: I literally have @115940 Live because I thought I could watch @318653 on it but I was wrong so I’m cancelling my @115940 😢\n    brand: Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!\n\n[4] customer: This is what watching @115940 looks like. It’s horrible @hulu_support. Yes, I unplugged it and restarted it. <link>\n    brand: Apologies for the trouble! We had some network issues this weekend, but things should be back up now. Please reboot and retest. 🙏\n\nNew message:\nI try and watch @10392 on @115940 tv and the shitty internet at @34306 loads every flipping min. Wtf",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hello, thanks for reaching out about your service concerns and I'm happy to help! Can you please DM the full address? ~AT\",\"used\":[2]}",
+  "prompt_tokens": 601,
+  "completion_tokens": 95
+ }
+}

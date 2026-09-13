@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hi @hulu_support tried to watch my show on my android and I got a error code BYA-403-0009. Tried manage devices but the link is mislead. Thx\n    brand: Oh no! You can review and remove devices at: <link> For streaming issues, try these: <link>\n\ncustomer: When all you wanna do is watch this is us and @hulu_support @115940 keeps giving you an error code 0330. Why do I pay for this again??\n    brand: We'd love to help, Abbey! Which device is this occurring on? To start, try running through: <link> Any change?\n\ncustomer: Been getting error 0320 for a while now @hulu_support at the start of every show. Which after watching a set of commercials is annoying.\n    brand: That's not right! What device is this occurring on? Does a message pop up along with the error? Try: <link>\n\ncustomer: Hey @hulu_support - been getting this error on both my Apple TV and iPhone 7+ since yesterday. What’s up? <link>\n    brand: Oops! Sorry about this, James! Please chat with us here: <link> so we can gather more details and further assist.\n\ncustomer: The @115940 app on my LG tv throws a critical error every time I use it. @hulu_support @300717\n    brand: Oh no! We're sorry to hear that. If errors are still present and help is needed, let us know your LG model number as well.\n\nCustomer message:\nI need help with a BYA-403-010 error code on my Roku express even though I'm in my living room. @hulu_support\n\nDraft reply:\nOh no! You can review and remove devices at: <link> For streaming issues, try these: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies for similar error code issues.\"\n}",
+  "prompt_tokens": 659,
+  "completion_tokens": 58
+ }
+}

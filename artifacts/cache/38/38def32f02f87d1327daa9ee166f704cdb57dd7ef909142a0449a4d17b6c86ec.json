@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\n[1] customer: Live TV is a scam. Phone, PS4 and Tablet all said unable to watch Live TV on this device. Who actually pays $40 for inconvenience?\n    brand: Sorry for the delay! We had a Live TV issue yesterday, but it’s now fixed: <link> Try rebooting your devices.\n\n[2] customer: Trying to watch #Hulu but getting Error message when show starts. All shows. All other apps are working perfectly, Hulu is the only problem.\n    brand: Oh no! Are you by chance running into this on Chromecast? If so, we're looking into it. For now, try rebooting the device.\n\n[3] customer: Hey @115940 what's going on with yall this week??? I can't watch any of my shows on Roku or my laptop but they all show up on my phone. I don't wana watch TV on a 2\" x 4\" screen, I want to continue to watch them on Roku. Is this going to be an ongoing problem or what?\n    brand: Apologies, Lauren! If you're not seeing new episodes, we're investigating. In the meantime you can navigate to Seasons / Episodes.\n\n[4] customer: Hulu app on Samsung Smart TV is stopping episodes. Pause the show and it will skip ahead to the next. Got a fix?\n    brand: Hey Ed! This sounds like something we're currently investigating. Reach out here: <link> so we can grab some info!\n\nNew message:\nI am watching Shield on ABC and it's skipping. I'm watching on a browser. I'm not happy. Missing part of my show is not what I pay for.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Apologies! Please follow up here: <link> with the device you’re using and the content affected so we can take a closer look.\",\"used\":[0]}",
+  "prompt_tokens": 667,
+  "completion_tokens": 127
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I am having a weird thing happen right now where I can playback non-live content ...but can not access live channels\n    brand: Sorry! This is related to a Live TV issue we're working to fix. For now, please use our partner apps: <link>\n\ncustomer: guys I just upgraded to your live service and now literally every channel is \"not available in my area.\" What's happening?\n    brand: Sorry, Cam! We're currently investigating this and we appreciate you bearing w/us. For now, try: <link>\n\ncustomer: Will a (Spotify Student + Hulu) account let me watch live tv?\n    brand: Hey Ryan! That offer is only valid for our base Limited Commercials plan. We'll definitely pass along your interest though!\n\ncustomer: I have Hulu plus to get live Channels and as of yesterday they are gone. It sure what is wrong with my live channels\n    brand: Apologies, Jennifer! What devices are affected? The more info you can provide, the better we'll be able to assist.\n\ncustomer: My live tv has always worked fine but now it's saying live tv isn't available in my location. Error code: playlist-1-469796e7\n    brand: Hmm, that's odd. What device are you streaming on? Let's try: <link> Any improvement after those, Scott?\n\nCustomer message:\nDoes Hulu w/live TV have limited capability &amp; channel access on Xbox One S?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer explicitly stated they are using an Xbox One S, making the question redundant and unhelpful.\"\n}",
+  "prompt_tokens": 573,
+  "completion_tokens": 65
+ }
+}

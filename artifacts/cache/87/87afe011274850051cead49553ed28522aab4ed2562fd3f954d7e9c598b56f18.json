@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What's taking so long for live TV to be available on Samsung TV's? Any guesstimate as to when this will happen? Asking for a bunch of friends.\n    brand: No set date to share just yet, but take a peek here: <link> for some good news.\n\ncustomer: why are the ads for YouTube telling me that Future Man is out already?\n    brand: That's odd, Ricky. Future Man premieres on 11/14 on Hulu –– just a few days away. Mind sharing a screenshot of the ad you saw?\n\ncustomer: TNT NBA games are not showing up as upcoming events, can see ones on ESPN. your phone support has 30min wait, chat does work.\n    brand: We are aware of this. You will see the game appear as available closer to tip off on the day of the game on Thursday.\n\ncustomer: So when do updates roll out to devices like Vizio TVs &amp; Sony BR Players? Seriously every update can't watch for 2-3 weeks.\n    brand: Oh no! What issue are you having on Vizio &amp; Sony? Let's try: <link> and: <link> Any change?\n\ncustomer: CW shows, after I watch it, still says it has 8 min or so left. I want it to be marked as completed. Please help and fix.\n    brand: Eek! Thanks for reporting this, Ian. What exact episodes and which devices are affected? We'd love to take a closer look.\n\nCustomer message:\nnow that I have Hulu ig it’s time to follow you guys. Quick question I see S4 of SU is there but they all say upcoming how long a wait is upcoming?\n\nDraft reply:\nNo set date to share just yet, but take a peek here: <link> for some good news.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses regarding upcoming content availability and maintains the brand's tone.\"\n}",
+  "prompt_tokens": 628,
+  "completion_tokens": 64
+ }
+}

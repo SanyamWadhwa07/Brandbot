@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I saw that Mork and Mindy was available for streaming, but they’re so few episodes per season. Why is that?\n    brand: Hi, Amit! We have the rights to a limited number of episodes at this time. We'll share your interest in seeing more added!\n\n[1] customer: when I’m watching a TV series on my iPad why does it repeat the same episode and not play the next episode automatically?\n    brand: That shouldn't be happening! Try powering down your iPad for a few mins as well as: <link> Any change?\n\n[2] customer: will Stan Against Evil be updated each episode or do I have to wait for the whole season. I don't have Hulu live\n    brand: Hi! We have the rights to past seasons of Stan Against Evil. We'll express your interest in seeing S2 added after its TV run.\n\n[3] customer: why does Season 18 of Law &amp; Order SVU only have 3 episodes? But all the other seasons have all the episodes? What the heck!! 😲\n    brand: Hey! Our rights to eps of S18 will continue to expire as new eps of S19 become available. We'll share your feedback.\n\n[4] customer: Why are new episodes of certain shows like Chicago PD and the Orville not available?\n    brand: The new eps are up: <link> &amp;: <link> If you still aren't seeing them let us know the device\n\nNew message:\nWhy do you only have random episodes of shows like I Love Lucy and Happy Days instead of full seasons?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hi! We only have the rights to a limited number of episodes for some classic series right now. We’ll pass along your feedback about wanting full seasons!\",\"used\":[0]}",
+  "prompt_tokens": 575,
+  "completion_tokens": 94
+ }
+}

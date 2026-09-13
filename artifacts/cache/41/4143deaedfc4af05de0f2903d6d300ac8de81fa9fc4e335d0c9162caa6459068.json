@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I've had constant buffering problems since the latest ps4 app update. Never before that. What's up and how can I fix it?\n    brand: Oh no! Sorry for the delay. If your PS4 is still buffering, let's try applying: <link> Notice an improvement?\n\n[1] customer: are you having issues with the PS4 app? It keeps buffering every 20 seconds or so. Thanks! 😄\n    brand: Sorry to hear this, Kevin! Does this occur across all content? Let us know if this continues after: <link>\n\n[2] customer: my Hulu app intermittently stops and starts. All other apps are working fine. Restarted as well. Streaming issue.\n    brand: Oh no! What device and content is this happening on? In the meantime, try these: <link>\n\n[3] customer: why are you buffering every few seconds? It freaking sucks &amp; no it's not my connection.\n    brand: Oh no! That shouldn't be happening. Try the steps for your device here: <link> Any improvement?\n\n[4] customer: any issues with your PS4 app? It just started working on our PS4, but with a direct connection, constant buffer.\n    brand: Hey, Veronica! Apologies for the delay. 😔 If you're still getting that error on your PS4, let's try: <link> ✅\n\nNew message:\nwhy is the app constantly pausing and buffering lately? It's not connection because it is happening at several different locations and devices for me. From ps4 to Android phone.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! Sorry you’re seeing pauses across devices. Let’s try the troubleshooting steps for your platform here: <link> Let us know if it improves!\",\"used\":[0,1,3]}",
+  "prompt_tokens": 571,
+  "completion_tokens": 99
+ }
+}

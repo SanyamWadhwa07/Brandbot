@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why do I have adds when I watch my shows when I pay for no adds?\n    brand: A few shows are not included in No Commercials: <link> You'll also see ads during live &amp; on-demand content.\n\n[1] customer: D @115940 why would I pay for a service with adds, especially when the show I was watching won't load after them &amp; I have to watch them again? <link>\n    brand: Oh no! We're here to help. Call/chat if troubleshooting (<link> doesn't resolve: <link>\n\n[2] customer: why would you have adds of a show, on the show it is?! And without a #SpoilerAlert #Rude\n    brand: Oh no! We'd like to look into this. Please reach out to our Viewer Experience team by phone/chat here: <link>\n\n[3] customer: why doesn't \"up next\" show a new episode of a show I actually watch, rather than a random episode of a show I don't watch?\n    brand: Hm, this sounds like an issue we're looking into. Please ping (or ring) us at: <link> We'd love details.\n\n[4] customer: before my show starts if I don't have to keep rewatching the same ones 12 times during my show 🙄 #annoyed\n    brand: Oh no! The amount of ads varies, but this sounds odd. Reach out here: <link> so we can take a closer look.\n\nNew message:\nwhy do i gotta watch 6 adds before watching a fucking episode in a show 😭😭😭",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"We know the ad load can be frustrating. Some titles aren’t covered by the No‑Commercials tier, so you may see several ads before an episode. If it feels excessive, please reach out here so we can review your account: <link>\",\"used\":[0,4]}",
+  "prompt_tokens": 579,
+  "completion_tokens": 128
+ }
+}

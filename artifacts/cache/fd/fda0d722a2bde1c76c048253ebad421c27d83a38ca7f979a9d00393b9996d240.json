@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: . @115940 all I do is accidentally fast forward or rewind my show. Please roll back this \"improvement\" cc @57108\n    brand: Try using a quick tap. It should only fast forward or rewind when using a dragging motion after the playback bar is visible.\n\ncustomer: WTF @115940? I keep accidentally rewinding or forwarding just by tapping screen. Then I have to sit through 3 mins of ads. Ridiculous!\n    brand: Hulu here! What device are you streaming from? Does this happen when pressing anywhere on the screen or are you tapping the controls?\n\ncustomer: There was a time when I used @115940 more than Netflix. Now the new UI is so slow to navigate and I rarely use it. Wish they would revert.\n    brand: We're sorry to hear this! We'll definitely share your feedback about this. Make sure to check out: <link> !\n\ncustomer: I literally have @115940 Live because I thought I could watch @318653 on it but I was wrong so I’m cancelling my @115940 😢\n    brand: Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!\n\ncustomer: Really not loving @115940's new format on the Roku. Why is it SO difficult to rewind and fast forward, and also find anything?\n    brand: We'll share the feedback, Franny. What ff/rewind issues are you running into? For navigation, watch: <link>\n\nCustomer message:\nTechnology may be better, but at least when you’re rewinding or fast forwarding a VHS you know exactly where to stop. Looking at you @115940\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions and asks a helpful clarifying question.\"\n}",
+  "prompt_tokens": 651,
+  "completion_tokens": 59
+ }
+}

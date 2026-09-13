@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Is The System Down?\n    brand: Hi! No outages at the moment, but we'd love to help with any trouble. To get signed in, check out: <link>\n\n[1] customer: WHY ARE U NOT WORKING\n    brand: Let's find out, Angela! Are you seeing any error messages? What device are you using? The more info you can share, the better.\n\n[2] customer: PICK UP THE PHONE SWEATY\n    brand: Sorry for any trouble connecting! If you're still looking to get in touch, try us over Live Chat: <link> instead.\n\n[3] customer: FIX YOUR VIZIO APP DAMMIT\n    brand: Hey, Kenneth! Apologies for the delay, but we'd love to help. What errors are you running into? Try: <link> ✅\n\n[4] customer: WHY ARE YOU NOT WOORRRKKIIINGGGG\n    brand: Oh no! Let's get you up and running again. What's the issue at hand? What device is in use? For now, try: <link>\n\nNew message:\nWHERE ARE THE NEW SVU EPISODES",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 484,
+  "completion_tokens": 70
+ }
+}

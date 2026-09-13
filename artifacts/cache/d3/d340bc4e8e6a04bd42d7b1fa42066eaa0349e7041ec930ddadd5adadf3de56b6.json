@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: My live tv just disappeared from my Apple TV app. What is going on?\n    brand: Oh no! That's definitely not intended. What model is your ATV: 2, 3, or 4? Are you able to re-download from the App Store?\n\n[1] customer: I have a LG smart tv and my Huluplus app is not working any reason why\n    brand: Uh oh! What's the exact issue you're coming across? What's your LG's model number? Do these: <link> help?\n\n[2] customer: My live tv will not work! I have restarted my smart tv and even tried to use my phone neither works. I have had nothing but issues since we switched to live tv last month. I am seriously thinking of canceling my subscription all together!\n    brand: We'd be sad to see you go, &amp; we're here to help. What specific trouble are you running into with Live TV? Any error messages?\n\n[3] customer: the app is not loading up on my Samsung smart tv It goes from loading screen to live t.v. then black screen than live t.v then loading. Help!\n    brand: Sorry for any frustration. We'd love to help. Any better after applying both: <link> and <link>\n\n[4] customer: how do I get Hulu live to play on an apple tv, a Samsung smart TV, and an iOS app? #helpasisterout\n    brand: Hi! Live TV is currently only available on select devices: <link> We'll be updating more though, so stay tuned!\n\nNew message:\nI can't find live tv on my Hulu app on Samsung smart tv. Any ideas?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey there! Live TV isn’t available on all Samsung models yet. Check the supported device list here: <link>. We’re working on expanding support, so stay tuned!\",\"used\":[4]}",
+  "prompt_tokens": 593,
+  "completion_tokens": 109
+ }
+}

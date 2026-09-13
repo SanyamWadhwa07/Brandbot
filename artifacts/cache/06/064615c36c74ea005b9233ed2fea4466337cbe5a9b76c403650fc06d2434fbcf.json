@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: The login with Facebook button is broken on the homepage. Found a reddit post from 16 days ago saying the same. Is this a known issue?\n    brand: It's likely you have pop-up blocker enabled, Adam! Double check that this is turned off so the FB login screen can load. 👍\n\ncustomer: why am I suddenly unable to log onto Hulu on my Roku? Email and password no longer saved, spins on loading when I re-enter.\n    brand: Apologies, Bill! It sounds like you were affected by an issue we ran into Monday—it's been resolved! <link>\n\ncustomer: Trying to log in but keep getting cycled into the welcome screen. Logged out on all devices and can't get back in. Suggestions?\n    brand: Yikes! Please call our direct number listed here in the color blue: <link> 📲 We'll get this sorted out!\n\ncustomer: I get logged out of Hulu on my Apple TV every single day for over a week now. It’s getting extremely annoying.\n    brand: That shouldn't be the case! Is this happening on an ATV 4? If so, any change after working through: <link>\n\ncustomer: I watch your app via my Roku 3 and minutes ago I was logged out and now I can't log back in.\n    brand: Sorry! You may have run into: <link> If you're still having trouble, please try: <link>\n\nCustomer message:\nI've been having an issue with my account where every time I log in on my laptop, it acts like its going to log me in, then goes straight back to the home page without me being logged in. Is it an account problem or something else?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer explicitly stated they are using a laptop, making the clarifying question redundant and unhelpful.\"\n}",
+  "prompt_tokens": 622,
+  "completion_tokens": 64
+ }
+}

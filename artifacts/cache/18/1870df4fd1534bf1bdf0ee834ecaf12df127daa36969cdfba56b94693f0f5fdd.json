@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why isn't last week episode of Empire up yet?\n    brand: Empire didn't have a new ep last week, but the show will return to TV tonight, and added to our on-demand service the next day!\n\ncustomer: it says the newest episode of Lucifer was supposed o be available at midnight it’s 1 am when will I get to watch it\n    brand: While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>\n\ncustomer: why isn’t this week’s episode of Smackdown Live up yet?\n    brand: Sorry about that! It's available if you navigate to Episodes manually (<link> We're working to KO this issue.\n\ncustomer: curious to know when episode 5 Enhanced Protection of The Brave is going to be up? It aired last night\n    brand: Sorry for the delay! Our team is working to make that episode available to all our viewers ASAP!\n\ncustomer: why isn't the new episode of The Good Doctor up yet??? Its been over 24 hours #ashamed #sad\n    brand: Hi! The Doctor has been out since 10/30, but he does return the 13th: <link> Keep an 👁 on your WL/My Stuff!\n\nCustomer message:\nwhen will the newest episode of Empire be up?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is a helpful, on-brand clarifying question to better assist the customer.\"\n}",
+  "prompt_tokens": 549,
+  "completion_tokens": 62
+ }
+}

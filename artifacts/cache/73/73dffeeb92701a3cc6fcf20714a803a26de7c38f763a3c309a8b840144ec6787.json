@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: been having issues watching family guy it will crash after a few minutes of watching no issues with American dad or rick and morty\n    brand: Sorry, Lowell! Please try: <link> If the issue continues, contact us by phone/chat: <link>\n\n[1] customer: I keep getting errors on @115940 when watching Live on AppleTV. Started happening since last update. @hulu_support\n    brand: Sorry to hear this! Are you seeing any errors? Try giving these a shot: <link> Any improvement?\n\n[2] customer: this @115940 is making me mad. everytime i watch a show it stops and says theres an error and i have to restart the episode 50 times 😑\n    brand: Eek! That's no good. If still happening, try: <link> Call/chat for further help (<link>\n\n[3] customer: so frustrated that same show I’ve been trying to watch for over a week keeps throwing up “connection disconnected” silliness\n    brand: Sorry to hear about this, Robin! What device are you streaming from? For now try: <link> Any improvement?\n\n[4] customer: hey my hulu keep saying Network error even though my internet is connected\n    brand: Yikes! These can help: <link> If those do not work, chat/call us here: <link>\n\nNew message:\nYo, I'm just trying to watch some family guy and ya'll keep \"encountering errors\"",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry, Lowell! Please try: <link> If the issue continues, contact us by phone/chat: <link>\",\"used\":[0]}",
+  "prompt_tokens": 557,
+  "completion_tokens": 109
+ }
+}

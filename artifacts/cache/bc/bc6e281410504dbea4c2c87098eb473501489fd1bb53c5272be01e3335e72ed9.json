@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Don't show ads for new episodes when I'm trying to catch up.\n    brand: We hate spoilers too! Which show are you getting ads for+which show is being watched? Also, does it appear to be a network ad?\n\ncustomer: Why are new episodes of certain shows like Chicago PD and the Orville not available?\n    brand: The new eps are up: <link> &amp;: <link> If you still aren't seeing them let us know the device\n\ncustomer: what’s the deal with SNL latest episode posted first on YouTube before it’s posted on Hulu? Both have commercials but one is free, guess which one I choose? Fix this or I’m gone!\n    brand: Sorry! We do our best to post new eps as soon as they're delivered by the provider. The latest ep is now available to stream.\n\ncustomer: Was watching subbed eps of Bleach, finished season 6, started season 7, there were no subtitles. Is that normal?\n    brand: Hey Tyler! We're seeing subtitles on our end, so make sure cc are turned on. Which device are you using to stream?\n\ncustomer: I specifically subscribed to Hulu to watch the NLCS on TBS and can't watch it. Never going to try this Hulu TV thing again.\n    brand: So sorry for the trouble last night, Eric! We worked to resolve this ASAP: <link> Apologies for any frustration!\n\nCustomer message:\nstrange question. Are trailers also exclusive to Hulu subs only? Cause now we see it after the episode is out and that’s a strange way to promote a show.\n\nDraft reply:\nWe hate spoilers too! Which show are you getting ads for+which show is being watched? Also, does it appear to be a network ad?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft reply is irrelevant to the customer's question about trailers and does not address their concern.\"\n}",
+  "prompt_tokens": 614,
+  "completion_tokens": 65
+ }
+}

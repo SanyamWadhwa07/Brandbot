@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I keep getting an error message while trying to stream to my Chromecast. I've already reset it twice and other streaming apps are working fine. <link>\n    brand: Apologies! We sent out a fix for this error on Chromecast. You should be up and running after restarting your devices. 👍\n\ncustomer: why do I keep getting notice that I have too many streams, when I only have 2 total, including one that is getting stopped?\n    brand: Sorry for the delay! Do you have Hulu with Live TV or an on-demand plan? On-demand plans allow one simultaneous stream.\n\ncustomer: Hi, I have live beta and am constantly getting messages for too many screens when only watching one stream.\n    brand: Uh oh! Please try powering off your device for 1-2 minutes. If no luck, please let us know the device you're using to stream.\n\ncustomer: I cannot stream content for the second time in two days. Video only plays for one second then pauses until I hit play again.\n    brand: Hm, that's definitely odd. Does it crash, or show errors? Please try <link> If that's no help, @ us the device.\n\ncustomer: I downloaded the New Nintendo Switch app and have been streaming all day but just now (tonight) it say its unable to locate me\n    brand: Sorry—We're currently investigating this issue. We hope to have this resolved as soon as possible!\n\nCustomer message:\nI've only got 1 stream currently playing but Hulu seems to think I have more. Is there anyway to force the app to check again? Pressing Retry doesn't work. 🤷🏻‍♂️ <link>\n\nDraft reply:\nApologies! We sent out a fix for this error on Chromecast. You should be up and running after restarting your devices. 👍",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft addresses a Chromecast error, which is irrelevant to the customer's issue regarding stream limits.\"\n}",
+  "prompt_tokens": 619,
+  "completion_tokens": 65
+ }
+}

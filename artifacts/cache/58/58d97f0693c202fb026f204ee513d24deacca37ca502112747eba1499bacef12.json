@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: hey @115940 when are we gonna get \"Murphy Brown\"?\n    brand: Hi! We can't make any promises, but we'll definitely forward your request for Murphy Brown along to our content team. ✅\n\n[1] customer: when will we get more Rick and Morty?\n    brand: Hello there. We offer S3 on Hulu with Live TV! Due to rights, our base plans typically have access after it fully airs on TV. ✅\n\n[2] customer: so when we getting Rick and Morty season 3?\n    brand: Hi! We typically get the full season after it airs, though you can catch S3 now w/ a Live TV plan: <link>\n\n[3] customer: Will Rick and Morty Season 3 be coming out on Hulu, and if so when?\n    brand: Hi Sam! We have the rights to stream past seasons of R&amp;M on our base plans, so S3 will stream sometime after the finale airs.\n\n[4] customer: Yo @115940 , when are you getting S3 of Rick and Morty???\n    brand: Hi, Aaron! We have the best person (Birdperson) working on it. Stay tuned to: <link> for all updates.\n\nNew message:\nwhen are we gonna get Hulu in Australia though?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 518,
+  "completion_tokens": 60
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why do I have adds when I watch my shows when I pay for no adds?\n    brand: A few shows are not included in No Commercials: <link> You'll also see ads during live &amp; on-demand content.\n\ncustomer: D @115940 why would I pay for a service with adds, especially when the show I was watching won't load after them &amp; I have to watch them again? <link>\n    brand: Oh no! We're here to help. Call/chat if troubleshooting (<link> doesn't resolve: <link>\n\ncustomer: why would you have adds of a show, on the show it is?! And without a #SpoilerAlert #Rude\n    brand: Oh no! We'd like to look into this. Please reach out to our Viewer Experience team by phone/chat here: <link>\n\ncustomer: why doesn't \"up next\" show a new episode of a show I actually watch, rather than a random episode of a show I don't watch?\n    brand: Hm, this sounds like an issue we're looking into. Please ping (or ring) us at: <link> We'd love details.\n\ncustomer: before my show starts if I don't have to keep rewatching the same ones 12 times during my show 🙄 #annoyed\n    brand: Oh no! The amount of ads varies, but this sounds odd. Reach out here: <link> so we can take a closer look.\n\nCustomer message:\nwhy do i gotta watch 6 adds before watching a fucking episode in a show 😭😭😭\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is polite, addresses the user's frustration, and asks a relevant clarifying question to assist further.\"\n}",
+  "prompt_tokens": 599,
+  "completion_tokens": 67
+ }
+}

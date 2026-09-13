@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: fix the Dodgers game! Ahh! Please fix the ballgame\n    brand: Sorry about that! Please try a quick reboot of your device and the TBS feed should be back up for you!\n\ncustomer: can't watch the NLCS Cubs vs. Dodgers game!!!! Error code 5005 fix it now!!!!!! #frustratedcustomer\n    brand: Sorry, Andrew! TBS was temporarily down on Hulu, but all is good now: <link> Thanks for bearing with us!\n\ncustomer: What’s the status on fixing the Cubs game???\n    brand: Hey, Stephanie! Sorry about that! The NCLS game on TBS has since been restored: <link>\n\ncustomer: TBS is out and the MLB game is on! Any fix?\n    brand: It looks like the game is back up and streaming on our end now, Gail. If you're still having any trouble, let us know what device.\n\ncustomer: Any fix to Apple 4K tV Hulu Live coming. It kept buffering and moving to all parts of the football games last night.\n    brand: The trouble from last evening should now be resolved: <link> Were you still running into this?\n\nCustomer message:\nyou’ve got to fix the SEC championship game! You’re killing me\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful, maintains the brand's tone, and asks for necessary information to troubleshoot.\"\n}",
+  "prompt_tokens": 520,
+  "completion_tokens": 65
+ }
+}

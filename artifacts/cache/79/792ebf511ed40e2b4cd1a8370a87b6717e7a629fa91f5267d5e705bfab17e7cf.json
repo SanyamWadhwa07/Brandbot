@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: .@hulu_support for the last 3 days I get an error every other ep. such that I have to reopen the app. Now I have to log in every time. #help\n    brand: Yikes! What specific error message are you running into, and on which device? For now, try: <link>\n\ncustomer: Really thinking of getting rid of @hulu_support again. It never picks up where I left off causing me to start over &amp; it's always freezing\n    brand: Yikes! Neither of those things should be happening. What device are you using? Try: <link> Any change?\n\ncustomer: Hey @hulu_support, @165284 being down is a HUGE problem right now. Hey @165284, why can’t I authenticate your app with Hulu creds?!?\n    brand: Sorry, Aaron! It sounds like you ran into: <link> Things should be fixed now, so please reboot (if you haven't).\n\ncustomer: Was on @hulu_support when they said restart your router, I said no our chat will end, no it won't they said. I restarted &amp; it ended. Done!\n    brand: (2/2) Each app sends/receives data differently. We recommend a 5-min unplug and: <link> <link>\n\ncustomer: Dear @hulu_support: Your Apple TV app spins forever the first time I open it each day. If I force quit, then I have to log in again. Fix it.\n    brand: Oh no! Sorry for the delay, Eric. What model of Apple TV are you streaming with? 🤔 For now, try: <link>\n\nCustomer message:\nIt never ends. If I have used @hulu_support for years on devices &amp; auth them via Hulu acct, why this all of the sudden? GPS my carrier! <link>\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of asking for the device to troubleshoot the issue.\"\n}",
+  "prompt_tokens": 665,
+  "completion_tokens": 61
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @hulu_support! Why is my live TV constantly skipping and rebuffering, no matter how many times I reboot my network and devices?\n    brand: Apologies for the trouble, Jeff! Let us know which devices are impacted so we can try further steps (<link>\n\ncustomer: just curious why my Hulu live STILL isn’t working properly a whole week later @115940 @hulu_support\n    brand: Oh no! Sorry to hear this. What device are you streaming on? Notice any error messages? Let's try: <link> ✅\n\ncustomer: Hey @hulu_support, why in the middle of watching your TV service does a broadcast back up by 5 minutes then freeze when I try to go back to live?\n    brand: Eek! That's no good, Ryan. What devices are streaming with, and which channels are you watching? Try: <link>\n\ncustomer: Hey there @hulu_support, mind telling me what's going on right now and for the past 25 mins? Was watching a live TV channel and got a Teal-8 error.\n    brand: Sorry! If the error shows on NBC, we're looking into some affiliates being down. Use NBC Sports App: <link>\n\ncustomer: .@hulu_support I just started the live free week trial and it keeps having to pause and \"buffer\". I don't think I can't watch tv like this.\n    brand: Apologies for the delay! This issue has since been fixed: <link> Thanks for your patience!\n\nCustomer message:\nOk @hulu_support live tv play for 3 mins then stops I has restarted the computer and it’s still messed up. Why must I tweet you every week ?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established pattern of asking for device information to troubleshoot the reported issue.\"\n}",
+  "prompt_tokens": 628,
+  "completion_tokens": 62
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @hulu_support I canceled on 6/25 and STILL getting charged. And your customer support chat doesn’t work. Cancel and refund me ASAP.\n    brand: Sorry for any frustrations, Rena! Give us a call: <link> and we'd be happy to get this sorted out for you.\n\ncustomer: very disappointed in the \"support\" i just received. cancelled my account after 3 years of service @hulu_support @115940 :(\n    brand: Oh no! We're very sorry to hear about the bad experience, Paige. 😔 Anything we can do to help? We'd hate to lose you. 💚\n\ncustomer: Hey @hulu_support I had a free trial that I never canceled and since then I’ve been charged for 2 months &amp; haven’t used. Can i get my 💰 back\n    brand: We appreciate you tweeting! So we can take a closer look into our options with you, reach out using: <link>\n\ncustomer: Hulu still charged me for this month even though I canceled my subscription. Y'all suck I want my money back @hulu_support\n    brand: Sorry for any unexpected charges! Please call us/chat us so we can take a look at our options: <link>\n\ncustomer: about to cancel @115940 because i’ve been getting billed twice for the past year @hulu_support\n    brand: Oh no! We'd certainly hate to lose you. Please give us a call/chat so we can take a look at your account: <link>\n\nCustomer message:\nI got screwed over by customer service and ended up paying 2 extra months of a service that was supposed to get cancelled. What is life?#hulu #HELP\n\nDraft reply:\nSorry for any frustrations, Rena! Give us a call: <link> and we'd be happy to get this sorted out for you.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name, Rena, instead of addressing the current user.\"\n}",
+  "prompt_tokens": 648,
+  "completion_tokens": 62
+ }
+}

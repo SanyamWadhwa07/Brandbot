@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @115940 not that I mind, but why do I keep seeing @179540 commercials in Spanish? A language I do not speak. Seems like a waste of ad dollars.\n    brand: We're sorry to hear about the ad-related frustration! We'd love to grab more details from you here: <link>\n\ncustomer: The @115725 ads are just painfully bad. The fact @115940 plays them back to back is worse. <link>\n    brand: Sorry! If the same ad plays back-to-back, that's not intentional. To discuss, give us a call/chat: <link>\n\ncustomer: Excuse me @115940 why are your commercials so sad? I don't understand.\n    brand: Apologies! You can tailor your ad-preferences to make your ad experience more relevant and useful: <link>\n\ncustomer: I wouldn't mind the commercials on @115940 so much if they didn't play the same ones a million times in a row.\n    brand: Sorry for the repeats! We have a limited # of advertisers per show. Try updating: <link> to mix things up. 👍🏻\n\ncustomer: For some reason I'm getting the Spanish @215 commercials on @115940. My Spanish is mediocre at best.\n    brand: Sorry for any trouble! Spanish ads may appear for many reasons, but we'd love to take a closer look here: <link>\n\nCustomer message:\nand @115940 that tone deaf commercial is awful. Why??? It's playing over and over again and it hurts!!\n\nDraft reply:\nWe're sorry to hear about the ad-related frustration! We'd love to grab more details from you here: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies for similar complaints about ad frequency and content.\"\n}",
+  "prompt_tokens": 633,
+  "completion_tokens": 61
+ }
+}

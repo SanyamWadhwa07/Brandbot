@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: second week in a row issues with live! Watching Cowboys goes to 1:00 game then restarts 4:00 game! Going back to Sling\n    brand: Sorry for the trouble, Chad! Which device do you use? If you try a quick reboot of the device, any improvement after?\n\n[1] customer: Of course my @115940 live is stuck on an endless loop during game 7. Fuck you Hulu @hulu_support\n    brand: That's no good! Were you able to try out the steps we sent previously? Check out: <link> Any change?\n\n[2] customer: I tried to watch the baseball game (Houston vs NY) and it skipped around. The show I recorded won't play. That's on my tablet. Online I can get the show to play, but the current episode I recorded is not there. I am paying way too much for this frustration.\n    brand: Sorry for the continued trouble! We'd be happy to go over some troubleshooting here. Which specific device(s) are you using?\n\n[3] customer: how come shows aren't showing up in my dvr again?\n    brand: Apologies, Michael! Try these: <link> and call/chat us (<link> if still happening after.\n\n[4] customer: any idea why I keep getting a playback failure when I try to watch the Cubs game? If I go to another live channel it works.\n    brand: There was an issue but we were able to resolve it quickly. Try streaming the game now and let us know if you have any trouble.\n\nNew message:\nMNF dvr repeating and not showing game",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Apologies! Try these troubleshooting steps: <link>. If the DVR keeps repeating and won’t show the game, let us know and we’ll help further.\",\"used\":[3]}",
+  "prompt_tokens": 582,
+  "completion_tokens": 104
+ }
+}

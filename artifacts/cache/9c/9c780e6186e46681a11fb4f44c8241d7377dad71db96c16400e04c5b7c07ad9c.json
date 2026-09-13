@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: your new intro sucks. It is too loud when I go in the app. Please fix or put volume control. Thanks.\n    brand: Sorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!\n\ncustomer: You have got to adjust the volume of the apps intro music when turned on. It's annoyingly loud and not necessarily.\n    brand: We're tracking similar reports! 🔊 What device are you accessing our app from? We'd be more than happy to share your input.\n\ncustomer: Dear @115940: Does the PS3 app startup sound have to be so very loud?\n    brand: Sorry We're looking into making enhancements to the new app. Rest assured we'll share your feedback with our team.\n\ncustomer: how do I turn off the loud Hulu startup app sound on my Amazon FireTV?\n    brand: There isn't a way to 🔕 the start up sound the app makes, but we can definitely express your interest in having that as a feature.\n\ncustomer: I've turned off in-app sounds, but Hulu still makes that annoying start-up sound. How do I make it stop?\n    brand: There isn't currently a way to disable it, but we're looking into the volume. You can join the convo: <link>\n\nCustomer message:\nYour intro sound whenever your app is started is far too loud. How can I disable it?\n\nDraft reply:\nSorry for any frustration! We'll be sure to share the honest feedback regarding this with our team!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past responses and addresses the customer's feedback appropriately.\"\n}",
+  "prompt_tokens": 571,
+  "completion_tokens": 61
+ }
+}

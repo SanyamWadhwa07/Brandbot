@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What I especially love about the new iOS @115940 app is how an accidental tap anywhere on the screen moves the playhead unexpectedly…\n    brand: Sorry for the trouble! We'll share your experience on iOS with the appropriate team. If you have any other questions, let us know.\n\ncustomer: I can't get @115940 to work on my Switch. Every show I pick says \"This video is not available in your location\". Works fine on every other device.\n    brand: Oh no! That's not an error we like to see, does this continue to pop up for you after: <link> Keep us updated\n\ncustomer: @115940, don't announce a video in your app and then give me an error because it's not available where I am. That's an awful user experience.\n    brand: Sorry! Can you share with us the video that was advertised, the device, and the error message? A screen shot would be great!\n\ncustomer: God the @115940 app for the iPad is so bad. I keep accidentally touching the screen and it just fast forwards it 🙄\n    brand: Sorry, Jessica! We're working on making enhancements to the new experience, so we'll be sure to pass your feedback along.\n\ncustomer: Dear @115940 please please change your settings on the iPhone app. I’m sick of losing my place every time I inadvertently touch my screen!\n    brand: Hey, Mike! We're sorry to hear about any frustration! Our team is aware and looking into this. We appreciate the feedback.\n\nCustomer message:\nAs a fun bonus, if you accidentally tap literally anywhere on the screen while watching a video on the new @115940 app (maybe you wanted to check the time), you’ll be jumped to another point of the video! Hope you remembered your place. #ux\n\nDraft reply:\nSorry for the trouble! We'll share your experience on iOS with the appropriate team. If you have any other questions, let us know.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies regarding the same specific app feedback.\"\n}",
+  "prompt_tokens": 680,
+  "completion_tokens": 59
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why am I paying for a subscription and y’all still show commercials?\n    brand: Hi Jada! Ads help us offer the latest TV shows for $7.99/mo. We do have other plan options available: <link>\n\ncustomer: why do I have ads on CBS shows when I pay for ad free?\n    brand: Do you have Hulu with Live TV perhaps? It's possible the shows you're watching are network on-demand: <link>\n\ncustomer: why am I paying a monthly fee if I can't ever watch anything???? Fix ur shit pls\n    brand: Oh no! Which device do you use? What behavior are you running into? For now try a quick reboot of your device+modem/router.\n\ncustomer: I don’t pay $39.99 a month to have hour long shows buffer 6 times then get dropped or go back 5 minutes all of a sudden <link>\n    brand: Oh no! On what channel did the error pop up? Do you notice an improvement after working through these: <link>\n\ncustomer: I️ don’t understand why I’m paying $50 a month which includes limited commercials... yet every damn show is full of commercials?! Wtf\n    brand: We'd be happy to give more clarification! See: <link> A regular # of ads will appear during live streaming.\n\nCustomer message:\nwhy do I pay monthly for something that doesn’t actually keep shows up to date??? #obnoxiousAF\n\nDraft reply:\nHi Jada! Ads help us offer the latest TV shows for $7.99/mo. We do have other plan options available: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's complaint about content updates and provides an irrelevant response about ads.\"\n}",
+  "prompt_tokens": 589,
+  "completion_tokens": 64
+ }
+}

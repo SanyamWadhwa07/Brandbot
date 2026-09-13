@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why does this keep happening? My WiFi is working just fine. <link>\n    brand: Apologies for the trouble! If this continues after: <link> please follow up here: <link>\n\ncustomer: what is this message talking about? It doesn’t make any sense to me <link>\n    brand: We're glad to hear you're good to go, David! For more info on your Home network, check out: <link> 😊\n\ncustomer: why do I keep getting this message? <link>\n    brand: Apologies for the trouble! We had a few network issues this weekend, but things should be back up now. Please reboot/retest.\n\ncustomer: what’s up? It’s been doing this for three days <link>\n    brand: Oh no! If this still occurs, try: <link> If no improvement, please contact us here: <link>\n\ncustomer: Mine is back up and working now! <link>\n    brand: Sorry for the delay! We're glad to hear that you're back up and streaming. If you happen to need us again, we'll be here. ✅\n\nCustomer message:\nwhat is this next up non-sense and how do I make it go away? <link>\n\nDraft reply:\nApologies for the trouble! If this continues after: <link> please follow up here: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and addresses the customer's issue appropriately.\"\n}",
+  "prompt_tokens": 530,
+  "completion_tokens": 61
+ }
+}

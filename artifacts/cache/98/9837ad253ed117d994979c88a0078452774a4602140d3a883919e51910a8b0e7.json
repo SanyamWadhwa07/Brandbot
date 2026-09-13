@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: My Hulu has not been working since last night. It keeps giving me an \"Error 500\".\n    brand: Apologies for the trouble, Lindsay! Try: <link> If error persists, follow up: <link>\n\n[1] customer: any idea why my DVR only says I have 39 GB? I cleared out both profiles and it still doesn’t show 50GB available. <link>\n    brand: We're actually looking into this particular issue on our end! Reach out by phone/chat so we can investigate: <link>\n\n[2] customer: Roku. Select \"Hulu\", then \"My Stuff\" usually gives \"nothing here...\" Move to another icon, then back &amp; \"My Stuff\" loads.\n    brand: Hi Mike! We appreciate your feedback. My Stuff should be loading consistently, try: <link> when you have a min!\n\n[3] customer: Hulu will not load any content on my Roku. Any ideas? I have multiple Rokus in my house. Works on one, not on another.\n    brand: Sorry Laura! Do you get an error when selecting videos to play? Let us know if the following steps help: <link>\n\n[4] customer: Keeps giving playback error messages. I reset the Roku box &amp; signed out &amp; back into Hulu &amp; reactivated. Still doesn't work.\n    brand: Oh no! Does the behavior continue after: <link> If so, please reach out here: <link>\n\nNew message:\nTV Shows under My Stuff shows up with only a few items that repeat over and over or shows no items on my Apple TV. This never seems to function well.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry for the trouble! My Stuff should load fully on Apple TV. Please try these steps: <link>. If the issue persists, let us know so we can investigate further.\",\"used\":[2]}",
+  "prompt_tokens": 592,
+  "completion_tokens": 96
+ }
+}

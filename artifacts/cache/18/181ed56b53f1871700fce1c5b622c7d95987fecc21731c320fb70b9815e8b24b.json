@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: when will Last Man Standing be available?\n    brand: Hey Heather! No news to share at the moment, but we'd be happy to pass along the interest to the appropriate teams.\n\ncustomer: when will the new Seasons of American Dad be on Hulu?\n    brand: Hiya! We wish we had an update, but there's still no news. We'll continue to let our team know you'd like to see more eps! 💚\n\ncustomer: when will live TV be available on Samsung TVs?\n    brand: Great question, Miranda! We don't have a set date yet, but we are working on it: <link> Stay tuned...\n\ncustomer: it says the newest episode of Lucifer was supposed o be available at midnight it’s 1 am when will I get to watch it\n    brand: While we don't have a set time, we aim to post new episodes ASAP. In case you haven't watched it yet: <link>\n\ncustomer: when will Rick and Morty season 3 be available on your platform?\n    brand: Sorry for the delay! No release date has been set, but keep an eye on this page for updates: <link> 👍\n\nCustomer message:\nhi would you please tell me when is Marvel Agent of Shield be available on Hulu? Thanks\n\nDraft reply:\nHey Heather! No news to share at the moment, but we'd be happy to pass along the interest to the appropriate teams.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the name Heather, which is incorrect for this specific customer.\"\n}",
+  "prompt_tokens": 539,
+  "completion_tokens": 60
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: your Hulu live service is almost unwatchable. I have 235mps down and it still buffers every 30 seconds. What’s the fix?\n    brand: Apologies, Craig! Which device are you on? Are you noticing this w/a certain channel? For now try a quick device+modem reboot.\n\ncustomer: Testing Live TV through Roku 4 and getting constant buffering bursts for 2-3 secs. Does not happen on other live services.\n    brand: Ah, you may have run into a few network issues we had last night. Please reboot and @ us some specifics—if that's no help. 🕵️\n\ncustomer: live TV buffering every 60 seconds or so. Unwatchable. What's up?\n    brand: So sorry for the trouble, Matt! Our team is currently investigating issues with live playback and we're working on a fix.\n\ncustomer: the constant buffering with Hulu live has got to be addressed. I have blazing speed &amp; your service is the only one buffering\n    brand: Sorry to hear this! Which device are you on? Does this happen w/all channels. For now, please try: <link>\n\ncustomer: love Hulu live beta... But seriously, can you fix the buffering on every sitting event? It's every like every ten seconds\n    brand: Aw man! Which device is this occurring on? Any specific network right now? First let's try: <link>\n\nCustomer message:\nCan you please provide a product that does not buffer on live TV every five seconds? Get better servers.\n\nDraft reply:\nApologies, Craig! Which device are you on? Are you noticing this w/a certain channel? For now try a quick device+modem reboot.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the name Craig, which is not the name of the current customer.\"\n}",
+  "prompt_tokens": 604,
+  "completion_tokens": 62
+ }
+}

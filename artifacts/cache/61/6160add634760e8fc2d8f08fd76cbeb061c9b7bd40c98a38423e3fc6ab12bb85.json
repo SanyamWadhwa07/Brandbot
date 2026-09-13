@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: your Apple TV app is terrible, needs to be faster and easier to navigate.\n    brand: We'd love to help! Try <link> for the lagging issues and <link> for an overview on the update.\n\ncustomer: Your content is awesome, but your new Roku app is awful. It's ugly, cumbersome, and I have to restart my Roku to get it to work. Wtf\n    brand: Sorry for the frustration! For the restart issue, check out: <link> To leave feedback: <link>\n\ncustomer: the updated Hulu app on Roku is terrible. I don’t even open the app anymore, it is that poorly designed. Happy to detail why\n    brand: Sorry to hear you aren't a fan! We're continuing to make updates based on viewer feedback so we'd love details.\n\ncustomer: your iOS app never works anymore, and the new UI is seriously the worst app I’ve used in the past 5 years. You can just tell us you don’t want to keep our business.\n    brand: Oh no! Sorry for any frustration! Are you getting any errors? Please try: <link> --including uninstall/reinstall.\n\ncustomer: your Fire TV app is terrible. Why can’t you fix it? I’ve been waiting for months and I think I’ll cancel\n    brand: Apologies! We'd hate to see you go! Let's have you try: <link> Any improvement?\n\nCustomer message:\nyour Roku app is dreadful it needs to reworked ASAP.\n\nDraft reply:\nWe'd love to help! Try <link> for the lagging issues and <link> for an overview on the update.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft assumes the issue is lagging, which the customer did not specify.\"\n}",
+  "prompt_tokens": 590,
+  "completion_tokens": 60
+ }
+}

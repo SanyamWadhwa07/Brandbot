@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: If I am “All caught up” on a show but it shows as “Start Watching” can I change that some how?\n    brand: Hey Dennis! Thanks for reaching out! Which device do you use to stream? Are you noticing this w/a certain show?\n\ncustomer: when I have completed all the seasons of a show, why does it not show “all caught up” and say to start at episode 1 again?\n    brand: That shouldn't be the case! Did you view eps on devices w/ different experiences? Does FFing to end of latest ep update the prompt?\n\ncustomer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\ncustomer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\ncustomer: Having an issue. Show keeps skipping to \"latest episode\" in my \"keep watching\" while all other shows say \"next\". Troubleshoot?\n    brand: What show have you noticed this during and on what device? We'll take a look at things on our end?\n\nCustomer message:\nHey why the heck will shows sometimes refuse to be marked as “all caught up” and hang out at the top of “my stuff” telling me to “watch latest episode” even though I already have and the white line showing I have is there too?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies, addresses the issue, and asks for necessary device information.\"\n}",
+  "prompt_tokens": 655,
+  "completion_tokens": 64
+ }
+}

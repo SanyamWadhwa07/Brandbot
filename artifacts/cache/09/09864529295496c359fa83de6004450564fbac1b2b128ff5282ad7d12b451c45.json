@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: the World Series is unwatchable on live. It keeps jumping back to earlier in the game at random.\n    brand: Hey, Ross! Sorry about last night. Things are running much smoother now. If ever needed we offer: <link> too. 👍🏽\n\n[1] customer: I. Ant watch Sunday Night Football on live TV. It’s like the game doesn’t even exist...\n    brand: Oh no! Which device do you use? Is NBC usually available live in your area? If you go to Browse&gt;Networks&gt;NBC, any change?\n\n[2] customer: Why is TBS with the Cubs game the online channel not working on live?\n    brand: Sorry, Sarah! Rest assured we're looking into this: <link> Does uninstalling/reinstalling our app on Roku help?\n\n[3] customer: why can’t I go to live part of Red Sox game? It keeps going back to where I left off, not to the live game. Thanks!\n    brand: Hi Jeff! The Jump To Live option currently isn't available on the ATV4, but we'll express your interest in seeing this feature.\n\n[4] customer: yo..I can't get the Cubs v Dodgers game on the live app on Android\n    brand: Doh! That was us but we were able to get it resolved so you should be back in action. Let us know if you continue to have trouble.\n\nNew message:\nHulu live is not Showing the Giants-‘Skins game as available. Help?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 561,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hi, I have live beta and am constantly getting messages for too many screens when only watching one stream.\n    brand: Uh oh! Please try powering off your device for 1-2 minutes. If no luck, please let us know the device you're using to stream.\n\ncustomer: Eagles / Panthers NFL game buffering like crazy on Roku. Normal and beta hulu channel. Other live shows fine. Super annoying\n    brand: Oh no! Please try a quick reboot of your Roku+modem/router: <link> Do you notice any improvement after?\n\ncustomer: Watching World Series live on Fox, keeps freezing, says connecting issues, but no other shows affected. Max signal w/168mps.\n    brand: You aren't alone, Dale! Our team is aware of the issue and are working on a fix. In the meantime, try: <link>\n\ncustomer: why are you the only channel on @115940 that doesn’t automatically start live?\n    brand: Thanks for reaching out, Bryan! So we can best assist and take a closer look with you, reach out here: <link>\n\ncustomer: was very excited about Hulu Live. Trial wouldn't work w/PS4, so canceled after 1 day. Bought firestick, and now keep getting connection error with 34MBS download speed. Can't watch live sports or news because of frequent interruptions.\n    brand: Our sincere apologies, Jen! What channels are affected? When you have a moment, let's try: <link> Any better?\n\nCustomer message:\nI just got #HuluLive and it's still in beta. Got some bugs to work out like: DVR always on hurts live signal. Signal interruption. No live or DVR on PS4 (Vue must be upset) Maybe bring in history channel? IFC? TWD? but I know different services buy channels. <link>\n\nDraft reply:\nUh oh! Please try powering off your device for 1-2 minutes. If no luck, please let us know the device you're using to stream.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established tone and troubleshooting steps used in previous similar support interactions.\"\n}",
+  "prompt_tokens": 673,
+  "completion_tokens": 61
+ }
+}

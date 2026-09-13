@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: When is @17074 season 2 episode 5 gonna be on @115940 @hulu_support\n    brand: Hi, Kenneth! Episode 5 will air on FOX on 11/3 and will be up on Hulu the next day. Keep the show in WL/My Stuff for updates.\n\ncustomer: Why isn’t episode 5 of @44969 on @115940 or @44970 yet 😡\n    brand: Hey Bella! A new episode didn't air last week, but Grey's should be back this week! Sorry for any confusion.\n\ncustomer: Soooo when is @115940 going to give us season 5 of @42266 🤔🤔🤔😭😭😭😭\n    brand: Hi, Jordan! No info to share, but we'll tell the content team you're \"Pumped\" for S5. 👏💚 Keep in WL/My Stuff for updates! ✅🤗\n\ncustomer: When is season 2 of @168535 coming to @115940 ?\n    brand: Hi Bianca! We should receive the latest season just before the next airs. Add the Bordelon siblings to WL/My Stuff for updates\n\ncustomer: where is the new episode of @180562 and @9690 😩😩😩\n    brand: Sorry! We're looking into Watch Latest Episode button not loading new eps. For now, please browse/pick new eps on the show page.\n\nCustomer message:\nwhen is the next episode 2 of east los season 5 gonna come on @115940\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the specific question about the episode release date and asks an irrelevant clarifying question.\"\n}",
+  "prompt_tokens": 613,
+  "completion_tokens": 63
+ }
+}

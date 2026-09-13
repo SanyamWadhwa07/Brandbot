@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: how come you guys don't have The Walking Dead streaming rights?\n    brand: Hi! We currently don't have the proper licensing agreements set in place to offer TWD. We'll definitely share your interest!\n\n[1] customer: I can't stream, because it tells me that it can't load ads. But I have the no ad subscription. What is this?\n    brand: Our apologies, Thomas! That error was due to: <link> Try: <link> if it's present today.\n\n[2] customer: the reason I have Hulu is so I can stream live tv and half the time your games never work. Can’t watch the #NEvsDEN. Do you know when it will be back up?\n    brand: Sorry for the delay, Cait! Our team became aware that an issue was affecting some NBC streams and are investigating the cause.\n\n[3] customer: So, your license to stream a show expires and now those of us who pay for no commercials suddenly get commercials?!\n    brand: Sorry for the delay. This sounds like a known issue. We'd love to grab more details from you here: <link> ✅\n\n[4] customer: How about a restart option when streaming shows? It's not copyrighted, is it?\n    brand: Hi! Are you watching content live or on-demand? You should be able to rewind/play from the beginning while watching on-demand.\n\nNew message:\nwhy don't any of you have #Suburgatory streaming? Is it a licensing issue?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hi! We currently don't have the proper licensing agreements in place to offer Suburgatory. We'll definitely share your interest!\",\"used\":[0]}",
+  "prompt_tokens": 550,
+  "completion_tokens": 103
+ }
+}

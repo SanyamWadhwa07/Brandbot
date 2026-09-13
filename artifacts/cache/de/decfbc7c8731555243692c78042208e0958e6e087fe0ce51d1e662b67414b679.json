@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: weird error all month; new episodes of shows are no longer showing in the queue next day, nor do they show when I go directly to show page or refresh the page. please help\n    brand: Hi, Hannah. This sounds like something we're looking into. Which device do you use+which shows have you noticed this with?\n\ncustomer: when I had a queue I could rewatch old episodes and still see when new eps were available. That doesn’t seem true with MyStuff\n    brand: Is the (+) button filled in on these series pages? A green dot or NEW text appears on show thumbnail when new ep has aired.\n\ncustomer: My watchlist at <link> has been broken for three days. Even though you are adding episodes of shows I am subscribed to, it will not update. I checked the Android app and it is updating, the web is not.\n    brand: Are you not seeing the \"New\" badge on thumbnails on our site? Any specific shows? Do they appear under Episodes on the show page?\n\ncustomer: I'm still having daily issues of the watchlist (on mac &amp; iPhone) telling me to \"resume\" episodes that i've watched all the way through and telling me that I have \"unwatched\" episodes that I have watched all the way through. Am I the only one experiencing this?\n    brand: (1/2) Our sincere apologies for the trouble and delayed response! Let's try: <link> <link>\n\ncustomer: No new shows have popped up in my watchlist for days. Just restarted my TV, checked the website, and the Windows app. Can't get them to show up. I've logged in and out of the apps as well. Please help.\n    brand: Apologies! Our team is aware of this and are investigating. For now, you can still find the latest eps on each show's page.\n\nCustomer message:\nwhy can't I just watch this week's new episodes in a lineup? Why the hell is my queue some weird mixture of shit you want me to watch and old things I used to watch and random things related to things I used you watch? Can you fix this shit?!?! I'm about to unsubscribe.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is professional, addresses the issue by asking for device details, and follows past support patterns.\"\n}",
+  "prompt_tokens": 717,
+  "completion_tokens": 65
+ }
+}

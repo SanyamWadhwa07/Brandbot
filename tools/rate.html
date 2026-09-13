@@ -1,0 +1,135 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>brandbot reply review</title>
+<style>
+  :root { --bg:#faf9f7; --fg:#1b1b1a; --dim:#6b6a67; --line:#e0ded9; --accent:#2f5d50; --warn:#8a4b2a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.55 ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--fg); }
+  header { display:flex; justify-content:space-between; align-items:baseline;
+           padding:10px 20px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); }
+  #bar { height:3px; background:var(--accent); width:0; transition:width .15s; }
+  main { max-width:820px; margin:0 auto; padding:22px 20px 90px; }
+  h3 { font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim);
+       margin:22px 0 8px; font-weight:600; }
+  .msg { font-size:18px; line-height:1.5; padding:14px 16px; background:#fff;
+         border:1px solid var(--line); border-radius:8px; white-space:pre-wrap; }
+  .draft { font-size:18px; line-height:1.5; padding:14px 16px; background:#fff;
+           border:2px solid var(--accent); border-radius:8px; white-space:pre-wrap; }
+  .opt { display:flex; gap:10px; padding:6px 9px; border-radius:6px; cursor:pointer; align-items:baseline; }
+  .opt:hover { background:#efece6; }
+  .opt.on { background:var(--accent); color:#fff; }
+  .opt.on .def { color:#cfe0da; }
+  .opt.off { background:var(--warn); color:#fff; }
+  kbd { font:12px ui-monospace,monospace; background:#efece6; border:1px solid var(--line);
+        border-radius:4px; padding:1px 6px; min-width:22px; text-align:center; }
+  .def { color:var(--dim); font-size:13px; }
+  .turn { padding:6px 12px; border-left:3px solid var(--line); margin:5px 0; white-space:pre-wrap; font-size:13px; }
+  .turn b { color:var(--accent); }
+  #past { display:none; }
+  #past.show { display:block; }
+  footer { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--line);
+           padding:9px 20px; font-size:13px; color:var(--dim); display:flex; gap:18px; justify-content:center; }
+  button { font:inherit; padding:6px 14px; border:1px solid var(--line); background:#fff;
+           border-radius:6px; cursor:pointer; }
+  .warn { color:var(--warn); font-weight:600; }
+</style>
+<div id="bar"></div>
+<header>
+  <strong>brandbot reply review</strong>
+  <span id="count"></span>
+</header>
+<main>
+  <h3>Customer message</h3>
+  <div class="msg" id="text"></div>
+
+  <h3>Draft reply <span class="def">— you do not know which system wrote it</span></h3>
+  <div class="draft" id="reply"></div>
+
+  <h3>Would you let this send, unedited, right now?</h3>
+  <div class="opt" id="yes"><kbd>Y</kbd><span><b>send it</b> <span class="def">a support lead would let this go out</span></span></div>
+  <div class="opt" id="no"><kbd>N</kbd><span><b>hold it</b> <span class="def">needs a human to rewrite or take over</span></span></div>
+
+  <h3>What was wrong <span class="def">— optional, only if you held it</span></h3>
+  <div id="dims"></div>
+
+  <h3>What this brand actually said before <span class="def">— press P to check grounding</span></h3>
+  <div class="opt" id="peekbtn"><kbd>P</kbd><span>show the retrieved precedents</span></div>
+  <div id="past"></div>
+</main>
+<footer>
+  <span><kbd>Y</kbd>/<kbd>N</kbd> verdict</span><span><kbd>1-4</kbd> what was wrong</span>
+  <span><kbd>P</kbd> precedents</span><span><kbd>&#8629;</kbd> next</span><span><kbd>&#8592;</kbd> back</span>
+  <button onclick="save()">Download JSONL</button>
+  <span id="status"></span>
+</footer>
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('payload').textContent);
+const KEY = 'brandbot-ratings-' + DATA.set_name;
+let r8 = JSON.parse(localStorage.getItem(KEY) || '{}');
+let i = Math.min(Object.keys(r8).length, DATA.examples.length - 1);
+
+const el = id => document.getElementById(id);
+const cur = () => DATA.examples[i];
+const rec = () => r8[cur().id] || (r8[cur().id] = {failed:[], peeked:false});
+
+function render() {
+  const ex = cur(), r = rec();
+  el('text').textContent = ex.message;
+  el('reply').textContent = ex.reply;
+  el('count').textContent = `${i+1} / ${DATA.examples.length}  ·  ${Object.values(r8).filter(x=>x.send!==undefined).length} done`;
+  el('bar').style.width = ((i+1)/DATA.examples.length*100) + '%';
+
+  el('yes').classList.toggle('on', r.send === true);
+  el('no').classList.toggle('off', r.send === false);
+
+  el('dims').innerHTML = DATA.dimensions.map((d,n) =>
+    `<div class="opt ${r.failed.includes(d.name)?'off':''}" data-dim="${d.name}">
+       <kbd>${n+1}</kbd><span><b>${d.name}</b> <span class="def">${d.definition}</span></span></div>`).join('');
+  document.querySelectorAll('[data-dim]').forEach(d => d.onclick = () => toggle(d.dataset.dim));
+
+  el('past').className = r.peeked ? 'show' : '';
+  el('past').innerHTML = ex.precedents.map(p =>
+    `<div class="turn"><b>customer</b> ${p.message}<br><b>brand</b> ${p.reply}</div>`).join('');
+  el('peekbtn').classList.toggle('on', !!r.peeked);
+  el('status').innerHTML = r.send === undefined ? '<span class="warn">no verdict</span>' : '';
+
+  el('yes').onclick = () => { rec().send = true; commit(); };
+  el('no').onclick = () => { rec().send = false; commit(); };
+  el('peekbtn').onclick = () => { rec().peeked = true; commit(); };
+}
+
+function toggle(name) {
+  const f = rec().failed, at = f.indexOf(name);
+  at === -1 ? f.push(name) : f.splice(at, 1);
+  commit();
+}
+function commit() { localStorage.setItem(KEY, JSON.stringify(r8)); render(); }
+function go(n) { i = Math.max(0, Math.min(DATA.examples.length - 1, i + n)); render(); }
+
+addEventListener('keydown', e => {
+  const k = e.key.toUpperCase();
+  if (k === 'Y') { rec().send = true; commit(); }
+  else if (k === 'N') { rec().send = false; commit(); }
+  else if (k === 'P') { rec().peeked = true; commit(); }
+  else if (e.key === 'Enter' || e.key === 'ArrowRight') { go(1); }
+  else if (e.key === 'ArrowLeft') { go(-1); }
+  else if (e.key >= '1' && e.key <= '9') {
+    const d = DATA.dimensions[+e.key - 1]; if (d) toggle(d.name);
+  }
+});
+
+function save() {
+  const lines = DATA.examples
+    .filter(ex => r8[ex.id] && r8[ex.id].send !== undefined)
+    .map(ex => JSON.stringify({
+      id: ex.id, thread_id: ex.thread_id,
+      send: r8[ex.id].send, failed: r8[ex.id].failed, peeked: !!r8[ex.id].peeked,
+    }));
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines.join('\n') + '\n'], {type:'application/x-ndjson'}));
+  a.download = DATA.set_name + '.jsonl';
+  a.click();
+}
+render();
+</script>

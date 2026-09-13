@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I am trying to renew my subscription for Hulu so I can connect my Spotify to it. It's not letting me. Can you help?\n    brand: Hi Victoria! Are the email addresses on the accounts the same? Check out the tips and steps we have here: <link>\n\ncustomer: I have a question about what to do in the issue of my TV subscription experiencing outages. Can you please DM me?\n    brand: We're here to help, Samantha! Call/chat (<link> if these don't take care of it: <link>\n\ncustomer: I’m trying to restore my subscription. I got the email saying I did but when I try to log in I get an error message.\n    brand: Sorry! Try uninstalling/reinstalling the app. Still seeing the error? Chat w/ us <link> for further support.\n\ncustomer: Hulu is saying I have to renew my subscription but I'm already subscribed and I can't log into my account or ask for help\n    brand: Apologies for the trouble! Give us a call at the number listed here: <link> and we'll look into this. 👍🏻\n\ncustomer: All day I’ve been getting error message when I try to play a show on my iPhone. Is this problem on my end or on yours?\n    brand: We can help! Please check for updates on the App Store or uninstall/reinstall our app on iOS. Any improvement afterwards?\n\nCustomer message:\nis it possible to use my subscription while I am traveling abroad? Everything I try to play I get an error\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful, on-brand, and uses a clarifying question consistent with past support interactions.\"\n}",
+  "prompt_tokens": 587,
+  "completion_tokens": 65
+ }
+}

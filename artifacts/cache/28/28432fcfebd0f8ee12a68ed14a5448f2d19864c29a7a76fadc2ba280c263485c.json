@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: empire and star aired on 11/1 it is 11/5 why aren’t the new episodes available on Hulu?????\n    brand: Hi, Chris! The show didn't air due to the World Series. It's back this week! Check out: <link>\n\n[1] customer: why isn’t the new episode from empire or star on Hulu 😡\n    brand: Don't worry, you haven't missed anything! Both of these shows didn't air new eps this week but they'll be back next week. 👍\n\n[2] customer: why isn’t the most recent episode of empire on yet ?\n    brand: Hang in there! The show took a break last week but will air a new episode on 11/8! Check your Watchlist/My Stuff for updates!\n\n[3] customer: why is the new episode of empire still not uploaded?\n    brand: No new eps since 10/18—but the Lyons return tonight: <link> We'll have the ep up tomorrow, so stay-tuned!\n\n[4] customer: can y'all tell me why empire and star not on there yet ? YALL TWO WEEKS LATE 🗣\n    brand: These shows have been on a hiatus since 10/18. New eps will premiere on TV 11/8, &amp; added to our on-demand service the next day\n\nNew message:\nummmm where's the latest episode of star and empire. It's been a while",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hang tight! Both Empire and Star have been on hiatus since 10/18. New episodes premiere on TV 11/8 and will appear on Hulu the next day. Stay tuned!\",\"used\":[2,4]}",
+  "prompt_tokens": 545,
+  "completion_tokens": 110
+ }
+}

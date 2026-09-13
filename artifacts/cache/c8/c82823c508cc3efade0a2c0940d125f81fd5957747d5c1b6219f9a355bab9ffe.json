@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Why isn’t my @115940 working?!\n    brand: Yikes! What specific trouble are you having and which device is in use? If it's tech related, try: <link>\n\n[1] customer: When is @115940 live going to be available on my Samsung 😭😭\n    brand: Hey Natalie! No release date to share at this time, but keep an eye on: <link> Our team is working on it!\n\n[2] customer: So I switched to @115940 live and I keep having issues.... may have to go back to Sling. I just want my HGTV😤\n    brand: Sorry, Holly! We understand where you're coming from and wanted to apologize for the trouble. This issue should now be resolved!\n\n[3] customer: Why doesn’t @115940 have #Riverdale?! 🙄😔\n    brand: Hey Brittany! We have the rights to stream Riverdale on Hulu with Live TV: <link> We'll share your interest!\n\n[4] customer: So if @115940 could just put #HannahMontana on their site that would be great 🙄\n    brand: Hey there! We're always looking to add content that our viewers want to see, so we'll share your request with our team. 💜\n\nNew message:\nI LOVE 💛 my #iPhoneX but I’ve seen the recent news about #HULUXSPRINT how do I get that? I would love #Hulu @115940 💚💛",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 559,
+  "completion_tokens": 79
+ }
+}

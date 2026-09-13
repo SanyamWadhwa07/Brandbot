@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hello @115940 when is newest greys coming on 😭 <link>\n    brand: It's currently streaming, Chariya! Watch last night's episode here: <link> Happy streaming!\n\ncustomer: When is the new greys anatomy going to be on @115940 ???😭\n    brand: Hi Hailey! If you're subscribed to an on-demand plan, new eps are made available the day after air: <link>\n\ncustomer: when will the latest grey’s anatomy episode be up to watch?\n    brand: The latest ep is up on our service &amp; available here: <link> If you're not seeing it, let us know the device.\n\ncustomer: why isn’t the new episode of greys on hulu yet, i’m about to cancel my membership!!!!\n    brand: Don't worry, Dr. Grey had a vacation scheduled so there wasn't a new ep to air last week. It's back on to new ones on Thursday!\n\ncustomer: Ok now @hulu_support I been waiting for Star for about a week now. And is @6311 going to be on Hulu tomorrow?\n    brand: Hey! Star is on hiatus until 11/8, so keep the show in WL/My Stuff for updates. S1 E6 of The Brave is now available to stream.\n\nCustomer message:\nwill the #CFL #greycup be on #HuluLiveTV? Please say yes!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's specific question about the Grey Cup and asks an irrelevant troubleshooting question.\"\n}",
+  "prompt_tokens": 574,
+  "completion_tokens": 65
+ }
+}

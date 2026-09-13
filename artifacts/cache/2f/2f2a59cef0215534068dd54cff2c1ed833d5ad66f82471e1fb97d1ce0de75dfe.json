@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: trying to update my billing payment on @115940 keep getting an error \"We could not authorize your card. Please check your payment information\" chat doesn't work, 1hr hold via phone smh\n    brand: Our apologies for the long hold times and any frustration, Lo Lo. Phones will be your best resource to look into billing matters.\n\ncustomer: I updated payment info through Roku but Hulu says the account is on hold. How and/or when can I access Hulu again??\n    brand: Hi, Ally! We'd love to take a look on our end. When possible, please call us/chat us here: <link>\n\ncustomer: I can’t update my billing information and the site itself isn’t even loading\n    brand: Sorry! This issue should now be resolved. If you're still unable to update your billing, give us a 📞: <link>\n\ncustomer: nothing is loading after I select a profile. Whole service is down. On iOS and Apple TV <link>\n    brand: Apologies! We ran into an issue on Monday, it sounds like you were affected. It's now resolved! <link>\n\ncustomer: I’ve been trying to update my payment info from my @127972 for over an hour and nothing is working. Phone says 1 hr wait time\n    brand: Yikes! Sorry about that. If things still aren't resolved, please try again now: <link> We'll wrap this up!\n\nCustomer message:\nCan’t load into my account to update my payment info. Are you servers down?\n\nDraft reply:\nOur apologies for the long hold times and any frustration, Lo Lo. Phones will be your best resource to look into billing matters.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses a placeholder name Lo Lo which does not match the current customer.\"\n}",
+  "prompt_tokens": 605,
+  "completion_tokens": 61
+ }
+}

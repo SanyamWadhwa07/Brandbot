@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: .@hulu_support I've been getting double charged for months now/ can;t work out how/why...I upgraded to the total package yet again a $7.99\n    brand: Ah! We can sort this out. Please reach out here: <link> so we can get to the bottom of this ASAP!\n\ncustomer: I'm trying to sign up for hulu with my student Spotify premium but it says that my email is already taken and idk why.\n    brand: Sorry for the trouble, Marco! Call us at the number listed here: <link> and we'll look into this for you.\n\ncustomer: day 5 of trying to call/chat/email whoever to fix my Hulu student account that i got from the Spotify/hulu deal, i just want to watch my shows @115940 nothing is working why are you being shady\n    brand: Hi! This promo is run directly through Spotify so we recommend reaching out to them for assistance. Sorry for any trouble!\n\ncustomer: if I had the student deal offered through @115888 Can I upgrade to no commercials?\n    brand: Hey, Will! The Hulu/Spotify bundle only applies to Limited Commercials. We'll share your interest in being able to upgrade!\n\ncustomer: Can you upgrade the @115940 that comes with @115888 student membership to commercial free? @hulu_support\n    brand: Sorry! That is not an option at this time, but we'll share your interest with our team. Let us know if we can help further!\n\nCustomer message:\nI'm a student who who already has hulu at the No Commercials Plan @ $11.99/mos. How can I take advantage of the Premium Spotify offer for students where it's included with the basic Hulu package w/out interfering with my current Hulu package?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the customer's specific question about the student bundle and asks an irrelevant question instead.\"\n}",
+  "prompt_tokens": 658,
+  "completion_tokens": 65
+ }
+}

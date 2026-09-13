@@ -21,6 +21,7 @@ from brandbot.data.ingest import ReplyGraph
 from brandbot.data.threads import Threads
 
 SLICE_PATH = config.BRAND / "threads.jsonl.gz"
+FOREIGN_PATH = config.BRAND / "foreign_replies.json"
 
 LEADING_MENTIONS = re.compile(r"^(?:@\w+\s+)+")
 EMAIL = re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.]+\b")
@@ -98,6 +99,33 @@ def extract(
         if turns[0].role == "customer" and any(t.role == "brand" for t in turns)
     ]
     return sorted(out, key=lambda c: (c.started_at, c.thread_id))
+
+
+def foreign_reply_threads(
+    graph: ReplyGraph, table: Threads, roots: np.ndarray, brand: str
+) -> list[int]:
+    """Threads where a company other than `brand` also replied.
+
+    The corpus marks every company tweet outbound without recording which company
+    wrote it, so a customer who tagged three support accounts leaves another team's
+    words in this brand's thread, indistinguishable from the brand's own. It is
+    rare, 41 threads of 14,122, and the damage is concentrated: when the foreign
+    reply lands first it becomes the precedent for that thread, and a draft
+    grounded in it answers in the wrong company's voice.
+
+    Recording the ids rather than dropping the turns keeps the committed slice
+    byte-identical, which matters while a golden set is being labelled against it.
+    """
+    code = graph.authors.index(brand)
+    keep = table.is_conversation() & (table.brand == code)
+    members = np.flatnonzero(np.isin(roots, table.root_row[keep]))
+    outbound = members[~graph.inbound[members]]
+    foreign = outbound[graph.author[outbound] != code]
+    return sorted({int(graph.tweet_id[int(roots[row])]) for row in foreign})
+
+
+def load_foreign(path: Path = FOREIGN_PATH) -> set[int]:
+    return set(json.loads(path.read_text(encoding="utf-8")))
 
 
 def save(conversations: list[Conversation], path: Path = SLICE_PATH) -> None:

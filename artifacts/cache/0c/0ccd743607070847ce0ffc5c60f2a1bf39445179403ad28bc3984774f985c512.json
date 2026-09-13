@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Dear @115940 and @hulu_support, why do I need to tell you who is watching when I only have one profile? It's an annoying extra step.\n    brand: Thanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!\n\ncustomer: Has a lot of work to do with their live tv service.. I think i've watched the same clip 30 times during crappy buffering..\n    brand: Yikes! That's no good. What device and channel are affected? Let's see if these make a difference for you: <link>\n\ncustomer: There is only one profile on my hulu, so why does it keeps asking me which profile do I want? This only happens on firestick, not my tablet or phone. If there is only 1 profile it should just go directly to that profile.\n    brand: Apologies for any frustration, Erin! We'll share your feedback while we work to make improvements: <link> 💚\n\ncustomer: Why is that I can make multiple profiles yet only 1 person at a time can use your service?I can run 5 profiles all @ once on @116602\n    brand: Sorry for any disappointment! Our base plan allows for one stream at a time due to rights: <link>\n\ncustomer: Old setup was better. It was easier to find shows/movies to watch. Visually more appealing.\n    brand: Sorry for any frustration! Improvements will continue based on viewer input like yours: <link>\n\nCustomer message:\nIt's messier than before, especially with multiple people watching shows on the one profile <link>\n\nDraft reply:\nThanks for sharing, Bryan! We completely understand you here, and will be sure our team gets the feedback. Stay tuned for updates!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name, Bryan, instead of addressing the current user.\"\n}",
+  "prompt_tokens": 626,
+  "completion_tokens": 62
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I thought I was getting a free trial but I was charged $11.99\n    brand: We're happy to take a look and see what happened. When you have a chance, reach out: <link>\n\ncustomer: I just got an email saying I could get a 1 month free trial and would be charged 5.99 after that but it doesn’t work\n    brand: Hi Bruce! Do you know if you may have already redeemed a trial with us in the last 12 months? <link>\n\ncustomer: I just signed up for the $5.99 (per email) and said free trial. Didn't get a free trial and your system didn't warn me. Help?\n    brand: Sorry for the delay! Give us a call or chat with us here: <link> and we'll look into this. 👍🏻\n\ncustomer: I signed up for a free trial at the $5.99 rate and switched to $11.99 an hour later and now I'm getting charged $4. Why?\n    brand: A pro-rated charge occurs for plan switches. Call or chat with us here: <link> and we'll confirm. 👍🏻\n\ncustomer: I got a free trial email, and was charged $11.99 when I signed up. No warning of not being eligible. Is a refund possible?\n    brand: Thanks for elaborating! Please call/chat ➡️ <link> so we can take a closer look &amp; explore available options. 🔍\n\nCustomer message:\nSo a free trial that costs 5.99? Lol idc that I had to pay for it, but don't lure me in with a free trial if there isn't one @115940 @109764 <link>\n\nDraft reply:\nWe're happy to take a look and see what happened. When you have a chance, reach out: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies and appropriately directs the customer to support for investigation.\"\n}",
+  "prompt_tokens": 653,
+  "completion_tokens": 62
+ }
+}

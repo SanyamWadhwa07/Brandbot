@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I've had so many buffering issues with @115940 live TV on @127972. But it works just fine for me on @116439. @hulu_support\n    brand: Hm, that's weird. Sorry to hear this, Logan! Seeing any errors? Give these a shot: <link> Any improvement?\n\n[1] customer: just curious why my Hulu live STILL isn’t working properly a whole week later @115940 @hulu_support\n    brand: Oh no! Sorry to hear this. What device are you streaming on? Notice any error messages? Let's try: <link> ✅\n\n[2] customer: Gee it’s Wednesday @hulu_support once again cannot play @131187 Yes I tried all above options your about to ask Yes I’m considering unsubscribing since the main reason I have hulu live is for @131187\n    brand: We want you to be able to watch both! Have you been able to give our team a call/chat at this point: <link>\n\n[3] customer: Don't know why I'm paying for @115940 it freezes &amp; buffers nearly every 30 seconds. Already missed Judge's solo HR. #annoyed @hulu_support\n    brand: Let's see if the steps for your device (<link> smooth it out. If not, reach out: <link>\n\n[4] customer: I want to love @115940 live tv! @hulu_support the constant buffering is unacceptable. No issues with Vue or Sling. If that's fixed, I'm sold.\n    brand: Eek! We want you to love us, too! Have you tried the suggestions for your specific device here: <link> ?\n\nNew message:\nDear, @115940 @hulu_support Why can't I get the live TV I'm paying for in my fancy Hulu package? It was *always* buffering on my @13691 3, and it apparently isn't even available on my Sony smart TV. I got this for football. When will this be resolved?! #FixIt",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Which device are you using? Any error messages? Try the troubleshooting steps for your device here: <link>. If it’s still buffering, reach out to us directly: <link>.\",\"used\":[0,1,3,4]}",
+  "prompt_tokens": 665,
+  "completion_tokens": 109
+ }
+}

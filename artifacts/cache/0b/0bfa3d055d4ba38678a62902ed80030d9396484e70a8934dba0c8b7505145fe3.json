@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: any chance your live tv will get better? I continue to have outages, Which means I won't continue to pay $45 a month.\n    brand: Sorry, Vincent! We're investigating this and we'll be sure to share the feedback to make improvements to our service.\n\ncustomer: not working on Apple TV or iPad. Paying $13.99 a month but not been able to watch for last 2 days. Not good enough.\n    brand: That shouldn't be the case Paula! We'd love to help. Please let us know if these troubleshooting tips help: <link>\n\ncustomer: @115940, every night your service goes down. You're going to lose a ton of customers if you don't figure out what you're doing wrong. Hint: provide better streaming to us, your customers, or face the consequences, ie, cancellations.\n    brand: Let's see if we can help, David! Which device are you using to stream? Are you subscribed to Hulu with Live TV? Standing by.\n\ncustomer: If I could have $1 everytime my @115940 app crashed on my tonight, I could pay for a 2 month subscription. @hulu_support\n    brand: Oh no! Which device is this occurring on? Does it crash during ads or upon app start? Try these: <link>\n\ncustomer: i’m about to cancel my subscription. this happens every 2 minutes no matter what i watch. @116602 works just fine as well as every other app on my TV <link>\n    brand: We're sorry to hear about the trouble &amp; would love to help! What device is in use? For now, start here: <link>\n\nCustomer message:\nwhen will my monthly rate come down\n\nDraft reply:\nSorry, Vincent! We're investigating this and we'll be sure to share the feedback to make improvements to our service.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft ignores the customer's question about pricing and provides an irrelevant response about technical service issues.\"\n}",
+  "prompt_tokens": 651,
+  "completion_tokens": 65
+ }
+}

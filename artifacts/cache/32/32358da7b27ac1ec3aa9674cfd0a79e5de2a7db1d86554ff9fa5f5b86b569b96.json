@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Hey @115940 all of my Roku devices get this error several times when watching programs. Started with the updated interface. Please fix... <link>\n    brand: Sorry, Travis! Still need help? If so, try: <link> No improvement? Pls chat w/ us <link>\n\n[1] customer: I love @115940 but it’s always glitchy af. I need y’all to get it together\n    brand: Uh oh! What kind of trouble are you running into, and on what device? We'd love to see how we can help. 💚\n\n[2] customer: So it is @115940 or @115858 that’s broken right now? Any idea why the restore purchase option doesn’t work? Oh and the ‘pop’ hold music is 👎\n    brand: Apologies, Michael! Please contact Apple support: <link> for assistance with your iTunes-billed account.\n\n[3] customer: All I wanna do is catch up on @180004 and @115940 refuses to work. Funk you Hulu, ur moms a hoe.\n    brand: Sorry, Taylor! We expect to receive S4 in its entirety sometime after its season run ends. Stay tuned: <link>\n\n[4] customer: your new interface on @127972 sucks. You make it so difficult to find shows and lord help me if I want to watch anything other than the most recent episode. On the plus side, I guess it’s prettier than the last one?\n    brand: Sorry for any frustration! Your shows are in My Stuff: <link> We recommend checking out: <link>\n\nNew message:\nFor the love of god @116602 please bring back how I met your mother. @115940 and it's constant errors are making me crazy.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 615,
+  "completion_tokens": 74
+ }
+}

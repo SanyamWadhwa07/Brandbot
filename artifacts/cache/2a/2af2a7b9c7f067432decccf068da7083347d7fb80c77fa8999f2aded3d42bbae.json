@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: why are only some episodes of season 6 of GOT available and not all\n    brand: Sorry, Judy! Our team is investigating missing HBO content. For now, please use the HBO NOW App: <link>\n\n[1] customer: y’all not gonna load more episodes of One Piece? I’m just curious\n    brand: Sorry, we don't have the rights to simulcast the show as it's airing. Make sure it's in Watchlist/My Stuff for all updates.\n\n[2] customer: The Handmaid's Tale needs more episodes! I couldn't help but binge the whole thing!\n    brand: Praise be! Season 2 will premiere sometime in 2018 on Hulu! Please keep the show in your WL/My Stuff for updates.\n\n[3] customer: trying to watch the new season of Will and Grace. Is it available? I just get a message saying zero episodes and loading.\n    brand: Uh oh! Sorry for the trouble, Gary. The latest eps should be available. What device is in use? Try: <link>\n\n[4] customer: can y’all add @1046 Are You The One so I can binge watch plz\n    brand: Hey, Lex! We can't make any promises, but we'd be happy to share your request. For updates, check out: <link>\n\nNew message:\ny’all should consider making all Runaways episodes available to binge 👀.... #Runaways",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey! We can’t promise, but we’ll share your request for more Runaways episodes. Keep an eye on updates here: <link>\",\"used\":[4]}",
+  "prompt_tokens": 539,
+  "completion_tokens": 107
+ }
+}

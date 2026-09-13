@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: pleaseeeee please please put spongebob (all the seasons) on @115940 or @116602 PLEASE\n    brand: Hulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍\n\ncustomer: if @115940 or @116602 dont pick up spongebob i'm cancelling\n    brand: We'd hate to lose you! 😭 We don't have any information about Spongebob or his pants, but we'll alert Squidward and Patrick.\n\ncustomer: I’ve been begging @116602 and @115940 to get the Degrasso: Next Generation series since FOREVER.\n    brand: We're always looking to add shows our viewers want to watch, so we'll share your request! Keep an eye on: <link>\n\ncustomer: I wish that @116602 and @115940 had a “random episode” button for TV series. I’d use it all day long.\n    brand: Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!\n\ncustomer: Why you gotta take the Saw series off like that? @115940\n    brand: Sorry! Our rights to stream these movies have expired, so we cannot offer them at this time: <link>\n\nCustomer message:\nSomeone needs to get the entire sponge bob series going @116602 @115940 your move\n\nDraft reply:\nHulu here! 👋🏽 Thanks for the suggestion. We'll pass along the request to see all seasons of Spongebob on Hulu in the future! 🍍",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with previous replies to the same request and maintains the brand's established tone.\"\n}",
+  "prompt_tokens": 635,
+  "completion_tokens": 65
+ }
+}

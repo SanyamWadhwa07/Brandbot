@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Guys seriously slack up on this method soap commercial. @ this point it's annoying and I'm going out of my way not 2 buy it\n    brand: Sorry for any ad-related frustrations! We have limited # of advertisers on each show but we're working to increase the variety.\n\ncustomer: I️ literally hate how repetitive your commercials are. Can’t you get more advertisers? #goawayginny #stopthatawfulrunningsong #SOS\n    brand: We have a limited number of advertisers per show, but we're working to increase variety! Try updating: <link>\n\ncustomer: .@115940 your commercials before the closing credits of family guy make me very upset\n    brand: Sorry to hear of any frustration! Do you recall what was being advertised? Try: <link> which may mix up ads. ✅\n\ncustomer: can you guys please stop raising the volume on the commercials? Its very annoying.\n    brand: Ad volume should match that of the show. Please start a chat with us here: <link> so we can look into it.\n\ncustomer: This annoying @57641 ad has come on for EVERY commerc. break in the last 2 hours, &amp; now I'm LESS likely to ever buy @57641.\n    brand: Sorry for any ad-related frustrations! We have a limited # of advertisers on each show but we're working to increase variety.\n\nCustomer message:\nplease remove the annoying ass old navy commercial plz?!\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful, maintains the brand tone, and follows the established pattern of asking for details.\"\n}",
+  "prompt_tokens": 577,
+  "completion_tokens": 65
+ }
+}

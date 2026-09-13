@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What the heck @hulu_support why isn't the new episode of @209410 from last week viewable?\n    brand: Due to the World Series, The Orville is on a break, but will resume airing on 10/26 and the ep will be on Hulu the next day.\n\ncustomer: when is this weeks @168148 episode being added?\n    brand: Hi there! The show didn't air a new episode this week due to the World Series, but it should return Nov. 8: <link>\n\ncustomer: Hey @hulu_support you can't watch @209410 the night the episode comes out? <link>\n    brand: Sorry for any disappointment! Episodes are available the day after air. Add the show to your WL/My Stuff for all updates.\n\ncustomer: When will all 5 seasons of @12209 be available? It said it was supposed to be on 10/1 but it isn't showing any episodes @hulu_support\n    brand: Sorry about that! We hope to have these seasons available soon. Stay tuned to: <link> for updates. 💚\n\ncustomer: How come new episodes of Brooklyn 99 are not in my queue @115940 @hulu_support\n    brand: Brooklyn Nine-Nine has been on a hiatus since 10/17. S5 ep5 will premiere on 11/7, and will be added to our on-demand library 11/8.\n\nCustomer message:\nwhen is episode 9 of @16840 getting put on hulu\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft fails to address the customer's question about the episode release date.\"\n}",
+  "prompt_tokens": 610,
+  "completion_tokens": 61
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: When @115940 has the episodes out of order and Susan DIES and then shows up in the last episode?? COME ON @115940 THIS IS NOT OKAY #Seinfeld <link>\n    brand: Our sincere apologies, Dana! Thanks for bringing this to our attention. We've reached out to our team and are working on fixing it.\n\ncustomer: Blindspot S2 has 22 episodes but @115940 only has 17? Where are the last 5?\n    brand: Hi! The episodes mysteriously expired, but thanks to our tattoos they're back on Hulu now. We're sorry for the trouble!\n\ncustomer: When @115940 doesn’t have the newest @5185 episode with @89800 yet. <link>\n    brand: Sorry, Alisha! We're investigating, but you should be able to find it now in Seasons / Episodes: <link> 💜\n\ncustomer: Hey @115940, why aren’t the latest episodes of @180562 and @15586 showing up on Hulu?\n    brand: Hi! The latest ep of Grey's is available: <link> The Mick comes back on air 11/7: <link>\n\ncustomer: Fuck, @115940 is missing the last 3 episodes of #TheHandmaidsTale! Really?!?!?! 😵😵😵\n    brand: We're seeing all 10 eps on our end. It seems The Commanders must have taken them from you! What device are you using?\n\nCustomer message:\nWhen you have 3 more episodes of @113174 but then it’s taken off @115940 .... 😒 <link>\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past support interactions and asks a helpful clarifying question.\"\n}",
+  "prompt_tokens": 645,
+  "completion_tokens": 60
+ }
+}

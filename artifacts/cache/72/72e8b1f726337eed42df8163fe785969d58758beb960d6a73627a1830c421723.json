@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: seriously <link> to watch the World Series live and this is the BS I have been dealing with!! <link>\n    brand: No issues to report on our end but we're here to help out. Have you tried: <link> What device is this on?\n\n[1] customer: what’s going on with TB and the Dodger/Cub game?? <link>\n    brand: Our team is working to get the feed live at the moment and we appreciate the patience. Give the network another try for us!\n\n[2] customer: all day long! Why?! <link>\n    brand: Yikes! We'd like to help. What device/model are you using? Notice any improvement after applying: <link>\n\n[3] customer: live game #ALCS stuck on this screen <link>\n    brand: Yikes! Have you tried: <link> If that doesn't fix it, let us know which devices and channels are affected.\n\n[4] customer: The Pats Jets game in Indy is only doing this. Never had these problems on YouTubeTV. <link>\n    brand: What device are you using to stream from? Which channel experiences this? Try: <link> Any improvement after?\n\nNew message:\nSeriously, this has been the entire game: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Yikes! Let’s sort this out. What device are you using and which channel? Try this troubleshooting step: <link>. Let us know if it improves things.\",\"used\":[0]}",
+  "prompt_tokens": 512,
+  "completion_tokens": 127
+ }
+}

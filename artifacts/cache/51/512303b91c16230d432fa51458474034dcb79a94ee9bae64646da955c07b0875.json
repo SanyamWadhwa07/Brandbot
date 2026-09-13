@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Streaming stops at random and if I don't immediately rewind it a bit, it jumps to the start of next episode. Really annoying.\n    brand: That would be annoying! 😩 Try: <link> <link> Call/chat if not fixed (<link>\n\n[1] customer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\n[2] customer: trying to watch a any previously recorded episode that I like and I get a re-try error or the screens sits and appears to try and load.\n    brand: Oh no! To clarify, this is happening w/Cloud DVR? Which device do you use? Are all shows affected? For now, try a device reboot.\n\n[3] customer: Dear @115940. I tried to watch a show three times by reloading the page. Each time an ad completely stopped and froze the page. Done w this.\n    brand: We'd hate to lose you, Daniel! What device were you using? Did this occur during a specific ad? Try: <link> ✅\n\n[4] customer: Positive feedback: Been watching World Series and Sunday Night Football. No issues like last night. Actually seems improved.\n    brand: Thank you so much for sharing this feedback! Our team pushed out a fix, so we're glad to hear you're streaming smoothly!\n\nNew message:\nWell, more issues. We were trying to watch a show last night and it constantly did a rewind. FRUSTRATED. WTF <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"That sounds frustrating! Which device are you using? Try the steps here: <link> and let us know if it helps.\",\"used\":[0]}",
+  "prompt_tokens": 608,
+  "completion_tokens": 92
+ }
+}

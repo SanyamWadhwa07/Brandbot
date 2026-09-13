@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: getting playback error while trying to watch Dodgers-Cubs.\n    brand: Sorry for the trouble you experienced last night. We fixed the issue and will do our best to make sure it doesn't happen again!\n\n[1] customer: I am getting a playback error while trying to watch Dodgers Cubs game. All other channels are working. Please help!\n    brand: We want to apologize for the interruption last night! We're doing our best to minimize these issues going forward. ⚾︎\n\n[2] customer: my account will need to be credited, because I’m sick of this playback error message\n    brand: We're so sorry you're still having trouble! If: <link> is no help, reach out at: <link>\n\n[3] customer: I keep getting a playback failure error keep saying sorry we encountered an error please check your connection\n    brand: Oh no! What device is this happening on? For now, be sure to check out/try these steps: <link>\n\n[4] customer: Well @115940 isn't the answer. Damn thing keeps giving a playback error. Not continuing after my free week. Might just cancel tonight.\n    brand: Sorry to hear that, David! Which device(s) are you using to stream? Any specific network? Try out: <link>\n\nNew message:\nim getting a playback error on my account. Can you please help?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Oh no! What device are you using? In the meantime, try these steps: <link>\",\"used\":[3]}",
+  "prompt_tokens": 530,
+  "completion_tokens": 88
+ }
+}

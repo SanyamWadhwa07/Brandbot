@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Hey @115940, I keep hearing these ads for #hululive which are useless since the new update constantly crashes my Fire TV stick @hulu_support\n    brand: Sorry to hear that, Christine! Let's see if we can help. Try these steps: <link> and <link>\n\ncustomer: Seroiusly, @115940 @hulu_support, your new rollout is buggy AF\n    brand: Sorry for any frustration! Anything in particular you're having trouble with? Let us know as we'd love to assist!\n\ncustomer: “COOL” feeling when @115940 @hulu_support tell u “we do not send out email comm” when “known issue” that IT is aware of is resolved...#wow <link>\n    brand: Sorry for any frustrations! While this isn't something we're able to do at this time, we understand &amp; will share your experience.\n\ncustomer: Guess @115940 @hulu_support doesn't care that much about their customers. A week later and STILL no resolution to my #HuluLive problems. <link>\n    brand: Sorry to hear this has continued, Adam. We're you able to give our team a call or chat using: <link>\n\ncustomer: Just cancelled my @115940 account, they have proven they don't care about their customers with their new terrible UI @hulu_support\n    brand: We're sorry to have lost you! 😩 We'd love to gather any specific feedback you have for our devs here: <link>\n\nCustomer message:\nYour updates are absolute trash @115940 @hulu_support. I know you dont care b/c Ive read the message boards, &amp; you do nothing that the customers ask for. But wow.\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions and appropriately asks for device details to assist.\"\n}",
+  "prompt_tokens": 657,
+  "completion_tokens": 61
+ }
+}

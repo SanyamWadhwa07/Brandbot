@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: what is up with Hulu, it keeps cutting off my shows at the end and saying need to reload. I’m getting really annoyed and considering canceling if it continues. It’s been 4 days now\n    brand: That is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?\n\ncustomer: my Hulu keeps resetting after a show begins....I need my @13192 fix.\n    brand: Exsqueeze me?! Sounds like Morgan has been messing with things again...What device are you having this trouble on? Any errors?\n\ncustomer: I am having the same problem over and over again with my DVR recordings for certain shows where it skips to the commercial and I miss parts of the show. It used to only happen to the news program I watch, but it's happening to my other shows.\n    brand: Apologies! Please follow up here: <link> w/ the device in use and content affected so we can take a closer look.\n\ncustomer: Why do all my recordings have this weird “skipped recording” message and it cuts off parts of the show?\n    brand: Uh oh. Which show(s) have you noticed this behavior with and which device do you use? Are recordings accessed from My Stuff?\n\ncustomer: why does your playback get all messed up when you unpause a show? It’s terribly annoying. Sometimes it jumps to the end of the episode. Y’all need a playback like hbogo.\n    brand: Oh no! Any specific show affected by this behavior? What device do you use to stream? Let's start with: <link>\n\nCustomer message:\nwhy does my DVR keep automatically deleting things? I will stop a recorded show midway through, then try to come back to it and it's gone\n\nDraft reply:\nThat is strange behavior! Which device is this occurring on? Try out these steps for now: <link> Any better?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with the brand's established tone and troubleshooting process for technical playback issues.\"\n}",
+  "prompt_tokens": 641,
+  "completion_tokens": 64
+ }
+}

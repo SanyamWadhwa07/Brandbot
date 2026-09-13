@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Why, @hulu_support, do ads freeze? Back-to-Browse-and-Restart doesn't help, nor quit-and-restart browser. (LiveTV Beta, OSX 10.11, Safari)\n    brand: Sorry! Please work through these steps: <link> and ensure you're meeting live reqs: <link>\n\ncustomer: Hey @hulu_support Trying to catch up on Gotham and now it freezes after the commercial. Tried another show... same thing.\n    brand: Sorry for the trouble! What device are you using when this occurs? Is the same ad affected? Try: <link>\n\ncustomer: Hey @hulu_support...it would be nice if the Hyundai commercials would stop crashing @115940 on my Samsung smart tv. Just sayin...\n    brand: Apologies! We're investigating. Call/chat if troubleshooting (<link> doesn't resolve: <link>\n\ncustomer: Come on, @hulu_support! Every single time I get this Metro PCS ad it freezes the whole system and I have to shut off my Blu-ray player and start all over again. Wtf?!\n    brand: Sorry for the trouble! We'd love to lend a hand and investigate from our end. Reach out here: <link>\n\ncustomer: Heya. @hulu_support That Google Pixel commercial keeps crashing Hulu on my smartTV. It only seems to be that commercial specifically\n    brand: Sorry! This issue is being investigated. To collect more info to share w/ our team pls chat w/ us here <link>\n\nCustomer message:\nDear @115940 / @hulu_support - Can you please fix the ad version so it doesn't always freeze when playing commercials? Pretty please. 👏🏼 Yes, I know there is an ad free version. Yes, I can afford it. But, I like having commercials. 🤷🏻‍♀️ So can you please fix it. Xo -christy\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is consistent with past interactions and appropriately asks for device information to investigate the issue.\"\n}",
+  "prompt_tokens": 676,
+  "completion_tokens": 63
+ }
+}

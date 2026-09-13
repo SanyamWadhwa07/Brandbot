@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: do you have a timeline for when ABC and NBC will be available live local in the Detroit market (zip: 48226)?\n    brand: No date to share just yet, but our team is definitely aware of the interest and we'll continue to share feedback with our team.\n\ncustomer: Hey @115940 ! When is Prisonbreak gonna be available to subscribers?\n    brand: Hi there! We don't have any details about Prison Break to share just yet, but keep the show in your WL/My Stuff for updates.\n\ncustomer: is #MrRobot available with my subscription or not? Very confusing info online @127550 is sounding good now.\n    brand: Hello, friend. Mr. Robot isn't part of the Hulu library, but we'll share your interest. Catch S3 eps with our Live TV Add-on.\n\ncustomer: I’m letting my friend use my Hulu but he’s not in the same zip code as me (I have live tv) is he still able to watch just regular Hulu? Because it’s saying he can’t.\n    brand: Hi! Hulu is designed around a single Home location: <link> <link> We'll share the feedback!\n\ncustomer: I made a huge mistake. subscribed to Live TV on @115940 and it eff'd up everything. All glitchy, 80% ads. I'm trying to reverse! Don't be me!\n    brand: Oh no! Which shows? Please note that network on-demand content (like recent CBS episodes) will likely contain ads.\n\nCustomer message:\nHi Hulu, any chance of adding ABC to my Live subscription? zip code: 06437\n\nDraft reply:\nNo date to share just yet, but our team is definitely aware of the interest and we'll continue to share feedback with our team.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft is consistent with past replies regarding channel availability and maintains the brand's tone.\"\n}",
+  "prompt_tokens": 638,
+  "completion_tokens": 63
+ }
+}

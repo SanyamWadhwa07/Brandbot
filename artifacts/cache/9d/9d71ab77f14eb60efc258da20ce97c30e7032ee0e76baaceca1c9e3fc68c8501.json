@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: your Hulu live service is almost unwatchable. I have 235mps down and it still buffers every 30 seconds. What’s the fix?\n    brand: Apologies, Craig! Which device are you on? Are you noticing this w/a certain channel? For now try a quick device+modem reboot.\n\n[1] customer: Testing Live TV through Roku 4 and getting constant buffering bursts for 2-3 secs. Does not happen on other live services.\n    brand: Ah, you may have run into a few network issues we had last night. Please reboot and @ us some specifics—if that's no help. 🕵️\n\n[2] customer: live TV buffering every 60 seconds or so. Unwatchable. What's up?\n    brand: So sorry for the trouble, Matt! Our team is currently investigating issues with live playback and we're working on a fix.\n\n[3] customer: the constant buffering with Hulu live has got to be addressed. I have blazing speed &amp; your service is the only one buffering\n    brand: Sorry to hear this! Which device are you on? Does this happen w/all channels. For now, please try: <link>\n\n[4] customer: love Hulu live beta... But seriously, can you fix the buffering on every sitting event? It's every like every ten seconds\n    brand: Aw man! Which device is this occurring on? Any specific network right now? First let's try: <link>\n\nNew message:\nCan you please provide a product that does not buffer on live TV every five seconds? Get better servers.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 576,
+  "completion_tokens": 69
+ }
+}

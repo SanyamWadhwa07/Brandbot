@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: why isn't the last 2 episodes of Will and Grace available? #sadface\n    brand: Hey Melissa! Check under the \"Clips\" section—you should see both of those episodes available!\n\ncustomer: why are the last 2 episodes of Will and Grace season 8 missing?\n    brand: We got you, Chandler! The 2-part finale is under Clips on the classic Hulu app and Extras in the new app. Enjoy!\n\ncustomer: hey do you know when the final episode of East Los High is going to be released? @238004\n    brand: We sure do! The finale will air on Dec. 1: <link> We hope you enjoy it!\n\ncustomer: Yo Hulu,wtf, the last 2 episodes of Will and Grace season 8 aren't showing up on my list, what happened?\n    brand: We can help you there! These eps are in the Clips/Extras section, due to their streaming rights: <link> 👍\n\ncustomer: why is the series final of Will and Grace the only 2 episodes you don’t have!? I’m so confused\n    brand: Hey Kaity! The full eps are available under Clips on site &amp; Extras w/ devices that utilize the new experience. Hope that helps!\n\nCustomer message:\nWhen will the last two episodes of The Long Road Home be added?\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The reply is helpful and follows the brand's established tone of asking clarifying questions to assist.\"\n}",
+  "prompt_tokens": 544,
+  "completion_tokens": 64
+ }
+}

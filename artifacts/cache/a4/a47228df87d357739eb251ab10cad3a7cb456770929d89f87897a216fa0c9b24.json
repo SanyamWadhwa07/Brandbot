@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: OMFG @115940 all I’m trying to do is watch some empire and it keeps buffering after commercials wtf Hakeem just got punched in the face\n    brand: Sorry for the delay! Please try these steps: <link> If the issue persists, please let us know your device.\n\ncustomer: can't get anything to play. On hold for 25 min. Chat support not working. Called on another line, guy is clueless. #nothappy\n    brand: Sorry! You may've been affected by: <link> Please try rebooting your device and modem/router. Any change?\n\ncustomer: Typical crap company. 40 plus wait via phone, no response via chat, or twitter. SUCK\n    brand: So sorry! After entering your email and clicking Done you should be able to press the down arrow to get to the password field.\n\ncustomer: So after 2.5 days I got Hulu back no thanks to @115940 and @hulu_support . But thank you whoever fixed the issue now fix the load lag. K thx bye 👋\n    brand: Sorry for our delay, Jessica! We're glad to hear it's up &amp; running. Reach us: <link> if the issue returns!\n\ncustomer: Sooo why hasn’t @115940 updated empire or star yet💁🏽💁🏽\n    brand: Star &amp; Empire were on a hiatus last week. Both shows will return with new eps tonight and added to our on-demand library tomorrow.\n\nCustomer message:\nbeen waiting 20mins for empire to load and play with no problems .. Rebooted my phone twice... #shitty\n\nDraft reply:\nSorry for the delay! Please try these steps: <link> If the issue persists, please let us know your device.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": true,\n  \"reason\": \"The draft follows the established brand pattern for troubleshooting playback issues perfectly.\"\n}",
+  "prompt_tokens": 626,
+  "completion_tokens": 58
+ }
+}

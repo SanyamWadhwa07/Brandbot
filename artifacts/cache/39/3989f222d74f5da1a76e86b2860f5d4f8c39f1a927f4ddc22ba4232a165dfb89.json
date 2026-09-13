@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I wish that @116602 and @115940 had a “random episode” button for TV series. I’d use it all day long.\n    brand: Hey Jamie! We're always looking to improve our app, so we'll share this request with our dev team. Thanks for the input!\n\n[1] customer: I wish @115940 let you watch live shows.\n    brand: We're able to offer over 50+ networks live with our new plan! Check out: <link> to see what you'd have access to\n\n[2] customer: I wish season 3&amp;4 of Gravity Falls was on @115940 @hulu_support\n    brand: Hey Veronica! We'd be more than happy to pass that request along to our content team for you. Thanks for tweeting us. 👍\n\n[3] customer: I wish @115940 live TV would add @684 ... I would switch from Sling TV in a minute if they did!\n    brand: Thanks so much for your interest, Brandon! 👏 We'll share this with our content team. Don't hesitate to tweet if you need anything.\n\n[4] customer: I really wish I could watch @115940 on @117014 without buffering constantly... this new app really struggles.\n    brand: Yikes! So sorry to hear you're still running into trouble. Please reach out here: <link> so we can further assist.\n\nNew message:\nI wish @116602 or @115940 would stream the series \"Las Vegas\" such a good show.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Hey there! We'd be happy to pass your request for \\\"Las Vegas\\\" along to our content team. Thanks for the suggestion! 👍\",\"used\":[2]}",
+  "prompt_tokens": 557,
+  "completion_tokens": 88
+ }
+}

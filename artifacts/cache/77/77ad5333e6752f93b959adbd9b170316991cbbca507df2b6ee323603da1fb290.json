@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: hello I'm getting spam email saying I subscribe and my credit card will be charged but I haven't subscribe 😕\n    brand: Apologies! We're happy to look into this. For 1:1 assistance, please give us a call at the number here: <link>\n\ncustomer: Hey @115940 Got an email for a month free if I re-signed up When I did, you tried to take $$ out of my checking account What's up with that?\n    brand: An authorization hold may appear: <link> Not the case? Reach us ➡️ <link> We'll check it out!\n\ncustomer: tried canceling my account in Sept but still got charged each month. Just tried canceling my account again. How can I confirm?\n    brand: Sorry to hear about the unexpected charge! To confirm account details, please reach out: <link>\n\ncustomer: @115940, I just fixed my billing info and my account won't reactivate. It wants me to start a free trial instead which I can't do! Help!\n    brand: Hey again! We just followed up to this tweet here: <link> Please give us a ring if you still need help. 👍\n\ncustomer: soo, somehow my @115940 account got reactivated and i was charged, again, when i cancelled it last month\n    brand: We'd love to take a closer look at things for you, Casey! Call/chat so we can pull up your account: <link>\n\nCustomer message:\nI was not able to log into my account via my computer and did not receive reset email. (I tried twice, and it's not in my spam folder.) But I couldn't contact support through the website without logging in. My credit card is still being charged monthly. (1/2)\n\nDraft reply:\nOh no! Sorry for the trouble. Which device are you watching on?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The reply ignores the billing issue and asks an irrelevant question about the device.\"\n}",
+  "prompt_tokens": 647,
+  "completion_tokens": 60
+ }
+}

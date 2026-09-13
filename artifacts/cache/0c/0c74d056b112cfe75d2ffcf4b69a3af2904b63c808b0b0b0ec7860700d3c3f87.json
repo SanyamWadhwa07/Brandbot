@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: .@hulu_support why isn’t my watchlist anywhere to be found on the iPad and TV apps? I’m dyin’. You gonna make me search for my shows? #smdh\n    brand: iPad and select devices (<link> use the new app+My Stuff. Did you import WL when first opening the new app?\n\ncustomer: In the Hulu app on my LG TV, the watchlist no longer updates with new episodes, and doesn't show some series on my watchlist. This started sometime in the last couple of weeks. The app hasn't been updated since May, and still uses the old interface.\n    brand: Apologies! This is actually a known issue we're actively investigating. New eps should still be listed under the show page. 1/2\n\ncustomer: why can't I add things to my watchlist directly from the *All Results* section on Safari?\n    brand: When you hover over a thumbnail do you see a green triangle at the bottom right corner with a (+)?\n\ncustomer: app on AppleTV does not display \"My Stuff\" nor can I add to my watchlist from IPhone app.\n    brand: Oh no! We'd love to look into this together, Alexander. Call or chat when you have a moment: <link>\n\ncustomer: why aren’t any of my shows are showing up in the watchlist on the app on LG??\n    brand: Hey! Do you mean no shows are listed at all, or the newest episodes aren't populating? If the latter, our team is investigating.\n\nCustomer message:\nare there any plans to bring the watchlist into the Hulu with Live Beta? The My Stuff is good and all, but sometimes I want to set a specific list. It was one of hulu's best features.\n\nDraft reply:\niPad and select devices (<link> use the new app+My Stuff. Did you import WL when first opening the new app?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft is a canned response that does not address the customer's specific question about Live Beta.\"\n}",
+  "prompt_tokens": 640,
+  "completion_tokens": 65
+ }
+}

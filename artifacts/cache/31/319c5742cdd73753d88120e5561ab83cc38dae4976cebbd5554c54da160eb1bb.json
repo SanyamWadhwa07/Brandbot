@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Ugh. @115940 crashes after watching three commercials on my Fire TV, then makes me watch five more before starting my show. All. The. Time.\n    brand: Oh no! Let's see if we can help, Luke. Try out these steps: <link> Any improvement after?\n\ncustomer: Seeing more scary commercials. Sometimes we watch on Roku w kids. Can we set our account to kid friendly advertising?\n    brand: There isn't a way to block specific ads, but we'll share the request! Do ads feel inappropriate for the content being viewed?\n\ncustomer: Why is nothing effing sacred anymore? Can’t get through an inning of baseball w/o ads. Can’t even watch a movie on @115940 without ads. #criiiiipes <link>\n    brand: Sorry for any frustration, Brendan! Ads vary based on content (<link> We do offer: <link>\n\ncustomer: If the internet collects so much data on my preferences, why does @115940 still show me ad after ad for a religious children's movie?\n    brand: We'll share the feedback; we do our best to show the most relevant ad possible. Have you tired updating: <link>\n\ncustomer: @115940, is there a reason 3/4s of my commercials are now in Spanish on any show I watch? I’m not watching any Spanish content.\n    brand: Hm, Spanish ads typically play if Spanish content was watched. Send us a ping/ring: <link> and we'll take a 👀.\n\nCustomer message:\nHey @115940 I’m watching a movie with my kids and and have to have them close their eyes through the ads: sex, violence, and dead bodies in three consecutive commercials. Check your selection of what commercials go with what shows!\n\nDraft reply:\nOh no! Let's see if we can help, Luke. Try out these steps: <link> Any improvement after?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name and provides irrelevant troubleshooting steps for an ad content complaint.\"\n}",
+  "prompt_tokens": 666,
+  "completion_tokens": 63
+ }
+}

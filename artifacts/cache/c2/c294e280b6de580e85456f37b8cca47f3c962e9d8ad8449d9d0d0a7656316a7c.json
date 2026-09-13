@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: I literally have @115940 Live because I thought I could watch @318653 on it but I was wrong so I’m cancelling my @115940 😢\n    brand: Sorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!\n\ncustomer: Can’t watch @115940 on my iPad because of some asinine “home network verification”. I’m dangerously close to cancelling entirely at this point\n    brand: Oh no! Call or chat us when you have a moment so we can pull up your account and take a closer look: <link>\n\ncustomer: When @115940 asks why I'm cancelling my subscription.. it's because this happens every freaking day <link>\n    brand: Oh no! Let's get that fixed. Does the error pop up during playback or navigation? For now, please try: <link>\n\ncustomer: Heyyyy @115940 can you tell me why when I log into my account everything is question marks and I can’t watch anything?\n    brand: Oh no! Sorry to hear of the trouble. Please call the phone number listed here in blue: <link> 📲 We'll help!\n\ncustomer: Time to cancel @115940. New interface is shit &amp; I'm paying for something that never loads. Shame everyone has same issue and you don't fix it.\n    brand: Don't go, James! We'd love to help turn things around. Have you tried: <link> and: <link>\n\nCustomer message:\nDear @115940, There wasn't a checkbox for \"You recommended I watch The Real Housewives of Beverly Hill and it's clear you don't know me at all\" in the why are you canceling your subscription exit questionnaire. But that's why. Best, AC\n\nDraft reply:\nSorry to disappoint, Kori! We're always looking to add new content. We'll share your interest in seeing TWD added to Hulu!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name and references irrelevant content instead of the customer's actual feedback.\"\n}",
+  "prompt_tokens": 695,
+  "completion_tokens": 65
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: Gee, I have been trying to access hulu for three months on my ROKU --the way I used to--and never got in. But I see I am still paying for it as an auto debit. Can I get a credit please. An explanation maybe?\n    brand: We're very sorry to hear about the trouble you've been having! Reach out here so we can lend a hand: <link>\n\n[1] customer: Hmmmm. TBS/Cubs Game is unavailable on @115940 and @hulu_support. Hey, @115946 + @176514, do y'all have TBS? Need some new customers ? :)\n    brand: We're sorry for this experience, Bobby! We've since restored access to the TBS feed: <link>\n\n[2] customer: Can't access #Hulu on #Roku, just Login screen. <link> says 500 Internal Server Error @hulu_support @115940 Paid subscriber,\n    brand: Sorry for the trouble, Roger! We're looking into this on our end. Please reach out to our team here: <link>\n\n[3] customer: Um, I have been there. did the phone . I guess i am stuck with a defective hulu. I have amazon and netflix that work, I can drop you. <link>\n    brand: Sorry! We've sadly exhausted all troubleshooting steps. We haven't received similar reports but we'll certainly keep track.\n\n[4] customer: Yes hello @115940 @hulu_support can you guys make it so we can watch stuff offline on phones? K thanks luvyababes\n    brand: We currently don't support offline streaming, but we'll express your interest in seeing this feature in the future.\n\nNew message:\nis there a way to access hulu in france ?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":false,\"reply\":\"\",\"used\":[]}",
+  "prompt_tokens": 611,
+  "completion_tokens": 44
+ }
+}

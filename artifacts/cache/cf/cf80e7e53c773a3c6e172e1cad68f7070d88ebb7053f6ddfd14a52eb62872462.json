@@ -1,0 +1,38 @@
+{
+ "call": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "system": "You draft public replies for a streaming service's support account.\n\nYou are given past messages and the replies this brand actually sent. Say only what\nthose past replies support. Do not invent a fix, a timeline, a refund, a link or a\npolicy that is not in them.\n\nSet answerable to false when the past replies do not answer this message. A wrong\nreply costs far more than a handover.\n\nWrite at most 280 characters, in the voice of the past replies. Return JSON only.",
+  "user": "Past replies:\n\n[0] customer: I don’t know what’s going on with your service but every time I try to watch a show it buffers every other minute. Very frustrating!\n    brand: Don't go, Betty! Let's see what we can do to smooth things out. What device does this occur on? Try: <link>\n\n[1] customer: is there a reason for the constant buffering? I can't watch anything live since yesterday. Its very frustrating.\n    brand: Hi! We followed up with more details here: <link> If the issue's persisted, let us know the device in use.\n\n[2] customer: What is the deal with Fox News always buffering. It doesn't happen on other live streams.\n    brand: Oh no! Which device do you use? For now, please try a quick reboot of your device+modem/router. Is there any improvement after?\n\n[3] customer: shows &amp; live constantly buffering when playing via app + Chromecast and via PS3. Netflix streams just fine. Any tips?\n    brand: Sorry to hear that, Kristen! Since this is occurring on multiple devices, try: <link> Any improvement?\n\n[4] customer: ...My ipad will load the show that I am watching and play for a minute then will buffer why is this happening?? Please help!\n    brand: Apologies, Ellie! That's not the experience we're hoping for. Does this continue after: <link> Let us know.\n\nNew message:\nwhy does every show I watch buffer constantly? I’m not having this problem with any other streaming service.",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "answerable": {
+     "type": "boolean"
+    },
+    "reply": {
+     "type": "string"
+    },
+    "used": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "answerable",
+    "reply",
+    "used"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\"answerable\":true,\"reply\":\"Sorry to hear that! Can you tell us which device you’re using? In the meantime, try these steps: <link>. Let us know if it helps!\",\"used\":[0]}",
+  "prompt_tokens": 565,
+  "completion_tokens": 114
+ }
+}

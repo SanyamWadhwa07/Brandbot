@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: What’s going on @115940!? First a horrible redesign now ads that constantly require interaction, remind me why I’m paying for this?\n    brand: We're always trying to improve, so we'll share your feedback, Cameron. Anything specific you aren't loving w/the new interface?\n\ncustomer: The new @115940 @127972 app is awful and I need them to return to the old ways. I want to view all episodes, not watch a random one.\n    brand: You should be able to access all content from the series page by navigating to \"Episodes\". Try watching: <link>\n\ncustomer: So @115940 stop putting the new episodes of Star on there...?\n    brand: Hey there! Star, Simone and Alex have been on a mini vacation. They'll be back tomorrow &amp; we'll have the new episode next-day. 👍🏻\n\ncustomer: Tell me I’m not the only one who hates the @115940 redesign. Sure, it looks pretty, but it’s less user-friendly. Can’t browse shows quickly😪\n    brand: Oh no! We're working to make improvement based on viewer feedback. Have you already seen: <link> ?\n\ncustomer: Shoutout to @115940 for having the worst redesign ever! Instead of watchlist up top, I click through four different pages to watch a new ep.\n    brand: Hiya! For shows you keep track of, head to My Stuff to pick up where you left off &amp; find new eps: <link> 👍\n\nCustomer message:\nOmfg @115940 the new design is fucking horrible. Why change something that’s working? I wanna see where I left off and shows that I’m watching with new episodes, and just everything like how it was before.\n\nDraft reply:\nWe're always trying to improve, so we'll share your feedback, Cameron. Anything specific you aren't loving w/the new interface?",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": true,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft uses the wrong customer name, which is unprofessional and confusing.\"\n}",
+  "prompt_tokens": 676,
+  "completion_tokens": 59
+ }
+}

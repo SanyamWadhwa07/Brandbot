@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: Man, I thought Sling was bad, but they've got nothing on @115940 crashing my goddamn TV. I'm cancelling that shit.\n    brand: Sorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>\n\ncustomer: Hey, @115940, the updates are terrible. Please revert to the old style. I can't find anything. It's ugly and takes forever to load.\n    brand: Oh no! We'd love to help, Rob. Which device is this on? Do you see any errors? Try: <link> Any better?\n\ncustomer: Hey @115940 - your #AppleTV app is quite annoying lately. It hangs, crashes and requires a login on a daily basis. Something broke recently?\n    brand: Uh oh! What model is the ATV: 2, 3, or 4? Do any errors pop up at app launch or playback? For now, try: <link>\n\ncustomer: WOW @115940 is really killing me lately with the app's constant crashing and now I learn we wont get Rick and Morty S3?\n    brand: Sorry for any frustration, Drew! Our rights to Rick &amp; Morty typically only allow us to stream past seasons/episodes from the show\n\ncustomer: Read a forum about an issue between @115940 &amp; @138021 causing Hulu to not work on Samsung Smart TVs and people are FIRED up. That being said, I want Hulu back!\n    brand: Hi! We were previously investigating an issue on Samsung TVs. Reboot your TV and you should be all set.\n\nCustomer message:\nHi @115940 and @181080 I think y’all should hang out. Ever since the last Roku update, Hulu crashes every few minutes. I’ve spent hours with support with both companies and got a big old ¯\\_(ツ)_/¯ back.\n\nDraft reply:\nSorry about this! We'd hate to see you go! What brand of TV? You can find device specific tips here: <link>",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": false,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The customer specified they are using a Roku device, so asking for the TV brand is irrelevant.\"\n}",
+  "prompt_tokens": 707,
+  "completion_tokens": 64
+ }
+}

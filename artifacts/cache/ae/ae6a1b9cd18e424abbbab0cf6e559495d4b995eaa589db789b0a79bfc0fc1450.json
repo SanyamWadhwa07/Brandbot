@@ -1,0 +1,47 @@
+{
+ "call": {
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system": "You review draft replies before they are sent from a streaming service's\npublic support account. You are given the customer's message, the replies this brand\nactually sent to similar messages in the past, and one draft reply.\n\nJudge the draft against the past replies, not against what you would have written.\n\ngrounded: every fact, fix, link, timeline and policy in the draft is supported by the\npast replies. A plausible invention is not grounded.\naddresses: it answers what this customer actually asked, not a neighbouring question.\nsafe: it promises nothing the brand would be held to and that the past replies do not\nalready promise. Refunds, dates, and guarantees are the usual offenders.\ntone: it reads like the brand's own support account.\n\nsend: would you let this go out unedited, to this customer, right now? Asking the\ncustomer a clarifying question is a legitimate reply and can pass.\n\nGive a reason of at most 20 words naming the single most important problem, or why it\nis fine. Return JSON only.",
+  "user": "Past replies:\n\ncustomer: how come you guys don't have The Walking Dead streaming rights?\n    brand: Hi! We currently don't have the proper licensing agreements set in place to offer TWD. We'll definitely share your interest!\n\ncustomer: I can't stream, because it tells me that it can't load ads. But I have the no ad subscription. What is this?\n    brand: Our apologies, Thomas! That error was due to: <link> Try: <link> if it's present today.\n\ncustomer: the reason I have Hulu is so I can stream live tv and half the time your games never work. Can’t watch the #NEvsDEN. Do you know when it will be back up?\n    brand: Sorry for the delay, Cait! Our team became aware that an issue was affecting some NBC streams and are investigating the cause.\n\ncustomer: So, your license to stream a show expires and now those of us who pay for no commercials suddenly get commercials?!\n    brand: Sorry for the delay. This sounds like a known issue. We'd love to grab more details from you here: <link> ✅\n\ncustomer: How about a restart option when streaming shows? It's not copyrighted, is it?\n    brand: Hi! Are you watching content live or on-demand? You should be able to rewind/play from the beginning while watching on-demand.\n\nCustomer message:\nwhy don't any of you have #Suburgatory streaming? Is it a licensing issue?\n\nDraft reply:\nHi! We currently don't have the proper licensing agreements set in place to offer TWD. We'll definitely share your interest!",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "grounded": {
+     "type": "boolean"
+    },
+    "addresses": {
+     "type": "boolean"
+    },
+    "safe": {
+     "type": "boolean"
+    },
+    "tone": {
+     "type": "boolean"
+    },
+    "send": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "grounded",
+    "addresses",
+    "safe",
+    "tone",
+    "send",
+    "reason"
+   ],
+   "additionalProperties": false
+  },
+  "temperature": 0.0,
+  "extra": {}
+ },
+ "result": {
+  "text": "{\n  \"grounded\": false,\n  \"addresses\": true,\n  \"safe\": true,\n  \"tone\": true,\n  \"send\": false,\n  \"reason\": \"The draft incorrectly references The Walking Dead instead of the show the customer actually asked about.\"\n}",
+  "prompt_tokens": 583,
+  "completion_tokens": 62
+ }
+}
