@@ -123,18 +123,22 @@ corpus's most common cases, and channel-addition requests are rare enough (10
 of 220) that the taxonomy's boundary was never tested against them until now.
 
 **3. The judge and a human disagree in ways that lean toward the same blind
-spot.** Of 27 agent replies rated blind, 4 disagreed with the judge. Two are
+spot.** Of 27 agent replies rated blind, 3 disagreed with the judge. Two are
 the judge marking down a reply that "combines multiple past replies" as
 repetitive, when a human found it fine (thread 464784, 507575) — the judge
 penalises a stitched-together draft that reads slightly redundant but is still
-correct, which is a tone objection dressed as a grounding one. The fourth
+correct, which is a tone objection dressed as a grounding one. The third
 (thread 520349) is the reverse: a human rejected a reply the judge passed for
 matching precedent phrasing, on a message about content appropriateness for
 kids watching with them — a judgement call about tone that the rubric's
 "grounded" question does not capture, because the reply was accurate and
 ungrounded is the wrong complaint. Hypothesis: "combines multiple precedents
 smoothly" is a genuine weakness in the current prompt template, worth a fix;
-the fourth is closer to a genuinely ambiguous case than a systematic gap.
+the third is closer to a genuinely ambiguous case than a systematic gap.
+
+*A first rating pass over this same sample was thrown out — it came back
+71/80 `send: true`, not a considered rating — and re-rated from scratch. The
+numbers above are from the second, valid pass.*
 
 **4. The nearest-neighbour baseline greets the wrong person by name.** Six of
 its judge-failed replies address the customer as Jeff, Alaina, Mohammad, or
@@ -210,23 +214,29 @@ earlier in Hulu's support history than the messages being scored. Any product,
 policy, or support-style drift between those periods works against the agent
 and is baked into every number here, not corrected for.
 
-**The judge agrees with the human it was checked against at kappa 0.142
-overall — "slight," the second-lowest band on the scale.** This is the
-single most important qualifier in the report and it belongs here as much as
-in section 3. Per system it splits: majority 0.494 (moderate, but majority's
-one canned reply makes most verdicts easy to call), nearest 0.000, agent
--0.059 — numerically worse than chance, on 85.2% raw agreement. That
-combination — high raw agreement, kappa near or below zero — means the
-disagreements are rare but not random: both rater and judge say "send" on the
-easy majority of cases, and kappa is telling us that on the harder minority,
-where the two disagree, they disagree unpredictably rather than consistently.
-At n=27 per system this is also a small-sample result — the confidence
-interval on agent's kappa is [-0.161, -0.038], entirely on one side of zero,
-which does rule out a coincidence, but the honest reading is that the judge's
-`send` verdict on agent replies should not be trusted as a stand-in for a human
-without more rated examples than this project collected. **Every "held-back"
-and "risk" number in section 2 is downstream of the judge**, so this qualifies
-all of them, not just the judge-check row.
+**The judge agrees with the human it was checked against at kappa 0.378
+overall — "fair" on the interpretation scale, the middle band, not strong
+agreement.** This is the single most important qualifier in the report and it
+belongs here as much as in section 3. Per system it splits: nearest 0.562
+(moderate), agent 0.341 (fair, but the interval is wide — [-0.110, 1.000] on
+n=27, so this one is close to uninformative on its own), majority 0.014
+(slight, on only 40.7% raw agreement — the judge and the human disagree on
+most of majority's replies). Majority's low number is worth reading rather
+than dismissing: majority sends the same canned line regardless of what was
+asked, and the judge and a human evidently draw the line on "would you send
+this to this specific customer" in different places once the reply stops
+being tailored to the message at all. **Every "held-back" and "risk" number
+in section 2 is downstream of the judge**, and this result says the judge is
+usable — better than a coin flip, nowhere near a substitute for a person —
+which qualifies those numbers without discarding them.
+
+A first rating pass over this same 80-reply sample was thrown out before
+these figures were computed: it came back 71/80 `send: true`, which is not a
+considered judgement, and was re-rated from scratch rather than kept. That is
+worth stating here as much as the kappa itself — a rushed human rating would
+have produced a falsely rosy agreement figure (a judge that also mostly says
+"send" would have looked like it agreed), and the fix was to redo the rating,
+not to adjust the number.
 
 ---
 
@@ -236,9 +246,9 @@ In priority order, because the first two are what the numbers above actually
 call for and the rest are what would matter next.
 
 1. **Rate another 150-200 replies.** The judge-human agreement figure is the
-   least trustworthy number in this report because it rests on 27-80 examples
-   per system. This is the single highest-value next step: everything else in
-   section 2 is qualified by how much to trust the judge.
+   least trustworthy number in this report because it rests on 27 examples
+   per system, 81 total. This is the single highest-value next step:
+   everything else in section 2 is qualified by how much to trust the judge.
 2. **Fix the `app_bug`/`other` boundary.** The most common single failure mode
    found in section 3 is mechanical: the taxonomy has no category for
    "I hate this redesign," and it is common enough (part of `other`'s 17% of

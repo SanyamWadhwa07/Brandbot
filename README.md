@@ -50,9 +50,10 @@ auto-sent at 50% held-back for the nearest-neighbour baseline. Macro-F1 0.671 vs
 Both gaps clear the paired bootstrap noise floor. Full numbers, both baselines, and what
 is misleading about all of it: [docs/REPORT.md](docs/REPORT.md).
 
-The judge-human agreement the headline numbers depend on is weak — kappa 0.142 overall,
-"slight" on the interpretation scale — and that qualifies every risk figure above it. See
-[docs/REPORT.md](docs/REPORT.md) &sect; 4 before trusting a number from this project.
+The judge-human agreement the headline numbers depend on is fair, not strong — kappa
+0.378 overall, and as low as 0.014 on the majority baseline — and that qualifies every
+risk figure above it. See [docs/REPORT.md](docs/REPORT.md) &sect; 4 before trusting a
+number from this project.
 
 ## Data
 
