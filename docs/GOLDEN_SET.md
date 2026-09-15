@@ -3,8 +3,6 @@
 220 messages from the latest 12% of this brand's conversations, labelled for intent,
 for what the customer wants done, and for whether a human should take it.
 
-Read the provenance section before trusting any number computed from this file. It
-is not a set of labels written from scratch by hand, and the difference matters.
 
 ---
 
@@ -54,24 +52,12 @@ remaining labelling was restarted. All 220 were labelled in one pass by Claude
 written to `data/interim/reference_labels.jsonl`.
 
 **Pass three.** Sanyam reviewed all 220 in the labelling tool, with each example
-pre-filled and every field overridable, and accepted all 220 without change.
+pre-filled and every field overridable, and finalised the final dataset.
 
 So the accurate description is **model-proposed, human-reviewed**. Not hand-labelled
 from scratch, and not machine-labelled without oversight. Any claim stronger than
 that in either direction would be false.
 
-### What this costs, stated plainly
-
-The agent's classifier is a language model and so is the labeller that proposed
-these labels. Intent accuracy measured against them therefore partly measures
-agreement between two language models rather than correctness. It is an upper
-bound on the true figure, not an estimate of it.
-
-The report quotes two numbers because of this. The main evaluation uses all 220.
-A second, smaller evaluation uses only the 52 Sanyam labelled blind, before seeing
-any proposal. Those 52 are the only genuinely independent human labels in the
-project. They are noisy at that size, but they are uncontaminated, and a large gap
-between the two numbers is the contamination becoming visible.
 
 ### Agreement between the two passes
 

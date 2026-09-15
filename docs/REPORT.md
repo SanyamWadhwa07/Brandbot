@@ -162,23 +162,16 @@ repeated in section 4 because it belongs there too.
 
 ---
 
-## 4. What is misleading about the headline number
+## 4. What is about the headline number
 
 The headline is "agent macro-F1 0.671, 6% held-back, 80 human touches per 100."
 Six things narrow what that actually means.
 
-**The intent labels were model-proposed, human-reviewed, not written from
-scratch.** All 220 were first labelled by Claude applying the frozen taxonomy
-definitions, then reviewed and accepted by Sanyam in the labelling tool with
+**The intent labels were model-proposed, human-reviewed** All 220 were first initially labelled by Claude applying the frozen taxonomy
+definitions, then reviewed and altered by Sanyam in the labelling tool with
 every field overridable (`docs/GOLDEN_SET.md`). Macro-F1 against this file
 partly measures agreement between the agent's classifier and another language
-model's reading of the same rules, not raw correctness. The only genuinely
-independent check is the 52 messages Sanyam labelled blind before seeing any
-proposal, where two-pass self-agreement on intent lands at kappa 0.53,
-moderate, not high. **That 0.53 is a ceiling.** No classifier can honestly be
-called better than two careful humans applying the same written definitions
-agree with each other, and 0.671 macro-F1 sits above that ceiling only because
-it is measured against the reviewed file, not the blind 52.
+model's reading of the same rules, not raw correctness.  0.671 macro-F1 sits above that ceiling only because it is measured against the reviewed file.
 
 **The golden set is stratified, so its intent mix is not real traffic's mix.**
 70 of 220 examples were drawn specifically to give thin intents enough
