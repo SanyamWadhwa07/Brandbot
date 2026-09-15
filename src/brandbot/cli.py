@@ -160,19 +160,13 @@ def evaluate(
 
     from brandbot.eval import judge_check
 
-    if judge_check.RATINGS_PATH.exists() and judge_check.KEY_PATH.exists():
+    if judge_check.RATINGS_PATH.exists():
         matched = judge_check.match()
         agreement = judge_check.score(matched)
         console.print(f"\njudge vs human, {len(matched)} blind-rated replies:")
         for system in ("overall", *systems):
             if system in agreement:
                 console.print(f"  {system}: {agreement[system]}")
-    elif judge_check.RATINGS_PATH.exists():
-        console.print(
-            f"\n[red]{judge_check.RATINGS_PATH} exists but {judge_check.KEY_PATH} "
-            "does not.[/red] Judge-human agreement needs both; skipping it rather "
-            "than crashing the rest of eval."
-        )
     else:
         console.print(
             "\n[yellow]No human ratings yet.[/yellow] `uv run brandbot rate`, rate the "

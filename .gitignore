@@ -19,7 +19,3 @@ data/interim/*
 # was reviewed rather than written from scratch, and a reader checking that claim
 # needs to see what the reviewer was shown.
 !data/interim/reference_labels.jsonl
-# Maps each blind-rated reply back to which system wrote it. Committed because
-# `eval --replay` joins data/gold/ratings.jsonl against it to compute
-# judge-human agreement; without it that command crashes on a fresh clone.
-!data/interim/rating_key.jsonl
