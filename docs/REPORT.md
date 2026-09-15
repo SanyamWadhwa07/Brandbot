@@ -17,7 +17,7 @@ proving whether it works rather than building more of it.
 1. Nothing false goes out unedited. A confident wrong reply costs more than a
    slow right one, because a support lead has to apologise for it and re-answer.
 2. Skip the human only when the message needed nothing but information. 64% of
-   the golden set wants information alone, no account touched — that is the
+   the golden set wants information alone, no account touched. That is the
    share of traffic worth automating at all.
 3. Among what it answers, answer more of it correctly than copying the nearest
    past reply does. Retrieval alone is free; the agent has to earn its cost.
@@ -27,16 +27,16 @@ proving whether it works rather than building more of it.
 - **Multi-turn context.** 36.7% of messages in this corpus are follow-ups, and
   39.7% of those ("still broken", "on Roku", "yes") cannot be understood without
   the thread. That is roughly one inbound message in seven. It was not built
-  because there is no labelled follow-up anywhere in the golden set — all 220 are
-  opening messages — so a thread-reading feature would ship with no evidence it
+  because there is no labelled follow-up anywhere in the golden set, all 220 are
+  opening messages, so a thread-reading feature would ship with no evidence it
   helps, in a project whose whole thesis is that the proof matters more than the
   feature.
 - **A vector database or an orchestration framework.** The retrieval index is
   9,859 vectors, 29MB, searched with one dot product in milliseconds. A hosted
   vector store earns its place past a million vectors, not here. An
   orchestration framework wraps the model-calling logic in someone else's
-  abstractions, and the brief requires explaining and modifying this code live —
-  code I did not design end to end is harder to defend under questioning.
+  abstractions, and the brief requires explaining and modifying this code live.
+  Code I did not design end to end is harder to defend under questioning.
 - **A confidence-tuned escalation threshold.** The similarity floor is set once,
   by inspection, at 0.62. It fires on 0.9% of messages and changes nothing. Two
   raters agreeing on intent at kappa 0.53 but on routing at only 0.18 says the
@@ -44,7 +44,7 @@ proving whether it works rather than building more of it.
   size would be fitting the noise, not the signal.
 - **A second escalation model per intent.** One content-rule set
   (`pipeline/policy.py`) decides escalation before any confidence score is
-  consulted — a billing dispute goes to a person regardless of how good the
+  consulted. A billing dispute goes to a person regardless of how good the
   draft looks. A learned per-intent policy would need labelled routing outcomes
   this project does not have, and would hide the cost-asymmetry judgement the
   content rules make explicit.
@@ -67,12 +67,12 @@ decides the route.
 | majority | 100% | 46% | 230 | 0.032 [0.025, 0.041] | 0.191 [0.141, 0.245] | 23% |
 
 **Auto-sent** is coverage: the share answered with no human. **Held back** is
-risk: of what it sent, the share a support lead — via the judge — would have
+risk: of what it sent, the share a support lead (via the judge) would have
 stopped before it reached the customer. Neither means anything alone: escalate
 everything and held-back goes to zero; send everything and coverage hits 100%.
 **Human touches per 100** combines them: one escalation costs one touch, one
 reply that should not have gone out costs five, covering the apology and the
-re-answer. Five is a stated assumption, not a measured cost for this brand —
+re-answer. Five is a stated assumption, not a measured cost for this brand;
 see section 4.
 
 Two comparisons, paired on the same resampled examples so the shared
@@ -87,8 +87,8 @@ The agent beats both baselines and the gap survives resampling. But the more
 useful reading is the failure of the two baselines, because it says what the
 agent's job actually is. Nearest is worse than majority on held-back risk (50%
 vs 46%) despite having real content, because a genuine past reply commits to
-specifics — a name, a device, an error code — that are usually wrong for a new
-customer. Copying a real answer is not automatically safer than a generic one;
+specifics: a name, a device, an error code, that are usually wrong for a new
+customer. Copying a real answer is not automatically safer than a generic one,
 it is differently unsafe. The agent's advantage is not "knows more", it is
 "escalates the 71% of messages retrieval and majority both auto-answer badly."
 
@@ -104,12 +104,12 @@ Real examples, drawn from the committed runs, not constructed for this section.
 turn off autoplay", "your new introduction is fucking ridiculous", "It's
 messier than before, especially with multiple people watching". These are
 complaints about a specific redesign choice, not bug reports, and the taxonomy's
-`app_bug` definition — written from crash and playback failures — does not cover
+`app_bug` definition, written from crash and playback failures, does not cover
 them. Hypothesis: the taxonomy was induced by clustering on subject, and
 "the app changed and I hate it" reads, subject-wise, like nothing else in the
 set, so it falls into the catch-all. Fix would be a taxonomy change, not a
 classifier change, and it needs enough labelled examples of this pattern to
-justify a new intent — which the current 220 do not provide (`app_bug` already
+justify a new intent, which the current 220 do not provide (`app_bug` already
 has only 35).
 
 **2. `content_availability` and `live_tv_channels` are confused in both
@@ -125,24 +125,24 @@ of 220) that the taxonomy's boundary was never tested against them until now.
 **3. The judge and a human disagree in ways that lean toward the same blind
 spot.** Of 27 agent replies rated blind, 3 disagreed with the judge. Two are
 the judge marking down a reply that "combines multiple past replies" as
-repetitive, when a human found it fine (thread 464784, 507575) — the judge
+repetitive, when a human found it fine (thread 464784, 507575). The judge
 penalises a stitched-together draft that reads slightly redundant but is still
 correct, which is a tone objection dressed as a grounding one. The third
 (thread 520349) is the reverse: a human rejected a reply the judge passed for
 matching precedent phrasing, on a message about content appropriateness for
-kids watching with them — a judgement call about tone that the rubric's
+kids watching with them, a judgement call about tone that the rubric's
 "grounded" question does not capture, because the reply was accurate and
 ungrounded is the wrong complaint. Hypothesis: "combines multiple precedents
 smoothly" is a genuine weakness in the current prompt template, worth a fix;
 the third is closer to a genuinely ambiguous case than a systematic gap.
 
-*A first rating pass over this same sample was thrown out — it came back
-71/80 `send: true`, not a considered rating — and re-rated from scratch. The
-numbers above are from the second, valid pass.*
+*A first rating pass over this same sample was thrown out. It came back
+71/80 `send: true`, not a considered rating, and was re-rated from scratch.
+The numbers above are from the second, valid pass.*
 
 **4. The nearest-neighbour baseline greets the wrong person by name.** Six of
 its judge-failed replies address the customer as Jeff, Alaina, Mohammad, or
-Sean — names from the precedent conversation, wrong for the current one. This
+Sean: names from the precedent conversation, wrong for the current one. This
 is the mechanism behind nearest's 50% held-back rate: copying a real reply
 copies every specific it committed to, including ones that do not transfer.
 The agent drafts fresh instead of copying verbatim and produced zero name
@@ -156,7 +156,7 @@ were written by the same person, at a similar time, from the same read of the
 corpus. Sanyam's full review of all 220 labels is the only independent check
 on this. It means the 6% held-back figure for the agent is measuring
 consistency with one person's judgement about what should escalate, not an
-outcome anyone confirmed against real customer harm. This is not a bug to fix;
+outcome anyone confirmed against real customer harm. This is not a bug to fix,
 it is a ceiling on what the routing number can honestly claim, and it is
 repeated in section 4 because it belongs there too.
 
@@ -174,7 +174,7 @@ every field overridable (`docs/GOLDEN_SET.md`). Macro-F1 against this file
 partly measures agreement between the agent's classifier and another language
 model's reading of the same rules, not raw correctness. The only genuinely
 independent check is the 52 messages Sanyam labelled blind before seeing any
-proposal, where two-pass self-agreement on intent lands at kappa 0.53 —
+proposal, where two-pass self-agreement on intent lands at kappa 0.53,
 moderate, not high. **That 0.53 is a ceiling.** No classifier can honestly be
 called better than two careful humans applying the same written definitions
 agree with each other, and 0.671 macro-F1 sits above that ceiling only because
@@ -192,13 +192,13 @@ alone is the number.
 for this brand, and the ranking is not stable under it.** Five human touches
 per bad auto-reply is a conventional placeholder in the code (`report.py`,
 `COST_RATIO`), not a figure Hulu's support team confirmed. Running the same
-command with `--cost-ratio 1` — a bad reply costs the same as one escalation —
+command with `--cost-ratio 1`, a bad reply costs the same as one escalation,
 flips the ranking: agent 73 touches/100, nearest 50, majority 46. The agent
 escalates 71% of the time, and when a bad auto-reply is cheap, escalating that
 often costs more than just answering and eating the occasional bad reply. Only
 past roughly cost-ratio 2 does the agent's low risk start winning back the
 touches it spends on escalation (at ratio 5, agent 80 vs nearest 249). So the
-headline "80 touches per 100" is not a fact about the agent, it is a fact about
+headline "80 touches per 100" is not a fact about the agent. It is a fact about
 the agent **given a guess about how expensive a mishandled ticket is**, and a
 different, equally defensible guess reverses which system to ship.
 
@@ -215,28 +215,28 @@ policy, or support-style drift between those periods works against the agent
 and is baked into every number here, not corrected for.
 
 **The judge agrees with the human it was checked against at kappa 0.378
-overall — "fair" on the interpretation scale, the middle band, not strong
+overall, "fair" on the interpretation scale, the middle band, not strong
 agreement.** This is the single most important qualifier in the report and it
 belongs here as much as in section 3. Per system it splits: nearest 0.562
-(moderate), agent 0.341 (fair, but the interval is wide — [-0.110, 1.000] on
+(moderate), agent 0.341 (fair, but the interval is wide, [-0.110, 1.000] on
 n=27, so this one is close to uninformative on its own), majority 0.014
-(slight, on only 40.7% raw agreement — the judge and the human disagree on
+(slight, on only 40.7% raw agreement: the judge and the human disagree on
 most of majority's replies). Majority's low number is worth reading rather
 than dismissing: majority sends the same canned line regardless of what was
 asked, and the judge and a human evidently draw the line on "would you send
 this to this specific customer" in different places once the reply stops
 being tailored to the message at all. **Every "held-back" and "risk" number
 in section 2 is downstream of the judge**, and this result says the judge is
-usable — better than a coin flip, nowhere near a substitute for a person —
+usable, better than a coin flip, nowhere near a substitute for a person,
 which qualifies those numbers without discarding them.
 
 A first rating pass over this same 80-reply sample was thrown out before
 these figures were computed: it came back 71/80 `send: true`, which is not a
-considered judgement, and was re-rated from scratch rather than kept. That is
-worth stating here as much as the kappa itself — a rushed human rating would
-have produced a falsely rosy agreement figure (a judge that also mostly says
-"send" would have looked like it agreed), and the fix was to redo the rating,
-not to adjust the number.
+considered judgement, and was re-rated from scratch rather than kept. State
+that here as much as the kappa itself, because a rushed human rating would
+have produced a falsely rosy agreement figure. A judge that also mostly says
+"send" would have looked like it agreed. The fix was to redo the rating, not
+to adjust the number.
 
 ---
 
@@ -280,14 +280,14 @@ call for and the rest are what would matter next.
   [Ollama](https://ollama.com). Chosen over a hosted metered endpoint for speed
   and to avoid a quota; see decision 7 in `docs/DECISIONS.md`.
 - Libraries: `typer`, `rich`, `numpy`, `scikit-learn` (for `cohen_kappa_score`),
-  `pytest`. No orchestration framework, no vector database — see decision 19.
+  `pytest`. No orchestration framework, no vector database, see decision 19.
 - Intent taxonomy labels for `data/interim/reference_labels.jsonl` first pass:
   written by Claude (Anthropic), applying the frozen taxonomy definitions and
   routing spec I wrote; reviewed and accepted by me. Full provenance in
   `docs/GOLDEN_SET.md`.
 - I used an AI coding assistant (Claude, via Claude Code) throughout this
   project for implementation, debugging, and drafting documentation, under my
-  direction and review. Design decisions — the brand-selection criterion, the
+  direction and review. Design decisions (the brand-selection criterion, the
   chronological split, the taxonomy merge, the escalation rules, what to leave
-  out — are mine, recorded with reasoning in `docs/DECISIONS.md` so they can be
+  out) are mine, recorded with reasoning in `docs/DECISIONS.md` so they can be
   defended without the assistant present.
