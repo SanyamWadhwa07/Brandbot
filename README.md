@@ -9,6 +9,8 @@ actually resolved similar issues, and decides whether to auto-send or escalate t
 Built for the Hiver SDE intern take-home. The brief's thesis is that the proof matters more
 than the system, so most of the work here is in the evaluation.
 
+![How brandbot turns a tweet into a scored decision](docs/flow.svg)
+
 ## Reproduce the headline results
 
 ```bash
@@ -29,16 +31,16 @@ re-derive.
 |---|---|
 | Runnable pipeline, headline results in under 15 min | This README, `uv run brandbot eval --replay` |
 | Golden set, 150-250 hand-labelled, with sampling note | `data/gold/golden.jsonl`, [docs/GOLDEN_SET.md](docs/GOLDEN_SET.md) |
-| Automated metrics | [docs/EVALUATION.md](docs/EVALUATION.md) § Metrics |
-| LLM-as-judge rubric for reply quality | [docs/EVALUATION.md](docs/EVALUATION.md) § Rubric |
-| Evidence the judge agrees with a human | [docs/EVALUATION.md](docs/EVALUATION.md) § Judge validation |
-| Problem framing: what "good" means, what I did not build | [docs/REPORT.md](docs/REPORT.md) § 1 |
-| Results vs a trivial and a simple baseline | [docs/REPORT.md](docs/REPORT.md) § 2 |
-| Top 5 failure modes, real examples and hypotheses | [docs/REPORT.md](docs/REPORT.md) § 3 |
-| What is misleading about my headline number | [docs/REPORT.md](docs/REPORT.md) § 4 |
-| What I would do next with one more week | [docs/REPORT.md](docs/REPORT.md) § 5 |
+| Automated metrics | [docs/EVALUATION.md](docs/EVALUATION.md) (Metrics) |
+| LLM-as-judge rubric for reply quality | [docs/EVALUATION.md](docs/EVALUATION.md) (Rubric) |
+| Evidence the judge agrees with a human | [docs/EVALUATION.md](docs/EVALUATION.md) (Judge validation) |
+| Problem framing: what "good" means, what I did not build | [docs/REPORT.md](docs/REPORT.md) (section 1) |
+| Results vs a trivial and a simple baseline | [docs/REPORT.md](docs/REPORT.md) (section 2) |
+| Top 5 failure modes, real examples and hypotheses | [docs/REPORT.md](docs/REPORT.md) (section 3) |
+| What is misleading about my headline number | [docs/REPORT.md](docs/REPORT.md) (section 4) |
+| What I would do next with one more week | [docs/REPORT.md](docs/REPORT.md) (section 5) |
 | Decision log, 10-15 non-obvious decisions | [docs/DECISIONS.md](docs/DECISIONS.md) |
-| Citations for anything borrowed | [docs/REPORT.md](docs/REPORT.md) § 6 |
+| Citations for anything borrowed | [docs/REPORT.md](docs/REPORT.md) (section 6) |
 
 ## Status
 
@@ -52,7 +54,7 @@ is misleading about all of it: [docs/REPORT.md](docs/REPORT.md).
 
 The judge-human agreement the headline numbers depend on is fair, not strong: kappa
 0.378 overall, and as low as 0.014 on the majority baseline. That qualifies every
-risk figure above it. See [docs/REPORT.md](docs/REPORT.md) § 4 before trusting a
+risk figure above it. See [docs/REPORT.md](docs/REPORT.md) (section 4) before trusting a
 number from this project.
 
 ## Data

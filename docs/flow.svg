@@ -1,0 +1,67 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1060' width='900' height='1060'>
+<rect x='0' y='0' width='900' height='1060' fill='#ffffff'/>
+<defs>
+  <marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#64748b'/>
+  </marker>
+</defs>
+<line x1='450.0' y1='94.0' x2='450.0' y2='144.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='198.0' x2='230.0' y2='248.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='198.0' x2='670.0' y2='248.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='670.0' y1='312.0' x2='670.0' y2='358.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='230.0' y1='312.0' x2='180.0' y2='472.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='230.0' y1='312.0' x2='450.0' y2='472.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='670.0' y1='422.0' x2='180.0' y2='472.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='670.0' y1='422.0' x2='450.0' y2='472.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='670.0' y1='422.0' x2='720.0' y2='472.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='180.0' y1='556.0' x2='450.0' y2='596.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='556.0' x2='450.0' y2='596.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='720.0' y1='556.0' x2='450.0' y2='596.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='636.0' x2='350.0' y2='672.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='636.0' x2='725.0' y2='672.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='350.0' y1='736.0' x2='450.0' y2='776.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='725.0' y1='736.0' x2='450.0' y2='776.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='830.0' x2='450.0' y2='870.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='450.0' y1='934.0' x2='450.0' y2='974.0' stroke='#64748b' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='40' y='30' width='820' height='64' rx='10' fill='#eef2ff' stroke='#4f46e5' stroke-width='1.5'/>
+<text x='450.0' y='57.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Twitter customer-support corpus (Kaggle, 3M rows)</text>
+<text x='450.0' y='74.24000000000001' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>reconstruct threads -&gt; select hulu_support: 14,122 conversations</text>
+<rect x='190' y='144' width='520' height='54' rx='10' fill='#eef2ff' stroke='#4f46e5' stroke-width='1.5'/>
+<text x='450.0' y='174.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Split chronologically: Index 70%, Dev 18%, Gold 12%</text>
+<rect x='60' y='248' width='340' height='64' rx='10' fill='#ccfbf1' stroke='#0f766e' stroke-width='1.5'/>
+<text x='230.0' y='275.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Build retrieval index</text>
+<text x='230.0' y='292.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>9,859 precedent vectors, local embeddings</text>
+<rect x='500' y='248' width='340' height='64' rx='10' fill='#fef9c3' stroke='#a16207' stroke-width='1.5'/>
+<text x='670.0' y='275.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Sample 220 golden messages</text>
+<text x='670.0' y='292.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>150 drawn uniformly + 70 to enrich thin intents</text>
+<rect x='500' y='358' width='340' height='64' rx='10' fill='#fef9c3' stroke='#a16207' stroke-width='1.5'/>
+<text x='670.0' y='385.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Label: model proposes, Sanyam reviews all 220</text>
+<text x='670.0' y='402.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>golden set frozen, tag v0.2-golden-frozen</text>
+<rect x='55' y='472' width='250' height='84' rx='10' fill='#dcfce7' stroke='#15803d' stroke-width='1.5'/>
+<text x='180.0' y='500.74' font-family='Segoe UI, Arial, sans-serif' font-size='14.5' font-weight='700' fill='#1e293b' text-anchor='middle'>AGENT</text>
+<text x='180.0' y='517.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>classify intent, escalate gate,</text>
+<text x='180.0' y='534.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>retrieve + draft grounded reply</text>
+<rect x='325' y='472' width='250' height='84' rx='10' fill='#f1f5f9' stroke='#475569' stroke-width='1.5'/>
+<text x='450.0' y='500.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>NEAREST baseline</text>
+<text x='450.0' y='517.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>find closest precedent,</text>
+<text x='450.0' y='534.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>copy its reply verbatim</text>
+<rect x='595' y='472' width='250' height='84' rx='10' fill='#f1f5f9' stroke='#475569' stroke-width='1.5'/>
+<text x='720.0' y='500.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>MAJORITY baseline</text>
+<text x='720.0' y='517.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>send one canned line</text>
+<text x='720.0' y='534.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>to everyone, no retrieval</text>
+<rect x='300' y='596' width='300' height='40' rx='10' fill='#e0f2fe' stroke='#0369a1' stroke-width='1.5'/>
+<text x='450.0' y='619.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>auto-sent replies, all 3 systems</text>
+<rect x='140' y='672' width='420' height='64' rx='10' fill='#fce7f3' stroke='#be185d' stroke-width='1.5'/>
+<text x='350.0' y='699.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>LLM judge</text>
+<text x='350.0' y='716.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>5-question rubric -&gt; send / no-send + reason</text>
+<rect x='610' y='672' width='230' height='64' rx='10' fill='#fce7f3' stroke='#be185d' stroke-width='1.5'/>
+<text x='725.0' y='699.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Human rating</text>
+<text x='725.0' y='716.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>81 replies, rated blind</text>
+<rect x='190' y='776' width='520' height='54' rx='10' fill='#fce7f3' stroke='#be185d' stroke-width='1.5'/>
+<text x='450.0' y='806.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>Judge-human agreement: Cohen's kappa 0.378 overall (fair)</text>
+<rect x='110' y='870' width='680' height='64' rx='10' fill='#e0f2fe' stroke='#0369a1' stroke-width='1.5'/>
+<text x='450.0' y='897.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>eval --replay</text>
+<text x='450.0' y='914.24' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>coverage, risk, macro-F1, same-step, paired comparisons, no keys needed</text>
+<rect x='170' y='974' width='560' height='54' rx='10' fill='#e0f2fe' stroke='#0369a1' stroke-width='1.5'/>
+<text x='450.0' y='1004.74' font-family='Segoe UI, Arial, sans-serif' font-size='12.5' font-weight='400' fill='#1e293b' text-anchor='middle'>REPORT.md: baselines, top 5 failure modes, what's misleading, one-week plan</text>
+</svg>
