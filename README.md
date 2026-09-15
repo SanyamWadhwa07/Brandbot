@@ -42,7 +42,17 @@ re-derive.
 
 ## Status
 
-Scaffold. Results pending.
+Done. All eight deliverables have a first version, numbers included.
+
+On the 220-message golden set, the agent auto-sends 29% of messages at a 6% held-back
+rate (share a support lead would stop before it reached the customer), against 99%
+auto-sent at 50% held-back for the nearest-neighbour baseline. Macro-F1 0.671 vs 0.450.
+Both gaps clear the paired bootstrap noise floor. Full numbers, both baselines, and what
+is misleading about all of it: [docs/REPORT.md](docs/REPORT.md).
+
+The judge-human agreement the headline numbers depend on is weak — kappa 0.142 overall,
+"slight" on the interpretation scale — and that qualifies every risk figure above it. See
+[docs/REPORT.md](docs/REPORT.md) &sect; 4 before trusting a number from this project.
 
 ## Data
 

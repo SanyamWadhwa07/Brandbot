@@ -158,6 +158,21 @@ def evaluate(
         console.print(f"[dim]{s} weakest intents: " +
                       ", ".join(f"{w.label} F1 {w.f1:.2f} (n={w.support})" for w in worst) + "[/dim]")
 
+    from brandbot.eval import judge_check
+
+    if judge_check.RATINGS_PATH.exists():
+        matched = judge_check.match()
+        agreement = judge_check.score(matched)
+        console.print(f"\njudge vs human, {len(matched)} blind-rated replies:")
+        for system in ("overall", *systems):
+            if system in agreement:
+                console.print(f"  {system}: {agreement[system]}")
+    else:
+        console.print(
+            "\n[yellow]No human ratings yet.[/yellow] `uv run brandbot rate`, rate the "
+            f"page, then save into {judge_check.RATINGS_PATH}"
+        )
+
 
 @app.command()
 def rate(per_system: int = typer.Option(27, help="replies to draw from each system")) -> None:
